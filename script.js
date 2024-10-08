@@ -1,0 +1,3 @@
+let $nome;
+
+alert($nome);
