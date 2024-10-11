@@ -2,6 +2,8 @@
 
 RPG
 
+nome: The Cult
+
 tema: medieval; jogo 2d visto de cima;
 
 História:
