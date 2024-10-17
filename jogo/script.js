@@ -4,7 +4,7 @@ let px; //posição final do eixo x
 let py; //posição final do eixo y
 let vel; //velocidade
 let tmpFuncionalidades; //intervalo de tempo até executar de novo a função
-let tmpDetectarColisao; //intervalo de tempo até executar de novo a função
+let tmpDetectarColisaoParedeE; //intervalo de tempo até executar de novo a função
 let objetoMario; //objeto1/personagem1
 let paredeD; //parede da direita
 let paredeE; //parede da esquerda
@@ -21,13 +21,13 @@ function inicia () {
     py = 0;
     vel = 1.5;
     tmpFuncionalidades = setInterval (funcionalidades, 1);
-    tmpDetectarColisao = setInterval (detectarColisao, 1)
+    tmpDetectarColisaoParedeE = setInterval (detectarColisaoParedeE, 1)
     objetoMario = document.getElementById('mario');
     document.addEventListener('keydown', teclaBaixo);
     document.addEventListener('keyup', teclaCima);
 
     paredeD = document.getElementById('paredeD');
-    paredeE = document.getElementById('parede E')
+    paredeE = document.getElementById('paredeE');
 };
 
 //movimenta o personagem
@@ -65,12 +65,46 @@ function funcionalidades () {
 
     objetoMario.style.left = px + 'px';
     objetoMario.style.top = py + 'px';
-    console.log(px);
-    console.log(py);
-    (detectarColisao('paredeD', 'mario') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+    (detectarColisaoParedeE('mario', 'paredeE') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+    (detectarColisaoParedeD('mario', 'paredeD') == true)?console.log('colidiu') : console.log('ainda não colidiu');
 };
 
-function detectarColisao(idObjeto2, idObjeto1) {
+function detectarColisaoParedeE(idObjeto1, idObjeto2) {
+    let objetoMario = document.getElementById(idObjeto1).getBoundingClientRect();
+    let paredeE = document.getElementById(idObjeto2).getBoundingClientRect();
+
+    let pontos_mario = [{x : objetoMario.left, y : objetoMario.top}, 
+                        {x : objetoMario.left + objetoMario.width, y : objetoMario.top},
+                        {x : objetoMario.left + objetoMario.width, y : objetoMario.top + objetoMario.height},
+                        {x : objetoMario.left, y : objetoMario.top + objetoMario.height}];
+
+    let pontos_parede_E = [{x : paredeE.left, y : paredeE.top}, 
+                           {x : paredeE.left + paredeE.width, y : paredeE.top},
+                           {x : paredeE.left + paredeE.width, y : paredeE.top + paredeE.height},
+                           {x : paredeE.left, y : paredeE.top + paredeE.height}];
+
+    let indice = 0;
+    let colidiu = false;
+
+    while ((colidiu == false) && (indice < 3))
+    ((pontos_mario[indice].x >= paredeE.left && pontos_mario[indice].x <= paredeE.left + paredeE.width && 
+        pontos_mario[indice].y >= paredeE.top && pontos_mario[indice].y <= paredeE.top + paredeE.height)) ||
+
+        ((pontos_parede_E[indice].x >= objetoMario.left && pontos_parede_E[indice].x <= objetoMario.left + objetoMario.width && 
+        pontos_parede_E[indice].y >= objetoMario.top && pontos_parede_E[indice].y <= objetoMario.top + objetoMario.height)) 
+        ? colidiu = true : indice ++;
+        tecA = false;
+
+        if (colidiu == true && tecA == false) {
+            dx = 0;
+        } else {
+            tecA = true;
+        }
+
+    return colidiu;
+};
+
+function detectarColisaoParedeD(idObjeto1, idObjeto2) {
     let objetoMario = document.getElementById(idObjeto1).getBoundingClientRect();
     let paredeD = document.getElementById(idObjeto2).getBoundingClientRect();
 
@@ -80,9 +114,9 @@ function detectarColisao(idObjeto2, idObjeto1) {
                         {x : objetoMario.left, y : objetoMario.top + objetoMario.height}];
 
     let pontos_parede_D = [{x : paredeD.left, y : paredeD.top}, 
-                        {x : paredeD.left + paredeD.width, y : paredeD.top},
-                        {x : paredeD.left + paredeD.width, y : paredeD.top + paredeD.height},
-                        {x : paredeD.left, y : paredeD.top + paredeD.height}];
+                           {x : paredeD.left + paredeD.width, y : paredeD.top},
+                           {x : paredeD.left + paredeD.width, y : paredeD.top + paredeD.height},
+                           {x : paredeD.left, y : paredeD.top + paredeD.height}];
 
     let indice = 0;
     let colidiu = false;
@@ -94,23 +128,15 @@ function detectarColisao(idObjeto2, idObjeto1) {
         ((pontos_parede_D[indice].x >= objetoMario.left && pontos_parede_D[indice].x <= objetoMario.left + objetoMario.width && 
         pontos_parede_D[indice].y >= objetoMario.top && pontos_parede_D[indice].y <= objetoMario.top + objetoMario.height)) 
         ? colidiu = true : indice ++;
-    tecD = false
+    tecD = false;
 
     if (colidiu == true && tecD == false) {
-        dx = 0
+        dx = 0;
     } else {
-        tecD = true
+        tecD = true;
     }
 
     return colidiu;
-
-    while ((colidiu == false) && (indice < 3))
-    ((pontos_mario[indice].x >= paredeD.left && pontos_mario[indice].x <= paredeD.left + paredeD.width && 
-        pontos_mario[indice].y >= paredeD.top && pontos_mario[indice].y <= paredeD.top + paredeD.height)) ||
-
-        ((pontos_parede_D[indice].x >= objetoMario.left && pontos_parede_D[indice].x <= objetoMario.left + objetoMario.width && 
-        pontos_parede_D[indice].y >= objetoMario.top && pontos_parede_D[indice].y <= objetoMario.top + objetoMario.height)) 
-        ? colidiu = true : indice ++;
-};
+}
 
 window.addEventListener('load', inicia);
