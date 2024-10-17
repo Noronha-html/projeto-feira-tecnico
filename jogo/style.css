@@ -5,6 +5,7 @@
 body{
     background-color: #131313;
     overflow: hidden;
+    display: flex;
 }
 #mario{
     background-color: transparent;
@@ -16,11 +17,19 @@ body{
     margin: 20px;
 }
 
-#cogumelo {
-    width: 50px;
-    height: 50px;
+#paredeD {
+    width: 10%;
+    height: 100vh;
     position: absolute;
-    top: 300px;
-    left: 500px;
-    margin: 20px;
+    top: 0;
+    left: 90%;
+    background-color: red;
+}
+#paredeE {
+    width: 10%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: red;
 }
