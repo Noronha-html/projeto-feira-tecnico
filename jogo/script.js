@@ -120,7 +120,7 @@ function detectarColisaoParedeE(idObjeto1, idObjeto2) {
             dx = 0;
         } else {
             tecA = true;
-        }
+        };
 
     return colidiu;
 };
@@ -156,7 +156,7 @@ function detectarColisaoParedeD(idObjeto1, idObjeto2) {
         dx = 0;
     } else {
         tecD = true;
-    }
+    };
 
     return colidiu;
 }
@@ -192,7 +192,7 @@ function detectarColisaoParedeC(idObjeto1, idObjeto2) {
         dy = 0;
     } else {
         tecW = true;
-    }
+    };
 
     return colidiu;
 }
@@ -213,7 +213,7 @@ function detectarColisaoParedeB(idObjeto1, idObjeto2) {
                            {x : paredeB.left, y : paredeB.top + paredeB.height}];
 
     let indice = 0;
-    let colidiu = fPlayer
+    let colidiu = false
 
     while ((colidiu == false) && (indice < 3))
         ((pontos_Player[indice].x >= paredeB.left && pontos_Player[indice].x <= paredeB.left + paredeB.width && 
@@ -228,7 +228,7 @@ function detectarColisaoParedeB(idObjeto1, idObjeto2) {
         dy = 0;
     } else {
         tecS = true;
-    }
+    };
 
     return colidiu;
 }
@@ -263,9 +263,9 @@ function detectarColisaoQuadTop(idObjeto1, idObjeto2) {
 
     if (colidiu == true && tecS == false) {
         dy = 0;
-    } else {
-        tecS = true
-    }
+    } else if (colidiu == false) {
+        tecS = true;
+    };
 
     return colidiu;
 };
@@ -298,9 +298,9 @@ function detectarColisaoQuadBottom(idObjeto1, idObjeto2) {
 
     if (colidiu == true && tecW == false) {
         dy = 0;
-    } else {
+    } else if (colidiu == false) {
         tecW = true;
-    }
+    };
 
     return colidiu;
 };
@@ -333,9 +333,9 @@ function detectarColisaoQuadLeft(idObjeto1, idObjeto2) {
 
     if (colidiu == true && tecD == false) {
         dx = 0;
-    } else {
+    } else if (colidiu == false) {
         tecD = true;
-    }
+    };
 
     return colidiu;
 };
@@ -368,9 +368,9 @@ function detectarColisaoQuadRight(idObjeto1, idObjeto2) {
 
     if (colidiu == true && tecA == false) {
         dx = 0;
-    } else {
+    } else if (colidiu == false) {
         tecA = true;
-    }
+    };
 
     return colidiu;
 };
