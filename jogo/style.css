@@ -8,7 +8,7 @@ body{
     overflow: hidden;
     display: flex;
 }
-#mario{
+#player{
     background-color: transparent;
     position: absolute;
     top: 0;
