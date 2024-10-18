@@ -20,16 +20,16 @@ body{
 }
 
 #paredeD {
-    width: 10%;
+    width: 5%;
     height: 100vh;
     position: absolute;
     top: 0;
-    left: 90%;
+    left: 95%;
     background-color: red;
 }
 
 #paredeE {
-    width: 10%;
+    width: 5%;
     height: 100vh;
     position: absolute;
     top: 0;
@@ -53,4 +53,45 @@ body{
     top: 90vh;
     left: 0;
     background-color: green;
+}
+
+#quadrado {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    background-color: blue;
+}
+
+#quadTop {
+    width: 98px;
+    height: 1px;
+    position: absolute;
+    top: 49.9vh;
+    left: 50.1vw;
+}
+
+#quadBottom {
+    width: 98px;
+    height: 1px;
+    position: absolute;
+    top: 65.7vh;
+    left: 50.1vw;
+}
+
+#quadLeft {
+    width: 1px;
+    height: 98px;
+    position: absolute;
+    top: 50.1vh;
+    left: 49.9vw;
+}
+
+#quadRight {
+    width: 1px;
+    height: 98px;
+    position: absolute;
+    top: 50.1vh;
+    left: 57.3vw;
 }

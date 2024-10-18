@@ -4,6 +4,7 @@ let px; //posição final do eixo x
 let py; //posição final do eixo y
 let vel; //velocidade
 let tmpFuncionalidades; //intervalo de tempo até executar de novo a função
+let tmpFuncionalidadesColisaoQuadrado; //intervalo de tempo até executar de novo a função
 let objetoMario; //objeto1/personagem1
 let paredeD; //parede da direita
 let paredeE; //parede da esquerda
@@ -13,6 +14,10 @@ let tecA = true; //declara a tecla A como verdadeira
 let tecD = true; //declara a tecla D como verdadeira
 let tecW = true; //declara a tecla W como verdadeira
 let tecS = true; //declara a tecla S como verdadeira
+let quadTop; //parte de cima do quadrado
+let quadBottom; //parte de baixo do quadrado
+let quadLeft; //parte da esquerda do quadrado
+let quadRight; //parte da direita do quadrado
 
 //inicia as variáveis
 function inicia () {
@@ -22,6 +27,8 @@ function inicia () {
     py = 0;
     vel = 1;
     tmpFuncionalidades = setInterval (funcionalidades, 1);
+    tmpFuncionalidadesColisaoQuadrado = setInterval (funcionalidadesColisaoQuadrado, 1)
+
     objetoMario = document.getElementById('mario');
     document.addEventListener('keydown', teclaBaixo);
     document.addEventListener('keyup', teclaCima);
@@ -30,6 +37,11 @@ function inicia () {
     paredeE = document.getElementById('paredeE');
     paredeC = document.getElementById('paredeC');
     paredeB = document.getElementById('paredeB');
+
+    quadTop = document.getElementById('quadTop');
+    quadBottom = document.getElementById('quadBottom');
+    quadLeft = document.getElementById('quadLeft');
+    quadRight = document.getElementById('quadRight');
 };
 
 //movimenta o personagem
@@ -67,12 +79,21 @@ function funcionalidades () {
 
     objetoMario.style.left = px + 'px';
     objetoMario.style.top = py + 'px';
+
     (detectarColisaoParedeE('mario', 'paredeE') == true)?console.log('colidiu') : console.log('ainda não colidiu');
     (detectarColisaoParedeD('mario', 'paredeD') == true)?console.log('colidiu') : console.log('ainda não colidiu');
     (detectarColisaoParedeC('mario', 'paredeC') == true)?console.log('colidiu') : console.log('ainda não colidiu');
     (detectarColisaoParedeB('mario', 'paredeB') == true)?console.log('colidiu') : console.log('ainda não colidiu');
 };
 
+function funcionalidadesColisaoQuadrado () {
+    (detectarColisaoQuadTop('mario', 'quadTop') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+    (detectarColisaoQuadBottom('mario', 'quadBottom') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+    (detectarColisaoQuadLeft('mario', 'quadLeft') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+    (detectarColisaoQuadRight('mario', 'quadRight') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+}
+
+//detecta colisão na parede esquerda
 function detectarColisaoParedeE(idObjeto1, idObjeto2) {
     let objetoMario = document.getElementById(idObjeto1).getBoundingClientRect();
     let paredeE = document.getElementById(idObjeto2).getBoundingClientRect();
@@ -108,6 +129,7 @@ function detectarColisaoParedeE(idObjeto1, idObjeto2) {
     return colidiu;
 };
 
+//detecta colisão na parede direita
 function detectarColisaoParedeD(idObjeto1, idObjeto2) {
     let objetoMario = document.getElementById(idObjeto1).getBoundingClientRect();
     let paredeD = document.getElementById(idObjeto2).getBoundingClientRect();
@@ -143,6 +165,7 @@ function detectarColisaoParedeD(idObjeto1, idObjeto2) {
     return colidiu;
 }
 
+//detecta colisão na parede de cima
 function detectarColisaoParedeC(idObjeto1, idObjeto2) {
     let objetoMario = document.getElementById(idObjeto1).getBoundingClientRect();
     let paredeC = document.getElementById(idObjeto2).getBoundingClientRect();
@@ -178,6 +201,7 @@ function detectarColisaoParedeC(idObjeto1, idObjeto2) {
     return colidiu;
 }
 
+//detecta colisão na parede de baixo
 function detectarColisaoParedeB(idObjeto1, idObjeto2) {
     let objetoMario = document.getElementById(idObjeto1).getBoundingClientRect();
     let paredeB = document.getElementById(idObjeto2).getBoundingClientRect();
@@ -212,5 +236,147 @@ function detectarColisaoParedeB(idObjeto1, idObjeto2) {
 
     return colidiu;
 }
+
+
+//detecta colisão da parte de cima do quadrado
+function detectarColisaoQuadTop(idObjeto1, idObjeto2) {
+    let objetoMario = document.getElementById(idObjeto1).getBoundingClientRect();
+    let quadTop = document.getElementById(idObjeto2).getBoundingClientRect();
+
+    let pontos_mario = [{x : objetoMario.left, y : objetoMario.top}, 
+                        {x : objetoMario.left + objetoMario.width, y : objetoMario.top},
+                        {x : objetoMario.left + objetoMario.width, y : objetoMario.top + objetoMario.height},
+                        {x : objetoMario.left, y : objetoMario.top + objetoMario.height}];
+
+    let pontos_quad_Top = [{x : quadTop.left, y : quadTop.top}, 
+                           {x : quadTop.left + quadTop.width, y : quadTop.top},
+                           {x : quadTop.left + quadTop.width, y : quadTop.top + quadTop.height},
+                           {x : quadTop.left, y : quadTop.top + quadTop.height}];
+
+    let indice = 0;
+    let colidiu = false;
+
+    while ((colidiu == false) && (indice < 3))
+        ((pontos_mario[indice].x >= quadTop.left && pontos_mario[indice].x <= quadTop.left + quadTop.width && 
+        pontos_mario[indice].y >= quadTop.top && pontos_mario[indice].y <= quadTop.top + quadTop.height)) ||
+
+        ((pontos_quad_Top[indice].x >= objetoMario.left && pontos_quad_Top[indice].x <= objetoMario.left + objetoMario.width && 
+        pontos_quad_Top[indice].y >= objetoMario.top && pontos_quad_Top[indice].y <= objetoMario.top + objetoMario.height)) 
+        ? colidiu = true : indice ++;
+    tecS = false;
+
+    if (colidiu == true && tecS == false) {
+        dy = 0;
+    } else {
+        tecS = true
+    }
+
+    return colidiu;
+};
+
+function detectarColisaoQuadBottom(idObjeto1, idObjeto2) {
+    let objetoMario = document.getElementById(idObjeto1).getBoundingClientRect();
+    let quadBottom = document.getElementById(idObjeto2).getBoundingClientRect();
+
+    let pontos_mario = [{x : objetoMario.left, y : objetoMario.top}, 
+                        {x : objetoMario.left + objetoMario.width, y : objetoMario.top},
+                        {x : objetoMario.left + objetoMario.width, y : objetoMario.top + objetoMario.height},
+                        {x : objetoMario.left, y : objetoMario.top + objetoMario.height}];
+
+    let pontos_quad_Bottom = [{x : quadBottom.left, y : quadBottom.top}, 
+                           {x : quadBottom.left + quadBottom.width, y : quadBottom.top},
+                           {x : quadBottom.left + quadBottom.width, y : quadBottom.top + quadBottom.height},
+                           {x : quadBottom.left, y : quadBottom.top + quadBottom.height}];
+
+    let indice = 0;
+    let colidiu = false;
+
+    while ((colidiu == false) && (indice < 3))
+        ((pontos_mario[indice].x >= quadBottom.left && pontos_mario[indice].x <= quadBottom.left + quadBottom.width && 
+        pontos_mario[indice].y >= quadBottom.top && pontos_mario[indice].y <= quadBottom.top + quadBottom.height)) ||
+
+        ((pontos_quad_Bottom[indice].x >= objetoMario.left && pontos_quad_Bottom[indice].x <= objetoMario.left + objetoMario.width && 
+        pontos_quad_Bottom[indice].y >= objetoMario.top && pontos_quad_Bottom[indice].y <= objetoMario.top + objetoMario.height)) 
+        ? colidiu = true : indice ++;
+    tecW = false;
+
+    if (colidiu == true && tecW == false) {
+        dy = 0;
+    } else {
+        tecW = true;
+    }
+
+    return colidiu;
+};
+
+function detectarColisaoQuadLeft(idObjeto1, idObjeto2) {
+    let objetoMario = document.getElementById(idObjeto1).getBoundingClientRect();
+    let quadLeft = document.getElementById(idObjeto2).getBoundingClientRect();
+
+    let pontos_mario = [{x : objetoMario.left, y : objetoMario.top}, 
+                        {x : objetoMario.left + objetoMario.width, y : objetoMario.top},
+                        {x : objetoMario.left + objetoMario.width, y : objetoMario.top + objetoMario.height},
+                        {x : objetoMario.left, y : objetoMario.top + objetoMario.height}];
+
+    let pontos_quad_Left = [{x : quadLeft.left, y : quadLeft.top}, 
+                           {x : quadLeft.left + quadLeft.width, y : quadLeft.top},
+                           {x : quadLeft.left + quadLeft.width, y : quadLeft.top + quadLeft.height},
+                           {x : quadLeft.left, y : quadLeft.top + quadLeft.height}];
+
+    let indice = 0;
+    let colidiu = false;
+
+    while ((colidiu == false) && (indice < 3))
+        ((pontos_mario[indice].x >= quadLeft.left && pontos_mario[indice].x <= quadLeft.left + quadLeft.width && 
+        pontos_mario[indice].y >= quadLeft.top && pontos_mario[indice].y <= quadLeft.top + quadLeft.height)) ||
+
+        ((pontos_quad_Left[indice].x >= objetoMario.left && pontos_quad_Left[indice].x <= objetoMario.left + objetoMario.width && 
+        pontos_quad_Left[indice].y >= objetoMario.top && pontos_quad_Left[indice].y <= objetoMario.top + objetoMario.height)) 
+        ? colidiu = true : indice ++;
+    tecD = false;
+
+    if (colidiu == true && tecD == false) {
+        dx = 0;
+    } else {
+        tecD = true;
+    }
+
+    return colidiu;
+};
+
+function detectarColisaoQuadRight(idObjeto1, idObjeto2) {
+    let objetoMario = document.getElementById(idObjeto1).getBoundingClientRect();
+    let quadRight = document.getElementById(idObjeto2).getBoundingClientRect();
+
+    let pontos_mario = [{x : objetoMario.left, y : objetoMario.top}, 
+                        {x : objetoMario.left + objetoMario.width, y : objetoMario.top},
+                        {x : objetoMario.left + objetoMario.width, y : objetoMario.top + objetoMario.height},
+                        {x : objetoMario.left, y : objetoMario.top + objetoMario.height}];
+
+    let pontos_quad_Right = [{x : quadRight.left, y : quadRight.top}, 
+                           {x : quadRight.left + quadRight.width, y : quadRight.top},
+                           {x : quadRight.left + quadRight.width, y : quadRight.top + quadRight.height},
+                           {x : quadRight.left, y : quadRight.top + quadRight.height}];
+
+    let indice = 0;
+    let colidiu = false;
+
+    while ((colidiu == false) && (indice < 3))
+        ((pontos_mario[indice].x >= quadRight.left && pontos_mario[indice].x <= quadRight.left + quadRight.width && 
+        pontos_mario[indice].y >= quadRight.top && pontos_mario[indice].y <= quadRight.top + quadRight.height)) ||
+
+        ((pontos_quad_Right[indice].x >= objetoMario.left && pontos_quad_Right[indice].x <= objetoMario.left + objetoMario.width && 
+        pontos_quad_Right[indice].y >= objetoMario.top && pontos_quad_Right[indice].y <= objetoMario.top + objetoMario.height)) 
+        ? colidiu = true : indice ++;
+    tecA = false;
+
+    if (colidiu == true && tecA == false) {
+        dx = 0;
+    } else {
+        tecA = true;
+    }
+
+    return colidiu;
+};
 
 window.addEventListener('load', inicia);
