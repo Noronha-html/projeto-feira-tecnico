@@ -19,21 +19,21 @@ body{
     margin-top: 150px;
 }
 
-#paredeD {
-    width: 5%;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 95%;
-    background-color: red;
-}
-
 #paredeE {
     width: 5%;
     height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
+    background-color: red;
+}
+
+#paredeD {
+    width: 5%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 95%;
     background-color: red;
 }
 
