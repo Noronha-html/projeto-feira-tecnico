@@ -1,23 +1,15 @@
-// Objeto com as informações do personagem
-const personagem = {
-    nome: "Batman",
-    idade: 20,
-    poder: "Ser rico"
- };
- // Referências aos botões e à área de resultado
- const botaoNome = document.getElementById('botaoNome');
- const botaoIdade = document.getElementById('botaoIdade');
- const botaoPoder = document.getElementById('botaoPoder');
- const resultado = document.getElementById('resultado');
- // Função para mostrar o nome
- botaoNome.addEventListener('click', () => {
-    resultado.textContent = 'Nome do personagem: ' + personagem.nome;
- });
- // Função para mostrar a idade
- botaoIdade.addEventListener('click', () => {
-    resultado.textContent = 'Idade do personagem: ' + personagem.idade + ' anos';
- });
- // Função para mostrar o poder
- botaoPoder.addEventListener('click', () => {
-    resultado.textContent = 'Poder do personagem: ' + personagem.poder;
- });
+document.getElementById('hp-form').addEventListener('submit', function(e) {
+   e.preventDefault(); // Impede o recarregamento da página
+   // Obter valores do formulário
+   const name = document.getElementById('name').value;
+   const hp = document.getElementById('hp').value;
+   // Criar um objeto para os dados
+   const characterData = {
+       name: name,
+       hp: parseInt(hp)
+   };
+   // Salvar o objeto como JSON no localStorage
+   localStorage.setItem('characterData', JSON.stringify(characterData));
+   // Exibir os dados salvos
+   document.getElementById('output').innerText = `Nome: ${characterData.name}, HP: ${characterData.hp}`;
+});
