@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    background-color: #131313;
+    overflow: hidden;
+    display: flex;
+}
+#mario{
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    margin-left: 500px;
+}
+
+#paredeD {
+    width: 10%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 90%;
+    background-color: red;
+}
+#paredeE {
+    width: 10%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: red;
+}
