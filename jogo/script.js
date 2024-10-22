@@ -47,8 +47,10 @@ function teclaBaixo (event) {
     let tecla = event.keyCode;
     if (tecla == 65 && tecA) {
         dx = -1;
+        objetoPlayer.src = './img/Sprites/sWalkPlayer-1 (Left).png'
     } else if (tecla == 68 && tecD) {
         dx = 1;
+        objetoPlayer.src = './img/Sprites/sWalkPlayer-1 (Right).png'
     } else if (tecla == 87 && tecW) {
         dy = -1;
     } else if (tecla == 83 && tecS) {
@@ -61,8 +63,10 @@ function teclaCima (event) {
     let tecla = event.keyCode;
     if (tecla == 65) {
         dx = 0;
+        objetoPlayer.src = './img/Sprites/sPLayer(Left).png';
     } else if (tecla == 68) {
         dx = 0;
+        objetoPlayer.src = './img/Sprites/sPLayer(Right).png';
     } else if (tecla == 87) {
         dy = 0;
     } else if (tecla == 83) {
@@ -76,7 +80,7 @@ function funcionalidades () {
     py += dy * vel;
 
     objetoPlayer.style.left = px + 'px';
-    objetoPlayer.style.top = py + 'px';
+    objetoPlayer.style.top = py + 'px';   
 
     (detectarColisaoParedeE__quadRight('player', 'paredeE', 'quadRight') == true)?console.log('colidiu') : console.log('ainda não colidiu');
     (detectarColisaoParedeD__quadLeft('player', 'paredeD', 'quadLeft') == true)?console.log('colidiu') : console.log('ainda não colidiu');
