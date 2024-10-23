@@ -1,5 +1,9 @@
-document.getElementById('salvar').onclick = function() {
-    const nome = document.getElementById('nome').value;
-    localStorage.setItem('nome', nome); // Salva o nome no localStorage
-    alert('Nome salvo!');
-}
+const nomeInput = document.getElementById("nomeInput");
+
+        // Salva o nome como um objeto no localStorage ao digitar
+        nomeInput.addEventListener("input", () => {
+            const nome = nomeInput.value;
+            const objeto = { nome: nome }; // Cria um objeto
+            localStorage.setItem("meuObjeto", JSON.stringify(objeto)); // Salva como JSON
+        });
+ 

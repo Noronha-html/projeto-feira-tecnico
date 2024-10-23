@@ -1,6 +1,11 @@
-const nomeSalvo = localStorage.getItem('nome'); // Recupera o nome do localStorage
-        if (nomeSalvo) {
-            document.getElementById('nomeSalvo').textContent = `Nome: ${nomeSalvo}`; // Exibe o nome
-        } else {
-            document.getElementById('nomeSalvo').textContent = 'Nenhum nome salvo.';
-        }
+// Recuperar o objeto do localStorage
+const objetoRecuperado = JSON.parse(localStorage.getItem("meuObjeto"));
+
+// Verificar se o objeto foi recuperado com sucesso
+if (objetoRecuperado && objetoRecuperado.nome) {
+    // Selecionar o elemento <p>
+    const pElement = document.getElementById("info");
+    
+    // Atualizar o conteúdo do <p> com o nome
+    pElement.textContent = `Nome: ${objetoRecuperado.nome}`;
+}
