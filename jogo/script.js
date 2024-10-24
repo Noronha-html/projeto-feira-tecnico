@@ -5,6 +5,7 @@ let py; //posição final do eixo y
 let vel; //velocidade
 let ultimaDirecao; //define a última direção que o personagem foi movimentado
 let tmpFuncionalidades; //intervalo de tempo até executar de novo a função
+let tmpAtualizarSprite;
 let objetoPlayer; //personagem
 let paredeD; //parede da direita
 let paredeE; //parede da esquerda
@@ -26,9 +27,10 @@ function inicia () {
     px = 0;
     py = 0;
     vel = 1;
-    //ultimaDirecao = null;
-    //tmpFuncionalidades = setInterval(funcionalidades, 1);
-    tmpFuncionalidades = requestAnimationFrame(funcionalidades);
+    ultimaDirecao = null;
+    tmpFuncionalidades = setInterval(funcionalidades, 1);
+
+    tmpAtualizarSprite = setInterval(atualizarSprite, 1)
 
     objetoPlayer = document.getElementById('player');
     document.addEventListener('keydown', teclaBaixo);
@@ -50,16 +52,16 @@ function teclaBaixo (event) {
     let tecla = event.keyCode;
     if (tecla == 65 && tecA) {
         dx = -1;
-        //ultimaDirecao = 'left';
+        ultimaDirecao = 'left';
     } else if (tecla == 68 && tecD) {
         dx = 1;
-        //ultimaDirecao = 'right';
+        ultimaDirecao = 'right';
     } else if (tecla == 87 && tecW) {
         dy = -1;
-        //ultimaDirecao = 'up';
+        ultimaDirecao = 'up';
     } else if (tecla == 83 && tecS) {
         dy = 1;
-        //ultimaDirecao = 'down';
+        ultimaDirecao = 'down';
     };
 };
 
@@ -68,48 +70,48 @@ function teclaCima (event) {
     let tecla = event.keyCode;
     if (tecla == 65) {
         dx = 0;
-        //ultimaDirecao = 'leftStatic';
+        ultimaDirecao = 'leftStatic';
     } else if (tecla == 68) {
         dx = 0;
-        //ultimaDirecao = 'rightStatic';
+        ultimaDirecao = 'rightStatic';
     } else if (tecla == 87) {
         dy = 0;
-        //ultimaDirecao = 'upStatic';
+        ultimaDirecao = 'upStatic';
     } else if (tecla == 83) {
         dy = 0;
-        //ultimaDirecao = 'downStatic';
+        ultimaDirecao = 'downStatic';
     };
 };
 
-/*
+//atualiza o sprite
 function atualizarSprite () {
     switch (ultimaDirecao) {
         case 'left':
-            objetoPlayer.src = './img/Sprites/movePLayer (Left).gif';
+            objetoPlayer.id = 'movingLeft';
             break;
         case 'right':
-            objetoPlayer.src = './img/Sprites/movePLayer (Right).gif';
+            objetoPlayer.id = 'movingRight';
             break;
         case 'up':
-            objetoPlayer.src = './img/Sprites/movePLayer (Up).gif';
+            objetoPlayer.id = 'movingUp';
             break;
         case 'down':
-            objetoPlayer.src = './img/Sprites/movePLayer (Down).gif';
+            objetoPlayer.id = 'movingDown';
             break;
         case 'leftStatic':
-            objetoPlayer.src = './img/Sprites/sPLayer(Left).png';
+            objetoPlayer.id = 'staticLeft';
             break;
         case 'rightStatic':
-            objetoPlayer.src = './img/Sprites/sPLayer(Right).png';
+            objetoPlayer.id = 'staticRight';
             break;
         case 'upStatic':
-            objetoPlayer.src = './img/Sprites/sPLayer(Up).png';
+            objetoPlayer.id = 'staticUp';
             break;
         case 'downStatic':
-            objetoPlayer.src = './img/Sprites/sPLayer(Down).png';
+            objetoPlayer.id = 'staticDown';
             break;
     };
-};*/
+};
 
 //declara a velocidade do personagem e outras funionalidades
 function funcionalidades () {
@@ -119,10 +121,10 @@ function funcionalidades () {
     objetoPlayer.style.left = px + 'px';
     objetoPlayer.style.top = py + 'px';
 
-    (detectarColisaoParedeE__quadRight('player', 'paredeE', 'quadRight') == true)?console.log('colidiu') : console.log('ainda não colidiu');
-    (detectarColisaoParedeD__quadLeft('player', 'paredeD', 'quadLeft') == true)?console.log('colidiu') : console.log('ainda não colidiu');
-    (detectarColisaoParedeC__QuadBottom('player', 'paredeC', 'quadBottom') == true)?console.log('colidiu') : console.log('ainda não colidiu');
-    (detectarColisaoParedeB__QuadTop('player', 'paredeB', 'quadTop') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+    (detectarColisaoParedeE__quadRight('movingLeft', 'paredeE', 'quadRight') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+    (detectarColisaoParedeD__quadLeft('movingRight', 'paredeD', 'quadLeft') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+    (detectarColisaoParedeC__QuadBottom('movingUp', 'paredeC', 'quadBottom') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+    (detectarColisaoParedeB__QuadTop('movingDown', 'paredeB', 'quadTop') == true)?console.log('colidiu') : console.log('ainda não colidiu');
 };
 
 //detecta colisão na parede esquerda
