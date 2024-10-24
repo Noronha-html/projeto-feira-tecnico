@@ -3,6 +3,7 @@ let dy; //direção do eixo y
 let px; //posição final do eixo x
 let py; //posição final do eixo y
 let vel; //velocidade
+let ultimaDirecao; //define a última direção que o personagem foi movimentado
 let tmpFuncionalidades; //intervalo de tempo até executar de novo a função
 let objetoPlayer; //personagem
 let paredeD; //parede da direita
@@ -25,7 +26,7 @@ function inicia () {
     px = 0;
     py = 0;
     vel = 1;
-    tmpFuncionalidades = setInterval (funcionalidades, 1);
+    ultimaDirecao = null;
 
     objetoPlayer = document.getElementById('player');
     document.addEventListener('keydown', teclaBaixo);
@@ -47,14 +48,16 @@ function teclaBaixo (event) {
     let tecla = event.keyCode;
     if (tecla == 65 && tecA) {
         dx = -1;
-        objetoPlayer.src = './img/Sprites/movePLayer (Left).gif'
+        ultimaDirecao = 'left';
     } else if (tecla == 68 && tecD) {
         dx = 1;
-        objetoPlayer.src = './img/Sprites/movePLayer (Right).gif'
+        ultimaDirecao = 'right';
     } else if (tecla == 87 && tecW) {
         dy = -1;
+        ultimaDirecao = 'up';
     } else if (tecla == 83 && tecS) {
         dy = 1;
+        ultimaDirecao = 'down';
     };
 };
 
@@ -63,14 +66,51 @@ function teclaCima (event) {
     let tecla = event.keyCode;
     if (tecla == 65) {
         dx = 0;
-        objetoPlayer.src = './img/Sprites/sPLayer(Left).png';
+        ultimaDirecao = 'leftStatic';
     } else if (tecla == 68) {
         dx = 0;
-        objetoPlayer.src = './img/Sprites/sPLayer(Right).png';
+        ultimaDirecao = 'rightStatic';
     } else if (tecla == 87) {
         dy = 0;
+        ultimaDirecao = 'upStatic';
     } else if (tecla == 83) {
         dy = 0;
+        ultimaDirecao = 'downStatic';
+    };
+};
+
+function atualizarSprite () {
+/*
+    switch (ultimaDirecao) {
+        case 'left':
+            objetoPlayer.src = './img/Sprites/movePLayer (Left).gif';
+            break;
+        case 'left':
+            objetoPlayer.src = './img/Sprites/movePLayer (Left).gif';
+            break;
+    
+        default:
+            break;
+    }*/
+
+    if (ultimaDirecao === 'left') {
+        objetoPlayer.src = './img/Sprites/movePLayer (Left).gif';
+    } else if (ultimaDirecao === 'right') {
+        objetoPlayer.src = './img/Sprites/movePLayer (Right).gif';
+    } else if (ultimaDirecao === 'up') {
+        objetoPlayer.src = './img/Sprites/movePLayer (Up).gif';
+    } else if (ultimaDirecao === 'down') {
+        objetoPlayer.src = './img/Sprites/movePLayer (Down).gif';
+    } else {
+        if (ultimaDirecao === 'leftStatic') {
+            objetoPlayer.src = './img/Sprites/sPLayer(Left).png';
+        } else if (ultimaDirecao === 'rightStatic') {
+            objetoPlayer.src = './img/Sprites/sPLayer(Right).png';
+        } else if (ultimaDirecao === 'upStatic') {
+            objetoPlayer.src = './img/Sprites/sPLayer(Up).png';
+        } else if (ultimaDirecao === 'downStatic') {
+            objetoPlayer.src = './img/Sprites/sPLayer(Down).png';
+        };
     };
 };
 
@@ -86,6 +126,11 @@ function funcionalidades () {
     (detectarColisaoParedeD__quadLeft('player', 'paredeD', 'quadLeft') == true)?console.log('colidiu') : console.log('ainda não colidiu');
     (detectarColisaoParedeC__QuadBottom('player', 'paredeC', 'quadBottom') == true)?console.log('colidiu') : console.log('ainda não colidiu');
     (detectarColisaoParedeB__QuadTop('player', 'paredeB', 'quadTop') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+};
+
+function gameLoop() {
+    inicia();
+    requestAnimationFrame(inicia);
 };
 
 //detecta colisão na parede esquerda

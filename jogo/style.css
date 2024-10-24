@@ -9,7 +9,8 @@ body{
     display: flex;
 }
 #player{
-    background-color: transparent;
+    background-image: url(./img/Sprites/sPlayer\(Left\).png);
+    background-size: cover;
     position: absolute;
     top: 0;
     left: 0;
