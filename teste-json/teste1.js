@@ -4,6 +4,6 @@ const nomeInput = document.getElementById("nomeInput");
         nomeInput.addEventListener("input", () => {
             const nome = nomeInput.value;
             const objeto = { nome: nome }; // Cria um objeto
-            localStorage.setItem("meuObjeto", JSON.stringify(objeto)); // Salva como JSON
+            localStorage.setItem("Nomes", JSON.stringify(objeto)); // Salva como JSON
         });
  

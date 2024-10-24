@@ -13,6 +13,7 @@ let tecD = true; //declara a tecla D como verdadeira
 let tecW = true; //declara a tecla W como verdadeira
 let tecS = true; //declara a tecla S como verdadeira
 
+
 //inicia as variáveis
 function inicia () {
     dx = 0;
@@ -141,4 +142,6 @@ function detectarColisaoParedeD(idObjeto1, idObjeto2) {
 
 window.addEventListener('load', inicia);
 
+    let Personagem = '{"Personagem":[' +
+    '{"espada":"Excalibur"},'
 

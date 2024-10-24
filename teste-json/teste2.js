@@ -1,5 +1,5 @@
 // Recuperar o objeto do localStorage
-const objetoRecuperado = JSON.parse(localStorage.getItem("meuObjeto"));
+const objetoRecuperado = JSON.parse(localStorage.getItem("Nomes"));
 
 // Verificar se o objeto foi recuperado com sucesso
 if (objetoRecuperado && objetoRecuperado.nome) {
