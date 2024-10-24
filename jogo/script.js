@@ -26,7 +26,9 @@ function inicia () {
     px = 0;
     py = 0;
     vel = 1;
-    ultimaDirecao = null;
+    //ultimaDirecao = null;
+    //tmpFuncionalidades = setInterval(funcionalidades, 1);
+    tmpFuncionalidades = requestAnimationFrame(funcionalidades);
 
     objetoPlayer = document.getElementById('player');
     document.addEventListener('keydown', teclaBaixo);
@@ -48,16 +50,16 @@ function teclaBaixo (event) {
     let tecla = event.keyCode;
     if (tecla == 65 && tecA) {
         dx = -1;
-        ultimaDirecao = 'left';
+        //ultimaDirecao = 'left';
     } else if (tecla == 68 && tecD) {
         dx = 1;
-        ultimaDirecao = 'right';
+        //ultimaDirecao = 'right';
     } else if (tecla == 87 && tecW) {
         dy = -1;
-        ultimaDirecao = 'up';
+        //ultimaDirecao = 'up';
     } else if (tecla == 83 && tecS) {
         dy = 1;
-        ultimaDirecao = 'down';
+        //ultimaDirecao = 'down';
     };
 };
 
@@ -66,53 +68,48 @@ function teclaCima (event) {
     let tecla = event.keyCode;
     if (tecla == 65) {
         dx = 0;
-        ultimaDirecao = 'leftStatic';
+        //ultimaDirecao = 'leftStatic';
     } else if (tecla == 68) {
         dx = 0;
-        ultimaDirecao = 'rightStatic';
+        //ultimaDirecao = 'rightStatic';
     } else if (tecla == 87) {
         dy = 0;
-        ultimaDirecao = 'upStatic';
+        //ultimaDirecao = 'upStatic';
     } else if (tecla == 83) {
         dy = 0;
-        ultimaDirecao = 'downStatic';
+        //ultimaDirecao = 'downStatic';
     };
 };
 
-function atualizarSprite () {
 /*
+function atualizarSprite () {
     switch (ultimaDirecao) {
         case 'left':
             objetoPlayer.src = './img/Sprites/movePLayer (Left).gif';
             break;
-        case 'left':
-            objetoPlayer.src = './img/Sprites/movePLayer (Left).gif';
+        case 'right':
+            objetoPlayer.src = './img/Sprites/movePLayer (Right).gif';
             break;
-    
-        default:
+        case 'up':
+            objetoPlayer.src = './img/Sprites/movePLayer (Up).gif';
             break;
-    }*/
-
-    if (ultimaDirecao === 'left') {
-        objetoPlayer.src = './img/Sprites/movePLayer (Left).gif';
-    } else if (ultimaDirecao === 'right') {
-        objetoPlayer.src = './img/Sprites/movePLayer (Right).gif';
-    } else if (ultimaDirecao === 'up') {
-        objetoPlayer.src = './img/Sprites/movePLayer (Up).gif';
-    } else if (ultimaDirecao === 'down') {
-        objetoPlayer.src = './img/Sprites/movePLayer (Down).gif';
-    } else {
-        if (ultimaDirecao === 'leftStatic') {
+        case 'down':
+            objetoPlayer.src = './img/Sprites/movePLayer (Down).gif';
+            break;
+        case 'leftStatic':
             objetoPlayer.src = './img/Sprites/sPLayer(Left).png';
-        } else if (ultimaDirecao === 'rightStatic') {
+            break;
+        case 'rightStatic':
             objetoPlayer.src = './img/Sprites/sPLayer(Right).png';
-        } else if (ultimaDirecao === 'upStatic') {
+            break;
+        case 'upStatic':
             objetoPlayer.src = './img/Sprites/sPLayer(Up).png';
-        } else if (ultimaDirecao === 'downStatic') {
+            break;
+        case 'downStatic':
             objetoPlayer.src = './img/Sprites/sPLayer(Down).png';
-        };
+            break;
     };
-};
+};*/
 
 //declara a velocidade do personagem e outras funionalidades
 function funcionalidades () {
@@ -126,11 +123,6 @@ function funcionalidades () {
     (detectarColisaoParedeD__quadLeft('player', 'paredeD', 'quadLeft') == true)?console.log('colidiu') : console.log('ainda não colidiu');
     (detectarColisaoParedeC__QuadBottom('player', 'paredeC', 'quadBottom') == true)?console.log('colidiu') : console.log('ainda não colidiu');
     (detectarColisaoParedeB__QuadTop('player', 'paredeB', 'quadTop') == true)?console.log('colidiu') : console.log('ainda não colidiu');
-};
-
-function gameLoop() {
-    inicia();
-    requestAnimationFrame(inicia);
 };
 
 //detecta colisão na parede esquerda
