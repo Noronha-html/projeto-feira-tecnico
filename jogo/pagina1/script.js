@@ -19,6 +19,10 @@ let quadTop; //parte de cima do quadrado
 let quadBottom; //parte de baixo do quadrado
 let quadLeft; //parte da esquerda do quadrado
 let quadRight; //parte da direita do quadrado
+let portaLeft; //porta da esquerda
+let portaRight; //porta da direita
+let portaTop; //porta de cima
+let portaDown; //porta de baixo
 
 //inicia as variáveis
 function inicia () {
@@ -45,6 +49,8 @@ function inicia () {
     quadBottom = document.getElementById('quadBottom');
     quadLeft = document.getElementById('quadLeft');
     quadRight = document.getElementById('quadRight');
+
+    portaTop = document.getElementById('portaTop');
 };
 
 //movimenta o personagem
@@ -87,28 +93,100 @@ function teclaCima (event) {
 function atualizarSprite () {
     switch (ultimaDirecao) {
         case 'left':
-            objetoPlayer.id = 'movingLeft';
+            objetoPlayer.classList.remove('player');
+            objetoPlayer.classList.remove('movingLeft');
+            objetoPlayer.classList.remove('movingRight');
+            objetoPlayer.classList.remove('movingUP');
+            objetoPlayer.classList.remove('movingDown');
+            objetoPlayer.classList.remove('staticLeft');
+            objetoPlayer.classList.remove('staticRight');
+            objetoPlayer.classList.remove('staticUp');
+            objetoPlayer.classList.remove('staticDown');
+            objetoPlayer.classList.add('movingLeft');
             break;
         case 'right':
-            objetoPlayer.id = 'movingRight';
+            objetoPlayer.classList.remove('player');
+            objetoPlayer.classList.remove('movingLeft');
+            objetoPlayer.classList.remove('movingRight');
+            objetoPlayer.classList.remove('movingUP');
+            objetoPlayer.classList.remove('movingDown');
+            objetoPlayer.classList.remove('staticLeft');
+            objetoPlayer.classList.remove('staticRight');
+            objetoPlayer.classList.remove('staticUp');
+            objetoPlayer.classList.remove('staticDown');
+            objetoPlayer.classList.add('movingRight');
             break;
         case 'up':
-            objetoPlayer.id = 'movingUp';
+            objetoPlayer.classList.remove('player');
+            objetoPlayer.classList.remove('movingLeft');
+            objetoPlayer.classList.remove('movingRight');
+            objetoPlayer.classList.remove('movingUP');
+            objetoPlayer.classList.remove('movingDown');
+            objetoPlayer.classList.remove('staticLeft');
+            objetoPlayer.classList.remove('staticRight');
+            objetoPlayer.classList.remove('staticUp');
+            objetoPlayer.classList.remove('staticDown');
+            objetoPlayer.classList.add('movingUP');
             break;
         case 'down':
-            objetoPlayer.id = 'movingDown';
+            objetoPlayer.classList.remove('player');
+            objetoPlayer.classList.remove('movingLeft');
+            objetoPlayer.classList.remove('movingRight');
+            objetoPlayer.classList.remove('movingUP');
+            objetoPlayer.classList.remove('movingDown');
+            objetoPlayer.classList.remove('staticLeft');
+            objetoPlayer.classList.remove('staticRight');
+            objetoPlayer.classList.remove('staticUp');
+            objetoPlayer.classList.remove('staticDown');
+            objetoPlayer.classList.add('movingDown');
             break;
         case 'leftStatic':
-            objetoPlayer.id = 'staticLeft';
+            objetoPlayer.classList.remove('player');
+            objetoPlayer.classList.remove('movingLeft');
+            objetoPlayer.classList.remove('movingRight');
+            objetoPlayer.classList.remove('movingUP');
+            objetoPlayer.classList.remove('movingDown');
+            objetoPlayer.classList.remove('staticLeft');
+            objetoPlayer.classList.remove('staticRight');
+            objetoPlayer.classList.remove('staticUp');
+            objetoPlayer.classList.remove('staticDown');
+            objetoPlayer.classList.add('staticLeft');
             break;
         case 'rightStatic':
-            objetoPlayer.id = 'staticRight';
+            objetoPlayer.classList.remove('player');
+            objetoPlayer.classList.remove('movingLeft');
+            objetoPlayer.classList.remove('movingRight');
+            objetoPlayer.classList.remove('movingUP');
+            objetoPlayer.classList.remove('movingDown');
+            objetoPlayer.classList.remove('staticLeft');
+            objetoPlayer.classList.remove('staticRight');
+            objetoPlayer.classList.remove('staticUp');
+            objetoPlayer.classList.remove('staticDown');
+            objetoPlayer.classList.add('staticRight');
             break;
         case 'upStatic':
-            objetoPlayer.id = 'staticUp';
+            objetoPlayer.classList.remove('player');
+            objetoPlayer.classList.remove('movingLeft');
+            objetoPlayer.classList.remove('movingRight');
+            objetoPlayer.classList.remove('movingUP');
+            objetoPlayer.classList.remove('movingDown');
+            objetoPlayer.classList.remove('staticLeft');
+            objetoPlayer.classList.remove('staticRight');
+            objetoPlayer.classList.remove('staticUp');
+            objetoPlayer.classList.remove('staticDown');
+            objetoPlayer.classList.add('staticUp');
             break;
         case 'downStatic':
-            objetoPlayer.id = 'staticDown';
+            objetoPlayer.classList.remove('player');
+            objetoPlayer.classList.remove('movingLeft');
+            objetoPlayer.classList.remove('movingRight');
+            objetoPlayer.classList.remove('movingUP');
+            objetoPlayer.classList.remove('movingDown');
+            objetoPlayer.classList.remove('staticLeft');
+            objetoPlayer.classList.remove('staticRight');
+            objetoPlayer.classList.remove('staticUp');
+            objetoPlayer.classList.remove('staticDown');
+            objetoPlayer.classList.add('staticDown');
             break;
     };
 };
@@ -121,10 +199,11 @@ function funcionalidades () {
     objetoPlayer.style.left = px + 'px';
     objetoPlayer.style.top = py + 'px';
 
-    (detectarColisaoParedeE__quadRight('movingLeft', 'paredeE', 'quadRight') == true)?console.log('colidiu') : console.log('ainda não colidiu');
-    (detectarColisaoParedeD__quadLeft('movingRight', 'paredeD', 'quadLeft') == true)?console.log('colidiu') : console.log('ainda não colidiu');
-    (detectarColisaoParedeC__QuadBottom('movingUp', 'paredeC', 'quadBottom') == true)?console.log('colidiu') : console.log('ainda não colidiu');
-    (detectarColisaoParedeB__QuadTop('movingDown', 'paredeB', 'quadTop') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+    (detectarColisaoParedeE__quadRight('player', 'paredeE', 'quadRight') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+    (detectarColisaoParedeD__quadLeft('player', 'paredeD', 'quadLeft') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+    (detectarColisaoParedeC__QuadBottom('player', 'paredeC', 'quadBottom') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+    (detectarColisaoParedeB__QuadTop('player', 'paredeB', 'quadTop') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+    (detectarColisaoPortaTop('player', 'portaTop') == true)?console.log('colidiu') : console.log('ainda não colidiu');
 };
 
 //detecta colisão na parede esquerda
@@ -321,5 +400,38 @@ function detectarColisaoParedeB__QuadTop(idObjeto1, idObjeto2, idObjeto3) {
 
     return colidiu;
 };
+
+//detectar colisões nas portas
+function detectarColisaoPortaTop (idObjeto1, idObjeto2) {
+    let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
+    let portaTop = document.getElementById(idObjeto2).getBoundingClientRect();
+
+    let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
+                         {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
+                         {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top + objetoPlayer.height},
+                         {x : objetoPlayer.left, y : objetoPlayer.top + objetoPlayer.height}];
+
+    let pontos_porta_Top = [{x : portaTop.left, y : portaTop.top}, 
+                           {x : portaTop.left + portaTop.width, y : portaTop.top},
+                           {x : portaTop.left + portaTop.width, y : portaTop.top + portaTop.height},
+                           {x : portaTop.left, y : portaTop.top + portaTop.height}];
+
+    indice = 0;
+    colidiu = false
+
+    while ((colidiu == false) && (indice < 3))
+    ((pontos_Player[indice].x >= portaTop.left && pontos_Player[indice].x <= portaTop.left + portaTop.width && 
+    pontos_Player[indice].y >= portaTop.top && pontos_Player[indice].y <= portaTop.top + portaTop.height)) ||
+
+    ((pontos_porta_Top[indice].x >= objetoPlayer.left && pontos_porta_Top[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+    pontos_porta_Top[indice].y >= objetoPlayer.top && pontos_porta_Top[indice].y <= objetoPlayer.top + objetoPlayer.height))
+    ? colidiu = true : indice ++;
+    
+    if (colidiu == true) {
+        window.location.href = '/jogo/pagina2/pagina2.html';
+    }
+
+    return colidiu;
+}
 
 window.addEventListener('load', inicia);

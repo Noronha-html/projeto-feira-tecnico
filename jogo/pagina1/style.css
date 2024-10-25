@@ -11,7 +11,6 @@ body{
 
 /*diferentes estilos do player*/
 #player{
-    background-image: url(./img/Sprites/sPlayer\(Left\).png);
     background-size: cover;
     position: absolute;
     top: 0;
@@ -22,8 +21,8 @@ body{
     margin-top: 150px;
 }
 
-#staticLeft {
-    background-image: url(./img/Sprites/sPlayer\(Left\).png);
+.staticLeft {
+    background-image: url(/jogo/img/Sprites/sPlayer\(Left\).png);
     background-size: cover;
     position: absolute;
     top: 0;
@@ -34,8 +33,20 @@ body{
     margin-top: 150px;
 }
 
-#staticRight {
-    background-image: url(./img/Sprites/sPlayer\(Right\).png);
+.staticRight {
+    background-image: url(/jogo/img/Sprites/sPlayer\(Right\).png);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    margin-left: 500px;
+    margin-top: 600px;
+}
+
+.staticUp {
+    background-image: url(/jogo/img/Sprites/sPlayer\(Up\).png);
     background-size: cover;
     position: absolute;
     top: 0;
@@ -46,8 +57,8 @@ body{
     margin-top: 150px;
 }
 
-#staticUp {
-    background-image: url(./img/Sprites/sPlayer\(Up\).png);
+.staticDown {
+    background-image: url(/jogo/img/Sprites/sPlayer\(Down\).png);
     background-size: cover;
     position: absolute;
     top: 0;
@@ -58,8 +69,8 @@ body{
     margin-top: 150px;
 }
 
-#staticDown {
-    background-image: url(./img/Sprites/sPlayer\(Down\).png);
+.movingLeft {
+    background-image: url(/jogo/img/Sprites/movePlayer\ \(Left\).gif);
     background-size: cover;
     position: absolute;
     top: 0;
@@ -70,8 +81,8 @@ body{
     margin-top: 150px;
 }
 
-#movingLeft {
-    background-image: url(./img/Sprites/movePlayer\ \(Left\).gif);
+.movingRight {
+    background-image: url(/jogo/img/Sprites/movePlayer\ \(Right\).gif);
     background-size: cover;
     position: absolute;
     top: 0;
@@ -82,8 +93,8 @@ body{
     margin-top: 150px;
 }
 
-#movingRight {
-    background-image: url(./img/Sprites/movePlayer\ \(Right\).gif);
+.movingUp {
+    background-image: url(/jogo/img/Sprites/movePlayer\ \(Up\).gif);
     background-size: cover;
     position: absolute;
     top: 0;
@@ -94,20 +105,8 @@ body{
     margin-top: 150px;
 }
 
-#movingUp {
-    background-image: url(./img/Sprites/movePlayer\ \(Up\).gif);
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 80px;
-    height: 80px;
-    margin-left: 500px;
-    margin-top: 150px;
-}
-
-#movingDown {
-    background-image: url(./img/Sprites/movePlayer\ \(Down\).gif);
+.movingDown {
+    background-image: url(jogo/img/Sprites/movePlayer\ \(Down\).gif);
     background-size: cover;
     position: absolute;
     top: 0;
@@ -193,4 +192,13 @@ body{
     position: absolute;
     top: 50.1vh;
     left: 57.3vw;
+}
+
+#portaTop {
+    background-color: purple;
+    width: 10%;
+    height: 10%;
+    top: 0;
+    left: 500px;
+    position: absolute;
 }
