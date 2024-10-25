@@ -106,7 +106,7 @@ body{
 }
 
 .movingDown {
-    background-image: url(jogo/img/Sprites/movePlayer\ \(Down\).gif);
+    background-image: url(/jogo/img/Sprites/movePlayer\ \(Down\).gif);
     background-size: cover;
     position: absolute;
     top: 0;
