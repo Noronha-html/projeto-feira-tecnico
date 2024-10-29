@@ -106,7 +106,7 @@ body{
 }
 
 .movingDown {
-    background-image: url(jogo/img/Sprites/movePlayer\ \(Down\).gif);
+    background-image: url(/jogo/img/Sprites/movePlayer\ \(Down\).gif);
     background-size: cover;
     position: absolute;
     top: 0;
@@ -199,6 +199,15 @@ body{
     width: 10%;
     height: 10%;
     top: 0;
+    left: 500px;
+    position: absolute;
+}
+
+#portaDown {
+    background-color: purple;
+    width: 10%;
+    height: 10%;
+    top: 90%;
     left: 500px;
     position: absolute;
 }
