@@ -42,6 +42,7 @@ function inicia () {
     tmpAtualizarSprite = setInterval(atualizarSprite, 1)
 
     objetoPlayer = document.getElementById('player');
+
     document.addEventListener('keydown', teclaBaixo);
     document.addEventListener('keyup', teclaCima);
 
@@ -232,7 +233,7 @@ function funcionalidades () {
     (detectarColisaoParedeD__quadLeft('player', 'paredeD', 'quadLeft') == true)?console.log('colidiu') : console.log('ainda não colidiu');
     (detectarColisaoParedeC__QuadBottom('player', 'paredeC', 'quadBottom') == true)?console.log('colidiu') : console.log('ainda não colidiu');
     (detectarColisaoParedeB__QuadTop('player', 'paredeB', 'quadTop') == true)?console.log('colidiu') : console.log('ainda não colidiu');
-    (detectarColisaoPortaTop('player', 'portaDown') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+    (detectarColisaoPortaDown('player', 'portaDown') == true)?console.log('colidiu') : console.log('ainda não colidiu');
 };
 
 //detecta colisão na parede esquerda
@@ -431,7 +432,7 @@ function detectarColisaoParedeB__QuadTop(idObjeto1, idObjeto2, idObjeto3) {
 };
 
 //detectar colisões nas portas
-function detectarColisaoPortaTop (idObjeto1, idObjeto2) {
+function detectarColisaoPortaDown (idObjeto1, idObjeto2) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let portaDown = document.getElementById(idObjeto2).getBoundingClientRect();
 

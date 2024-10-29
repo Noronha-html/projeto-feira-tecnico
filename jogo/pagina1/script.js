@@ -5,8 +5,9 @@ let py; //posição final do eixo y
 let vel; //velocidade
 let ultimaDirecao; //define a última direção que o personagem foi movimentado
 let tmpFuncionalidades; //intervalo de tempo até executar de novo a função
-let tmpAtualizarSprite;
+let tmpAtualizarSprite; //intervalo de tempo até executar de novo a função
 let objetoPlayer; //personagem
+let attack; //ataque do personagem
 let paredeD; //parede da direita
 let paredeE; //parede da esquerda
 let paredeC; //parede de cima
@@ -23,6 +24,7 @@ let portaLeft; //porta da esquerda
 let portaRight; //porta da direita
 let portaTop; //porta de cima
 let portaDown; //porta de baixo
+let lifeBoss; //vida do boss
 
 //inicia as variáveis
 function inicia () {
@@ -31,7 +33,9 @@ function inicia () {
     px = 0;
     py = 0;
     vel = 1;
+    lifeBoss = 10;
     ultimaDirecao = null;
+    attack = false;
     tmpFuncionalidades = setInterval(funcionalidades, 1);
 
     tmpAtualizarSprite = setInterval(atualizarSprite, 1)
@@ -68,7 +72,9 @@ function teclaBaixo (event) {
     } else if (tecla == 83 && tecS) {
         dy = 1;
         ultimaDirecao = 'down';
-    };
+    } else if (tecla == 13) {
+        attack = true
+    }
 };
 
 //para de movimentar
@@ -86,7 +92,9 @@ function teclaCima (event) {
     } else if (tecla == 83) {
         dy = 0;
         ultimaDirecao = 'downStatic';
-    };
+    } else if (tecla == 13) {
+        attack == false;
+    }
 };
 
 //atualiza o sprite
@@ -199,7 +207,7 @@ function funcionalidades () {
     objetoPlayer.style.left = px + 'px';
     objetoPlayer.style.top = py + 'px';
 
-    (detectarColisaoParedeE__quadRight('player', 'paredeE', 'quadRight') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+    (detectarColisaoParedeE__quadRight__bossRight('player', 'paredeE', 'quadRight', 'bossRight') == true)?console.log('colidiu') : console.log('ainda não colidiu');
     (detectarColisaoParedeD__quadLeft('player', 'paredeD', 'quadLeft') == true)?console.log('colidiu') : console.log('ainda não colidiu');
     (detectarColisaoParedeC__QuadBottom('player', 'paredeC', 'quadBottom') == true)?console.log('colidiu') : console.log('ainda não colidiu');
     (detectarColisaoParedeB__QuadTop('player', 'paredeB', 'quadTop') == true)?console.log('colidiu') : console.log('ainda não colidiu');
@@ -207,10 +215,11 @@ function funcionalidades () {
 };
 
 //detecta colisão na parede esquerda
-function detectarColisaoParedeE__quadRight(idObjeto1, idObjeto2, idObjeto3) {
+function detectarColisaoParedeE__quadRight__bossRight(idObjeto1, idObjeto2, idObjeto3, idObjeto4) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let paredeE = document.getElementById(idObjeto2).getBoundingClientRect();
     let quadRight = document.getElementById(idObjeto3).getBoundingClientRect();
+    let bossRight = document.getElementById(idObjeto4).getBoundingClientRect();
 
     let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
                          {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
@@ -226,6 +235,11 @@ function detectarColisaoParedeE__quadRight(idObjeto1, idObjeto2, idObjeto3) {
                              {x : quadRight.left + quadRight.width, y : quadRight.top},
                              {x : quadRight.left + quadRight.width, y : quadRight.top + quadRight.height},
                              {x : quadRight.left, y : quadRight.top + quadRight.height}];
+
+    let pontos_boss_Right = [{x : bossRight.left, y : bossRight.top}, 
+                             {x : bossRight.left + bossRight.width, y : bossRight.top},
+                             {x : bossRight.left + bossRight.width, y : bossRight.top + bossRight.height},
+                             {x : bossRight.left, y : bossRight.top + bossRight.height}];
  
 
     let indice = 0;
@@ -242,7 +256,13 @@ function detectarColisaoParedeE__quadRight(idObjeto1, idObjeto2, idObjeto3) {
         pontos_Player[indice].y >= quadRight.top && pontos_Player[indice].y <= quadRight.top + quadRight.height)) ||
 
     ((pontos_quad_Right[indice].x >= objetoPlayer.left && pontos_quad_Right[indice].x <= objetoPlayer.left + objetoPlayer.width && 
-    pontos_quad_Right[indice].y >= objetoPlayer.top && pontos_quad_Right[indice].y <= objetoPlayer.top + objetoPlayer.height)) 
+    pontos_quad_Right[indice].y >= objetoPlayer.top && pontos_quad_Right[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+    ((pontos_Player[indice].x >= bossRight.left && pontos_Player[indice].x <= bossRight.left + bossRight.width && 
+        pontos_Player[indice].y >= bossRight.top && pontos_Player[indice].y <= bossRight.top + bossRight.height)) ||
+
+    ((pontos_boss_Right[indice].x >= objetoPlayer.left && pontos_boss_Right[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+    pontos_boss_Right[indice].y >= objetoPlayer.top && pontos_boss_Right[indice].y <= objetoPlayer.top + objetoPlayer.height))
         ? colidiu = true : indice ++;
         tecA = false;
 
