@@ -42,7 +42,7 @@ body{
 }
 
 .staticUp {
-    background-image: url(/jogo/img/Sprites/sPlayer\(Up\).png);
+    background-image: url(/jogo/img/Sprites/sPlayer\(Up\).gif);
     background-size: cover;
     position: absolute;
     top: 0;

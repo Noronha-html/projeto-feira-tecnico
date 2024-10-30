@@ -180,8 +180,8 @@ body{
 
 #portaTop {
     background-color: purple;
-    width: 10%;
-    height: 10%;
+    width: 100px;
+    height: 64px;
     top: 0;
     left: 500px;
     position: absolute;
@@ -206,37 +206,42 @@ body{
 }
 
 #boss_cultista-left {
-    background-color: transparent;
-    width: 0.1px;
-    height: 80px;
+    width: 1px;
+    height: 77px;
     position: absolute;
-    top: 29.99999999%;
-    left: 34%;
+    top: 30.2vh;
+    left: 34.85vw;
 }
 
 #boss_cultista-right {
-    background-color: transparent;
-    width: 0.1px;
-    height: 80px;
+    width: 1px;
+    height: 77px;
     position: absolute;
-    top: 29.99999999%;
-    left: 40.74%;
+    top: 30.1vh;
+    left: 40.8vw;
 }
 
 #boss_cultista-top {
-    background-color: transparent;
-    width: 80px;
-    height: 0.1px;
+    width: 77px;
+    height: 1px;
     position: absolute;
-    top: 29.99999999%;
-    left: 35%;
+    top: 29.9vh;
+    left: 35.1vw;
 }
 
 #boss_cultista-bottom {
-    background-color: transparent;
-    width: 80px;
-    height: 0.1px;
+    width: 77px;
+    height: 1px;
     position: absolute;
-    top: 42.45%;
-    left: 35%;
+    top: 42.45vh;
+    left: 35vw;
+}
+
+.attackingRight {
+    width: 70px;
+    height: 60px;
+    background-color: aqua;
+    position: absolute;
+    top: 30vh;
+    left: 70vw;
 }
