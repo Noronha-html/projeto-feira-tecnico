@@ -11,6 +11,7 @@ let attackingLeft; //ataca para a esquerda
 let attackingRight; //ataca para a direita
 let attackingUp; //ataca para cima
 let attackingDown; //ataca para baixo
+let tmpAtaque; //tempo que o ataque vai ficar na tela
 
 //objetos e funcionalidades
 let tmpFuncionalidades; //intervalo de tempo até executar de novo a função
@@ -57,6 +58,8 @@ function inicia () {
     attackingRight = document.querySelector('.not_attacking-right');
     attackingUp = null;
     attackingDown = null;
+    
+    tmpAtaque = setTimeout(playerAttackRight, 100);
 
     tmpFuncionalidades = setInterval(funcionalidades, 1);
 
@@ -66,6 +69,8 @@ function inicia () {
 
     document.addEventListener('keydown', teclaBaixo);
     document.addEventListener('keyup', teclaCima);
+
+    document.addEventListener('keydown', atacar);
 
     paredeE = document.getElementById('paredeE');
     paredeD = document.getElementById('paredeD');
@@ -107,8 +112,6 @@ function teclaBaixo (event) {
         tecA = false;
         tecD = false;
         tecW = false;
-    } else if (tecla == 13) {
-        attack = true;
     }
 };
 
@@ -139,8 +142,6 @@ function teclaCima (event) {
         tecA = true;
         tecD = true;
         tecW = true;
-    } else if (tecla == 13) {
-        attack = false;
     }
 };
 
@@ -246,7 +247,7 @@ function atualizarSprite () {
     };
 };
 
-//declara a velocidade do personagem e outras funionalidades
+//declara funionalidades
 function funcionalidades () {
     px += dx * vel;
     py += dy * vel;
@@ -491,8 +492,17 @@ function detectarColisaoPortaDown (idObjeto1, idObjeto2) {
     return colidiu;
 }
 
-
 //ataque do personagem
+
+
+function atacar(event) {
+    let tecla = event.keyCode;
+
+    if (tecla == 13) {
+        attack = true;
+    }
+}
+
 function playerAttackRight(idObjeto1) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
 
@@ -518,8 +528,8 @@ function playerAttackRight(idObjeto1) {
             attackingRight.classList.add('not_attacking-right')
     }
 
-    attackingRight.x = objetoPlayer.left + objetoPlayer.width;
-    attackingRight.y = objetoPlayer.top;
+    attackingRight.style.left = objetoPlayer.left + objetoPlayer.width + 'px';
+    attackingRight.style.top = objetoPlayer.top + 'px';
 }
 
 window.addEventListener('load', inicia);
