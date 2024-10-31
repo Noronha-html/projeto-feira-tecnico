@@ -42,7 +42,7 @@ body{
 }
 
 .staticUp {
-    background-image: url(/jogo/img/Sprites/sPlayer\(Up\).gif);
+    background-image: url(/jogo/img/Sprites/sPlayer\(Up\).png);
     background-size: cover;
     position: absolute;
     top: 0;
@@ -194,4 +194,13 @@ body{
     top: 90%;
     left: 500px;
     position: absolute;
+}
+
+.attackingRight {
+    width: 70px;
+    height: 60px;
+    background-color: aqua;
+    position: absolute;
+    top: 30vh;
+    left: 70vw;
 }

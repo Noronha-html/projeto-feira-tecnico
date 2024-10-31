@@ -1,20 +1,28 @@
+//personagem
 let dx; //direção do eixo x
 let dy; //direção do eixo y
 let px; //posição final do eixo x
 let py; //posição final do eixo y
 let vel; //velocidade
 let ultimaDirecao; //define a última direção que o personagem foi movimentado
-let tmpFuncionalidades; //intervalo de tempo até executar de novo a função
-let tmpAtualizarSprite;
 let objetoPlayer; //personagem
+let attack; //ataque do personagem
+let attackingLeft; //ataca para a esquerda
+let attackingRight; //ataca para a direita
+let attackingUp; //ataca para cima
+let attackingDown; //ataca para baixo
+
+//objetos e funcionalidades
+let tmpFuncionalidades; //intervalo de tempo até executar de novo a função
+let tmpAtualizarSprite; //intervalo de tempo até executar de novo a função
 let paredeD; //parede da direita
 let paredeE; //parede da esquerda
 let paredeC; //parede de cima
 let paredeB; //parede de baixo
-let tecA; //declara a tecla A como verdadeira
-let tecD; //declara a tecla D como verdadeira
-let tecW; //declara a tecla W como verdadeira
-let tecS; //declara a tecla S como verdadeira
+let tecA = true; //declara a tecla A como verdadeira
+let tecD = true; //declara a tecla D como verdadeira
+let tecW = true; //declara a tecla W como verdadeira
+let tecS = true; //declara a tecla S como verdadeira
 let quadTop; //parte de cima do quadrado
 let quadBottom; //parte de baixo do quadrado
 let quadLeft; //parte da esquerda do quadrado
@@ -23,6 +31,13 @@ let portaLeft; //porta da esquerda
 let portaRight; //porta da direita
 let portaTop; //porta de cima
 let portaDown; //porta de baixo
+
+//boss
+let lifeBoss; //vida do boss
+let boss_cultista_Left; //esquerda do boss cultista
+let boss_cultista_Right; //direita do boss cultista
+let boss_cultista_Top; //em cima do boss cultista
+let boss_cultista_Bottom; //em baixo do boss cultista   
 
 //inicia as variáveis
 function inicia () {
@@ -35,11 +50,17 @@ function inicia () {
     tecD = true;
     tecW = true;
     tecS = true;
-        
+    lifeBoss = 10  
     ultimaDirecao = null;
+    attack = false;
+    attackingLeft = null;
+    attackingRight = document.querySelector('.not_attacking-right');
+    attackingUp = null;
+    attackingDown = null;
+
     tmpFuncionalidades = setInterval(funcionalidades, 1);
 
-    tmpAtualizarSprite = setInterval(atualizarSprite, 1)
+    tmpAtualizarSprite = setInterval(atualizarSprite, 1);
 
     objetoPlayer = document.getElementById('player');
 
@@ -86,7 +107,9 @@ function teclaBaixo (event) {
         tecA = false;
         tecD = false;
         tecW = false;
-    };
+    } else if (tecla == 13) {
+        attack = true;
+    }
 };
 
 //para de movimentar
@@ -116,7 +139,9 @@ function teclaCima (event) {
         tecA = true;
         tecD = true;
         tecW = true;
-    };
+    } else if (tecla == 13) {
+        attack = false;
+    }
 };
 
 //atualiza o sprite
@@ -126,7 +151,7 @@ function atualizarSprite () {
             objetoPlayer.classList.remove('player');
             objetoPlayer.classList.remove('movingLeft');
             objetoPlayer.classList.remove('movingRight');
-            objetoPlayer.classList.remove('movingUP');
+            objetoPlayer.classList.remove('movingUp');
             objetoPlayer.classList.remove('movingDown');
             objetoPlayer.classList.remove('staticLeft');
             objetoPlayer.classList.remove('staticRight');
@@ -138,7 +163,7 @@ function atualizarSprite () {
             objetoPlayer.classList.remove('player');
             objetoPlayer.classList.remove('movingLeft');
             objetoPlayer.classList.remove('movingRight');
-            objetoPlayer.classList.remove('movingUP');
+            objetoPlayer.classList.remove('movingUp');
             objetoPlayer.classList.remove('movingDown');
             objetoPlayer.classList.remove('staticLeft');
             objetoPlayer.classList.remove('staticRight');
@@ -150,19 +175,19 @@ function atualizarSprite () {
             objetoPlayer.classList.remove('player');
             objetoPlayer.classList.remove('movingLeft');
             objetoPlayer.classList.remove('movingRight');
-            objetoPlayer.classList.remove('movingUP');
+            objetoPlayer.classList.remove('movingUp');
             objetoPlayer.classList.remove('movingDown');
             objetoPlayer.classList.remove('staticLeft');
             objetoPlayer.classList.remove('staticRight');
             objetoPlayer.classList.remove('staticUp');
             objetoPlayer.classList.remove('staticDown');
-            objetoPlayer.classList.add('movingUP');
+            objetoPlayer.classList.add('movingUp');
             break;
         case 'down':
             objetoPlayer.classList.remove('player');
             objetoPlayer.classList.remove('movingLeft');
             objetoPlayer.classList.remove('movingRight');
-            objetoPlayer.classList.remove('movingUP');
+            objetoPlayer.classList.remove('movingUp');
             objetoPlayer.classList.remove('movingDown');
             objetoPlayer.classList.remove('staticLeft');
             objetoPlayer.classList.remove('staticRight');
@@ -174,7 +199,7 @@ function atualizarSprite () {
             objetoPlayer.classList.remove('player');
             objetoPlayer.classList.remove('movingLeft');
             objetoPlayer.classList.remove('movingRight');
-            objetoPlayer.classList.remove('movingUP');
+            objetoPlayer.classList.remove('movingUp');
             objetoPlayer.classList.remove('movingDown');
             objetoPlayer.classList.remove('staticLeft');
             objetoPlayer.classList.remove('staticRight');
@@ -186,7 +211,7 @@ function atualizarSprite () {
             objetoPlayer.classList.remove('player');
             objetoPlayer.classList.remove('movingLeft');
             objetoPlayer.classList.remove('movingRight');
-            objetoPlayer.classList.remove('movingUP');
+            objetoPlayer.classList.remove('movingUp');
             objetoPlayer.classList.remove('movingDown');
             objetoPlayer.classList.remove('staticLeft');
             objetoPlayer.classList.remove('staticRight');
@@ -198,7 +223,7 @@ function atualizarSprite () {
             objetoPlayer.classList.remove('player');
             objetoPlayer.classList.remove('movingLeft');
             objetoPlayer.classList.remove('movingRight');
-            objetoPlayer.classList.remove('movingUP');
+            objetoPlayer.classList.remove('movingUp');
             objetoPlayer.classList.remove('movingDown');
             objetoPlayer.classList.remove('staticLeft');
             objetoPlayer.classList.remove('staticRight');
@@ -210,7 +235,7 @@ function atualizarSprite () {
             objetoPlayer.classList.remove('player');
             objetoPlayer.classList.remove('movingLeft');
             objetoPlayer.classList.remove('movingRight');
-            objetoPlayer.classList.remove('movingUP');
+            objetoPlayer.classList.remove('movingUp');
             objetoPlayer.classList.remove('movingDown');
             objetoPlayer.classList.remove('staticLeft');
             objetoPlayer.classList.remove('staticRight');
@@ -234,6 +259,8 @@ function funcionalidades () {
     (detectarColisaoParedeC__QuadBottom('player', 'paredeC', 'quadBottom') == true)?console.log('colidiu') : console.log('ainda não colidiu');
     (detectarColisaoParedeB__QuadTop('player', 'paredeB', 'quadTop') == true)?console.log('colidiu') : console.log('ainda não colidiu');
     (detectarColisaoPortaDown('player', 'portaDown') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+
+    (playerAttackRight('player') == true)?console.log('atacou') : console.log('não atacou');
 };
 
 //detecta colisão na parede esquerda
@@ -462,6 +489,37 @@ function detectarColisaoPortaDown (idObjeto1, idObjeto2) {
     }
 
     return colidiu;
+}
+
+
+//ataque do personagem
+function playerAttackRight(idObjeto1) {
+    let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
+
+    let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
+                         {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
+                         {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top + objetoPlayer.height},
+                         {x : objetoPlayer.left, y : objetoPlayer.top + objetoPlayer.height}];
+
+    let pontos_attacking_Right = [{x : attackingRight.left, y : attackingRight.top},
+                                  {x : attackingRight.left + attackingRight.width, y : attackingRight.top},
+                                  {x : attackingRight.left + attackingRight.width, y : attackingRight.top + attackingRight.height},
+                                  {x : attackingRight.left, y : attackingRight.top + attackingRight.height}];
+
+    let indice = 0;
+
+    switch (attack) {
+        case true:
+            attackingRight.classList.remove('not_attacking-right');
+            attackingRight.classList.add('attackingRight');
+            break;
+        case false:
+            attackingRight.classList.remove('attackingRight');
+            attackingRight.classList.add('not_attacking-right')
+    }
+
+    attackingRight.x = objetoPlayer.left + objetoPlayer.width;
+    attackingRight.y = objetoPlayer.top;
 }
 
 window.addEventListener('load', inicia);
