@@ -1,5 +1,8 @@
 {
     "Personagem": {
-      "espada": "Excalibur"
+      "Nome": "Floyd",
+      "Espada": "Excalibur",
+      "Dano": "5",
+      "Vida": "30"
     }
 }

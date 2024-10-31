@@ -33,5 +33,11 @@ body{
     top: 0;
     left: 0;
     background-image: url(./wallLeft.png);
-    
+}
+#espada{
+    width: 100px;
+    height: 100px;
+    left: 600px;
+    top: 300px;
+    position: relative;
 }

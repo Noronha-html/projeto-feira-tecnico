@@ -12,6 +12,16 @@ let tecA = true; //declara a tecla A como verdadeira
 let tecD = true; //declara a tecla D como verdadeira
 let tecW = true; //declara a tecla W como verdadeira
 let tecS = true; //declara a tecla S como verdadeira
+const jsonString = `{
+    "Personagem": [
+      {
+        "Nome": "Floyd",
+        "Espada": "Excalibur",
+        "Dano": "5",
+        "Vida": "30"
+      }
+    ]
+  }`;
 
 
 //inicia as variáveis
@@ -142,6 +152,12 @@ function detectarColisaoParedeD(idObjeto1, idObjeto2) {
 
 window.addEventListener('load', inicia);
 
-    let Personagem = '{"Personagem":[' +
-    '{"espada":"Excalibur"},'
+    
+const data = JSON.parse(jsonString);
+
+// Aplicando o dano ao Floyd
+const Floyd = data.Personagem[0]; // Acessa o Floyd
+Floyd.Vida -= Floyd.Dano; // Aplica o dano
+
+alert(Floyd);
 
