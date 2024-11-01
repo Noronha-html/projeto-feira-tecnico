@@ -11,7 +11,8 @@ let attackingLeft; //ataca para a esquerda
 let attackingRight; //ataca para a direita
 let attackingUp; //ataca para cima
 let attackingDown; //ataca para baixo
-let tmpAtaque; //tempo que o ataque vai ficar na tela
+let tmpAtaque; //pega a data e hora do sistema operacional
+let secTmpAtaque; //pega os segundos da variável tmpAtaque
 
 //objetos e funcionalidades
 let tmpFuncionalidades; //intervalo de tempo até executar de novo a função
@@ -59,8 +60,6 @@ function inicia () {
     attackingUp = null;
     attackingDown = null;
     
-    tmpAtaque = setTimeout(playerAttackRight, 100);
-
     tmpFuncionalidades = setInterval(funcionalidades, 1);
 
     tmpAtualizarSprite = setInterval(atualizarSprite, 1);
@@ -70,6 +69,7 @@ function inicia () {
     document.addEventListener('keydown', teclaBaixo);
     document.addEventListener('keyup', teclaCima);
 
+        
     document.addEventListener('keydown', atacar);
 
     paredeE = document.getElementById('paredeE');
@@ -493,43 +493,34 @@ function detectarColisaoPortaDown (idObjeto1, idObjeto2) {
 }
 
 //ataque do personagem
-
-
 function atacar(event) {
     let tecla = event.keyCode;
-
+    
     if (tecla == 13) {
         attack = true;
+    } else {
+        attack = false;
     }
 }
 
+
 function playerAttackRight(idObjeto1) {
-    let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
+   // do {
+        let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
 
-    let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
-                         {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
-                         {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top + objetoPlayer.height},
-                         {x : objetoPlayer.left, y : objetoPlayer.top + objetoPlayer.height}];
-
-    let pontos_attacking_Right = [{x : attackingRight.left, y : attackingRight.top},
-                                  {x : attackingRight.left + attackingRight.width, y : attackingRight.top},
-                                  {x : attackingRight.left + attackingRight.width, y : attackingRight.top + attackingRight.height},
-                                  {x : attackingRight.left, y : attackingRight.top + attackingRight.height}];
-
-    let indice = 0;
-
-    switch (attack) {
-        case true:
+        if (attack == true) {
             attackingRight.classList.remove('not_attacking-right');
             attackingRight.classList.add('attackingRight');
-            break;
-        case false:
+        } else if (attack == false) {
             attackingRight.classList.remove('attackingRight');
-            attackingRight.classList.add('not_attacking-right')
-    }
+            attackingRight.classList.add('not_attacking-right');
+        }
 
-    attackingRight.style.left = objetoPlayer.left + objetoPlayer.width + 'px';
-    attackingRight.style.top = objetoPlayer.top + 'px';
+        attackingRight.style.left = objetoPlayer.left + objetoPlayer.width + 'px';
+        attackingRight.style.top = objetoPlayer.top + 'px';
+      /*  secTmpAtaque = secTmpAtaque-1;
+        console.log(secTmpAtaque);
+    } while (secTmpAtaque !=  0); */
 }
 
 window.addEventListener('load', inicia);
