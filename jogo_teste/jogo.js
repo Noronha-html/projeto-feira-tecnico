@@ -180,7 +180,7 @@ let acesso = JSON.parse(jsonString);
 
 
 let Player = acesso.Personagens.Jogador;
-Player.Vida = Number(Player.Vida) - Number(Player.Dano);
-
+let boos1 = acesso.Personagens.Bosses;
+Player.Vida = Number(Player.Vida) - Number(boos1.boss1.Dano);
 alert(Player.Vida);
 

@@ -1,0 +1,18 @@
+{
+    "Personagens": {
+      "Jogador": {
+        "Nome": "Player",
+        "Dano": 10,
+        "Vida": 100,
+        "Posicao": { "x": 400, "y": 300 }
+      },
+      "Bosses": {
+        "boss1": {
+          "Nome": "Cultista",
+          "Dano": 2,
+          "Vida": 50,
+          "Posicao": { "x": 100, "y": 100 }
+        }
+      }
+    }
+  }
