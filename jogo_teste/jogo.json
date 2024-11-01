@@ -1,8 +1,33 @@
 {
-    "Personagem": {
-      "Nome": "Floyd",
-      "Espada": "Excalibur",
-      "Dano": "5",
-      "Vida": "30"
+  "Personagens": {
+    "Jogador": {
+      "Nome": "Player",
+      "Espada": "Sword",
+      "Dano": 10,
+      "Vida": 8
+    },
+    "Bosses": {
+      "boss1": {
+        "Nome": "Cultista",
+        "Magia1": "Feixe",
+        "Magia2": "Area",
+        "Dano": 2,
+        "Vida": 380
+      },
+      "boss2": {
+        "Nome": "Mimico",
+        "Ataque": "Mordida",
+        "Dano": 2,
+        "Vida": 450
+      },
+      "boss3": {
+        "Nome": "Lider",
+        "Magia1": "Feixe2",
+        "Magia2": "Area2",
+        "Magia3": "Espinhos",
+        "Dano": 4,
+        "Vida": 1000
+      }
     }
+  }
 }

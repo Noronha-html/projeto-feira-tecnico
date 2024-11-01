@@ -12,16 +12,39 @@ let tecA = true; //declara a tecla A como verdadeira
 let tecD = true; //declara a tecla D como verdadeira
 let tecW = true; //declara a tecla W como verdadeira
 let tecS = true; //declara a tecla S como verdadeira
-const jsonString = `{
-    "Personagem": [
-      {
-        "Nome": "Floyd",
-        "Espada": "Excalibur",
-        "Dano": "5",
-        "Vida": "30"
+let jsonString = `{
+  "Personagens": {
+    "Jogador": {
+      "Nome": "Player",
+      "Espada": "Sword",
+      "Dano": 10,
+      "Vida": 8
+    },
+    "Bosses": {
+      "boss1": {
+        "Nome": "Cultista",
+        "Magia1": "Feixe",
+        "Magia2": "Area",
+        "Dano": 2,
+        "Vida": 380
+      },
+      "boss2": {
+        "Nome": "Mimico",
+        "Ataque": "Mordida",
+        "Dano": 2,
+        "Vida": 450
+      },
+      "boss3": {
+        "Nome": "Lider",
+        "Magia1": "Feixe2",
+        "Magia2": "Area2",
+        "Magia3": "Espinhos",
+        "Dano": 4,
+        "Vida": 1000
       }
-    ]
-  }`;
+    }
+  }
+}`;
 
 
 //inicia as variáveis
@@ -153,11 +176,11 @@ function detectarColisaoParedeD(idObjeto1, idObjeto2) {
 window.addEventListener('load', inicia);
 
     
-const data = JSON.parse(jsonString);
+let acesso = JSON.parse(jsonString);
 
-// Aplicando o dano ao Floyd
-const Floyd = data.Personagem[0]; // Acessa o Floyd
-Floyd.Vida -= Floyd.Dano; // Aplica o dano
 
-alert(Floyd);
+let Player = acesso.Personagens.Jogador;
+Player.Vida = Number(Player.Vida) - Number(Player.Dano);
+
+alert(Player.Vida);
 
