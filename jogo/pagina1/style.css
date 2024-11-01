@@ -115,7 +115,7 @@ body{
     height: 100vh;
     position: absolute;
     top: 0;
-    left: 94%;
+    left: 95%;
     background-image: url(/jogo/img/Sprites/wallRight.png);
 }
 
@@ -134,7 +134,39 @@ body{
     position: absolute;
     top: 90vh;
     left: 0;
-    background-color: green;
+    background-image: url(/jogo/img/Sprites/wallDown.png)
+}
+#quinaEsqUp{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(/jogo/img/Sprites/pixil-frame-1\ \(1\).png);
+}
+#quinaEsqDown{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 90%;
+    left: 0;
+    background-color: violet;
+}
+#quinaDirUp{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    left: 95%;
+    background-color: blue;
+}
+#quinaDirDown{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 90%;
+    left: 95%;
+    background-color: blueviolet;
 }
 
 #quadrado {
