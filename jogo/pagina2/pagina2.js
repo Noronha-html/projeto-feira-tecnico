@@ -63,7 +63,7 @@ function inicia () {
     attackUp = false;
     attackDown = false;
 
-    attackingLeft = null;
+    attackingLeft = document.querySelector('.not_attacking-left');
     attackingRight = document.querySelector('.not_attacking-right');
     attackingUp = null;
     attackingDown = null;
@@ -271,6 +271,7 @@ function funcionalidades () {
     (detectarColisaoParedeB__QuadTop('player', 'paredeB', 'quadTop') == true)?console.log('colidiu') : console.log('ainda não colidiu');
     (detectarColisaoPortaDown('player', 'portaDown') == true)?console.log('colidiu') : console.log('ainda não colidiu');
 
+    (playerAttackLeft('player') == true)?console.log('atacou') : console.log('não atacou');
     (playerAttackRight('player') == true)?console.log('atacou') : console.log('não atacou');
 };
 
@@ -506,13 +507,35 @@ function detectarColisaoPortaDown (idObjeto1, idObjeto2) {
 function atacar(event) {
     let tecla = event.keyCode;
     
-    if (tecla == 13 && objetoPlayer.classList.contains('staticRight')) {
+    if (tecla == 13 && objetoPlayer.classList.contains('staticLeft')) {
+        attackLeft = true;
+    }else if (tecla == 13 && objetoPlayer.classList.contains('movingLeft')) {
+        attackLeft = true;
+    }else if (tecla == 13 && objetoPlayer.classList.contains('staticRight')) {
         attackRight = true;
     } else if (tecla == 13 && objetoPlayer.classList.contains('movingRight')) {
         attackRight = true;
     }
 }
 
+function playerAttackLeft(idObjeto1) {
+    let objetoPlayer = document.getElementById(idObjeto1);
+    let rect = objetoPlayer.getBoundingClientRect();
+
+    if (attackLeft == true) {
+        attackingLeft.classList.remove('not_attacking-left');
+        attackingLeft.classList.add('attackingLeft');
+
+        setTimeout(() => {
+            attackingLeft.classList.remove('attackingLeft');
+
+            attackLeft = false;
+        }, 300);       
+    }
+
+    attackingLeft.style.left = rect.left + rect.width + 'px';
+    attackingLeft.style.top = rect.top + 'px';
+}
 
 function playerAttackRight(idObjeto1) {
         let objetoPlayer = document.getElementById(idObjeto1);
@@ -527,15 +550,6 @@ function playerAttackRight(idObjeto1) {
     
                 attackRight = false;
             }, 300);       
-        } else if (attackRight == true) {
-            attackingRight.classList.remove('not_attacking-right');
-            attackingRight.classList.add('attackingRight');
-
-            setTimeout(() => {
-                attackingRight.classList.remove('attackingRight');
-    
-                attack = false;
-            }, 300);
         }
 
         attackingRight.style.left = rect.left + rect.width + 'px';
