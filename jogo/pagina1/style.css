@@ -183,8 +183,8 @@ body{
 /* portas */
 #portaTop {
     background-color: purple;
-    width: 100px;
-    height: 64px;
+    width: 10vw;
+    height: 10vh;
     top: 0;
     left: 500px;
     position: absolute;

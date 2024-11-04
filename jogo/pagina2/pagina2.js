@@ -6,7 +6,10 @@ let py; //posição final do eixo y
 let vel; //velocidade
 let ultimaDirecao; //define a última direção que o personagem foi movimentado
 let objetoPlayer; //personagem
-let attack; //ataque do personagem
+let attackLeft; //ataque do personagem para a esquerda
+let attackRight; //ataque do personagem para a direita
+let attackUp; //ataque do personagem para cima
+let attackDown; //ataque do personagem para baixo
 let attackingLeft; //ataca para a esquerda
 let attackingRight; //ataca para a direita
 let attackingUp; //ataca para cima
@@ -54,7 +57,12 @@ function inicia () {
     tecS = true;
     lifeBoss = 10  
     ultimaDirecao = null;
-    attack = false;
+
+    attackLeft = false;
+    attackRight = false;
+    attackUp = false;
+    attackDown = false;
+
     attackingLeft = null;
     attackingRight = document.querySelector('.not_attacking-right');
     attackingUp = null;
@@ -63,6 +71,8 @@ function inicia () {
     tmpFuncionalidades = setInterval(funcionalidades, 1);
 
     tmpAtualizarSprite = setInterval(atualizarSprite, 1);
+
+    tmpAtaque = requestAnimationFrame(playerAttackRight);
 
     objetoPlayer = document.getElementById('player');
 
@@ -496,31 +506,40 @@ function detectarColisaoPortaDown (idObjeto1, idObjeto2) {
 function atacar(event) {
     let tecla = event.keyCode;
     
-    if (tecla == 13) {
-        attack = true;
-    } else {
-        attack = false;
+    if (tecla == 13 && objetoPlayer.classList.contains('staticRight')) {
+        attackRight = true;
+    } else if (tecla == 13 && objetoPlayer.classList.contains('movingRight')) {
+        attackRight = true;
     }
 }
 
 
 function playerAttackRight(idObjeto1) {
-   // do {
-        let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
+        let objetoPlayer = document.getElementById(idObjeto1);
+        let rect = objetoPlayer.getBoundingClientRect();
 
-        if (attack == true) {
+        if (attackRight == true) {
             attackingRight.classList.remove('not_attacking-right');
             attackingRight.classList.add('attackingRight');
-        } else if (attack == false) {
-            attackingRight.classList.remove('attackingRight');
-            attackingRight.classList.add('not_attacking-right');
+
+            setTimeout(() => {
+                attackingRight.classList.remove('attackingRight');
+    
+                attackRight = false;
+            }, 300);       
+        } else if (attackRight == true) {
+            attackingRight.classList.remove('not_attacking-right');
+            attackingRight.classList.add('attackingRight');
+
+            setTimeout(() => {
+                attackingRight.classList.remove('attackingRight');
+    
+                attack = false;
+            }, 300);
         }
 
-        attackingRight.style.left = objetoPlayer.left + objetoPlayer.width + 'px';
-        attackingRight.style.top = objetoPlayer.top + 'px';
-      /*  secTmpAtaque = secTmpAtaque-1;
-        console.log(secTmpAtaque);
-    } while (secTmpAtaque !=  0); */
+        attackingRight.style.left = rect.left + rect.width + 'px';
+        attackingRight.style.top = rect.top + 'px';
 }
 
 window.addEventListener('load', inicia);
