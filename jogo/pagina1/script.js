@@ -6,7 +6,15 @@ let py; //posição final do eixo y
 let vel; //velocidade
 let ultimaDirecao; //define a última direção que o personagem foi movimentado
 let objetoPlayer; //personagem
-let attack; //ataque do personagem
+let attackLeft; //ataque do personagem para a esquerda
+let attackRight; //ataque do personagem para a direita
+let attackUp; //ataque do personagem para cima
+let attackDown; //ataque do personagem para baixo
+let attackingLeft; //ataca para a esquerda
+let attackingRight; //ataca para a direita
+let attackingUp; //ataca para cima
+let attackingDown; //ataca para baixo
+let tmpAtaque; //atualiza os frames do ataque constantemente
 
 //objetos e funcionalidades
 let tmpFuncionalidades; //intervalo de tempo até executar de novo a função
@@ -44,14 +52,40 @@ function inicia () {
     vel = 1;
     lifeBoss = 10;
     ultimaDirecao = null;
-    attack = false;
+
+    attackLeft = {
+        pressed : false,
+        released : true,
+    }
+    attackRight = {
+        pressed : false,
+        released : true,
+    }
+    attackUp = {
+        pressed : false,
+        released : true,
+    }
+    attackDown = {
+        pressed : false,
+        released : true,
+    }
+
+    attackingLeft = document.querySelector('.not_attacking-left');
+    attackingRight = document.querySelector('.not_attacking-right');
+    attackingUp = document.querySelector('.not_attacking-up');
+    attackingDown = document.querySelector('.not_attacking-down');
+    
     tmpFuncionalidades = setInterval(funcionalidades, 1);
 
     tmpAtualizarSprite = setInterval(atualizarSprite, 1)
 
     objetoPlayer = document.getElementById('player');
+
     document.addEventListener('keydown', teclaBaixo);
     document.addEventListener('keyup', teclaCima);
+
+    document.addEventListener('keydown', atacar);
+    document.addEventListener('keyup', pararAtacar);
 
     paredeE = document.getElementById('paredeE');
     paredeD = document.getElementById('paredeD');
@@ -225,7 +259,13 @@ function funcionalidades () {
     (detectarColisaoParedeD__quadLeft__bossLeft('player', 'paredeD', 'quadLeft', 'boss_cultista-left') == true)?console.log('colidiu') : console.log('ainda não colidiu');
     (detectarColisaoParedeC__quadBottom__bossBottom('player', 'paredeC', 'quadBottom', 'boss_cultista-bottom') == true)?console.log('colidiu') : console.log('ainda não colidiu');
     (detectarColisaoParedeB__quadTop__bossTop('player', 'paredeB', 'quadTop', 'boss_cultista-top') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+
     (detectarColisaoPortaTop('player', 'portaTop') == true)?console.log('colidiu') : console.log('ainda não colidiu');
+
+    (playerAttackLeft('player') == true)?console.log('atacou') : console.log('não atacou');
+    (playerAttackRight('player') == true)?console.log('atacou') : console.log('não atacou');
+    (playerAttackUp('player') == true)?console.log('atacou') : console.log('não atacou');
+    (playerAttackDown('player') == true)?console.log('atacou') : console.log('não atacou');
 };
 
 //detecta colisão na parede esquerda
@@ -501,6 +541,131 @@ function detectarColisaoPortaTop (idObjeto1, idObjeto2) {
     }
 
     return colidiu;
+}
+
+//ataque do personagem
+function atacar(event) {
+    let tecla = event.keyCode;
+    
+    if (tecla == 13 && objetoPlayer.classList.contains('staticLeft')) {
+        attackLeft.pressed = true;
+    }else if (tecla == 13 && objetoPlayer.classList.contains('movingLeft')) {
+        attackLeft.pressed = true;
+    }else if (tecla == 13 && objetoPlayer.classList.contains('staticRight')) {
+        attackRight.pressed = true;
+    } else if (tecla == 13 && objetoPlayer.classList.contains('movingRight')) {
+        attackRight.pressed = true;
+    } else if (tecla == 13 && objetoPlayer.classList.contains('staticUp')) {
+        attackUp.pressed = true;
+    } else if (tecla == 13 && objetoPlayer.classList.contains('movingUp')) {
+        attackUp.pressed = true;
+    } else if (tecla == 13 && objetoPlayer.classList.contains('staticDown')) {
+        attackDown.pressed = true;
+    } else if (tecla == 13 && objetoPlayer.classList.contains('movingDown')) {
+        attackDown.pressed = true;
+    }
+}
+
+function pararAtacar(event) {
+    let tecla = event.keyCode;
+
+    if (tecla == 13 && objetoPlayer.classList.contains('staticLeft')) {
+        attackLeft.pressed = false;
+        attackLeft.released = true;
+    } else if (tecla == 13 && objetoPlayer.classList.contains('movingLeft')) {
+        attackLeft.pressed = false;
+        attackLeft.released = true;
+    } else if (tecla == 13 && objetoPlayer.classList.contains('staticRight')) {
+        attackRight.pressed = false;
+        attackRight.released = true;
+    } else if (tecla == 13 && objetoPlayer.classList.contains('movingRight')) {
+        attackRight.pressed = false;
+        attackRight.released = true;
+    } else if (tecla == 13 && objetoPlayer.classList.contains('staticUp')) {
+        attackUp.pressed = false;
+        attackUp.released = true;
+    } else if (tecla == 13 && objetoPlayer.classList.contains('movingUp')) {
+        attackUp.pressed = false;
+        attackUp.released = true;
+    } else if (tecla == 13 && objetoPlayer.classList.contains('staticDown')) {
+        attackDown.pressed = false;
+        attackDown.released = true;
+    } else if (tecla == 13 && objetoPlayer.classList.contains('movingDown')) {
+        attackDown.pressed = false;
+        attackDown.released = true;
+    }
+}
+
+function playerAttackLeft(idObjeto1) {
+    let objetoPlayer = document.getElementById(idObjeto1);
+    let rect = objetoPlayer.getBoundingClientRect();
+
+    if (attackLeft.pressed && attackLeft.released) {
+        attackingLeft.classList.remove('not_attacking-left');
+        attackingLeft.classList.add('attackingLeft');
+
+        attackLeft.released = false;
+        setTimeout(() => {
+            attackingLeft.classList.remove('attackingLeft');
+        }, 300);       
+    }
+
+    attackingLeft.style.left = rect.left - rect.width + 10 + 'px';
+    attackingLeft.style.top = rect.top + 'px';
+}
+
+function playerAttackRight(idObjeto1) {
+        let objetoPlayer = document.getElementById(idObjeto1);
+        let rect = objetoPlayer.getBoundingClientRect();
+
+        if (attackRight.pressed && attackRight.released) {
+            attackingRight.classList.remove('not_attacking-right');
+            attackingRight.classList.add('attackingRight');
+
+            attackRight.released = false;
+            setTimeout(() => {
+                attackingRight.classList.remove('attackingRight');
+            }, 300);       
+        }
+
+        attackingRight.style.left = rect.left + rect.width + 'px';
+        attackingRight.style.top = rect.top + 'px';
+}
+
+function playerAttackUp(idObjeto1) {
+    let objetoPlayer = document.getElementById(idObjeto1);
+    let rect = objetoPlayer.getBoundingClientRect();
+
+    if (attackUp.pressed && attackUp.released) {
+        attackingUp.classList.remove('not_attacking-up');
+        attackingUp.classList.add('attackingUp');
+
+        attackUp.released = false;
+        setTimeout(() => {
+            attackingUp.classList.remove('attackingUp');
+        }, 300);       
+    }
+
+    attackingUp.style.left = rect.left + 'px';
+    attackingUp.style.top = rect.top - rect.height + 20 + 'px';
+}
+
+function playerAttackDown(idObjeto1) {
+    let objetoPlayer = document.getElementById(idObjeto1);
+    let rect = objetoPlayer.getBoundingClientRect();
+
+    if (attackDown.pressed && attackDown.released) {
+        attackingDown.classList.remove('not_attacking-down');
+        attackingDown.classList.add('attackingDown');
+
+        attackDown.released = false;
+        setTimeout(() => {
+            attackingDown.classList.remove('attackingDown');
+        }, 300);       
+    }
+
+    attackingDown.style.left = rect.left + 'px';
+    attackingDown.style.top = rect.top + rect.height + 'px';
 }
 
 window.addEventListener('load', inicia);

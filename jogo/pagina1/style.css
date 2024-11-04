@@ -18,7 +18,7 @@ body{
     width: 80px;
     height: 80px;
     margin-left: 500px;
-    margin-top: 75px;
+    margin-top: 80px;
 }
 
 .staticLeft {
@@ -199,6 +199,55 @@ body{
     position: absolute;
 }
 
+/* ataques */
+.not_attacking-left {
+    display: none;
+}
+
+.not_attacking-right {
+    display: none;
+}
+
+.not_attacking-up {
+    display: none;
+}
+
+.not_attacking-down {
+    display: none;
+}
+
+.attackingRight {
+    width: 70px;
+    height: 60px;
+    background-color: aqua;
+    position: absolute;
+    z-index: 10;
+}
+
+.attackingLeft {
+    width: 70px;
+    height: 60px;
+    background-color: aqua;
+    position: absolute;
+    z-index: 10;
+}
+
+.attackingUp {
+    width: 70px;
+    height: 60px;
+    background-color: aqua;
+    position: absolute;
+    z-index: 10;
+}
+
+.attackingDown {
+    width: 70px;
+    height: 60px;
+    background-color: aqua;
+    position: absolute;
+    z-index: 10;
+}
+
 /* bosses */
 #boss_cultista {
     background-color: orange;
@@ -239,13 +288,4 @@ body{
     position: absolute;
     top: 42.45vh;
     left: 35vw;
-}
-
-.attackingRight {
-    width: 70px;
-    height: 60px;
-    background-color: aqua;
-    position: absolute;
-    top: 30vh;
-    left: 70vw;
 }
