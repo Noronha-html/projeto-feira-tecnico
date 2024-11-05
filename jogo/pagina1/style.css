@@ -7,6 +7,7 @@ body{
     background-color: #131313;
     overflow: hidden;
     display: flex;
+    background-image: url(/jogo/img/Sprites/floor.png)
 }
 
 /*diferentes estilos do player*/
@@ -177,7 +178,7 @@ body{
     position: absolute;
     top: 50vh;
     left: 50vw;
-   background-image: url(/jogo/img/Sprites/Unbreaking.png);
+   background-image: url(/jogo/img/Sprites/rockUnbreaking.png);
     background-size: 100% 100%;
 }
 
@@ -218,7 +219,7 @@ body{
     width: 100px;
     height: 80px;
     top: 0;
-    left: 500px;
+    left: 46vw;
     position: absolute;
 
 }
@@ -228,11 +229,10 @@ body{
 }
 
 #portaDown {
-    background-color: purple;
-    width: 10%;
-    height: 10%;
-    top: 90%;
-    left: 500px;
+    width: 100px;
+    height: 80px;
+    top: 88.3vh;
+    left: 46vw;
     position: absolute;
 }
 
