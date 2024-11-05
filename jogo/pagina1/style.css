@@ -200,23 +200,23 @@ body{
 }
 
 /* ataques */
-.not_attacking-left {
+#not_attacking-left {
     display: none;
 }
 
-.not_attacking-right {
+#not_attacking-right {
     display: none;
 }
 
-.not_attacking-up {
+#not_attacking-up {
     display: none;
 }
 
-.not_attacking-down {
+#not_attacking-down {
     display: none;
 }
 
-.attackingRight {
+#attackingRight {
     width: 70px;
     height: 60px;
     background-color: aqua;
@@ -224,7 +224,7 @@ body{
     z-index: 10;
 }
 
-.attackingLeft {
+#attackingLeft {
     width: 70px;
     height: 60px;
     background-color: aqua;
@@ -232,7 +232,7 @@ body{
     z-index: 10;
 }
 
-.attackingUp {
+#attackingUp {
     width: 70px;
     height: 60px;
     background-color: aqua;
@@ -240,7 +240,7 @@ body{
     z-index: 10;
 }
 
-.attackingDown {
+#attackingDown {
     width: 70px;
     height: 60px;
     background-color: aqua;

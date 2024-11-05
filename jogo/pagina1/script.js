@@ -4,12 +4,13 @@ let dy; //direção do eixo y
 let px; //posição final do eixo x
 let py; //posição final do eixo y
 let vel; //velocidade
+let playerDano;
 let ultimaDirecao; //define a última direção que o personagem foi movimentado
 let objetoPlayer; //personagem
 let attackLeft; //ataque do personagem para a esquerda
 let attackRight; //ataque do personagem para a direita
 let attackUp; //ataque do personagem para cima
-let attackDown; //ataque do personagem para baixo
+let attackDown; //ataque do personagem para 
 let attackingLeft; //ataca para a esquerda
 let attackingRight; //ataca para a direita
 let attackingUp; //ataca para cima
@@ -38,6 +39,7 @@ let portaDown; //porta de baixo
 
 //boss
 let lifeBoss; //vida do boss
+let boss_cultista_wrapper; //wrapper do boss
 let boss_cultista_Left; //esquerda do boss cultista
 let boss_cultista_Right; //direita do boss cultista
 let boss_cultista_Top; //em cima do boss cultista
@@ -51,6 +53,8 @@ function inicia () {
     py = 0;
     vel = 1;
     lifeBoss = 10;
+    playerDano = 1;
+
     ultimaDirecao = null;
 
     attackLeft = {
@@ -70,10 +74,10 @@ function inicia () {
         released : true,
     }
 
-    attackingLeft = document.querySelector('.not_attacking-left');
-    attackingRight = document.querySelector('.not_attacking-right');
-    attackingUp = document.querySelector('.not_attacking-up');
-    attackingDown = document.querySelector('.not_attacking-down');
+    attackingLeft = document.getElementById('not_attacking-left');
+    attackingRight = document.getElementById('not_attacking-right');
+    attackingUp = document.getElementById('not_attacking-up');
+    attackingDown = document.getElementById('not_attacking-down');
     
     tmpFuncionalidades = setInterval(funcionalidades, 1);
 
@@ -99,6 +103,7 @@ function inicia () {
 
     portaTop = document.getElementById('portaTop');
 
+    boss_cultista_wrapper = document.getElementById('boss_cultista-wrapper');
     boss_cultista_Left = document.getElementById('boss_cultista-left');
     boss_cultista_Right = document.getElementById('boss_cultista-right');
     boss_cultista_Top = document.getElementById('boss_cultista-top');
@@ -266,6 +271,11 @@ function funcionalidades () {
     (playerAttackRight('player') == true)?console.log('atacou') : console.log('não atacou');
     (playerAttackUp('player') == true)?console.log('atacou') : console.log('não atacou');
     (playerAttackDown('player') == true)?console.log('atacou') : console.log('não atacou');
+
+    (detectarColisãoAtaqueLeft('attackingLeft', 'boss_cultista-right') == true)?console.log('deu dano') : console.log('não deu dano');
+    (detectarColisãoAtaqueRight('attackingRight', 'boss_cultista-left') == true)?console.log('deu dano') : console.log('não deu dano');
+    (detectarColisãoAtaqueUp('attackingUp', 'boss_cultista-bottom') == true)?console.log('deu dano') : console.log('não deu dano');
+    (detectarColisãoAtaqueDown('attackingDown', 'boss_cultista-top') == true)?console.log('deu dano') : console.log('não deu dano');
 };
 
 //detecta colisão na parede esquerda
@@ -601,12 +611,12 @@ function playerAttackLeft(idObjeto1) {
     let rect = objetoPlayer.getBoundingClientRect();
 
     if (attackLeft.pressed && attackLeft.released) {
-        attackingLeft.classList.remove('not_attacking-left');
-        attackingLeft.classList.add('attackingLeft');
+        attackingLeft.id.remove('not_attacking-left');
+        attackingLeft.id.add('attackingLeft');
 
         attackLeft.released = false;
         setTimeout(() => {
-            attackingLeft.classList.remove('attackingLeft');
+            attackingLeft.id.remove('attackingLeft');
         }, 300);       
     }
 
@@ -615,21 +625,21 @@ function playerAttackLeft(idObjeto1) {
 }
 
 function playerAttackRight(idObjeto1) {
-        let objetoPlayer = document.getElementById(idObjeto1);
-        let rect = objetoPlayer.getBoundingClientRect();
+    let objetoPlayer = document.getElementById(idObjeto1);
+    let rect = objetoPlayer.getBoundingClientRect();
 
-        if (attackRight.pressed && attackRight.released) {
-            attackingRight.classList.remove('not_attacking-right');
-            attackingRight.classList.add('attackingRight');
+    if (attackRight.pressed && attackRight.released) {
+        attackingRight.id.remove('not_attacking-right');
+        attackingRight.id.add('attackingRight');
 
-            attackRight.released = false;
-            setTimeout(() => {
-                attackingRight.classList.remove('attackingRight');
-            }, 300);       
-        }
+        attackRight.released = false;
+        setTimeout(() => {
+            attackingRight.id.remove('attackingRight');
+        }, 300);       
+    }
 
-        attackingRight.style.left = rect.left + rect.width + 'px';
-        attackingRight.style.top = rect.top + 'px';
+    attackingRight.style.left = rect.left + rect.width + 'px';
+    attackingRight.style.top = rect.top + 'px';
 }
 
 function playerAttackUp(idObjeto1) {
@@ -637,12 +647,12 @@ function playerAttackUp(idObjeto1) {
     let rect = objetoPlayer.getBoundingClientRect();
 
     if (attackUp.pressed && attackUp.released) {
-        attackingUp.classList.remove('not_attacking-up');
-        attackingUp.classList.add('attackingUp');
+        attackingUp.id.remove('not_attacking-up');
+        attackingUp.id.add('attackingUp');
 
         attackUp.released = false;
         setTimeout(() => {
-            attackingUp.classList.remove('attackingUp');
+            attackingUp.id.remove('attackingUp');
         }, 300);       
     }
 
@@ -655,17 +665,50 @@ function playerAttackDown(idObjeto1) {
     let rect = objetoPlayer.getBoundingClientRect();
 
     if (attackDown.pressed && attackDown.released) {
-        attackingDown.classList.remove('not_attacking-down');
-        attackingDown.classList.add('attackingDown');
+        attackingDown.id.remove('not_attacking-down');
+        attackingDown.id.add('attackingDown');
 
         attackDown.released = false;
         setTimeout(() => {
-            attackingDown.classList.remove('attackingDown');
+            attackingDown.id.remove('attackingDown');
         }, 300);       
     }
 
     attackingDown.style.left = rect.left + 'px';
     attackingDown.style.top = rect.top + rect.height + 'px';
+}
+
+//colisões de ataques com os bosses
+function detectarColisãoAtaqueLeft(objeto1, objeto2) {
+    let attackingLeft = document.getElementById(objeto1).getBoundingClientRect();
+    let boss_cultista_Right = document.getElementById(objeto2).getBoundingClientRect();
+
+    let pontos_ataque_Left = [{x : attackingLeftId.left, y : attackingLeftId.top}, 
+                              {x : attackingLeftId.left + attackingLeftId.width, y : attackingLeftId.top},
+                              {x : attackingLeftId.left + attackingLeftId.width, y : attackingLeftId.top + attackingLeftId.height},
+                              {x : attackingLeftId.left, y : attackingLeftId.top + attackingLeftId.height}];
+
+    let pontos_boss_cultista_Right = [{x : boss_cultista_Right.left, y : boss_cultista_Right.top}, 
+                                     {x : boss_cultista_Right.left + boss_cultista_Right.width, y : boss_cultista_Right.top},
+                                     {x : boss_cultista_Right.left + boss_cultista_Right.width, y : boss_cultista_Right.top + boss_cultista_Right.height},
+                                     {x : boss_cultista_Right.left, y : boss_cultista_Right.top + boss_cultista_Right.height}];
+
+    let indice = 0;
+    let colidiu = false;
+
+    while((colidiu == false) && (indice < 3))
+    ((pontos_ataque_Left[indice].x >= boss_cultista_Right.left && pontos_ataque_Left[indice].x <= boss_cultista_Right.left + boss_cultista_Right.width && 
+    pontos_ataque_Left[indice].y >= boss_cultista_Right.top && pontos_ataque_Left[indice].y <= boss_cultista_Right.top + boss_cultista_Right.height)) ||
+    
+    ((pontos_boss_cultista_Right[indice].x >= attackingLeft.left && pontos_boss_cultista_Right[indice].x <= attackingLeft.left + attackingLeft.width && 
+    pontos_boss_cultista_Right[indice].y >= attackingLeft.top && pontos_boss_cultista_Right[indice].y <= attackingLeft.top + attackingLeft.height))
+    ? colidiu = true : indice ++;
+
+    if (colidiu == true && attackLeft.pressed && attackLeft.released) {
+        lifeBoss -= playerDano;
+    }
+
+    console.log(lifeBoss);
 }
 
 window.addEventListener('load', inicia);
