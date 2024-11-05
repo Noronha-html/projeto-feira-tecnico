@@ -1,0 +1,39 @@
+*{ 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(13, 13, 13);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+img{
+    width: 800px;
+    height: 200px;
+    position: relative;
+    bottom: -10%;
+}
+#container{
+    display: flex;
+    justify-content: center;
+}
+button{
+    width: 400px;
+    height: 30px;
+    bottom: 55%;
+    position: absolute;
+}
+a {
+    width: 400px;
+    height: 30px;
+    bottom: 55%;
+    position: absolute;
+}
+.vt323-regular {
+    font-family: "VT323", monospace;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
