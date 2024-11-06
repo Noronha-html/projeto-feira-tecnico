@@ -18,7 +18,7 @@ body{
     left: 0;
     width: 80px;
     height: 80px;
-    margin-left: 740px;
+    margin-left: 630px;
     margin-top: 83px;
 }
 
@@ -223,10 +223,6 @@ body{
     position: absolute;
 
 }
-.door{
-    width: 100px;
-    height: 80px;
-}
 
 #portaDown {
     width: 100px;
@@ -234,6 +230,31 @@ body{
     top: 88.3vh;
     left: 46vw;
     position: absolute;
+}
+
+#portaLeft{
+    width: 80px;
+    height: 100px;
+    position: absolute;
+    top: 44vh;
+    left: 0;
+}
+
+#portaRight{
+    width: 80px;
+    height: 100px;
+    position: absolute;
+    top: 44vh;
+    left: 94.2vw;
+}
+
+.doorV{
+    width: 100px;
+    height: 80px;
+}
+.doorH{
+    width: 80px;
+    height: 100px;
 }
 
 /*#boss_cultista {

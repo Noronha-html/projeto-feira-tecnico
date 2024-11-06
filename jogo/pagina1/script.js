@@ -41,7 +41,7 @@ function inicia () {
     dy = 0;
     px = 0;
     py = 0;
-    vel = 1;
+    vel = 1.1;
     lifeBoss = 10;
     ultimaDirecao = null;
     attack = false;
