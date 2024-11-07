@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Game Over</title>
-<link rel="stylesheet" href="gameover.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Over</title>
+    <link rel="stylesheet" href="gameover.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
+
 <body>
-<div class="game-over-container">
-<div class="game-over-texto">Game Over</div>
-<button class="button" onclick="goToMenu()">Voltar ao Menu</button>
-<button class="button" onclick="exitGame()">Sair</button>
-</div>
-<script src="gameover.js"></script>
+    <div class="game-over-container">
+        <div class="vt323-regular" id="Game-Over">Game Over</div>
+        <button class="button  vt323-regular" onclick="goToMenu()">Voltar ao Menu</button>
+        <button class="button  vt323-regular" onclick="exitGame()">Reiniciar</button>
+    </div>
+    <script src="gameover.js"></script>
 </body>
+
 </html>
