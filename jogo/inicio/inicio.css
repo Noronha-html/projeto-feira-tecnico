@@ -23,24 +23,11 @@ img{
 a {
     width: 400px;
     height: 30px;
-    bottom: 55%;
+    top: 40%;
     position: absolute;
     text-decoration: none;
     display: flex;
     justify-content: center;
-    border: 1px solid white;
-    background-color: white;
-    color: black;
-}
-#a2 {
-    width: 400px;
-    height: 30px;
-    bottom: 40%;
-    position: absolute;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    border: 1px solid white;
     background-color: white;
     color: black;
 }
