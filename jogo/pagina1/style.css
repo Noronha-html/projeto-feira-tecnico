@@ -259,7 +259,8 @@ body{
     width: 70px;
     height: 60px;
     position: absolute;
-    z-index: 9;
+    z-index: 11;
+    background-color: blue;
 }
 
 #attackingUpWrapper {
@@ -287,7 +288,7 @@ body{
 }
 
 #boss_cultista-left {
-    width: 1px;
+    width: 80px;
     height: 77px;
     position: absolute;
     top: 30.2vh;
@@ -295,16 +296,16 @@ body{
 }
 
 #boss_cultista-right {
-    width: 1px;
+    width: 80px;
     height: 77px;
     position: absolute;
     top: 30.1vh;
-    left: 40.8vw;
+    left: 35vw;
 }
 
 #boss_cultista-top {
     width: 77px;
-    height: 1px;
+    height: 80px;
     position: absolute;
     top: 29.9vh;
     left: 35.1vw;
@@ -312,8 +313,9 @@ body{
 
 #boss_cultista-bottom {
     width: 77px;
-    height: 1px;
+    height: 80px;
     position: absolute;
-    top: 42.45vh;
+    top: 30vh;
     left: 35vw;
+
 }
