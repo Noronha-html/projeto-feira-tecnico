@@ -216,7 +216,7 @@ body{
     display: none;
 }
 
-.attackingRight {
+.attackingLeft {
     width: 70px;
     height: 60px;
     background-color: aqua;
@@ -224,12 +224,10 @@ body{
     z-index: 10;
 }
 
-.attackingLeft {
+.attackingRight {
     width: 70px;
     height: 60px;
     background-color: aqua;
-    position: absolute;
-    z-index: 10;
 }
 
 .attackingUp {
@@ -253,6 +251,7 @@ body{
     height: 60px;
     position: absolute;
     z-index: 9;
+    display: block;
 }
 
 #attackingRightWrapper {
@@ -260,7 +259,7 @@ body{
     height: 60px;
     position: absolute;
     z-index: 11;
-    background-color: blue;
+    display: block;
 }
 
 #attackingUpWrapper {
@@ -268,6 +267,7 @@ body{
     height: 60px;
     position: absolute;
     z-index: 9;
+    display: block;
 }
 
 #attackingDownWrapper {
@@ -275,6 +275,7 @@ body{
     height: 60px;
     position: absolute;
     z-index: 9;
+    display: block;
 }
 
 /* bosses */
