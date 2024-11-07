@@ -11,6 +11,8 @@ body{
     overflow: hidden;}
 h1{
     color: rgb(104, 206, 36);
+    position: absolute;
+    z-index: 2;
 }
 a {
     width: 400px;
@@ -22,6 +24,8 @@ a {
     justify-content: center;
     background-color: white;
     color: black;
+    z-index: 3;
+    box-shadow: 1px 1px 50px rgb(255, 255, 255);
 }
 .vt323-regular {
     font-family: "VT323", monospace;
