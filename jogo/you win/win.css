@@ -9,15 +9,21 @@ body{
     display: flex;
     justify-content: center;
     overflow: hidden;}
-h1{
-    color: rgb(104, 206, 36);
-    position: absolute;
+#container{
+    display: flex;
+    justify-content: center;
     z-index: 2;
+}
+img{
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    height: 200px;
 }
 a {
     width: 400px;
     height: 30px;
-    top: 15%;
+    top: 29%;
     position: absolute;
     text-decoration: none;
     display: flex;
