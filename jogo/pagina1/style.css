@@ -228,6 +228,8 @@ body{
     width: 70px;
     height: 60px;
     background-color: aqua;
+    position: absolute;
+    z-index: 10;
 }
 
 .attackingUp {
@@ -244,38 +246,6 @@ body{
     background-color: aqua;
     position: absolute;
     z-index: 10;
-}
-
-#attackingLeftWrapper {
-    width: 70px;
-    height: 60px;
-    position: absolute;
-    z-index: 9;
-    display: block;
-}
-
-#attackingRightWrapper {
-    width: 70px;
-    height: 60px;
-    position: absolute;
-    z-index: 11;
-    display: block;
-}
-
-#attackingUpWrapper {
-    width: 70px;
-    height: 60px;
-    position: absolute;
-    z-index: 9;
-    display: block;
-}
-
-#attackingDownWrapper {
-    width: 70px;
-    height: 60px;
-    position: absolute;
-    z-index: 9;
-    display: block;
 }
 
 /* bosses */
