@@ -42,7 +42,7 @@ a {
     justify-content: center;
     background-color: white;
     color: black;
-    box-shadow: 1px 1px 50px rgb(255, 255, 255);
+    box-shadow: 1px 1px 10px rgb(255, 255, 255);
 }
 .vt323-regular {
     font-family: "VT323", monospace;
