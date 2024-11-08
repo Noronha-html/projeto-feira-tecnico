@@ -218,7 +218,7 @@ body{
 
 .attackingLeft {
     width: 70px;
-    height: 60px;
+    height: 70px;
     background-color: aqua;
     position: absolute;
     z-index: 10;
@@ -226,12 +226,12 @@ body{
 
 .attackingRight {
     width: 70px;
-    height: 60px;
+    height: 70px;
     background-color: aqua;
 }
 
 .attackingUp {
-    width: 70px;
+    width: 80px;
     height: 60px;
     background-color: aqua;
     position: absolute;
@@ -239,7 +239,7 @@ body{
 }
 
 .attackingDown {
-    width: 70px;
+    width: 80px;
     height: 60px;
     background-color: aqua;
     position: absolute;
