@@ -275,7 +275,7 @@ function funcionalidades () {
     playerAttackUp('player');
     playerAttackDown('player');
  
-    detectarColisaoAtaqueLeft('attackingLeft', 'boss_cultista-right');
+    (detectarColisaoAtaqueLeft('attackingLeft', 'boss_cultista-right') == true)?lifeBoss = lifeBoss -playerDano : lifeBoss;
     detectarColisaoAtaqueRight('attackingRight', 'boss_cultista-left');
     detectarColisaoAtaqueUp('attackingUp', 'boss_cultista-bottom');
     detectarColisaoAtaqueDown('attackingDown', 'boss_cultista-top');
@@ -705,7 +705,10 @@ function detectarColisaoAtaqueLeft(objeto1, objeto2) {
     ? colidiuAtaqueLeft = true : indice ++;
 
     if (colidiuAtaqueLeft) {
-        lifeBoss = lifeBoss - playerDano;
+        for (let i = 10; i <= 0; i - playerDano){
+            colidiuAtaqueLeft = false;
+            lifeBoss = i;
+        }
     }
 
     console.log(lifeBoss);
