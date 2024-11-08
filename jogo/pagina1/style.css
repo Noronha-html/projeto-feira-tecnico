@@ -172,13 +172,13 @@ body{
     background-image: url(/jogo/img/Sprites/cornerRightDown.png);
 }
 
-#quadrado {
+/*#quadrado {
     width: 100px;
     height: 100px;
     position: absolute;
     top: 50vh;
     left: 50vw;
-   background-image: url(/jogo/img/Sprites/rockUnbreaking.png);
+   background-image: url(/jogo/img/Sprites/RockUnbreaking.png);
     background-size: 100% 100%;
 }
 
@@ -213,7 +213,7 @@ body{
     position: absolute;
     top: 55.1vh;
     left: 57.3vw;
-}
+}*/
 
 #portaTop {
     width: 100px;
@@ -255,6 +255,18 @@ body{
 .doorH{
     width: 80px;
     height: 100px;
+}
+
+#pentagrama{
+    width: 35vw;
+    height: 70vh;
+    background-image: url(/jogo/img/Sprites/Pentagram.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    top: 110px;
+    left: 32%;
+    z-index: -5;
 }
 
 /*#boss_cultista {
