@@ -6,6 +6,7 @@ let py; //posição final do eixo y
 let vel; //velocidade
 let playerDano; //dano do player
 let PlayerAcertou; //declara se o player acertou ou não o ataque
+let atacou;
 let ultimaDirecao; //define a última direção que o personagem foi movimentado
 let objetoPlayer; //personagem
 let attackLeft; //ataque do personagem para a esquerda
@@ -59,6 +60,7 @@ function inicia () {
     lifeBoss = 10;
     playerDano = 1;
     PlayerAcertou = false;
+    atacou = false;
 
     ultimaDirecao = null;
 
@@ -281,6 +283,8 @@ function funcionalidades () {
     detectarColisaoAtaqueRight('attackingRight', 'boss_cultista-left');
     detectarColisaoAtaqueUp('attackingUp', 'boss_cultista-bottom');
     detectarColisaoAtaqueDown('attackingDown', 'boss_cultista-top');
+
+    danoAoBoss();
 };
 
 //detecta colisão na parede esquerda
@@ -587,27 +591,35 @@ function pararAtacar(event) {
     if (tecla == 13 && objetoPlayer.classList.contains('staticLeft')) {
         attackLeft.pressed = false;
         attackLeft.released = true;
+        atacou = true;
     } else if (tecla == 13 && objetoPlayer.classList.contains('movingLeft')) {
         attackLeft.pressed = false;
         attackLeft.released = true;
+        atacou = true;
     } else if (tecla == 13 && objetoPlayer.classList.contains('staticRight')) {
         attackRight.pressed = false;
         attackRight.released = true;
+        atacou = true;
     } else if (tecla == 13 && objetoPlayer.classList.contains('movingRight')) {
         attackRight.pressed = false;
         attackRight.released = true;
+        atacou = true;
     } else if (tecla == 13 && objetoPlayer.classList.contains('staticUp')) {
         attackUp.pressed = false;
         attackUp.released = true;
+        atacou = true;
     } else if (tecla == 13 && objetoPlayer.classList.contains('movingUp')) {
         attackUp.pressed = false;
         attackUp.released = true;
+        atacou = true;
     } else if (tecla == 13 && objetoPlayer.classList.contains('staticDown')) {
         attackDown.pressed = false;
         attackDown.released = true;
+        atacou = true;
     } else if (tecla == 13 && objetoPlayer.classList.contains('movingDown')) {
         attackDown.pressed = false;
         attackDown.released = true;
+        atacou = true;
     }
 }
 
@@ -620,6 +632,7 @@ function playerAttackLeft(idObjeto1) {
         attackingLeft.classList.add('attackingLeft');
 
         attackLeft.released = false;
+        atacou = false
         setTimeout(() => {
             attackingLeft.classList.remove('attackingLeft');
         }, 300);       
@@ -637,6 +650,7 @@ function playerAttackRight(idObjeto1) {
         attackingRight.classList.add('attackingRight');
 
         attackRight.released = false;
+        atacou = false
         setTimeout(() => {
             attackingRight.classList.remove('attackingRight');
         }, 300);       
@@ -654,6 +668,7 @@ function playerAttackUp(idObjeto1) {
         attackingUp.classList.add('attackingUp');
 
         attackUp.released = false;
+        atacou = false
         setTimeout(() => {
             attackingUp.classList.remove('attackingUp');
         }, 300);       
@@ -671,6 +686,7 @@ function playerAttackDown(idObjeto1) {
         attackingDown.classList.add('attackingDown');
 
         attackDown.released = false;
+        atacou = false
         setTimeout(() => {
             attackingDown.classList.remove('attackingDown');
         }, 300);       
@@ -699,16 +715,18 @@ function detectarColisaoAtaqueLeft(objeto1, objeto2) {
     let colidiuAtaqueLeft = false;
 
     while((colidiuAtaqueLeft == false) && (indice < 3)) {
-        ((pontos_ataque_Left[indice].x >= boss_cultista_Right.left && pontos_ataque_Left[indice].x <= boss_cultista_Right.left + boss_cultista_Right.width && 
-        pontos_ataque_Left[indice].y >= boss_cultista_Right.top && pontos_ataque_Left[indice].y <= boss_cultista_Right.top + boss_cultista_Right.height)) ||
-        
-        ((pontos_boss_cultista_Right[indice].x >= attackingLeft.left && pontos_boss_cultista_Right[indice].x <= attackingLeft.left + attackingLeft.width && 
-        pontos_boss_cultista_Right[indice].y >= attackingLeft.top && pontos_boss_cultista_Right[indice].y <= attackingLeft.top + attackingLeft.height))
+    ((pontos_ataque_Left[indice].x >= boss_cultista_Right.left && pontos_ataque_Left[indice].x <= boss_cultista_Right.left + boss_cultista_Right.width && 
+    pontos_ataque_Left[indice].y >= boss_cultista_Right.top && pontos_ataque_Left[indice].y <= boss_cultista_Right.top + boss_cultista_Right.height)) ||
+    
+    ((pontos_boss_cultista_Right[indice].x >= attackingLeft.left && pontos_boss_cultista_Right[indice].x <= attackingLeft.left + attackingLeft.width && 
+    pontos_boss_cultista_Right[indice].y >= attackingLeft.top && pontos_boss_cultista_Right[indice].y <= attackingLeft.top + attackingLeft.height))
         ? colidiuAtaqueLeft = true : indice ++;
     }
 
     if (colidiuAtaqueLeft == true && lifeBoss > 0) {
-        lifeBoss = lifeBoss -playerDano;
+        PlayerAcertou = true;
+    } else {
+        PlayerAcertou = false;
     }
 
     console.log(lifeBoss);
@@ -731,21 +749,22 @@ function detectarColisaoAtaqueRight(objeto1, objeto2) {
     let indice = 0;
     let colidiuAtaqueRight = false;
 
-    while((colidiuAtaqueRight == false) && (indice < 3))
+    while((colidiuAtaqueRight == false) && (indice < 3)) {
     ((pontos_ataque_Right[indice].x >= boss_cultista_Left.left && pontos_ataque_Right[indice].x <= boss_cultista_Left.left + boss_cultista_Left.width && 
     pontos_ataque_Right[indice].y >= boss_cultista_Left.top && pontos_ataque_Right[indice].y <= boss_cultista_Left.top + boss_cultista_Left.height)) ||
     
     ((pontos_boss_cultista_Left[indice].x >= attackingRight.left && pontos_boss_cultista_Left[indice].x <= attackingRight.left + attackingRight.width && 
     pontos_boss_cultista_Left[indice].y >= attackingRight.top && pontos_boss_cultista_Left[indice].y <= attackingRight.top + attackingRight.height))
     ? colidiuAtaqueRight = true : indice ++;
+    }
 
-    if (colidiuAtaqueRight == true) {
-        lifeBoss = lifeBoss - playerDano;
+    if (colidiuAtaqueRight == true && lifeBoss > 0) {
+        PlayerAcertou = true;
+    } else {
+        PlayerAcertou = false;
     }
 
     console.log(lifeBoss);
-
-    return colidiuAtaqueRight;
 }
 
 function detectarColisaoAtaqueUp(objeto1, objeto2) {
@@ -814,6 +833,40 @@ function detectarColisaoAtaqueDown(objeto1, objeto2) {
     console.log(lifeBoss);
 
     return colidiuAtaqueDown
+}
+
+function danoAoBoss() {
+    if (PlayerAcertou == true && atacou == true && lifeBoss == 10) {
+        lifeBoss = lifeBoss - 1;
+        atacou = false;
+    } else if (PlayerAcertou == true && atacou == true && lifeBoss == 9) {
+        lifeBoss = lifeBoss - 1;
+        atacou = false;
+    } else if (PlayerAcertou == true && atacou == true && lifeBoss == 8) {
+        lifeBoss = lifeBoss - 1;
+        atacou = false;
+    } else if (PlayerAcertou == true && atacou == true && lifeBoss == 7) {
+        lifeBoss = lifeBoss - 1;
+        atacou = false;
+    } else if (PlayerAcertou == true && atacou == true && lifeBoss == 6) {
+        lifeBoss = lifeBoss - 1;
+        atacou = false;
+    } else if (PlayerAcertou == true && atacou == true && lifeBoss == 5) {
+        lifeBoss = lifeBoss - 1;
+        atacou = false;
+    } else if (PlayerAcertou == true && atacou == true && lifeBoss == 4) {
+        lifeBoss = lifeBoss - 1;
+        atacou = false;
+    } else if (PlayerAcertou == true && atacou == true && lifeBoss == 3) {
+        lifeBoss = lifeBoss - 1;
+        atacou = false;
+    } else if (PlayerAcertou == true && atacou == true && lifeBoss == 2) {
+        lifeBoss = lifeBoss - 1;
+        atacou = false;
+    } else if (PlayerAcertou == true && atacou == true && lifeBoss == 1) {
+        lifeBoss = lifeBoss - 1;
+        atacou = false;
+    }
 }
 
 window.addEventListener('load', inicia);
