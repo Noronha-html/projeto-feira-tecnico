@@ -45,10 +45,13 @@ let portaDown; //porta de baixo
 
 //boss
 var lifeBoss; //vida do boss
+let boss_cultista_wrapper; //div que envolve o boss cultista para facilitar o movimento
+let boss_cultista; //boss cultista
 let boss_cultista_Left; //esquerda do boss cultista
 let boss_cultista_Right; //direita do boss cultista
 let boss_cultista_Top; //em cima do boss cultista
 let boss_cultista_Bottom; //em baixo do boss cultista
+let velBossCultista; //velocidade do boss cultista;
 
 //inicia as variáveis
 function inicia () {
@@ -115,10 +118,14 @@ function inicia () {
 
     portaTop = document.getElementById('portaTop');
 
+    boss_cultista_wrapper = document.getElementById('boss_cultista-wrapper')
+    boss_cultista = document.getElementById('boss_cultista');
     boss_cultista_Left = document.getElementById('boss_cultista-left');
     boss_cultista_Right = document.getElementById('boss_cultista-right');
     boss_cultista_Top = document.getElementById('boss_cultista-top');
     boss_cultista_Bottom = document.getElementById('boss_cultista-bottom');
+
+    velBossCultista = 1;
 };
 
 //movimenta o personagem
@@ -285,6 +292,8 @@ function funcionalidades () {
     detectarColisaoAtaqueDown('attackingDown', 'boss_cultista-top');
 
     danoAoBoss();
+
+    movimentarBoss();
 };
 
 //detecta colisão na parede esquerda
@@ -860,6 +869,18 @@ function danoAoBoss() {
     } else if (PlayerAcertou == true && atacou == true && lifeBoss == 1) {
         lifeBoss = lifeBoss - 1;
         atacou = false;
+    } else if (lifeBoss == 0) {
+        boss_cultista.style.display = 'none';
+        boss_cultista_Left.style.display = 'none';
+        boss_cultista_Right.style.display = 'none';
+        boss_cultista_Top.style.display = 'none';
+        boss_cultista_Bottom.style.display = 'none';
+    }
+}
+
+function movimentarBoss() {
+    if (objetoPlayer.left >= boss_cultista_wrapper.left + boss_cultista_wrapper.width) {
+        boss_cultista_wrapper.style.x = velBossCultista + 'px';
     }
 }
 

@@ -249,44 +249,53 @@ body{
 }
 
 /* bosses */
+#boss_cultista-wrapper {
+    width: 81px;
+    height: 81px;
+    background-color: purple;
+    display: block;
+    position: relative;
+    left: 30vw;
+    top: 35vh;
+}
+
 #boss_cultista {
     background-color: orange;
     width: 80px;
     height: 80px;
     position: absolute;
-    top: 30%;
-    left: 35%;
 }
 
 #boss_cultista-left {
     width: 80px;
     height: 77px;
     position: absolute;
-    top: 30.2vh;
-    left: 34.85vw;
+    top: 1%;
+    background-color: red;
 }
 
 #boss_cultista-right {
     width: 80px;
     height: 77px;
     position: absolute;
-    top: 30.1vh;
-    left: 35vw;
+    top: 1%;
+    left: 1%;
+    background-color: blue;
 }
 
 #boss_cultista-top {
     width: 77px;
-    height: 80px;
+    height: 79px;
     position: absolute;
-    top: 29.9vh;
-    left: 35.1vw;
+    left: 1%;
+    background-color: yellow;
 }
 
 #boss_cultista-bottom {
     width: 77px;
     height: 80px;
     position: absolute;
-    top: 30vh;
-    left: 35vw;
-
+    top: 1%;
+    left: 1%;
+    background-color: pink;
 }
