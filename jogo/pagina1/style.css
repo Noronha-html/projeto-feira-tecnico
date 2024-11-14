@@ -11,22 +11,17 @@ body{
 
 /*diferentes estilos do player*/
 #player{
-    background-size: cover;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 350px;
+    left: 250px;
     width: 80px;
     height: 80px;
-    margin-left: 500px;
-    margin-top: 80px;
 }
 
 .staticLeft {
     background-image: url(/jogo/img/Sprites/sPlayer\(Left\).png);
     background-size: cover;
     position: absolute;
-    top: 0;
-    left: 0;
     width: 80px;
     height: 80px;
 }
@@ -35,8 +30,6 @@ body{
     background-image: url(/jogo/img/Sprites/sPlayer\(Right\).png);
     background-size: cover;
     position: absolute;
-    top: 0;
-    left: 0;
     width: 80px;
     height: 80px;
 }
@@ -45,8 +38,6 @@ body{
     background-image: url(/jogo/img/Sprites/sPlayer\(Up\).png);
     background-size: cover;
     position: absolute;
-    top: 0;
-    left: 0;
     width: 80px;
     height: 80px;
 }
@@ -55,8 +46,6 @@ body{
     background-image: url(/jogo/img/Sprites/sPlayer\(Down\).png);
     background-size: cover;
     position: absolute;
-    top: 0;
-    left: 0;
     width: 80px;
     height: 80px;
 }
@@ -65,8 +54,6 @@ body{
     background-image: url(/jogo/img/Sprites/movePlayer\ \(Left\).gif);
     background-size: cover;
     position: absolute;
-    top: 0;
-    left: 0;
     width: 80px;
     height: 80px;
 }
@@ -75,8 +62,6 @@ body{
     background-image: url(/jogo/img/Sprites/movePlayer\ \(Right\).gif);
     background-size: cover;
     position: absolute;
-    top: 0;
-    left: 0;
     width: 80px;
     height: 80px;
 }
@@ -85,8 +70,6 @@ body{
     background-image: url(/jogo/img/Sprites/movePlayer\ \(Up\).gif);
     background-size: cover;
     position: absolute;
-    top: 0;
-    left: 0;
     width: 80px;
     height: 80px;
 }
@@ -95,8 +78,6 @@ body{
     background-image: url(/jogo/img/Sprites/movePlayer\ \(Down\).gif);
     background-size: cover;
     position: absolute;
-    top: 0;
-    left: 0;
     width: 80px;
     height: 80px;
 }
@@ -254,24 +235,22 @@ body{
     height: 81px;
     background-color: purple;
     display: block;
-    position: relative;
-    left: 30vw;
-    top: 35vh;
+    position: absolute;
+    left: 300px;
+    top: 250px;
 }
 
 #boss_cultista {
-    background-color: orange;
     width: 80px;
     height: 80px;
     position: absolute;
 }
 
 #boss_cultista-left {
-    width: 80px;
+    width: 70px;
     height: 77px;
     position: absolute;
     top: 1%;
-    background-color: red;
 }
 
 #boss_cultista-right {
@@ -280,7 +259,6 @@ body{
     position: absolute;
     top: 1%;
     left: 1%;
-    background-color: blue;
 }
 
 #boss_cultista-top {
@@ -288,7 +266,6 @@ body{
     height: 79px;
     position: absolute;
     left: 1%;
-    background-color: yellow;
 }
 
 #boss_cultista-bottom {
@@ -297,5 +274,4 @@ body{
     position: absolute;
     top: 1%;
     left: 1%;
-    background-color: pink;
 }

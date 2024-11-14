@@ -292,8 +292,8 @@ function funcionalidades () {
     detectarColisaoAtaqueDown('attackingDown', 'boss_cultista-top');
 
     danoAoBoss();
-
-    movimentarBoss();
+    
+    movimentarBoss('player', 'boss_cultista-wrapper');
 };
 
 //detecta colisão na parede esquerda
@@ -870,6 +870,7 @@ function danoAoBoss() {
         lifeBoss = lifeBoss - 1;
         atacou = false;
     } else if (lifeBoss == 0) {
+        boss_cultista_wrapper.style.display = 'none';
         boss_cultista.style.display = 'none';
         boss_cultista_Left.style.display = 'none';
         boss_cultista_Right.style.display = 'none';
@@ -878,10 +879,31 @@ function danoAoBoss() {
     }
 }
 
-function movimentarBoss() {
-    if (objetoPlayer.left >= boss_cultista_wrapper.left + boss_cultista_wrapper.width) {
-        boss_cultista_wrapper.style.x = velBossCultista + 'px';
+function movimentarBoss(idObjeto1, idObjeto2) {
+    let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
+    let boss_cultista_wrapper = document.getElementById(idObjeto2).getBoundingClientRect();
+
+    let pontos_Player = {
+        x : objetoPlayer.left, 
+        y : objetoPlayer.top,
+        width : objetoPlayer.left + objetoPlayer.width,
+        height : objetoPlayer.top + objetoPlayer.height,
     }
+
+    let pontos_boss_cultista_Wrapper = {
+        x : boss_cultista_wrapper.left, 
+        y : boss_cultista_wrapper.top,
+        width : boss_cultista_wrapper.left + boss_cultista_wrapper.width,
+        height : boss_cultista_wrapper.top + boss_cultista_wrapper.height,
+    }
+
+    if (pontos_boss_cultista_Wrapper.x + pontos_boss_cultista_Wrapper.width <= pontos_Player.x) {
+        pontos_boss_cultista_Wrapper.x += 1;
+        pontos_boss_cultista_Wrapper.style = 'left: ' + pontos_boss_cultista_Wrapper.x + 'px'
+    }
+
+    console.log(pontos_Player);
+    console.log(pontos_boss_cultista_Wrapper);
 }
 
 window.addEventListener('load', inicia);
