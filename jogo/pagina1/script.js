@@ -51,7 +51,12 @@ let boss_cultista_Left; //esquerda do boss cultista
 let boss_cultista_Right; //direita do boss cultista
 let boss_cultista_Top; //em cima do boss cultista
 let boss_cultista_Bottom; //em baixo do boss cultista
-let velBossCultista; //velocidade do boss cultista;
+let velBossCultista; //velocidade do boss cultista
+let dxBossCultista; //direção do boss no eixo x
+let dyBossCultista; //direção do boss no eixo y
+let pxBossCultista; //posição do boss no eixo x
+let pyBossCultista; //posição do boss no eixo y
+let bossMovimentando; //verifica se o boss está se movimentando
 
 //inicia as variáveis
 function inicia () {
@@ -125,7 +130,14 @@ function inicia () {
     boss_cultista_Top = document.getElementById('boss_cultista-top');
     boss_cultista_Bottom = document.getElementById('boss_cultista-bottom');
 
-    velBossCultista = 1;
+    velBossCultista = 0.5;
+
+    dxBossCultista = 0;
+    dyBossCultista = 0;
+    pxBossCultista = 0;
+    pyBossCultista = 0;
+
+    bossMovimentando = true;
 };
 
 //movimenta o personagem
@@ -274,7 +286,13 @@ function funcionalidades () {
     objetoPlayer.style.left = px + 'px';
     objetoPlayer.style.top = py + 'px';
 
-    detectarColisaoParedeE__quadRight__bossRight('player', 'paredeE', 'quadRight', 'boss_cultista-right');
+    pxBossCultista += dxBossCultista * velBossCultista;
+    pyBossCultista += dyBossCultista * velBossCultista;
+
+    boss_cultista_wrapper.style.left = pxBossCultista + 'px';
+    boss_cultista_wrapper.style.top = pyBossCultista + 'px';
+
+    (detectarColisaoParedeE__quadRight__bossRight('player', 'paredeE', 'quadRight', 'boss_cultista-right') == true)? bossMovimentando = false : bossMovimentando = true;
     detectarColisaoParedeD__quadLeft__bossLeft('player', 'paredeD', 'quadLeft', 'boss_cultista-left');
     detectarColisaoParedeC__quadBottom__bossBottom('player', 'paredeC', 'quadBottom', 'boss_cultista-bottom');
     detectarColisaoParedeB__quadTop__bossTop('player', 'paredeB', 'quadTop', 'boss_cultista-top');
@@ -294,6 +312,8 @@ function funcionalidades () {
     danoAoBoss();
     
     movimentarBoss('player', 'boss_cultista-wrapper');
+
+    console.log(detectarColisaoParedeE__quadRight__bossRight('player', 'paredeE', 'quadRight', 'boss_cultista-right'));
 };
 
 //detecta colisão na parede esquerda
@@ -879,31 +899,31 @@ function danoAoBoss() {
     }
 }
 
-function movimentarBoss(idObjeto1, idObjeto2) {
-    let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
-    let boss_cultista_wrapper = document.getElementById(idObjeto2).getBoundingClientRect();
+function movimentarBoss(/*idObjeto1, idObjeto2*/) {
+    let objetoPlayer = document.getElementById('player').getBoundingClientRect();
+    let boss_cultista_wrapper = document.getElementById('boss_cultista-wrapper').getBoundingClientRect();
 
-    let pontos_Player = {
-        x : objetoPlayer.left, 
-        y : objetoPlayer.top,
-        width : objetoPlayer.left + objetoPlayer.width,
-        height : objetoPlayer.top + objetoPlayer.height,
+    if (bossMovimentando == true) {
+        if (objetoPlayer.left > boss_cultista_wrapper.left + boss_cultista_wrapper.width) {
+            dxBossCultista = 1;
+            bossMovimentando = false;
+        } else if (objetoPlayer.left + objetoPlayer.width < boss_cultista_wrapper.left) {
+            dxBossCultista = -1;
+            bossMovimentando = false;
+        } else if (objetoPlayer.top > boss_cultista_wrapper.top + boss_cultista_wrapper.height) {
+            dyBossCultista = 1;
+            bossMovimentando = false;
+        } else if (objetoPlayer.top + objetoPlayer.height < boss_cultista_wrapper.top) {
+            dyBossCultista = -1;
+            bossMovimentando = false;
+        } else if (bossMovimentando == false) {
+            dxBossCultista = 0;
+            dyBossCultista = 0;
+        }
     }
 
-    let pontos_boss_cultista_Wrapper = {
-        x : boss_cultista_wrapper.left, 
-        y : boss_cultista_wrapper.top,
-        width : boss_cultista_wrapper.left + boss_cultista_wrapper.width,
-        height : boss_cultista_wrapper.top + boss_cultista_wrapper.height,
-    }
-
-    if (pontos_boss_cultista_Wrapper.x + pontos_boss_cultista_Wrapper.width <= pontos_Player.x) {
-        pontos_boss_cultista_Wrapper.x += 1;
-        pontos_boss_cultista_Wrapper.style = 'left: ' + pontos_boss_cultista_Wrapper.x + 'px'
-    }
-
-    console.log(pontos_Player);
-    console.log(pontos_boss_cultista_Wrapper);
+    console.log(objetoPlayer.left);
+    console.log(boss_cultista_wrapper.left + boss_cultista_wrapper.width);
 }
 
 window.addEventListener('load', inicia);

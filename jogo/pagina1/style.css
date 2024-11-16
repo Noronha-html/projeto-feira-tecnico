@@ -16,6 +16,8 @@ body{
     left: 250px;
     width: 80px;
     height: 80px;
+    margin-left: 800px;
+    margin-top: 200px;
 }
 
 .staticLeft {
@@ -234,10 +236,11 @@ body{
     width: 81px;
     height: 81px;
     background-color: purple;
-    display: block;
     position: absolute;
-    left: 300px;
-    top: 250px;
+    left: 0px;
+    top: 0px;
+    margin-left: 300px;
+    margin-top: 250px;
 }
 
 #boss_cultista {
