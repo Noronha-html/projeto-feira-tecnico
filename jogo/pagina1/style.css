@@ -257,11 +257,13 @@ body{
 }
 
 #boss_cultista-right {
-    width: 80px;
+    width: 70px;
     height: 77px;
     position: absolute;
     top: 1%;
-    left: 1%;
+    left: 12%;
+    z-index: 10;
+    background-color: red;
 }
 
 #boss_cultista-top {
