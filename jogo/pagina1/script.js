@@ -310,9 +310,9 @@ function funcionalidades () {
     detectarColisaoBossTop('player', 'boss_cultista-top');
     detectarColisaoBossBottom('player', 'boss_cultista-bottom');
 
-    detectarColisaoBossLeft__ParedeE__quadRight('boss_cultista-left', 'paredeE', 'quadRight');
-    /*detectarColisaoBossRight__ParedeD__quadLeft('boss_cultista-right', 'paredeD', 'quadLeft');
-    detectarColisaoBossTop__ParedeC__quadBottom('boss_cultista-top', 'paredeC', 'quadBottom');
+    (detectarColisaoBossLeft__ParedeE__quadRight('boss_cultista-left', 'paredeE', 'quadRight') == true)? bossMovimentandoLeft = false : bossMovimentandoLeft = true;
+    (detectarColisaoBossRight__ParedeD__quadLeft('boss_cultista-right', 'paredeD', 'quadLeft') == true)? bossMovimentandoRight = false : bossMovimentandoRight = true;
+    /*detectarColisaoBossTop__ParedeC__quadBottom('boss_cultista-top', 'paredeC', 'quadBottom');
     detectarColisaoBossBottom__ParedeB__quadTop('boss_cultista-bottom', 'paredeB', 'quadTop');*/
 
     detectarColisaoPortaTop('player', 'portaTop');
@@ -714,6 +714,49 @@ function detectarColisaoBossLeft__ParedeE__quadRight(idObjeto1, idObjeto2, idObj
         pontos_quadRight[indice].y >= boss_cultista_Left.top && pontos_quadRight[indice].y <= boss_cultista_Left.top + boss_cultista_Left.height))
         ? colidiu = true : indice ++;
         
+    
+    console.log(colidiu);
+
+    return colidiu;
+}
+
+function detectarColisaoBossRight__ParedeD__quadLeft(idObjeto1, idObjeto2, idObjeto3) {
+    let boss_cultista_Right = document.getElementById(idObjeto1).getBoundingClientRect();
+    let paredeD = document.getElementById(idObjeto2).getBoundingClientRect();
+    let quadLeft = document.getElementById(idObjeto3).getBoundingClientRect();
+
+    let pontos_boss_cultista_Right = [{x : boss_cultista_Right.left, y : boss_cultista_Right.top}, 
+                                     {x : boss_cultista_Right.left + boss_cultista_Right.width, y : boss_cultista_Right.top},
+                                     {x : boss_cultista_Right.left + boss_cultista_Right.width, y : boss_cultista_Right.top + boss_cultista_Right.height},
+                                     {x : boss_cultista_Right.left, y : boss_cultista_Right.top + boss_cultista_Right.height}];
+
+    let pontos_parede_D = [{x : paredeD.left, y : paredeD.top}, 
+                           {x : paredeD.left + paredeD.width, y : paredeD.top},
+                           {x : paredeD.left + paredeD.width, y : paredeD.top + paredeD.height},
+                           {x : paredeD.left, y : paredeD.top + paredeD.height}];
+
+    let pontos_quadLeft = [{x : quadLeft.left, y : quadLeft.top}, 
+                            {x : quadLeft.left + quadLeft.width, y : quadLeft.top},
+                            {x : quadLeft.left + quadLeft.width, y : quadLeft.top + quadLeft.height},
+                            {x : quadLeft.left, y : quadLeft.top + quadLeft.height}];
+
+    let colidiu = false;
+    let indice = 0;
+
+    while (colidiu == false && indice < 3)
+        ((pontos_boss_cultista_Right[indice].x >= paredeD.left && pontos_boss_cultista_Right[indice].x <= paredeD.left + paredeD.width && 
+        pontos_boss_cultista_Right[indice].y >= paredeD.top && pontos_boss_cultista_Right[indice].y <= paredeD.top + paredeD.height)) ||
+        
+        ((pontos_parede_D[indice].x >= boss_cultista_Right.left && pontos_parede_D[indice].x <= boss_cultista_Right.left + boss_cultista_Right.width && 
+        pontos_parede_D[indice].y >= boss_cultista_Right.top && pontos_parede_D[indice].y <= boss_cultista_Right.top + boss_cultista_Right.height)) ||
+
+        ((pontos_boss_cultista_Right[indice].x >= quadLeft.left && pontos_boss_cultista_Right[indice].x <= quadLeft.left + quadLeft.width && 
+        pontos_boss_cultista_Right[indice].y >= quadLeft.top && pontos_boss_cultista_Right[indice].y <= quadLeft.top + quadLeft.height)) ||
+
+        ((pontos_quadLeft[indice].x >= boss_cultista_Right.left && pontos_quadLeft[indice].x <= boss_cultista_Right.left + boss_cultista_Right.width && 
+        pontos_quadLeft[indice].y >= boss_cultista_Right.top && pontos_quadLeft[indice].y <= boss_cultista_Right.top + boss_cultista_Right.height))
+        ? colidiu = true : indice ++;
+        
         /*if (colidiu == true) {
             bossMovimentandoLeft = false;
         } else if (colidiu == false) {
@@ -920,8 +963,6 @@ function detectarColisaoAtaqueLeft(objeto1, objeto2) {
     if (colidiuAtaqueLeft == true && lifeBoss > 0) {
         PlayerAcertou = true;
     }
-
-    console.log(lifeBoss);
 }
 
 function detectarColisaoAtaqueRight(objeto1, objeto2) {
@@ -953,8 +994,6 @@ function detectarColisaoAtaqueRight(objeto1, objeto2) {
     if (colidiuAtaqueRight == true && lifeBoss > 0) {
         PlayerAcertou = true;
     }
-
-    console.log(lifeBoss);
 }
 
 function detectarColisaoAtaqueUp(objeto1, objeto2) {
@@ -986,8 +1025,6 @@ function detectarColisaoAtaqueUp(objeto1, objeto2) {
     if (colidiuAtaqueUp == true && lifeBoss > 0) {
         PlayerAcertou = true;
     }
-
-    console.log(lifeBoss);
 }
 
 function detectarColisaoAtaqueDown(objeto1, objeto2) {
@@ -1019,8 +1056,6 @@ function detectarColisaoAtaqueDown(objeto1, objeto2) {
     if (colidiuAtaqueDown == true && lifeBoss > 0) {
         PlayerAcertou = true;
     }
-
-    console.log(lifeBoss);
 }
 
 function danoAoBoss() {
@@ -1069,23 +1104,19 @@ function movimentarBoss(/*idObjeto1, idObjeto2*/) {
     let boss_cultista_wrapper = document.getElementById('boss_cultista-wrapper').getBoundingClientRect();
 
     if (bossMovimentando == true) {
-        if (objetoPlayer.left > boss_cultista_wrapper.left + boss_cultista_wrapper.width && bossMovimentandoRight) {
+        if (objetoPlayer.left > boss_cultista_wrapper.left + boss_cultista_wrapper.width) {
             dxBossCultista = 1;
-        } else if (objetoPlayer.left + objetoPlayer.width < boss_cultista_wrapper.left &&
-             detectarColisaoBossLeft__ParedeE__quadRight('boss_cultista-left', 'paredeE', 'quadRight') == false) {
+        } else if (objetoPlayer.left + objetoPlayer.width < boss_cultista_wrapper.left) {
             dxBossCultista = -1;
-        } else if (objetoPlayer.top > boss_cultista_wrapper.top + boss_cultista_wrapper.height && bossMovimentandoDown) {
+        } else if (objetoPlayer.top > boss_cultista_wrapper.top + boss_cultista_wrapper.height) {
             dyBossCultista = 1;
-        } else if (objetoPlayer.top + objetoPlayer.height < boss_cultista_wrapper.top && bossMovimentandoUp) {
+        } else if (objetoPlayer.top + objetoPlayer.height < boss_cultista_wrapper.top) {
             dyBossCultista = -1;
         }
     } else if (bossMovimentando == false) {
         dxBossCultista = 0;
         dyBossCultista = 0;
     }
-
-    console.log(objetoPlayer.left);
-    console.log(boss_cultista_wrapper.left + boss_cultista_wrapper.width);
 }
 
-window.addEventListener('load', inicia);
+window.addEventListener('load', inicia)
