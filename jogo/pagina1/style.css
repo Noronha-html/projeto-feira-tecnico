@@ -280,3 +280,10 @@ body{
     top: 1%;
     left: 1%;
 }
+
+.teste {
+    width: 100px;
+    height: 63px;
+    background-color: blue;
+    position: absolute;
+}

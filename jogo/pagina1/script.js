@@ -142,10 +142,10 @@ function inicia () {
     pyBossCultista = 0;
 
     bossMovimentando = true;
-    bossMovimentandoLeft = true;
-    bossMovimentandoRight = true;
-    bossMovimentandoUp = true;
-    bossMovimentandoDown = true;
+    bossMovimentandoLeft = false;
+    bossMovimentandoRight = false;
+    bossMovimentandoUp = false;
+    bossMovimentandoDown = false;
 };
 
 //movimenta o personagem
@@ -713,9 +713,6 @@ function detectarColisaoBossLeft__ParedeE__quadRight(idObjeto1, idObjeto2, idObj
         ((pontos_quadRight[indice].x >= boss_cultista_Left.left && pontos_quadRight[indice].x <= boss_cultista_Left.left + boss_cultista_Left.width && 
         pontos_quadRight[indice].y >= boss_cultista_Left.top && pontos_quadRight[indice].y <= boss_cultista_Left.top + boss_cultista_Left.height))
         ? colidiu = true : indice ++;
-        
-    
-    console.log(colidiu);
 
     return colidiu;
 }
@@ -1102,20 +1099,70 @@ function danoAoBoss() {
 function movimentarBoss(/*idObjeto1, idObjeto2*/) {
     let objetoPlayer = document.getElementById('player').getBoundingClientRect();
     let boss_cultista_wrapper = document.getElementById('boss_cultista-wrapper').getBoundingClientRect();
+    let paredeE = document.getElementById('paredeE').getBoundingClientRect();
+    let paredeD = document.getElementById('paredeD').getBoundingClientRect();
+    let paredeC = document.getElementById('paredeC').getBoundingClientRect();
+    let paredeB = document.getElementById('paredeB').getBoundingClientRect();
 
-    if (bossMovimentando == true) {
-        if (objetoPlayer.left > boss_cultista_wrapper.left + boss_cultista_wrapper.width) {
-            dxBossCultista = 1;
-        } else if (objetoPlayer.left + objetoPlayer.width < boss_cultista_wrapper.left) {
-            dxBossCultista = -1;
-        } else if (objetoPlayer.top > boss_cultista_wrapper.top + boss_cultista_wrapper.height) {
-            dyBossCultista = 1;
-        } else if (objetoPlayer.top + objetoPlayer.height < boss_cultista_wrapper.top) {
-            dyBossCultista = -1;
-        }
-    } else if (bossMovimentando == false) {
+
+    if (boss_cultista_wrapper.left >= paredeE.left + paredeE.width) {
+        bossMovimentandoLeft = true;
+    } else if (bossMovimentandoLeft == false) {
         dxBossCultista = 0;
+    }
+
+    if (boss_cultista_wrapper.left + boss_cultista_wrapper.width <= paredeD.left && bossMovimentando) {
+        bossMovimentandoRight = true;
+    } else if (bossMovimentandoRight == false) {
+        dxBossCultista = 0;
+    }
+
+    if (boss_cultista_wrapper.top >= paredeC.top + paredeC.height) {
+        bossMovimentandoUp = true;
+    } else if (bossMovimentandoUp == false) {
         dyBossCultista = 0;
+    }
+
+    if (boss_cultista_wrapper.top + boss_cultista_wrapper.height <= paredeB.top) {
+        bossMovimentandoDown = true;
+    } else if (bossMovimentandoDown == false) {
+        dyBossCultista = 0;
+    }
+
+
+    //fazendo o boss movimentar
+    if (bossMovimentando == true) {
+        if (bossMovimentandoLeft == true) {
+            if (objetoPlayer.left + objetoPlayer.width < boss_cultista_wrapper.left) {
+                dxBossCultista = -1;
+            }
+        } else if (bossMovimentandoLeft == false) {
+            dxBossCultista = 0;
+        }
+
+        if (bossMovimentandoRight == true) {
+            if (objetoPlayer.left > boss_cultista_wrapper.left + boss_cultista_wrapper.width) {
+                dxBossCultista = 1;
+            }
+        } else if (bossMovimentandoRight == false) {
+            dxBossCultista = 0;
+        }
+
+        if (bossMovimentandoUp == true) {
+            if (objetoPlayer.top + objetoPlayer.height < boss_cultista_wrapper.top) {
+                dyBossCultista = -1;
+            }
+        } else if (bossMovimentandoUp == false) {
+            dyBossCultista = 0;
+        }
+
+        if (bossMovimentandoDown == true) {
+            if (objetoPlayer.top > boss_cultista_wrapper.top + boss_cultista_wrapper.height) {
+                dyBossCultista = 1;
+            }
+        } else if (bossMovimentandoDown == false) {
+            dyBossCultista = 0;
+        }
     }
 }
 
