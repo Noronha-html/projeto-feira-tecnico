@@ -93,7 +93,7 @@ let jsonString = `{
           alert("O ataque errou!");
       }
   }
-  
+
   function gameLoop() {
       moveBoss();
       updateStatus();
