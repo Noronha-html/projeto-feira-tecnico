@@ -1059,33 +1059,43 @@ function danoAoBoss() {
     if (PlayerAcertou == true && atacou == true && lifeBoss == 10) {
         lifeBoss = lifeBoss - 1;
         atacou = false;
+        PlayerAcertou = false;
     } else if (PlayerAcertou == true && atacou == true && lifeBoss == 9) {
         lifeBoss = lifeBoss - 1;
         atacou = false;
+        PlayerAcertou = false;
     } else if (PlayerAcertou == true && atacou == true && lifeBoss == 8) {
         lifeBoss = lifeBoss - 1;
         atacou = false;
+        PlayerAcertou = false;
     } else if (PlayerAcertou == true && atacou == true && lifeBoss == 7) {
         lifeBoss = lifeBoss - 1;
         atacou = false;
+        PlayerAcertou = false;
     } else if (PlayerAcertou == true && atacou == true && lifeBoss == 6) {
         lifeBoss = lifeBoss - 1;
         atacou = false;
+        PlayerAcertou = false;
     } else if (PlayerAcertou == true && atacou == true && lifeBoss == 5) {
         lifeBoss = lifeBoss - 1;
         atacou = false;
+        PlayerAcertou = false;
     } else if (PlayerAcertou == true && atacou == true && lifeBoss == 4) {
         lifeBoss = lifeBoss - 1;
         atacou = false;
+        PlayerAcertou = false;
     } else if (PlayerAcertou == true && atacou == true && lifeBoss == 3) {
         lifeBoss = lifeBoss - 1;
         atacou = false;
+        PlayerAcertou = false;
     } else if (PlayerAcertou == true && atacou == true && lifeBoss == 2) {
         lifeBoss = lifeBoss - 1;
         atacou = false;
+        PlayerAcertou = false;
     } else if (PlayerAcertou == true && atacou == true && lifeBoss == 1) {
         lifeBoss = lifeBoss - 1;
         atacou = false;
+        PlayerAcertou = false;
     } else if (lifeBoss == 0) {
         boss_cultista_wrapper.style.display = 'none';
         boss_cultista.style.display = 'none';
