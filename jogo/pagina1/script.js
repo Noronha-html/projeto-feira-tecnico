@@ -52,8 +52,8 @@ let boss_cultista_Right; //direita do boss cultista
 let boss_cultista_Top; //em cima do boss cultista
 let boss_cultista_Bottom; //em baixo do boss cultista
 let velBossCultista; //velocidade do boss cultista
-let dxBossCultista; //direção do boss no eixo x
-let dyBossCultista; //direção do boss no eixo y
+let dxBossCultista;
+let dyBossCultista;
 let pxBossCultista; //posição do boss no eixo x
 let pyBossCultista; //posição do boss no eixo y
 let bossMovimentando; //verifica se o boss está se movimentando
@@ -329,7 +329,7 @@ function funcionalidades () {
 
     danoAoBoss();
     
-    //movimentarBoss('player', 'boss_cultista-wrapper');
+    movimentarBoss('player', 'boss_cultista-wrapper');
 
    // console.log(detectarColisaoParedeE__quadRight__bossRight('player', 'paredeE', 'quadRight', 'boss_cultista-right'));
 };
@@ -1106,7 +1106,7 @@ function danoAoBoss() {
     }
 }
 
-/*function movimentarBoss(*//*idObjeto1, idObjeto2*//*) {
+function movimentarBoss(/*idObjeto1, idObjeto2*/) {
     let objetoPlayer = document.getElementById('player').getBoundingClientRect();
     let boss_cultista_wrapper = document.getElementById('boss_cultista-wrapper').getBoundingClientRect();
     let paredeE = document.getElementById('paredeE').getBoundingClientRect();
@@ -1117,33 +1117,33 @@ function danoAoBoss() {
 
     if (boss_cultista_wrapper.left >= paredeE.left + paredeE.width) {
         bossMovimentandoLeft = true;
-    } else if (bossMovimentandoLeft == false) {
-        dxBossCultista = 0;
+    } else if (boss_cultista_wrapper.left < paredeE.left + paredeE.width) {
+        bossMovimentandoLeft = false;
     }
 
     if (boss_cultista_wrapper.left + boss_cultista_wrapper.width <= paredeD.left && bossMovimentando) {
         bossMovimentandoRight = true;
-    } else if (bossMovimentandoRight == false) {
-        dxBossCultista = 0;
+    } else {
+        bossMovimentandoRight = false;
     }
 
     if (boss_cultista_wrapper.top >= paredeC.top + paredeC.height) {
         bossMovimentandoUp = true;
-    } else if (bossMovimentandoUp == false) {
-        dyBossCultista = 0;
+    } else {
+        bossMovimentandoUp = false;
     }
 
     if (boss_cultista_wrapper.top + boss_cultista_wrapper.height <= paredeB.top) {
         bossMovimentandoDown = true;
-    } else if (bossMovimentandoDown == false) {
-        dyBossCultista = 0;
+    } else {
+        bossMovimentandoDown = false;
     }
 
 
     //fazendo o boss movimentar
     if (bossMovimentando == true) {
         if (bossMovimentandoLeft == true) {
-            if (objetoPlayer.left + objetoPlayer.width < boss_cultista_wrapper.left) {
+            if (objetoPlayer.left + objetoPlayer.width < boss_cultista_wrapper.left ) {
                 dxBossCultista = -1;
             }
         } else if (bossMovimentandoLeft == false) {
@@ -1154,8 +1154,8 @@ function danoAoBoss() {
             if (objetoPlayer.left > boss_cultista_wrapper.left + boss_cultista_wrapper.width) {
                 dxBossCultista = 1;
             }
-        } else if (bossMovimentandoRight == false) {
-            dxBossCultista = 0;
+        } else if (bossMovimentandoRight == false && boss_cultista_wrapper.left <= objetoPlayer.left + objetoPlayer.width) {
+            dxBossCultista = 0;    
         }
 
         if (bossMovimentandoUp == true) {
@@ -1170,10 +1170,10 @@ function danoAoBoss() {
             if (objetoPlayer.top > boss_cultista_wrapper.top + boss_cultista_wrapper.height) {
                 dyBossCultista = 1;
             }
-        } else if (bossMovimentandoDown == false) {
+        } else if (bossMovimentandoDown == false && boss_cultista_wrapper.top <= objetoPlayer.top + objetoPlayer.height) {
             dyBossCultista = 0;
         }
     }
-}*/
+}
 
 window.addEventListener('load', inicia)
