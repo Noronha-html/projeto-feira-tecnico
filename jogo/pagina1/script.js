@@ -4,6 +4,7 @@ let dy; //direção do eixo y
 let px; //posição final do eixo x
 let py; //posição final do eixo y
 let vel; //velocidade
+let playerVida; //vida do player
 let playerDano; //dano do player
 let PlayerAcertou; //declara se o player acertou ou não o ataque
 let atacou;
@@ -43,6 +44,7 @@ let portaRight; //porta da direita
 let portaTop; //porta de cima
 let portaDown; //porta de baixo
 let itemVida; //item de vida
+let corItemVida;
 
 //boss
 var lifeBoss; //vida do boss
@@ -71,6 +73,7 @@ function inicia () {
     py = 0;
     vel = 1;
     lifeBoss = 10;
+    playerVida = 5;
     playerDano = 1;
     PlayerAcertou = false;
     atacou = false;
@@ -127,9 +130,10 @@ function inicia () {
     quadRight = document.getElementById('quadRight');
 
     //portaTop = document.getElementById('portaTop');
-    portaRight = document.getElementById('portaRight')
+    portaRight = document.getElementById('portaRight');
 
-    itemVida = document.getElementById('itemVida')
+    itemVida = document.getElementById('itemVida');
+    corItemVida = document.querySelector('.corItemVida');
 
     boss_cultista_wrapper = document.getElementById('boss_cultista-wrapper')
     boss_cultista = document.getElementById('boss_cultista');
@@ -335,8 +339,10 @@ function funcionalidades () {
     detectarColisaoAtaqueDown('attackingDown', 'boss_cultista-top');
 
     danoAoBoss();
+
+    danoAoPlayer();
     
-    //movimentarBoss('player', 'boss_cultista-wrapper');
+    movimentarBoss('player', 'boss_cultista-wrapper');
 
    // console.log(detectarColisaoParedeE__quadRight__bossRight('player', 'paredeE', 'quadRight', 'boss_cultista-right'));
 };
@@ -812,9 +818,9 @@ function detectarColisaoPortaRight (idObjeto1, idObjeto2) {
                          {x : objetoPlayer.left, y : objetoPlayer.top + objetoPlayer.height}];
 
     let pontos_porta_Right = [{x : portaRight.left, y : portaRight.top}, 
-                           {x : portaRight.left + portaRight.width, y : portaRight.top},
-                           {x : portaRight.left + portaRight.width, y : portaRight.top + portaRight.height},
-                           {x : portaRight.left, y : portaRight.top + portaRight.height}];
+                              {x : portaRight.left + portaRight.width, y : portaRight.top},
+                              {x : portaRight.left + portaRight.width, y : portaRight.top + portaRight.height},
+                              {x : portaRight.left, y : portaRight.top + portaRight.height}];
 
     indice = 0;
     colidiu = false
@@ -849,18 +855,21 @@ function detectarColisaoItemVida(idObjeto1, idObjeto2) {
                             {x : itemVida.left + itemVida.width, y : itemVida.top + itemVida.height},
                             {x : itemVida.left, y : itemVida.top + itemVida.height}];
 
-    let colidiu = false;
+    let colidiuItemVida = false;
     let indice = 0;
 
-    while ((colidiu == false) && (indice < 3))
+    while ((colidiuItemVida == false) && (indice < 3))
     ((pontos_Player[indice].x >= itemVida.left && pontos_Player[indice].x <= itemVida.left + itemVida.width && 
     pontos_Player[indice].y >= itemVida.top && pontos_Player[indice].y <= itemVida.top + itemVida.height)) ||
 
     ((pontos_Item_Vida[indice].x >= objetoPlayer.left && pontos_Item_Vida[indice].x <= objetoPlayer.left + objetoPlayer.width && 
     pontos_Item_Vida[indice].y >= objetoPlayer.top && pontos_Item_Vida[indice].y <= objetoPlayer.top + objetoPlayer.height))
-    ? colidiu = true : indice ++;
+    ? colidiuItemVida = true : indice ++;
 
-    itemVida.style.display = 'none';
+    if (colidiuItemVida) {
+        corItemVida.style.display = 'none';
+        playerVida = 6;
+    }
 
     return colidiu;
 }
@@ -1242,6 +1251,10 @@ function movimentarBoss(/*idObjeto1, idObjeto2*/) {
             dyBossCultista = 0;
         }
     }
+}
+
+function danoAoPlayer () {
+
 }
 
 window.addEventListener('load', inicia)
