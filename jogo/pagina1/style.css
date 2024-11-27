@@ -294,8 +294,16 @@ body{
 #itemVida {
     width: 50px;
     height: 50px;
-    position: absolute;
+    position: relative;
     top: 30vh;
-    left: 70vw;
+    left: 80vw;
+}
+
+.corItemVida {
+    width: 100%;
+    height: 100%;
+    display: block;
     background-color: yellow;
+    position: absolute;
+    z-index: 20;
 }
