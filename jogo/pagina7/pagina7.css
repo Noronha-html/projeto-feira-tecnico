@@ -182,6 +182,24 @@ body{
     position: absolute;
 }
 
+#portaRight {
+    background-color: purple;
+    width: 5%;
+    height: 15%;
+    top: 43%;
+    left: 95vw;
+    position: absolute;
+}
+
+#portaLeft {
+    background-color: purple;
+    width: 5%;
+    height: 15%;
+    top: 43%;
+    left: 0vw;
+    position: absolute;
+}
+
 /* ataques */
 #not_attacking-left {
     display: none;
