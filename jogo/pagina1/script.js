@@ -42,6 +42,7 @@ let portaLeft; //porta da esquerda
 let portaRight; //porta da direita
 let portaTop; //porta de cima
 let portaDown; //porta de baixo
+let itemVida; //item de vida
 
 //boss
 var lifeBoss; //vida do boss
@@ -127,6 +128,8 @@ function inicia () {
 
     //portaTop = document.getElementById('portaTop');
     portaRight = document.getElementById('portaRight')
+
+    itemVida = document.getElementById('itemVida')
 
     boss_cultista_wrapper = document.getElementById('boss_cultista-wrapper')
     boss_cultista = document.getElementById('boss_cultista');
@@ -306,10 +309,10 @@ function funcionalidades () {
     detectarColisaoParedeC__quadBottom('player', 'paredeC', 'quadBottom');
     detectarColisaoParedeB__quadTop('player', 'paredeB', 'quadTop');
 
-    detectarColisaoBossLeft('player', 'boss_cultista-left');
-    detectarColisaoBossRight('player', 'boss_cultista-right');
-    detectarColisaoBossTop('player', 'boss_cultista-top');
-    detectarColisaoBossBottom('player', 'boss_cultista-bottom');
+    (detectarColisaoBossLeft('player', 'boss_cultista-left') == true)? bossMovimentando = false : bossMovimentando = true;
+    (detectarColisaoBossRight('player', 'boss_cultista-right') == true)? bossMovimentando = false : bossMovimentando = true;
+    (detectarColisaoBossTop('player', 'boss_cultista-top') == true)? bossMovimentando = false : bossMovimentando = true;
+    (detectarColisaoBossBottom('player', 'boss_cultista-bottom') == true)? bossMovimentando = false : bossMovimentando = true;
 
     (detectarColisaoBossLeft__ParedeE__quadRight('boss_cultista-left', 'paredeE', 'quadRight') == true)? bossMovimentandoLeft = false : bossMovimentandoLeft = true;
     (detectarColisaoBossRight__ParedeD__quadLeft('boss_cultista-right', 'paredeD', 'quadLeft') == true)? bossMovimentandoRight = false : bossMovimentandoRight = true;
@@ -318,6 +321,8 @@ function funcionalidades () {
 
     //detectarColisaoPortaTop('player', 'portaTop');
     detectarColisaoPortaRight('player', 'portaRight');
+
+    detectarColisaoItemVida('player', 'itemVida');
 
     playerAttackLeft('player');
     playerAttackRight('player');
@@ -331,7 +336,7 @@ function funcionalidades () {
 
     danoAoBoss();
     
-    movimentarBoss('player', 'boss_cultista-wrapper');
+    //movimentarBoss('player', 'boss_cultista-wrapper');
 
    // console.log(detectarColisaoParedeE__quadRight__bossRight('player', 'paredeE', 'quadRight', 'boss_cultista-right'));
 };
@@ -558,10 +563,10 @@ function detectarColisaoBossLeft(idObjeto1, idObjeto2) {
 
     if (tecD == false && colidiuBossLeft == true) {
         dx = 0;
-        bossMovimentando = false;
+        //bossMovimentando = false;
     } else if (colidiuBossLeft == false && detectarColisaoParedeD__quadLeft('player', 'paredeD', 'quadLeft') == false) {
         tecD = true;
-        bossMovimentando = true;
+        //bossMovimentando = true;
     }
 
     return colidiuBossLeft;
@@ -595,10 +600,10 @@ function detectarColisaoBossRight(idObjeto1, idObjeto2) {
 
     if (tecA == false && colidiuBossRight == true) {
         dx = 0;
-        bossMovimentando = false;
+        //bossMovimentando = false;
     } else if (colidiuBossRight == false && detectarColisaoParedeE__quadRight('player', 'paredeE', 'quadRight') == false) {
         tecA = true;
-        bossMovimentando = true;
+        //bossMovimentando = true;
     }
 
     return colidiuBossRight;
@@ -632,10 +637,10 @@ function detectarColisaoBossTop(idObjeto1, idObjeto2) {
 
     if (tecS == false && colidiuBossTop == true) {
         dy = 0;
-        bossMovimentando = false;
+        //bossMovimentando = false;
     } else if (colidiuBossTop == false && detectarColisaoParedeB__quadTop('player', 'paredeB', 'quadTop') == false) {
         tecS = true;
-        bossMovimentando = true;
+        //bossMovimentando = true;
     }
 
     return colidiuBossTop;
@@ -669,10 +674,10 @@ function detectarColisaoBossBottom(idObjeto1, idObjeto2) {
 
     if (tecW == false && colidiuBossBottom == true) {
         dy = 0;
-        bossMovimentando = false;
+        //bossMovimentando = false;
     } else if (colidiuBossBottom == false && detectarColisaoParedeC__quadBottom('player', 'paredeC', 'quadBottom') == false) {
         tecW = true;
-        bossMovimentando = true;
+        //bossMovimentando = true;
     }
 
     return colidiuBossBottom;
@@ -829,6 +834,36 @@ function detectarColisaoPortaRight (idObjeto1, idObjeto2) {
     return colidiu;
 }
 
+//detecta colisão com o item de vida
+function detectarColisaoItemVida(idObjeto1, idObjeto2) {
+    let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
+    let itemVida = document.getElementById(idObjeto2).getBoundingClientRect();
+
+    let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
+                         {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
+                         {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top + objetoPlayer.height},
+                         {x : objetoPlayer.left, y : objetoPlayer.top + objetoPlayer.height}];
+
+    let pontos_Item_Vida = [{x : itemVida.left, y : itemVida.top},
+                            {x : itemVida.left + itemVida.width, y : itemVida},
+                            {x : itemVida.left + itemVida.width, y : itemVida.top + itemVida.height},
+                            {x : itemVida.left, y : itemVida.top + itemVida.height}];
+
+    let colidiu = false;
+    let indice = 0;
+
+    while ((colidiu == false) && (indice < 3))
+    ((pontos_Player[indice].x >= itemVida.left && pontos_Player[indice].x <= itemVida.left + itemVida.width && 
+    pontos_Player[indice].y >= itemVida.top && pontos_Player[indice].y <= itemVida.top + itemVida.height)) ||
+
+    ((pontos_Item_Vida[indice].x >= objetoPlayer.left && pontos_Item_Vida[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+    pontos_Item_Vida[indice].y >= objetoPlayer.top && pontos_Item_Vida[indice].y <= objetoPlayer.top + objetoPlayer.height))
+    ? colidiu = true : indice ++;
+
+    itemVida.style.display = 'none';
+
+    return colidiu;
+}
 
 //ataque do personagem
 function atacar(event) {
@@ -1148,34 +1183,33 @@ function movimentarBoss(/*idObjeto1, idObjeto2*/) {
     let paredeC = document.getElementById('paredeC').getBoundingClientRect();
     let paredeB = document.getElementById('paredeB').getBoundingClientRect();
 
-
-    if (boss_cultista_wrapper.left >= paredeE.left + paredeE.width) {
-        bossMovimentandoLeft = true;
-    } else if (boss_cultista_wrapper.left < paredeE.left + paredeE.width) {
-        bossMovimentandoLeft = false;
-    }
-
-    if (boss_cultista_wrapper.left + boss_cultista_wrapper.width <= paredeD.left && bossMovimentando) {
-        bossMovimentandoRight = true;
-    } else {
-        bossMovimentandoRight = false;
-    }
-
-    if (boss_cultista_wrapper.top >= paredeC.top + paredeC.height) {
-        bossMovimentandoUp = true;
-    } else {
-        bossMovimentandoUp = false;
-    }
-
-    if (boss_cultista_wrapper.top + boss_cultista_wrapper.height <= paredeB.top) {
-        bossMovimentandoDown = true;
-    } else {
-        bossMovimentandoDown = false;
-    }
-
-
-    //fazendo o boss movimentar
     if (bossMovimentando == true) {
+        if (boss_cultista_wrapper.left >= paredeE.left + paredeE.width) {
+            bossMovimentandoLeft = true;
+        } else if (boss_cultista_wrapper.left < paredeE.left + paredeE.width) {
+            bossMovimentandoLeft = false;
+        }
+
+        if (boss_cultista_wrapper.left + boss_cultista_wrapper.width <= paredeD.left && bossMovimentando) {
+            bossMovimentandoRight = true;
+        } else {
+            bossMovimentandoRight = false;
+        }
+
+        if (boss_cultista_wrapper.top >= paredeC.top + paredeC.height) {
+            bossMovimentandoUp = true;
+        } else {
+            bossMovimentandoUp = false;
+        }
+
+        if (boss_cultista_wrapper.top + boss_cultista_wrapper.height <= paredeB.top) {
+            bossMovimentandoDown = true;
+        } else {
+            bossMovimentandoDown = false;
+        }
+
+
+        //fazendo o boss movimentar
         if (bossMovimentandoLeft == true) {
             if (objetoPlayer.left + objetoPlayer.width < boss_cultista_wrapper.left ) {
                 dxBossCultista = -1;
