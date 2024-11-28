@@ -86,7 +86,7 @@ body{
 
 /* paredes */
 #paredeE {
-    width: 5%;
+    width: 80px;
     height: 100vh;
     position: absolute;
     top: 0;
@@ -95,17 +95,17 @@ body{
 }
 
 #paredeD {
-    width: 5%;
+    width: 80px;
     height: 100vh;
     position: absolute;
     top: 0;
-    left: 95%;
+    left: 94.33vw;
     background-color: red;
 }
 
 #paredeC {
     width: 100%;
-    height: 10vh;
+    height: 80px;
     position: absolute;
     top: 0;
     left: 0;
@@ -114,11 +114,44 @@ body{
 
 #paredeB {
     width: 100%;
-    height: 10vh;
+    height: 80px;
     position: absolute;
-    top: 90vh;
+    top: 88.3vh;
     left: 0;
     background-color: green;
+}
+
+/* quinas */
+#quinaEsqUp{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 88vh;
+    left: 0;
+}
+
+#quinaEsqDown{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 88vh;
+    left: 0;
+}
+
+#quinaDirUp{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    left: 94vw;
+}
+
+#quinaDirDown{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 88vh;
+    left: 94.33vw;
 }
 
 /* colisões para objetos no meio da tela */
@@ -164,40 +197,40 @@ body{
 }
 
 /* portas */
+#portaRight {
+    background-color: purple;
+    width: 80px;
+    height: 100px;
+    top: 44vh;
+    left: 0;
+    position: absolute;
+}
+
 #portaTop {
     background-color: purple;
-    width: 10vw;
-    height: 10vh;
+    width: 100px;
+    height: 80px;
     top: 0;
-    left: 500px;
+    left: 46vw;
     position: absolute;
 }
 
 #portaDown {
     background-color: purple;
-    width: 10%;
-    height: 10%;
-    top: 90%;
-    left: 500px;
+    width: 100px;
+    height: 80px;
+    top: 88.3vh;
+    left: 46vw;
     position: absolute;
 }
 
-#portaRight {
+#portaLeft{
     background-color: purple;
-    width: 5%;
-    height: 15%;
-    top: 43%;
-    left: 95vw;
+    width: 80px;
+    height: 100px;
     position: absolute;
-}
-
-#portaLeft {
-    background-color: purple;
-    width: 5%;
-    height: 15%;
-    top: 43%;
-    left: 0vw;
-    position: absolute;
+    left: 0;
+    top: 44vh;
 }
 
 /* ataques */
