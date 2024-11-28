@@ -47,6 +47,7 @@ let pedra1Left;
 let pedra1Right;
 let pedra1Top;
 let pedra1Bottom;
+let pedra2;
 
 //boss
 var lifeBoss; //vida do boss
@@ -133,7 +134,9 @@ function inicia () {
     pedra1Left = document.getElementById('pedra1Left');
     pedra1Right = document.getElementById('pedra1Right');
     pedra1Top = document.getElementById('pedra1Top');
-    pedra1Bottom = document.getElementById('pedra1Bottom')
+    pedra1Bottom = document.getElementById('pedra1Bottom');
+
+    pedra2 = document.getElementById('pedra2');
 
     //portaDown = document.getElementById('portaDown');
     portaRight = document.getElementById('portaRight');
@@ -316,6 +319,8 @@ function funcionalidades () {
     detectarColisaoParedeD__quadLeft__pedra1Left('player', 'paredeD', 'quadLeft', 'pedra1Left');
     detectarColisaoParedeC__quadBottom__pedra1Bottom('player', 'paredeC', 'quadBottom', 'pedra1Bottom');
     detectarColisaoParedeB__quadTop__pedra1Top('player', 'paredeB', 'quadTop', 'pedra1Top');
+
+    detectarColisaoPedra2('player', 'pedra2');
 
     detectarColisaoBossLeft('player', 'boss_cultista-left');
     detectarColisaoBossRight('player', 'boss_cultista-right');
@@ -588,6 +593,19 @@ function detectarColisaoParedeB__quadTop__pedra1Top(idObjeto1, idObjeto2, idObje
 
     return colidiu;
 };
+
+function detectarColisaoPedra2 (idObjeto1, idObjeto2) {
+    let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
+    let pedra2 = document.getElementById(idObjeto2).getBoundingClientRect();
+
+    /*if (objetoPlayer.left <= pedra2.left + pedra2.width) {
+        dx = 0;
+        tecA = false;
+    } else if (objetoPlayer.left + objetoPlayer.width >= pedra2.left) {
+        tecD = false;
+        dx = 0;
+    }*/
+}
 
 //detecta colisão com os bosses
 function detectarColisaoBossLeft(idObjeto1, idObjeto2) {

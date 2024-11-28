@@ -287,6 +287,42 @@ body{
     background-size: 100% 100%;
 }
 
+#pedra2Left {
+    width: 1px;
+    height: 65px;
+    position: absolute;
+    top: 35.1vh;
+    left: 39.9vw;
+    background-color: red;
+}
+
+#pedra2Right {
+    width: 1px;
+    height: 65px;
+    position: absolute;
+    top: 35.1vh;
+    left: 47.3vw;
+    background-color: blue;
+}
+
+#pedra2Top {
+    width: 98px;
+    height: 1px;
+    position: absolute;
+    top: 34.9vh;
+    left: 40.1vw;
+    background-color: pink;
+}
+
+#pedra2Bottom {
+    width: 98px;
+    height: 1px;
+    position: absolute;
+    top: 45vh;
+    left: 40.1vw;
+    background-color: green; 
+}
+
 /* portas */
 #portaRight {
     width: 80px;
