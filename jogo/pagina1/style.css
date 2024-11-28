@@ -4,9 +4,9 @@
 }
 body{
     height: 100vh;
-    background-color: #131313;
     overflow: hidden;
     display: flex;
+    background-image: url(/jogo/img/Sprites/floor.png);
 }
 
 /*diferentes estilos do player*/
@@ -91,7 +91,7 @@ body{
     position: absolute;
     top: 0;
     left: 0;
-    background-color: red;
+    background-image: url(/jogo/img/Sprites/wallLeft.png);
 }
 
 #paredeD {
@@ -100,7 +100,7 @@ body{
     position: absolute;
     top: 0;
     left: 94.33vw;
-    background-color: red;
+    background-image: url(/jogo/img/Sprites/wallRight.png);
 }
 
 #paredeC {
@@ -109,7 +109,7 @@ body{
     position: absolute;
     top: 0;
     left: 0;
-    background-color: green;
+    background-image: url(/jogo/img/Sprites/wallUp.png);
 }
 
 #paredeB {
@@ -118,7 +118,45 @@ body{
     position: absolute;
     top: 88.3vh;
     left: 0;
-    background-color: green;
+    background-image: url(/jogo/img/Sprites/wallDown.png);
+}
+
+#quinaEsqUp {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(/jogo/img/Sprites/cornerLeftUp.png);
+}
+
+#quinaEsqDown {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 88vh;
+    left: 0;
+    background-image: url(/jogo/img/Sprites/cornerLeftDown.png);
+    background-position: left bottom;
+}
+
+#quinaDirUp {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    left: 94.2vw;
+    background-image: url(/jogo/img/Sprites/cornerRightUp.png);
+    background-position: right top;
+}
+
+#quinaDirDown {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 88vh;
+    left: 94.33vw;
+    background-image: url(/jogo/img/Sprites/cornerRightDown.png);
 }
 
 /* quinas */
@@ -198,12 +236,13 @@ body{
 
 /* portas */
 #portaRight {
-    background-image: url(/jogo/img/Sprites/DoorOpen\(Right\).png);
     width: 80px;
     height: 100px;
     top: 44vh;
     left: 94.2vw;
     position: absolute;
+    background-image: url(/jogo/img/Sprites/DoorOpen\(Right\).png);
+    background-size: 100% 100%;
 }
 
 #portaTop {
