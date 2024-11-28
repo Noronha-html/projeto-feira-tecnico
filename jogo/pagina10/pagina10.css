@@ -164,15 +164,6 @@ body{
 }
 
 /* portas */
-#portaTop {
-    background-color: purple;
-    width: 10vw;
-    height: 10vh;
-    top: 0;
-    left: 500px;
-    position: absolute;
-}
-
 #portaDown {
     background-color: purple;
     width: 10%;
