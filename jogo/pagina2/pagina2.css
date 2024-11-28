@@ -235,7 +235,7 @@ body{
     left: 27.3vw;
 }
 
-#pedra {
+#pedra1 {
     width: 100px;
     height: 100px;
     position: absolute;
@@ -245,22 +245,46 @@ body{
     background-size: 100% 100%;
 }
 
-#pedraLeft {
+#pedra1Left {
     width: 1px;
     height: 65px;
     position: absolute;
     top: 25.1vh;
     left: 29.9vw;
-    background-color: red;
 }
 
-#pedraRight {
+#pedra1Right {
     width: 1px;
     height: 65px;
     position: absolute;
     top: 25.1vh;
     left: 37.3vw;
-    background-color: pink;
+}
+
+#pedra1Top {
+    width: 98px;
+    height: 1px;
+    position: absolute;
+    top: 24.9vh;
+    left: 30.1vw;
+}
+
+#pedra1Bottom {
+    width: 98px;
+    height: 1px;
+    position: absolute;
+    top: 35.3vh;
+    left: 30.1vw;
+}
+
+#pedra2 {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 30vh;
+    left: 40vw;
+    background-image: url(/jogo/img/Sprites/RockUnbreaking.png);
+    background-size: 100% 100%;
 }
 
 /* portas */
