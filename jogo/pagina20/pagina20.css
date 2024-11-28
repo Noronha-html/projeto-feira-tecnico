@@ -202,10 +202,10 @@ body{
 /* portas */
 #portaRight {
     background-color: purple;
-    width: 5%;
-    height: 15%;
-    top: 43%;
-    left: 95vw;
+    width: 80px;
+    height: 100px;
+    top: 44vh;
+    left: 0;
     position: absolute;
 }
 
@@ -225,6 +225,15 @@ body{
     top: 88.3vh;
     left: 46vw;
     position: absolute;
+}
+
+#portaLeft{
+    background-color: purple;
+    width: 80px;
+    height: 100px;
+    position: absolute;
+    left: 0;
+    top: 44vh;
 }
 
 /* ataques */

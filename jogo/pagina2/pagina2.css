@@ -159,13 +159,46 @@ body{
     background-image: url(/jogo/img/Sprites/cornerRightDown.png);
 }
 
+/* quinas */
+#quinaEsqUp{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 88vh;
+    left: 0;
+}
+
+#quinaEsqDown{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 88vh;
+    left: 0;
+}
+
+#quinaDirUp{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    left: 94vw;
+}
+
+#quinaDirDown{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 88vh;
+    left: 94.33vw;
+}
+
 /* colisões para objetos no meio da tela */
 #quadrado {
     width: 100px;
     height: 100px;
     position: absolute;
-    top: 50vh;
-    left: 50vw;
+    top: 20vh;
+    left: 20vw;
     background-image: url(/jogo/img/Sprites/RockUnbreaking.png);
     background-size: 100% 100%;
 }
@@ -174,32 +207,60 @@ body{
     width: 98px;
     height: 1px;
     position: absolute;
-    top: 54.9vh;
-    left: 50.1vw;
+    top: 24.9vh;
+    left: 20.1vw;
 }
 
 #quadBottom {
     width: 98px;
     height: 1px;
     position: absolute;
-    top: 65.3vh;
-    left: 50.1vw;
+    top: 35.3vh;
+    left: 20.1vw;
 }
 
 #quadLeft {
     width: 1px;
     height: 65px;
     position: absolute;
-    top: 55.1vh;
-    left: 49.9vw;
+    top: 25.1vh;
+    left: 19.9vw;
 }
 
 #quadRight {
     width: 1px;
     height: 65px;
     position: absolute;
-    top: 55.1vh;
-    left: 57.3vw;
+    top: 25.1vh;
+    left: 27.3vw;
+}
+
+#pedra {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 20vh;
+    left: 30vw;
+    background-image: url(/jogo/img/Sprites/RockUnbreaking.png);
+    background-size: 100% 100%;
+}
+
+#pedraLeft {
+    width: 1px;
+    height: 65px;
+    position: absolute;
+    top: 25.1vh;
+    left: 29.9vw;
+    background-color: red;
+}
+
+#pedraRight {
+    width: 1px;
+    height: 65px;
+    position: absolute;
+    top: 25.1vh;
+    left: 37.3vw;
+    background-color: pink;
 }
 
 /* portas */
@@ -221,24 +282,23 @@ body{
     left: 0;
     background-image: url(/jogo/img/Sprites/CloseDoorAnime\(Left\).gif);
     background-size: 100% 100%;
-
 }
 
 #portaTop {
     background-color: purple;
-    width: 10vw;
-    height: 10vh;
+    width: 100px;
+    height: 80px;
     top: 0;
-    left: 500px;
+    left: 46vw;
     position: absolute;
 }
 
 #portaDown {
     background-color: purple;
-    width: 10%;
-    height: 10%;
-    top: 90%;
-    left: 500px;
+    width: 100px;
+    height: 80px;
+    top: 88.3vh;
+    left: 46vw;
     position: absolute;
 }
 
