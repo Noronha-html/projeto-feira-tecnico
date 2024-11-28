@@ -118,7 +118,9 @@ function inicia () {
     
     tmpFuncionalidades = setInterval(funcionalidades, 1);
 
-    tmpAtualizarSprite = setInterval(atualizarSprite, 1)
+    tmpAtualizarSprite = setInterval(atualizarSprite, 1);
+
+    //setInterval(danoAoPlayer, 1000)
 
     objetoPlayer = document.getElementById('player');
 
@@ -323,24 +325,24 @@ function funcionalidades () {
     objetoPlayer.style.left = px + 'px';
     objetoPlayer.style.top = py + 'px';
 
-    pxBossCultista += dxBossCultista * velBossCultista;
+    /*pxBossCultista += dxBossCultista * velBossCultista;
     pyBossCultista += dyBossCultista * velBossCultista;
 
     boss_cultista_wrapper.style.left = pxBossCultista + 'px';
-    boss_cultista_wrapper.style.top = pyBossCultista + 'px';
+    boss_cultista_wrapper.style.top = pyBossCultista + 'px';*/
 
     detectarColisaoParedeE__quadRight('player', 'paredeE', 'quadRight');
     detectarColisaoParedeD__quadLeft('player', 'paredeD', 'quadLeft');
     detectarColisaoParedeC__quadBottom('player', 'paredeC', 'quadBottom');
     detectarColisaoParedeB__quadTop('player', 'paredeB', 'quadTop');
 
-    (detectarColisaoBossLeft('player', 'boss_cultista-left') == true)? bossMovimentando = false : bossMovimentando = true;
-    (detectarColisaoBossRight('player', 'boss_cultista-right') == true)? bossMovimentando = false : bossMovimentando = true;
-    (detectarColisaoBossTop('player', 'boss_cultista-top') == true)? bossMovimentando = false : bossMovimentando = true;
-    (detectarColisaoBossBottom('player', 'boss_cultista-bottom') == true)? bossMovimentando = false : bossMovimentando = true;
+    //(detectarColisaoBossLeft('player', 'boss_cultista-left') == true)? bossMovimentando = false : bossMovimentando = true;
+    //(detectarColisaoBossRight('player', 'boss_cultista-right') == true)? bossMovimentando = false : bossMovimentando = true;
+    //(detectarColisaoBossTop('player', 'boss_cultista-top') == true)? bossMovimentando = false : bossMovimentando = true;
+    //(detectarColisaoBossBottom('player', 'boss_cultista-bottom') == true)? bossMovimentando = false : bossMovimentando = true;
 
-    (detectarColisaoBossLeft__ParedeE__quadRight('boss_cultista-left', 'paredeE', 'quadRight') == true)? bossMovimentandoLeft = false : bossMovimentandoLeft = true;
-    (detectarColisaoBossRight__ParedeD__quadLeft('boss_cultista-right', 'paredeD', 'quadLeft') == true)? bossMovimentandoRight = false : bossMovimentandoRight = true;
+    //(detectarColisaoBossLeft__ParedeE__quadRight('boss_cultista-left', 'paredeE', 'quadRight') == true)? bossMovimentandoLeft = false : bossMovimentandoLeft = true;
+    //(detectarColisaoBossRight__ParedeD__quadLeft('boss_cultista-right', 'paredeD', 'quadLeft') == true)? bossMovimentandoRight = false : bossMovimentandoRight = true;
     /*detectarColisaoBossTop__ParedeC__quadBottom('boss_cultista-top', 'paredeC', 'quadBottom');
     detectarColisaoBossBottom__ParedeB__quadTop('boss_cultista-bottom', 'paredeB', 'quadTop');*/
 
@@ -354,16 +356,18 @@ function funcionalidades () {
     playerAttackUp('player');
     playerAttackDown('player');
  
-    detectarColisaoAtaqueLeft('attackingLeft', 'boss_cultista-right');
-    detectarColisaoAtaqueRight('attackingRight', 'boss_cultista-left');
-    detectarColisaoAtaqueUp('attackingUp', 'boss_cultista-bottom');
-    detectarColisaoAtaqueDown('attackingDown', 'boss_cultista-top');
+    //detectarColisaoAtaqueLeft('attackingLeft', 'boss_cultista-right');
+    //detectarColisaoAtaqueRight('attackingRight', 'boss_cultista-left');
+    //detectarColisaoAtaqueUp('attackingUp', 'boss_cultista-bottom');
+    //detectarColisaoAtaqueDown('attackingDown', 'boss_cultista-top');
 
-    danoAoBoss();
+    //danoAoBoss();
 
-    danoAoPlayer('player', 'boss_cultista-wrapper');
+    //danoAoPlayer('player', 'boss_cultista-wrapper');
+
+    //movimentarBoss('player', 'boss_cultista-wrapper')
     
-    movimentarBoss('player', 'boss_cultista-wrapper');
+    //movimentarBoss('player', 'boss_cultista-wrapper');
 };
 
 //detecta colisão na parede esquerda
@@ -560,7 +564,7 @@ function detectarColisaoParedeB__quadTop(idObjeto1, idObjeto2, idObjeto3) {
 };
 
 //detecta colisão com os bosses
-function detectarColisaoBossLeft(idObjeto1, idObjeto2) {
+/*function detectarColisaoBossLeft(idObjeto1, idObjeto2) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let boss_cultista_Left = document.getElementById(idObjeto2).getBoundingClientRect();
 
@@ -706,10 +710,10 @@ function detectarColisaoBossBottom(idObjeto1, idObjeto2) {
     }
 
     return colidiuBossBottom;
-}
+}*/
 
 //detecta colisão dos bosses com as paredes e objetos
-function detectarColisaoBossLeft__ParedeE__quadRight(idObjeto1, idObjeto2, idObjeto3) {
+/*function detectarColisaoBossLeft__ParedeE__quadRight(idObjeto1, idObjeto2, idObjeto3) {
     let boss_cultista_Left = document.getElementById(idObjeto1).getBoundingClientRect();
     let paredeE = document.getElementById(idObjeto2).getBoundingClientRect();
     let quadRight = document.getElementById(idObjeto3).getBoundingClientRect();
@@ -747,9 +751,9 @@ function detectarColisaoBossLeft__ParedeE__quadRight(idObjeto1, idObjeto2, idObj
         ? colidiu = true : indice ++;
 
     return colidiu;
-}
+}*/
 
-function detectarColisaoBossRight__ParedeD__quadLeft(idObjeto1, idObjeto2, idObjeto3) {
+/*function detectarColisaoBossRight__ParedeD__quadLeft(idObjeto1, idObjeto2, idObjeto3) {
     let boss_cultista_Right = document.getElementById(idObjeto1).getBoundingClientRect();
     let paredeD = document.getElementById(idObjeto2).getBoundingClientRect();
     let quadLeft = document.getElementById(idObjeto3).getBoundingClientRect();
@@ -786,14 +790,14 @@ function detectarColisaoBossRight__ParedeD__quadLeft(idObjeto1, idObjeto2, idObj
         pontos_quadLeft[indice].y >= boss_cultista_Right.top && pontos_quadLeft[indice].y <= boss_cultista_Right.top + boss_cultista_Right.height))
         ? colidiu = true : indice ++;
         
-        /*if (colidiu == true) {
+        *//*if (colidiu == true) {
             bossMovimentandoLeft = false;
         } else if (colidiu == false) {
             bossMovimentandoLeft = true;
-        }*/
+        }*//*
 
     return colidiu;
-}
+}*/
 
 //detectar colisões nas portas
 /*function detectarColisaoPortaTop (idObjeto1, idObjeto2) {
@@ -1028,7 +1032,7 @@ function playerAttackDown(idObjeto1) {
 }
 
 //colisões de ataques com os bosses
-function detectarColisaoAtaqueLeft(objeto1, objeto2) {
+/*function detectarColisaoAtaqueLeft(objeto1, objeto2) {
     let attackingLeft = document.getElementById(objeto1).getBoundingClientRect();
     let boss_cultista_Right = document.getElementById(objeto2).getBoundingClientRect();
 
@@ -1203,7 +1207,7 @@ function danoAoBoss() {
     }
 }
 
-function movimentarBoss(/*idObjeto1, idObjeto2*/) {
+function movimentarBoss(*//*idObjeto1, idObjeto2*//*) {
     let objetoPlayer = document.getElementById('player').getBoundingClientRect();
     let boss_cultista_wrapper = document.getElementById('boss_cultista-wrapper').getBoundingClientRect();
     let paredeE = document.getElementById('paredeE').getBoundingClientRect();
@@ -1271,9 +1275,9 @@ function movimentarBoss(/*idObjeto1, idObjeto2*/) {
     }
 }
 
-function danoAoPlayer (idObjeto1, idObjeto2) {
-    let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
-    let boss_cultista_wrapper = document.getElementById(idObjeto2).getBoundingClientRect();
+function danoAoPlayer (*//*idObjeto1, idObjeto2*//*) {
+    let objetoPlayer = document.getElementById('player').getBoundingClientRect();
+    let boss_cultista_wrapper = document.getElementById('boss_cultista-wrapper').getBoundingClientRect();
 
     let alcanceBoss = 70;
 
@@ -1316,7 +1320,7 @@ function danoAoPlayer (idObjeto1, idObjeto2) {
             bossAttackingLeft.classList.remove('boss-attacking-left');
         }, 300);
 
-        bossAttackingLeft.style.left = boss_cultista_wrapper.left - boss_cultista_wrapper.width + 'px';
+        bossAttackingLeft.style.left = boss_cultista_wrapper.left - boss_cultista_wrapper.width + 10 + 'px';
         bossAttackingLeft.style.top = boss_cultista_wrapper.top + 'px';
     }
 
@@ -1341,7 +1345,7 @@ function danoAoPlayer (idObjeto1, idObjeto2) {
         }, 300);
 
         bossAttackingUp.style.left = boss_cultista_wrapper.left + 'px';
-        bossAttackingUp.style.top = boss_cultista_wrapper.top - boss_cultista_wrapper.height + 'px';
+        bossAttackingUp.style.top = boss_cultista_wrapper.top - boss_cultista_wrapper.height + 10 + 'px';
     }
 
     if (bossAtacouDown == true) {
@@ -1416,9 +1420,6 @@ function danoAoPlayer (idObjeto1, idObjeto2) {
     } else if (playerVida == 0) {
         //window.location.href = '/jogo/pagina2/pagina2.html';
     }
-
-    console.log(playerVida);
-    console.log(bossAtacouLeft);
-}
+}*/
 
 window.addEventListener('load', inicia)
