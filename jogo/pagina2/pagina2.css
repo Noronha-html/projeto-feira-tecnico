@@ -4,9 +4,9 @@
 }
 body{
     height: 100vh;
-    background-color: #131313;
     overflow: hidden;
     display: flex;
+    background-image: url(/jogo/img/Sprites/floor.png);
 }
 
 /*diferentes estilos do player*/
@@ -91,7 +91,7 @@ body{
     position: absolute;
     top: 0;
     left: 0;
-    background-color: red;
+    background-image: url(/jogo/img/Sprites/wallLeft.png);
 }
 
 #paredeD {
@@ -100,7 +100,7 @@ body{
     position: absolute;
     top: 0;
     left: 94.33vw;
-    background-color: red;
+    background-image: url(/jogo/img/Sprites/wallRight.png);
 }
 
 #paredeC {
@@ -109,7 +109,7 @@ body{
     position: absolute;
     top: 0;
     left: 0;
-    background-color: green;
+    background-image: url(/jogo/img/Sprites/wallUp.png);
 }
 
 #paredeB {
@@ -118,7 +118,45 @@ body{
     position: absolute;
     top: 88.3vh;
     left: 0;
-    background-color: green;
+    background-image: url(/jogo/img/Sprites/wallDown.png);
+}
+
+#quinaEsqUp {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(/jogo/img/Sprites/cornerLeftUp.png);
+}
+
+#quinaEsqDown {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 88vh;
+    left: 0;
+    background-image: url(/jogo/img/Sprites/cornerLeftDown.png);
+    background-position: left bottom;
+}
+
+#quinaDirUp {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    left: 94.2vw;
+    background-image: url(/jogo/img/Sprites/cornerRightUp.png);
+    background-position: right top;
+}
+
+#quinaDirDown {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 88vh;
+    left: 94.33vw;
+    background-image: url(/jogo/img/Sprites/cornerRightDown.png);
 }
 
 /* quinas */
@@ -159,51 +197,91 @@ body{
     width: 100px;
     height: 100px;
     position: absolute;
-    top: 50vh;
-    left: 50vw;
-    background-color: blue;
+    top: 20vh;
+    left: 20vw;
+    background-image: url(/jogo/img/Sprites/RockUnbreaking.png);
+    background-size: 100% 100%;
 }
 
 #quadTop {
     width: 98px;
     height: 1px;
     position: absolute;
-    top: 49.9vh;
-    left: 50.1vw;
+    top: 24.9vh;
+    left: 20.1vw;
 }
 
 #quadBottom {
     width: 98px;
     height: 1px;
     position: absolute;
-    top: 65.7vh;
-    left: 50.1vw;
+    top: 35.3vh;
+    left: 20.1vw;
 }
 
 #quadLeft {
     width: 1px;
-    height: 98px;
+    height: 65px;
     position: absolute;
-    top: 50.1vh;
-    left: 49.9vw;
+    top: 25.1vh;
+    left: 19.9vw;
 }
 
 #quadRight {
     width: 1px;
-    height: 98px;
+    height: 65px;
     position: absolute;
-    top: 50.1vh;
-    left: 57.3vw;
+    top: 25.1vh;
+    left: 27.3vw;
+}
+
+#pedra {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 20vh;
+    left: 30vw;
+    background-image: url(/jogo/img/Sprites/RockUnbreaking.png);
+    background-size: 100% 100%;
+}
+
+#pedraLeft {
+    width: 1px;
+    height: 65px;
+    position: absolute;
+    top: 25.1vh;
+    left: 29.9vw;
+    background-color: red;
+}
+
+#pedraRight {
+    width: 1px;
+    height: 65px;
+    position: absolute;
+    top: 25.1vh;
+    left: 37.3vw;
+    background-color: pink;
 }
 
 /* portas */
 #portaRight {
-    background-color: purple;
     width: 80px;
     height: 100px;
     top: 44vh;
-    left: 0;
+    left: 94.2vw;
     position: absolute;
+    background-image: url(/jogo/img/Sprites/DoorOpen\(Right\).png);
+    background-size: 100% 100%;
+}
+
+#portaLeft {
+    width: 80px;
+    height: 100px;
+    position: absolute;
+    top: 44vh;
+    left: 0;
+    background-image: url(/jogo/img/Sprites/CloseDoorAnime\(Left\).gif);
+    background-size: 100% 100%;
 }
 
 #portaTop {
@@ -222,15 +300,6 @@ body{
     top: 88.3vh;
     left: 46vw;
     position: absolute;
-}
-
-#portaLeft{
-    background-color: purple;
-    width: 80px;
-    height: 100px;
-    position: absolute;
-    left: 0;
-    top: 44vh;
 }
 
 /* ataques */
@@ -282,59 +351,52 @@ body{
     z-index: 10;
 }
 
-/* bosses */
-/*#boss_cultista-wrapper {
-    width: 81px;
-    height: 81px;
-    background-color: purple;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    margin-left: 300px;
-    margin-top: 250px;
+/* itens */
+#itemVida {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 30vh;
+    left: 80vw;
 }
 
-#boss_cultista {
+.corItemVida {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: yellow;
+    position: absolute;
+    z-index: 20;
+}
+
+.boss-attacking-left {
+    width: 70px;
+    height: 80px;
+    background-color: salmon;
+    position: absolute;
+    z-index: 11;
+}
+
+.boss-attacking-right {
+    width: 70px;
+    height: 80px;
+    background-color: salmon;
+    position: absolute;
+    z-index: 11;
+}
+
+.boss-attacking-up {
     width: 80px;
-    height: 80px;
+    height: 70px;
+    background-color: salmon;
     position: absolute;
+    z-index: 11;
 }
 
-#boss_cultista-left {
-    width: 70px;
-    height: 77px;
+.boss-attacking-down {
+    width: 80px;
+    height: 70px;
+    background-color: salmon;
     position: absolute;
-    top: 1%;
+    z-index: 11;
 }
-
-#boss_cultista-right {
-    width: 70px;
-    height: 77px;
-    position: absolute;
-    top: 5%;
-    left: 12%;
-    z-index: 10;
-    background-color: red;
-}
-
-#boss_cultista-top {
-    width: 77px;
-    height: 79px;
-    position: absolute;
-    left: 1%;
-}
-
-#boss_cultista-bottom {
-    width: 77px;
-    height: 80px;
-    position: absolute;
-    top: 1%;
-    left: 1%;
-}
-
-.teste {
-    width: 100px;
-    height: 63px;
-    background-color: blue;
-    position: absolute;
-}*/
