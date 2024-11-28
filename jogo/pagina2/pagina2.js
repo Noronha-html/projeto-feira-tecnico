@@ -336,8 +336,6 @@ function funcionalidades () {
     
     //movimentarBoss('player', 'boss_cultista-wrapper');
 
-    console.log(playerVida);
-
    // console.log(detectarColisaoParedeE__quadRight__bossRight('player', 'paredeE', 'quadRight', 'boss_cultista-right'));
 };
 

@@ -267,7 +267,7 @@ body{
 
 #boss_cultista-right {
     width: 70px;
-    height: 77px;
+    height: 75px;
     position: absolute;
     top: 5%;
     left: 12%;
@@ -280,6 +280,7 @@ body{
     height: 79px;
     position: absolute;
     left: 1%;
+    top: -1%;
 }
 
 #boss_cultista-bottom {
@@ -306,4 +307,36 @@ body{
     background-color: yellow;
     position: absolute;
     z-index: 20;
+}
+
+.boss-attacking-left {
+    width: 70px;
+    height: 80px;
+    background-color: salmon;
+    position: absolute;
+    z-index: 11;
+}
+
+.boss-attacking-right {
+    width: 70px;
+    height: 80px;
+    background-color: salmon;
+    position: absolute;
+    z-index: 11;
+}
+
+.boss-attacking-up {
+    width: 80px;
+    height: 70px;
+    background-color: salmon;
+    position: absolute;
+    z-index: 11;
+}
+
+.boss-attacking-down {
+    width: 80px;
+    height: 70px;
+    background-color: salmon;
+    position: absolute;
+    z-index: 11;
 }
