@@ -125,7 +125,8 @@ function inicia () {
     quadLeft = document.getElementById('quadLeft');
     quadRight = document.getElementById('quadRight');
 
-    portaDown = document.getElementById('portaDown');
+    portaTop = document.getElementById('portaDown');
+    portaLeft = document.getElementById('portaLeft');
 
     boss_cultista_wrapper = document.getElementById('boss_cultista-wrapper')
     boss_cultista = document.getElementById('boss_cultista');
@@ -315,8 +316,8 @@ function funcionalidades () {
     /*detectarColisaoBossTop__ParedeC__quadBottom('boss_cultista-top', 'paredeC', 'quadBottom');
     detectarColisaoBossBottom__ParedeB__quadTop('boss_cultista-bottom', 'paredeB', 'quadTop');*/
 
-    //detectarColisaoPortaTop('player', 'portaTop');
-    detectarColisaoPortaDown('player', 'portaDown');
+    detectarColisaoPortaTop('player', 'portaTop');
+    detectarColisaoPortaLeft('player', 'portaLeft');
 
     playerAttackLeft('player');
     playerAttackRight('player');
@@ -765,7 +766,7 @@ function detectarColisaoBossRight__ParedeD__quadLeft(idObjeto1, idObjeto2, idObj
 }
 
 //detectar colisões nas portas
-function detectarColisaoPortaDown (idObjeto1, idObjeto2) {
+/*function detectarColisaoPortaDown (idObjeto1, idObjeto2) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let portaDown = document.getElementById(idObjeto2).getBoundingClientRect();
 
@@ -792,6 +793,70 @@ function detectarColisaoPortaDown (idObjeto1, idObjeto2) {
     
     if (colidiu == true) {
         window.location.href = '/jogo/pagina14/pagina14.html';
+    }
+
+    return colidiu;
+}*/
+
+function detectarColisaoPortaLeft (idObjeto1, idObjeto2) {
+    let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
+    let portaLeft = document.getElementById(idObjeto2).getBoundingClientRect();
+
+    let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
+                         {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
+                         {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top + objetoPlayer.height},
+                         {x : objetoPlayer.left, y : objetoPlayer.top + objetoPlayer.height}];
+
+    let pontos_porta_Left = [{x : portaLeft.left, y : portaLeft.top}, 
+                           {x : portaLeft.left + portaLeft.width, y : portaLeft.top},
+                           {x : portaLeft.left + portaLeft.width, y : portaLeft.top + portaLeft.height},
+                           {x : portaLeft.left, y : portaLeft.top + portaLeft.height}];
+
+    indice = 0;
+    colidiu = false
+
+    while ((colidiu == false) && (indice < 3))
+    ((pontos_Player[indice].x >= portaLeft.left && pontos_Player[indice].x <= portaLeft.left + portaLeft.width && 
+    pontos_Player[indice].y >= portaLeft.top && pontos_Player[indice].y <= portaLeft.top + portaLeft.height)) ||
+
+    ((pontos_porta_Left[indice].x >= objetoPlayer.left && pontos_porta_Left[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+    pontos_porta_Left[indice].y >= objetoPlayer.top && pontos_porta_Left[indice].y <= objetoPlayer.top + objetoPlayer.height))
+    ? colidiu = true : indice ++;
+    
+    if (colidiu == true) {
+        window.location.href = '/jogo/pagina14/pagina14.html';
+    }
+
+    return colidiu;
+}
+
+function detectarColisaoPortaTop (idObjeto1, idObjeto2) {
+    let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
+    let portaTop = document.getElementById(idObjeto2).getBoundingClientRect();
+
+    let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
+                         {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
+                         {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top + objetoPlayer.height},
+                         {x : objetoPlayer.left, y : objetoPlayer.top + objetoPlayer.height}];
+
+    let pontos_porta_Top = [{x : portaTop.left, y : portaTop.top}, 
+                           {x : portaTop.left + portaTop.width, y : portaTop.top},
+                           {x : portaTop.left + portaTop.width, y : portaTop.top + portaTop.height},
+                           {x : portaTop.left, y : portaTop.top + portaTop.height}];
+
+    indice = 0;
+    colidiu = false
+
+    while ((colidiu == false) && (indice < 3))
+    ((pontos_Player[indice].x >= portaTop.left && pontos_Player[indice].x <= portaTop.left + portaTop.width && 
+    pontos_Player[indice].y >= portaTop.top && pontos_Player[indice].y <= portaTop.top + portaTop.height)) ||
+
+    ((pontos_porta_Top[indice].x >= objetoPlayer.left && pontos_porta_Top[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+    pontos_porta_Top[indice].y >= objetoPlayer.top && pontos_porta_Top[indice].y <= objetoPlayer.top + objetoPlayer.height))
+    ? colidiu = true : indice ++;
+    
+    if (colidiu == true) {
+        window.location.href = '/jogo/pagina12/pagina12.html';
     }
 
     return colidiu;
