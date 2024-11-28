@@ -240,57 +240,6 @@ body{
     z-index: 10;
 }
 
-/* bosses */
-#boss_cultista-wrapper {
-    width: 81px;
-    height: 81px;
-    background-color: purple;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    margin-left: 300px;
-    margin-top: 250px;
-}
-
-#boss_cultista {
-    width: 80px;
-    height: 80px;
-    position: absolute;
-}
-
-#boss_cultista-left {
-    width: 70px;
-    height: 77px;
-    position: absolute;
-    top: 1%;
-}
-
-#boss_cultista-right {
-    width: 70px;
-    height: 75px;
-    position: absolute;
-    top: 5%;
-    left: 12%;
-    z-index: 10;
-    background-color: red;
-}
-
-#boss_cultista-top {
-    width: 77px;
-    height: 79px;
-    position: absolute;
-    left: 1%;
-    top: -1%;
-}
-
-#boss_cultista-bottom {
-    width: 77px;
-    height: 80px;
-    position: absolute;
-    top: 1%;
-    left: 1%;
-}
-
 /* itens */
 #itemVida {
     width: 50px;
