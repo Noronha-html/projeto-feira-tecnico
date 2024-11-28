@@ -320,7 +320,7 @@ function funcionalidades () {
     //detectarColisaoPortaTop('player', 'portaTop');
     //detectarColisaoPortaDown('player', 'portaDown');
     detectarColisaoPortaRight('player', 'portaRight');
-    detectarColisaoPortaLeft('player', 'portaLeft');
+    //detectarColisaoPortaLeft('player', 'portaLeft');
 
     playerAttackLeft('player');
     playerAttackRight('player');
