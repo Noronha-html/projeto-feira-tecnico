@@ -367,7 +367,7 @@ function funcionalidades () {
 
     //danoAoPlayer('player', 'boss_cultista-wrapper');
 
-    //movimentarBoss('player', 'boss_cultista-wrapper');
+    movimentarBoss('player', 'boss_cultista-wrapper');
     
     //movimentarBoss('player', 'boss_cultista-wrapper');
 };
