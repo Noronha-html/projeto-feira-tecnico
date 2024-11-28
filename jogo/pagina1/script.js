@@ -118,7 +118,9 @@ function inicia () {
     
     tmpFuncionalidades = setInterval(funcionalidades, 1);
 
-    tmpAtualizarSprite = setInterval(atualizarSprite, 1)
+    tmpAtualizarSprite = setInterval(atualizarSprite, 1);
+
+    setInterval(danoAoPlayer, 1000)
 
     objetoPlayer = document.getElementById('player');
 
@@ -361,9 +363,11 @@ function funcionalidades () {
 
     danoAoBoss();
 
-    danoAoPlayer('player', 'boss_cultista-wrapper');
+    //danoAoPlayer('player', 'boss_cultista-wrapper');
+
+    movimentarBoss('player', 'boss_cultista-wrapper')
     
-    movimentarBoss('player', 'boss_cultista-wrapper');
+    //movimentarBoss('player', 'boss_cultista-wrapper');
 };
 
 //detecta colisão na parede esquerda
@@ -1271,9 +1275,9 @@ function movimentarBoss(/*idObjeto1, idObjeto2*/) {
     }
 }
 
-function danoAoPlayer (idObjeto1, idObjeto2) {
-    let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
-    let boss_cultista_wrapper = document.getElementById(idObjeto2).getBoundingClientRect();
+function danoAoPlayer (/*idObjeto1, idObjeto2*/) {
+    let objetoPlayer = document.getElementById('player').getBoundingClientRect();
+    let boss_cultista_wrapper = document.getElementById('boss_cultista-wrapper').getBoundingClientRect();
 
     let alcanceBoss = 70;
 
@@ -1316,7 +1320,7 @@ function danoAoPlayer (idObjeto1, idObjeto2) {
             bossAttackingLeft.classList.remove('boss-attacking-left');
         }, 300);
 
-        bossAttackingLeft.style.left = boss_cultista_wrapper.left - boss_cultista_wrapper.width + 'px';
+        bossAttackingLeft.style.left = boss_cultista_wrapper.left - boss_cultista_wrapper.width + 10 + 'px';
         bossAttackingLeft.style.top = boss_cultista_wrapper.top + 'px';
     }
 
@@ -1341,7 +1345,7 @@ function danoAoPlayer (idObjeto1, idObjeto2) {
         }, 300);
 
         bossAttackingUp.style.left = boss_cultista_wrapper.left + 'px';
-        bossAttackingUp.style.top = boss_cultista_wrapper.top - boss_cultista_wrapper.height + 'px';
+        bossAttackingUp.style.top = boss_cultista_wrapper.top - boss_cultista_wrapper.height + 10 + 'px';
     }
 
     if (bossAtacouDown == true) {
@@ -1416,9 +1420,6 @@ function danoAoPlayer (idObjeto1, idObjeto2) {
     } else if (playerVida == 0) {
         //window.location.href = '/jogo/pagina2/pagina2.html';
     }
-
-    console.log(playerVida);
-    console.log(bossAtacouLeft);
 }
 
 window.addEventListener('load', inicia)
