@@ -205,7 +205,7 @@ body{
 
 /* portas */
 #portaRight {
-    background-image: url(/jogo/img/Sprites/DoorOpen\(Right\).png);
+    background-image: url(/jogo/img/Sprites/DoorClose\(Left\).png);
     width: 80px;
     height: 100px;
     top: 44vh;
@@ -223,7 +223,7 @@ body{
 }
 
 #portaDown {
-    background-color: purple;
+    background-image: url(/jogo/img/Sprites/DoorOpen\(Down\).png);
     width: 100px;
     height: 80px;
     top: 88.3vh;
@@ -232,7 +232,7 @@ body{
 }
 
 #portaLeft{
-    background-image: url(/jogo/img/Sprites/DoorOpen\(Left\).png);
+    background-image: url(/jogo/img/Sprites/DoorClose\(Left\).png);
     width: 80px;
     height: 100px;
     position: absolute;

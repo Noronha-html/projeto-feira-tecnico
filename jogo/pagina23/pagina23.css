@@ -215,7 +215,7 @@ body{
 }
 
 #portaTop {
-    background-color: purple;
+    background-image: url(/jogo/img/Sprites/DoorOpen\(Up\).png);
     width: 100px;
     height: 80px;
     top: 0;
@@ -233,7 +233,7 @@ body{
 }
 
 #portaLeft{
-    background-image: url(/jogo/img/Sprites/DoorOpen\(Left\).png);
+    background-image: url(/jogo/img/Sprites/DoorClose\(Left\).png);
     width: 80px;
     height: 100px;
     position: absolute;
