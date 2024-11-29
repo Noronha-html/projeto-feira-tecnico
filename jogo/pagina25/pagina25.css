@@ -229,6 +229,7 @@ body{
     top: 88.3vh;
     left: 46vw;
     position: absolute;
+    background-size: 100% 100%;
 }
 
 #portaLeft{
@@ -239,6 +240,7 @@ body{
     left: 0;
     top: 44vh;
     background-image: url(/jogo/img/Sprites/CloseDoorAnime\(Left\).gif);
+    background-size: 100% 100%;
 }
 
 /* ataques */

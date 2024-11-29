@@ -214,12 +214,13 @@ body{
 }
 
 #portaTop {
-    background-image: url(/jogo/img/Sprites/DoorOpen\(Up\).png);
+    background-image: url(/jogo/img/Sprites/CloseDoorAnime\(Up\).gif);
     width: 100px;
     height: 80px;
     top: 0;
     left: 46vw;
     position: absolute;
+    background-size: 100% 100%;
 }
 
 #portaDown {
@@ -229,6 +230,7 @@ body{
     top: 88.3vh;
     left: 46vw;
     position: absolute;
+    background-size: 100% 100%;
 }
 
 #portaLeft{

@@ -126,7 +126,7 @@ function inicia () {
     quadRight = document.getElementById('quadRight');
 
     //portaDown = document.getElementById('portaDown');
-    portaRight = document.getElementById('portaDown');
+    //portaRight = document.getElementById('portaDown');
     portaLeft = document.getElementById('portaDown');
 
     boss_cultista_wrapper = document.getElementById('boss_cultista-wrapper')
@@ -319,7 +319,7 @@ function funcionalidades () {
 
     //detectarColisaoPortaTop('player', 'portaTop');
     //detectarColisaoPortaDown('player', 'portaDown');
-    detectarColisaoPortaRight('player', 'portaRight');
+    //detectarColisaoPortaRight('player', 'portaRight');
     detectarColisaoPortaLeft('player', 'portaLeft');
 
     playerAttackLeft('player');
@@ -801,7 +801,7 @@ function detectarColisaoBossRight__ParedeD__quadLeft(idObjeto1, idObjeto2, idObj
     return colidiu;
 }*/
 
-function detectarColisaoPortaRight (idObjeto1, idObjeto2) {
+/*function detectarColisaoPortaRight (idObjeto1, idObjeto2) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let portaRight = document.getElementById(idObjeto2).getBoundingClientRect();
     let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
@@ -830,7 +830,7 @@ function detectarColisaoPortaRight (idObjeto1, idObjeto2) {
     }
 
     return colidiu;
-}
+}*/
 
 
 function detectarColisaoPortaLeft (idObjeto1, idObjeto2) {
