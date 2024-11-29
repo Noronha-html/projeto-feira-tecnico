@@ -92,7 +92,7 @@ body{
     position: absolute;
     top: 0;
     left: 0;
-    background-color: red;
+    background-image: url(/jogo/img/Sprites/wallLeft.png);
 }
 
 #paredeD {
@@ -101,7 +101,7 @@ body{
     position: absolute;
     top: 0;
     left: 94.33vw;
-    background-color: red;
+    background-image: url(/jogo/img/Sprites/wallRight.png);
 }
 
 #paredeC {
@@ -110,7 +110,7 @@ body{
     position: absolute;
     top: 0;
     left: 0;
-    background-color: green;
+    background-image: url(/jogo/img/Sprites/wallUp.png);
 }
 
 #paredeB {
@@ -119,7 +119,7 @@ body{
     position: absolute;
     top: 88.3vh;
     left: 0;
-    background-color: green;
+    background-image: url(/jogo/img/Sprites/wallDown.png);
 }
 
 /* quinas */
@@ -127,8 +127,9 @@ body{
     width: 80px;
     height: 80px;
     position: absolute;
-    top: 88vh;
+    top: 0;
     left: 0;
+    background-image: url(/jogo/img/Sprites/cornerLeftUp.png);
 }
 
 #quinaEsqDown{
@@ -137,6 +138,8 @@ body{
     position: absolute;
     top: 88vh;
     left: 0;
+    background-image: url(/jogo/img/Sprites/cornerLeftDown.png);
+    background-position: left bottom;
 }
 
 #quinaDirUp{
@@ -145,6 +148,8 @@ body{
     position: absolute;
     top: 0;
     left: 94vw;
+    background-image: url(/jogo/img/Sprites/cornerRightUp.png);
+    background-position: right top;
 }
 
 #quinaDirDown{
@@ -153,6 +158,7 @@ body{
     position: absolute;
     top: 88vh;
     left: 94.33vw;
+    background-image: url(/jogo/img/Sprites/cornerRightDown.png);
 }
 /* colisões para objetos no meio da tela */
 #quadrado {
@@ -207,7 +213,7 @@ body{
 }
 
 #portaTop {
-    background-color: purple;
+    background-image: url(/jogo/img/Sprites/DoorOpen\(Up\).png);
     width: 100px;
     height: 80px;
     top: 0;
@@ -216,7 +222,7 @@ body{
 }
 
 #portaDown {
-    background-color: purple;
+    background-image: url(/jogo/img/Sprites/DoorClose\(Down\).png);
     width: 100px;
     height: 80px;
     top: 88.3vh;
@@ -225,7 +231,7 @@ body{
 }
 
 #portaLeft{
-    background-color: purple;
+    background-image: url(/jogo/img/Sprites/DoorOpen\(Left\).png);
     width: 80px;
     height: 100px;
     position: absolute;
