@@ -163,28 +163,33 @@ body{
 
 /* colisões para objetos no meio da tela */
 #quadrado {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     position: absolute;
-    top: 50vh;
-    left: 50vw;
-    background-color: blue;
+    top: 35.8vh;
+    left: 43vw;
+    background-image: url(/jogo/img/Sprites/chest.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #quadTop {
-    width: 98px;
+    width: 78px;
     height: 1px;
     position: absolute;
-    top: 49.9vh;
-    left: 50.1vw;
+    top: 48vh;
+    left: 46.5vw;
+    background-color: aquamarine;
 }
 
 #quadBottom {
-    width: 98px;
+    width: 78px;
     height: 1px;
     position: absolute;
-    top: 65.7vh;
-    left: 50.1vw;
+    top: 55.99999999999vh;
+    left: 48vw;
+    background-color: rgb(127, 255, 148);
+
 }
 
 #quadLeft {
@@ -193,6 +198,8 @@ body{
     position: absolute;
     top: 50.1vh;
     left: 49.9vw;
+    background-color: rgb(244, 127, 255);
+
 }
 
 #quadRight {
@@ -201,6 +208,8 @@ body{
     position: absolute;
     top: 50.1vh;
     left: 57.3vw;
+    background-color: rgb(232, 255, 127);
+
 }
 
 /* portas */
@@ -233,7 +242,6 @@ body{
 }
 
 #portaLeft{
-    background-color: purple;
     width: 80px;
     height: 100px;
     position: absolute;
