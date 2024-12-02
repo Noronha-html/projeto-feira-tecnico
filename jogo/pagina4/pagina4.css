@@ -203,6 +203,50 @@ body{
     left: 57.3vw;
 }
 
+/*estantes*/
+#estante {
+    width: 130px;
+    height: 170px;
+    position: absolute;
+    background-image: url(/jogo/img/Sprites/Bookshelf.png);
+    background-position: cover;
+    top: 40vh;
+    left: 50vw;
+}
+
+#estanteLeft {
+    width: 1px;
+    height: 167px;
+    position: absolute;
+    top: 40.1vh;
+    left: 49.9vw;
+}
+
+#estanteRight {
+    width: 1px;
+    height: 167px;
+    position: absolute;
+    top: 40.1vh;
+    left: 59.5vw;
+}
+
+#estanteTop {
+    width: 128px;
+    height: 1px;
+    position: absolute;
+    top: 39.9vh;
+    left: 50.1vw;
+    background-color: aquamarine;
+}
+
+#estanteBottom {
+    width: 128px;
+    height: 1px;
+    position: absolute;
+    top: 66.2vh;
+    left: 50.1vw;
+}
+
 /* portas */
 #portaRight {
     background-image: url(/jogo/img/Sprites/DoorOpen\(Right\).png);

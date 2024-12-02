@@ -650,7 +650,7 @@ function detectarColisaoParedeC__quadBottom__pedra1Bottom__pedra2Bottom__estante
     };
 
     return colidiu;
-}
+};
 
 //detecta colisão na parede de baixo e na parte de cima de um objeto
 function detectarColisaoParedeB__quadTop__pedra1Top__pedra2Top__estanteTop__mesaTop(idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObjeto5, idObjeto6, idObjeto7) {

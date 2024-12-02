@@ -140,7 +140,7 @@ function inicia () {
     quadLeft = document.getElementById('quadLeft');
     quadRight = document.getElementById('quadRight');
 
-    portaTop = document.getElementById('portaTop');
+    //portaTop = document.getElementById('portaTop');
 
     itemVida = document.getElementById('itemVida');
     corItemVida = document.querySelector('.corItemVida');
@@ -345,7 +345,7 @@ function funcionalidades () {
     /*detectarColisaoBossTop__ParedeC__quadBottom('boss_cultista-top', 'paredeC', 'quadBottom');
     detectarColisaoBossBottom__ParedeB__quadTop('boss_cultista-bottom', 'paredeB', 'quadTop');*/
 
-    detectarColisaoPortaTop('player', 'portaTop');
+    //detectarColisaoPortaTop('player', 'portaTop');
     //detectarColisaoPortaRight('player', 'portaRight');
 
     //detectarColisaoItemVida('player', 'itemVida');
@@ -793,7 +793,7 @@ function detectarColisaoBossBottom(idObjeto1, idObjeto2) {
 }*/
 
 //detectar colisões nas portas
-function detectarColisaoPortaTop (idObjeto1, idObjeto2) {
+/*function detectarColisaoPortaTop (idObjeto1, idObjeto2) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let portaTop = document.getElementById(idObjeto2).getBoundingClientRect();
 
@@ -823,7 +823,7 @@ function detectarColisaoPortaTop (idObjeto1, idObjeto2) {
     }
 
     return colidiu;
-}
+}*/
 
 
 
