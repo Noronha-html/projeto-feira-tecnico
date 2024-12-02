@@ -17,8 +17,8 @@ body{
     left: 250px;
     width: 80px;
     height: 80px;
-    margin-left: 800px;
-    margin-top: 200px;
+    margin-left: 81px;
+    margin-top: 285px;
 }
 
 .staticLeft {
@@ -201,6 +201,63 @@ body{
     position: absolute;
     top: 50.1vh;
     left: 57.3vw;
+}
+
+#pedrasTop {
+    width: 87.8vw;
+    height: 25vh;
+    position: absolute;
+    left: 6vw;
+    top: 13vh;
+    background-image: url(/jogo/img/Sprites/RockUnbreaking.png);
+    background-size: 80px 80px;
+}
+
+#pedrasBottom {
+    width: 87.8vw;
+    height: 25vh;
+    position: absolute;
+    left: 6vw;
+    top: 63vh;
+    background-image: url(/jogo/img/Sprites/RockUnbreaking.png);
+    background-size: 80px 80px;
+    z-index: 2;
+}
+
+#barril {
+    width: 80px;
+    height: 114px;
+    position: absolute;
+    top: 36vh;
+    left: 47vw;
+    background-image: url(/jogo/img/Sprites/Barrel.png);
+    background-size: cover;
+}
+
+#barril2 {
+    width: 80px;
+    height: 114px;
+    position: absolute;
+    top: 48vh;
+    left: 47vw;
+    background-image: url(/jogo/img/Sprites/Barrel.png);
+    background-size: cover;
+}
+
+#linhaPedrasBottom {
+    width: 87.8vw;
+    height: 1px;
+    position: absolute;
+    left: 6vw;
+    top: 68vh;
+}
+
+#linhaBarris {
+    width: 80px;
+    height: 157px;
+    position: absolute;
+    top: 38vh;
+    left: 46.9vw;
 }
 
 /* portas */
