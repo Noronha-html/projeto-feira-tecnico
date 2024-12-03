@@ -84,6 +84,30 @@ body{
     height: 80px;
 }
 
+.playerAttackingLeft {
+    background-image: url(/jogo/img/Sprites/playerCutting\(Left\).gif);
+    background-size: cover;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
+.playerAttackingRight {
+    background-image: url(/jogo/img/Sprites/playerCutting\(Right\).gif);
+    background-size: cover;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
+.playerAttackingDown {
+    background-image: url(/jogo/img/Sprites/playerCutting\(Down\).gif);
+    background-size: cover;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
 /* paredes */
 #paredeE {
     width: 80px;
@@ -119,44 +143,6 @@ body{
     top: 88.3vh;
     left: 0;
     background-image: url(/jogo/img/Sprites/wallDown.png);
-}
-
-#quinaEsqUp {
-    width: 80px;
-    height: 80px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-image: url(/jogo/img/Sprites/cornerLeftUp.png);
-}
-
-#quinaEsqDown {
-    width: 80px;
-    height: 80px;
-    position: absolute;
-    top: 88vh;
-    left: 0;
-    background-image: url(/jogo/img/Sprites/cornerLeftDown.png);
-    background-position: left bottom;
-}
-
-#quinaDirUp {
-    width: 80px;
-    height: 80px;
-    position: absolute;
-    top: 0;
-    left: 94.2vw;
-    background-image: url(/jogo/img/Sprites/cornerRightUp.png);
-    background-position: right top;
-}
-
-#quinaDirDown {
-    width: 80px;
-    height: 80px;
-    position: absolute;
-    top: 88vh;
-    left: 94.33vw;
-    background-image: url(/jogo/img/Sprites/cornerRightDown.png);
 }
 
 /* quinas */
@@ -460,7 +446,7 @@ body{
 .attackingLeft {
     width: 70px;
     height: 70px;
-    background-color: aqua;
+    background-image: url(/jogo/img/Sprites/cut\(Left\).gif);
     position: absolute;
     z-index: 10;
 }
@@ -468,7 +454,8 @@ body{
 .attackingRight {
     width: 70px;
     height: 70px;
-    background-color: aqua;
+    background-image: url(/jogo/img/Sprites/cut\(RIght\).gif);
+    background-size: cover;
     position: absolute;
     z-index: 10;
 }
@@ -484,7 +471,7 @@ body{
 .attackingDown {
     width: 70px;
     height: 60px;
-    background-color: aqua;
+    background-image: url(/jogo/img/Sprites/cut\(Down\).gif);
     position: absolute;
     z-index: 10;
 }

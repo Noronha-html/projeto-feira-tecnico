@@ -963,12 +963,18 @@ function playerAttackLeft(idObjeto1) {
     let rect = objetoPlayer.getBoundingClientRect();
 
     if (attackLeft.pressed && attackLeft.released) {
+        objetoPlayer.classList.remove('staticLeft');
+        objetoPlayer.classList.remove('movingLeft');
+        objetoPlayer.classList.add('playerAttackingLeft')
+
         attackingLeft.classList.remove('not_attacking-left');
         attackingLeft.classList.add('attackingLeft');
 
         attackLeft.released = false;
         atacou = false
         setTimeout(() => {
+            objetoPlayer.classList.remove('playerAttackingLeft')
+
             attackingLeft.classList.remove('attackingLeft');
         }, 300);       
     }
@@ -981,12 +987,18 @@ function playerAttackRight(idObjeto1) {
     let rect = objetoPlayer.getBoundingClientRect();
 
     if (attackRight.pressed && attackRight.released) {
+        objetoPlayer.classList.remove('staticRight');
+        objetoPlayer.classList.remove('movingRight');
+        objetoPlayer.classList.add('playerAttackingRight');
+
         attackingRight.classList.remove('not_attacking-right');
         attackingRight.classList.add('attackingRight');
 
         attackRight.released = false;
         atacou = false
         setTimeout(() => {
+            objetoPlayer.classList.remove('playerAttackingRight');
+
             attackingRight.classList.remove('attackingRight');
         }, 300);       
     }
@@ -1017,12 +1029,20 @@ function playerAttackDown(idObjeto1) {
     let rect = objetoPlayer.getBoundingClientRect();
 
     if (attackDown.pressed && attackDown.released) {
-        attackingDown.classList.remove('not_attacking-down');
-        attackingDown.classList.add('attackingDown');
+        objetoPlayer.classList.remove('staticDown');
+        objetoPlayer.classList.remove('movingDown');
+        objetoPlayer.classList.add('playerAttackingDown')
+
+        setTimeout(() => {
+            attackingDown.classList.remove('not_attacking-down');
+            attackingDown.classList.add('attackingDown');
+        }, 200);
 
         attackDown.released = false;
         atacou = false
         setTimeout(() => {
+            objetoPlayer.classList.remove('playerAttackingDown')
+
             attackingDown.classList.remove('attackingDown');
         }, 300);       
     }

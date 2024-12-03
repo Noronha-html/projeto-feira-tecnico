@@ -42,6 +42,7 @@ let portaLeft; //porta da esquerda
 let portaRight; //porta da direita
 let portaTop; //porta de cima
 let portaDown; //porta de baixo
+let coracao;
 
 //boss
 var lifeBoss; //vida do boss
@@ -124,6 +125,8 @@ function inicia () {
     quadBottom = document.getElementById('quadBottom');
     quadLeft = document.getElementById('quadLeft');
     quadRight = document.getElementById('quadRight');
+
+    coracao = document.getElementById('coracao');
 
     //portaDown = document.getElementById('portaDown');
     portaRight = document.getElementById('portaRight');
@@ -306,6 +309,8 @@ function funcionalidades () {
     detectarColisaoParedeD__quadLeft('player', 'paredeD', 'quadLeft');
     detectarColisaoParedeC__quadBottom('player', 'paredeC', 'quadBottom');
     detectarColisaoParedeB__quadTop('player', 'paredeB', 'quadTop');
+
+    detectarColisaoCoracao('player', 'coracao');
 
     detectarColisaoBossLeft('player', 'boss_cultista-left');
     detectarColisaoBossRight('player', 'boss_cultista-right');
@@ -531,6 +536,38 @@ function detectarColisaoParedeB__quadTop(idObjeto1, idObjeto2, idObjeto3) {
 
     return colidiu;
 };
+
+function detectarColisaoCoracao(idObjeto1, idObjeto2) {
+    let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
+    let coracao = document.getElementById(idObjeto2).getBoundingClientRect();
+
+    let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
+                         {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
+                         {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top + objetoPlayer.height},
+                         {x : objetoPlayer.left, y : objetoPlayer.top + objetoPlayer.height}];
+
+    let pontos_coracao = [{x : coracao.left, y : coracao.top}, 
+                              {x : coracao.left + coracao.width, y : coracao.top},
+                              {x : coracao.left + coracao.width, y : coracao.top + coracao.height},
+                              {x : coracao.left, y : coracao.top + coracao.height}];
+
+    let colidiu = false;
+    let indice = 0;
+
+    while ((colidiu == false) && (indice < 3))
+    ((pontos_Player[indice].x >= coracao.left && pontos_Player[indice].x <= coracao.left + coracao.width && 
+    pontos_Player[indice].y >= coracao.top && pontos_Player[indice].y <= coracao.top + coracao.height)) ||
+
+    ((pontos_coracao[indice].x >= objetoPlayer.left && pontos_coracao[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+    pontos_coracao[indice].y >= objetoPlayer.top && pontos_coracao[indice].y <= objetoPlayer.top + objetoPlayer.height))
+    ? colidiu = true : indice ++;
+
+    if (colidiu == true) {
+        coracao.style.display = 'none';
+    }
+
+    return colidiu;
+}
 
 //detecta colisão com os bosses
 function detectarColisaoBossLeft(idObjeto1, idObjeto2) {
