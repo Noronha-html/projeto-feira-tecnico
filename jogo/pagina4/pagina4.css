@@ -17,8 +17,8 @@ body{
     left: 250px;
     width: 80px;
     height: 80px;
-    margin-left: 800px;
-    margin-top: 200px;
+    margin-left: 100px;
+    margin-top: 300px;
 }
 
 .staticLeft {
@@ -169,6 +169,7 @@ body{
     top: 50vh;
     left: 50vw;
     background-color: blue;
+    display: none;
 }
 
 #quadTop {
@@ -177,6 +178,7 @@ body{
     position: absolute;
     top: 49.9vh;
     left: 50.1vw;
+    display: none;
 }
 
 #quadBottom {
@@ -185,6 +187,7 @@ body{
     position: absolute;
     top: 65.7vh;
     left: 50.1vw;
+    display: none;
 }
 
 #quadLeft {
@@ -193,6 +196,7 @@ body{
     position: absolute;
     top: 50.1vh;
     left: 49.9vw;
+    display: none;
 }
 
 #quadRight {
@@ -200,7 +204,7 @@ body{
     height: 98px;
     position: absolute;
     top: 50.1vh;
-    left: 57.3vw;
+    display: none;
 }
 
 /*estantes*/
@@ -210,41 +214,82 @@ body{
     position: absolute;
     background-image: url(/jogo/img/Sprites/Bookshelf.png);
     background-position: cover;
-    top: 40vh;
-    left: 50vw;
+    top: 7vh;
+    left: 58vw;
 }
 
 #estanteLeft {
     width: 1px;
     height: 167px;
     position: absolute;
-    top: 40.1vh;
-    left: 49.9vw;
+    top: 7vh;
+    left: 58vw;
 }
 
 #estanteRight {
     width: 1px;
     height: 167px;
     position: absolute;
-    top: 40.1vh;
-    left: 59.5vw;
+    top: 7vh;
+    left: 67.66666vw;
 }
 
 #estanteTop {
     width: 128px;
     height: 1px;
     position: absolute;
-    top: 39.9vh;
-    left: 50.1vw;
-    background-color: aquamarine;
+    top: 13vh;
+    left: 58vw;
 }
 
 #estanteBottom {
     width: 128px;
     height: 1px;
     position: absolute;
-    top: 66.2vh;
-    left: 50.1vw;
+    top: 33vh;
+    left: 58.1vw;
+}
+
+#estante2 {
+    width: 130px;
+    height: 170px;
+    position: absolute;
+    background-image: url(/jogo/img/Sprites/Bookshelf.png);
+    background-position: cover;
+    top: 7vh;
+    left: 75vw;
+}
+
+#estanteLeft2 {
+    width: 1px;
+    height: 167px;
+    position: absolute;
+    top: 7vh;
+    left: 75vw;
+}
+
+#estanteRight2 {
+    width: 1px;
+    height: 167px;
+    position: absolute;
+    top: 7vh;
+    left: 84.4444vw;
+}
+
+#estanteTop2 {
+    width: 128px;
+    height: 1px;
+    position: absolute;
+    top: 7vh;
+    left: 75vw;
+}
+
+#estanteBottom2 {
+    width: 128px;
+    height: 1px;
+    position: absolute;
+    top: 33vh;
+    left: 75vw;
 }
 
 /* portas */
