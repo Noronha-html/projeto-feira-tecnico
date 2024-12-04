@@ -285,11 +285,98 @@ body{
 }
 
 #estanteBottom2 {
-    width: 128px;
+    width: 124px;
     height: 1px;
     position: absolute;
     top: 33vh;
     left: 75vw;
+}
+
+/*Pedras*/
+#pedra1 {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 55vh;
+    left: 85vw;
+    background-image: url(/jogo/img/Sprites/RockUnbreaking.png);
+    background-size: 100% 100%;
+}
+
+#pedra1Left {
+    width: 1px;
+    height: 50px;
+    position: absolute;
+    top: 62vh;
+    left: 85vw;
+}
+
+#pedra1Right {
+    width: 1px;
+    height: 50px;
+    position: absolute;
+    top: 62vh;
+    left: 92.2vw;    
+}
+
+#pedra1Top {
+    width: 93px;
+    height: 1px;
+    position: absolute;
+    top: 60vh;
+    left: 86vw;
+}
+
+#pedra1Bottom {
+    width: 93px;
+    height: 1px;
+    position: absolute;
+    top: 70vh;
+    left: 86vw;
+}
+
+#pedra2 {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 70vh;
+    left: 65vw;
+    background-image: url(/jogo/img/Sprites/RockUnbreaking.png);
+    background-size: 100% 100%;
+}
+
+#pedra2Left {
+    width: 1px;
+    height: 50px;
+    position: absolute;
+    top: 78vh;
+    left: 65vw;
+}
+
+#pedra2Right {
+    width: 1px;
+    height: 50px;
+    position: absolute;
+    top: 78vh;
+    left: 72.555555vw;
+}
+
+#pedra2Top {
+    width: 98px;
+    height: 1px;
+    position: absolute;
+    top: 75.1111vh;
+    left: 65.2222vw;
+    
+}
+
+#pedra2Bottom {
+    width: 98px;
+    height: 1px;
+    position: absolute;
+    top: 85vh;
+    left: 65.2222vw;
+    
 }
 
 /* portas */

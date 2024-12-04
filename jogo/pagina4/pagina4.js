@@ -794,7 +794,7 @@ function detectarColisaoParedeB__quadTop__pedra1Top__pedra2Top__estanteTop__mesa
         ((pontos_Player[indice].x >= estanteTop2.left && pontos_Player[indice].x <= estanteTop2.left + estanteTop2.width && 
             pontos_Player[indice].y >= estanteTop2.top && pontos_Player[indice].y <= estanteTop2.top + estanteTop2.height)) ||
                             
-        2((pontos__estanteTop2[indice].x >= objetoPlayer.left && pontos__estanteTop2[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        ((pontos__estanteTop2[indice].x >= objetoPlayer.left && pontos__estanteTop2[indice].x <= objetoPlayer.left + objetoPlayer.width && 
             pontos__estanteTop2[indice].y >= objetoPlayer.top && pontos__estanteTop2[indice].y <= objetoPlayer.top + objetoPlayer.height))
 
         ? colidiu = true : indice ++;
