@@ -860,7 +860,7 @@ function detectarColisaoBossTop(idObjeto1, idObjeto2) {
     }
 
     return colidiuBossTop;
-}
+};
 
 function detectarColisaoBossBottom(idObjeto1, idObjeto2) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
@@ -938,7 +938,7 @@ function detectarColisaoBossLeft__ParedeE__quadRight(idObjeto1, idObjeto2, idObj
         ? colidiu = true : indice ++;
 
     return colidiu;
-}
+};
 
 function detectarColisaoBossRight__ParedeD__quadLeft(idObjeto1, idObjeto2, idObjeto3) {
     let boss_cultista_Right = document.getElementById(idObjeto1).getBoundingClientRect();
@@ -984,7 +984,7 @@ function detectarColisaoBossRight__ParedeD__quadLeft(idObjeto1, idObjeto2, idObj
         }*/
 
     return colidiu;
-}
+};
 
 //detectar colisões nas portas
 /*function detectarColisaoPortaDown (idObjeto1, idObjeto2) {

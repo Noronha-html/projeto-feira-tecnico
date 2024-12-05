@@ -168,7 +168,7 @@ body{
     position: absolute;
     top: 50vh;
     left: 50vw;
-    background-color: blue;
+    display: none;
 }
 
 #quadTop {
@@ -177,6 +177,7 @@ body{
     position: absolute;
     top: 49.9vh;
     left: 50.1vw;
+    display: none;
 }
 
 #quadBottom {
@@ -185,6 +186,7 @@ body{
     position: absolute;
     top: 65.7vh;
     left: 50.1vw;
+    display: none;
 }
 
 #quadLeft {
@@ -193,6 +195,7 @@ body{
     position: absolute;
     top: 50.1vh;
     left: 49.9vw;
+    display: none;
 }
 
 #quadRight {
@@ -201,6 +204,13 @@ body{
     position: absolute;
     top: 50.1vh;
     left: 57.3vw;
+    display: none;
+}
+
+/*pedra*/
+#pedra{
+    background-image: url(/jogo/img/Sprites/RockUnbreaking.png);
+    
 }
 
 /* portas */

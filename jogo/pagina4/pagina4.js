@@ -61,6 +61,14 @@ let estanteLeft2;
 let estanteRight2;
 let estanteTop2;
 let estanteBottom2;
+let estanteLeft3;
+let estanteRight3;
+let estanteTop3;
+let estanteBottom3;
+let estanteLeft4;
+let estanteRight4;
+let estanteTop4;
+let estanteBottom4;
 let mesaLeft;
 let mesaRight;
 let mesaTop;
@@ -169,6 +177,16 @@ function inicia () {
     estanteRight2 = document.getElementById('estanteRight2');
     estanteTop2 = document.getElementById('estanteTop2');
     estanteBottom2 = document.getElementById('estanteBottom2');
+
+    estanteLeft3 = document.getElementById('estanteLeft3');
+    estanteRight3 = document.getElementById('estanteRight3');
+    estanteTop3 = document.getElementById('estanteTop3');
+    estanteBottom3 = document.getElementById('estanteBottom3');
+
+    estanteLeft4 = document.getElementById('estanteLeft4');
+    estanteRight4 = document.getElementById('estanteRight4');
+    estanteTop4 = document.getElementById('estanteTop4');
+    estanteBottom4 = document.getElementById('estanteBottom4');
 
     mesaLeft = document.getElementById('mesaLeft');
     mesaRight = document.getElementById('mesaRight');
@@ -351,10 +369,10 @@ function funcionalidades () {
     boss_cultista_wrapper.style.left = pxBossCultista + 'px';
     boss_cultista_wrapper.style.top = pyBossCultista + 'px';*/
 
-    detectarColisaoParedeE__quadRight__pedra1Right__pedra2Right__estanteRight__mesaRight_estanteRight2('player', 'paredeE', 'quadRight', 'pedra1Right', 'pedra2Right', 'estanteRight', 'mesaRight', 'estanteRight2');
-    detectarColisaoParedeD__quadLeft__pedra1Left__pedra2Left__estanteLeft__mesaLeft_estanteLeft2('player', 'paredeD', 'quadLeft', 'pedra1Left', 'pedra2Left', 'estanteLeft', 'mesaLeft', 'estanteLeft2');
-    detectarColisaoParedeC__quadBottom__pedra1Bottom__pedra2Bottom__estanteBottom_estanteBottom2('player', 'paredeC', 'quadBottom', 'pedra1Bottom', 'pedra2Bottom', 'estanteBottom', 'estanteBottom2');
-    detectarColisaoParedeB__quadTop__pedra1Top__pedra2Top__estanteTop__mesaTop_estanteBottom2('player', 'paredeB', 'quadTop', 'pedra1Top', 'pedra2Top', 'estanteTop', 'mesaTop', 'estanteTop2');
+    detectarColisaoParedeE__quadRight__pedra1Right__pedra2Right__estanteRight__mesaRight_estanteRight2_estanteRight3_estanteRight4('player', 'paredeE', 'quadRight', 'pedra1Right', 'pedra2Right', 'estanteRight', 'mesaRight', 'estanteRight2', 'estanteRight3', 'estanteRight4');
+    detectarColisaoParedeD__quadLeft__pedra1Left__pedra2Left__estanteLeft__mesaLeft_estanteLeft2_estanteLeft3_estanteLeft4('player', 'paredeD', 'quadLeft', 'pedra1Left', 'pedra2Left', 'estanteLeft', 'mesaLeft', 'estanteLeft2', 'estanteLeft3', 'estanteLeft4');
+    detectarColisaoParedeC__quadBottom__pedra1Bottom__pedra2Bottom__estanteBottom_estanteBottom2_estanteBottom3_estanteBottom4('player', 'paredeC', 'quadBottom', 'pedra1Bottom', 'pedra2Bottom', 'estanteBottom', 'estanteBottom2', 'estanteBottom3', 'estanteBottom4');
+    detectarColisaoParedeB__quadTop__pedra1Top__pedra2Top__estanteTop__mesaTop_estanteBottom2_estanteTop3_estanteTop4('player', 'paredeB', 'quadTop', 'pedra1Top', 'pedra2Top', 'estanteTop', 'mesaTop', 'estanteTop2', 'estanteTop3', 'estanteTop4');
 
     //detectarColisaoBossLeft('player', 'boss_cultista-left');
     //detectarColisaoBossRight('player', 'boss_cultista-right');
@@ -388,7 +406,7 @@ function funcionalidades () {
 };
 
 //detecta colisão na parede esquerda
-function detectarColisaoParedeE__quadRight__pedra1Right__pedra2Right__estanteRight__mesaRight_estanteRight2(idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObjeto5, idObjeto6, idObjeto7, idObjeto8) {
+function detectarColisaoParedeE__quadRight__pedra1Right__pedra2Right__estanteRight__mesaRight_estanteRight2_estanteRight3_estanteRight4(idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObjeto5, idObjeto6, idObjeto7, idObjeto8, idObjeto9, idObjeto10) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let paredeE = document.getElementById(idObjeto2).getBoundingClientRect();
     let quadRight = document.getElementById(idObjeto3).getBoundingClientRect();
@@ -397,6 +415,8 @@ function detectarColisaoParedeE__quadRight__pedra1Right__pedra2Right__estanteRig
     let estanteRight = document.getElementById(idObjeto6).getBoundingClientRect();
     let mesaRight = document.getElementById(idObjeto7).getBoundingClientRect();
     let estanteRight2 = document.getElementById(idObjeto8).getBoundingClientRect();
+    let estanteRight3 = document.getElementById(idObjeto9).getBoundingClientRect();
+    let estanteRight4 = document.getElementById(idObjeto10).getBoundingClientRect();
 
     let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
                          {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
@@ -438,6 +458,15 @@ function detectarColisaoParedeE__quadRight__pedra1Right__pedra2Right__estanteRig
                                 {x : estanteRight2.left + estanteRight2.width, y : estanteRight2.top + estanteRight2.height},
                                 {x : estanteRight2.left, y : estanteRight2.top + estanteRight2.height}];
 
+    let pontos__estanteRight3 = [{x : estanteRight3.left, y : estanteRight3.top}, 
+                                    {x : estanteRight3.left + estanteRight3.width, y : estanteRight3.top},
+                                    {x : estanteRight3.left + estanteRight3.width, y : estanteRight3.top + estanteRight3.height},
+                                    {x : estanteRight3.left, y : estanteRight3.top + estanteRight3.height}];
+
+    let pontos__estanteRight4 = [{x : estanteRight4.left, y : estanteRight4.top}, 
+                                        {x : estanteRight4.left + estanteRight4.width, y : estanteRight4.top},
+                                        {x : estanteRight4.left + estanteRight4.width, y : estanteRight4.top + estanteRight4.height},
+                                        {x : estanteRight4.left, y : estanteRight4.top + estanteRight4.height}];4
     let indice = 0;
     let colidiu = false;
 
@@ -478,10 +507,23 @@ function detectarColisaoParedeE__quadRight__pedra1Right__pedra2Right__estanteRig
     pontos__mesaRight[indice].y >= objetoPlayer.top && pontos__mesaRight[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
 
     ((pontos_Player[indice].x >= estanteRight2.left && pontos_Player[indice].x <= estanteRight2.left + estanteRight2.width && 
-        pontos_Player[indice].y >= estanteRight2.top && pontos_Player[indice].y <= estanteRight2.top + estanteRight2.height)) ||
+    pontos_Player[indice].y >= estanteRight2.top && pontos_Player[indice].y <= estanteRight2.top + estanteRight2.height)) ||
             
     ((pontos__estanteRight2[indice].x >= objetoPlayer.left && pontos__estanteRight2[indice].x <= objetoPlayer.left + objetoPlayer.width && 
-        pontos__estanteRight2[indice].y >= objetoPlayer.top && pontos__estanteRight2[indice].y <= objetoPlayer.top + objetoPlayer.height))
+    pontos__estanteRight2[indice].y >= objetoPlayer.top && pontos__estanteRight2[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+    
+    ((pontos_Player[indice].x >= estanteRight3.left && pontos_Player[indice].x <= estanteRight3.left + estanteRight3.width && 
+    pontos_Player[indice].y >= estanteRight3.top && pontos_Player[indice].y <= estanteRight3.top + estanteRight3.height)) ||
+                
+    ((pontos__estanteRight3[indice].x >= objetoPlayer.left && pontos__estanteRight3[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+    pontos__estanteRight3[indice].y >= objetoPlayer.top && pontos__estanteRight3[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+
+    ((pontos_Player[indice].x >= estanteRight4.left && pontos_Player[indice].x <= estanteRight4.left + estanteRight4.width && 
+    pontos_Player[indice].y >= estanteRight4.top && pontos_Player[indice].y <= estanteRight4.top + estanteRight4.height)) ||
+                    
+            ((pontos__estanteRight4[indice].x >= objetoPlayer.left && pontos__estanteRight4[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+                pontos__estanteRight4[indice].y >= objetoPlayer.top && pontos__estanteRight4[indice].y <= objetoPlayer.top + objetoPlayer.height))
        
         ? colidiu = true : indice ++;
         tecA = false;
@@ -496,7 +538,7 @@ function detectarColisaoParedeE__quadRight__pedra1Right__pedra2Right__estanteRig
 };
 
 //detecta colisão na parede direita
-function detectarColisaoParedeD__quadLeft__pedra1Left__pedra2Left__estanteLeft__mesaLeft_estanteLeft2(idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObjeto5, idObjeto6, idObjeto7, idObjeto8) {
+function detectarColisaoParedeD__quadLeft__pedra1Left__pedra2Left__estanteLeft__mesaLeft_estanteLeft2_estanteLeft3_estanteLeft4(idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObjeto5, idObjeto6, idObjeto7, idObjeto8, idObjeto9, idObjeto10) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let paredeD = document.getElementById(idObjeto2).getBoundingClientRect();
     let quadLeft = document.getElementById(idObjeto3).getBoundingClientRect();
@@ -505,6 +547,8 @@ function detectarColisaoParedeD__quadLeft__pedra1Left__pedra2Left__estanteLeft__
     let estanteLeft = document.getElementById(idObjeto6).getBoundingClientRect();
     let mesaLeft = document.getElementById(idObjeto7).getBoundingClientRect();
     let estanteLeft2 = document.getElementById(idObjeto8).getBoundingClientRect();
+    let estanteLeft3 = document.getElementById(idObjeto9).getBoundingClientRect();
+    let estanteLeft4 = document.getElementById(idObjeto10).getBoundingClientRect();
 
     let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
                          {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
@@ -545,6 +589,16 @@ function detectarColisaoParedeD__quadLeft__pedra1Left__pedra2Left__estanteLeft__
                                 {x : estanteLeft2.left + estanteLeft2.width, y : estanteLeft2.top},
                                 {x : estanteLeft2.left + estanteLeft2.width, y : estanteLeft2.top + estanteLeft2.height},
                                 {x : estanteLeft2.left, y : estanteLeft2.top + estanteLeft2.height}];
+
+    let pontos__estanteLeft3 = [{x : estanteLeft3.left, y : estanteLeft3.top}, 
+                                {x : estanteLeft3.left + estanteLeft3.width, y : estanteLeft3.top},
+                                {x : estanteLeft3.left + estanteLeft3.width, y : estanteLeft3.top + estanteLeft3.height},
+                                {x : estanteLeft3.left, y : estanteLeft3.top + estanteLeft3.height}];
+
+    let pontos__estanteLeft4 = [{x : estanteLeft4.left, y : estanteLeft4.top}, 
+                                {x : estanteLeft4.left + estanteLeft4.width, y : estanteLeft4.top},
+                                {x : estanteLeft4.left + estanteLeft4.width, y : estanteLeft4.top + estanteLeft4.height},
+                                {x : estanteLeft4.left, y : estanteLeft4.top + estanteLeft4.height}];
 
     let indice = 0;
     let colidiu = false;
@@ -587,10 +641,22 @@ function detectarColisaoParedeD__quadLeft__pedra1Left__pedra2Left__estanteLeft__
         pontos__mesaLeft[indice].y >= objetoPlayer.top && pontos__mesaLeft[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
 
         ((pontos_Player[indice].x >= estanteLeft2.left && pontos_Player[indice].x <= estanteLeft2.left + estanteLeft2.width && 
-            pontos_Player[indice].y >= estanteLeft2.top && pontos_Player[indice].y <= estanteLeft2.top + estanteLeft2.height)) ||
+        pontos_Player[indice].y >= estanteLeft2.top && pontos_Player[indice].y <= estanteLeft2.top + estanteLeft2.height)) ||
                     
         ((pontos__estanteLeft2[indice].x >= objetoPlayer.left && pontos__estanteLeft2[indice].x <= objetoPlayer.left + objetoPlayer.width && 
-            pontos__estanteLeft2[indice].y >= objetoPlayer.top && pontos__estanteLeft2[indice].y <= objetoPlayer.top + objetoPlayer.height))
+        pontos__estanteLeft2[indice].y >= objetoPlayer.top && pontos__estanteLeft2[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+        ((pontos_Player[indice].x >= estanteLeft3.left && pontos_Player[indice].x <= estanteLeft3.left + estanteLeft3.width && 
+        pontos_Player[indice].y >= estanteLeft3.top && pontos_Player[indice].y <= estanteLeft3.top + estanteLeft3.height)) ||
+                        
+        ((pontos__estanteLeft3[indice].x >= objetoPlayer.left && pontos__estanteLeft3[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos__estanteLeft3[indice].y >= objetoPlayer.top && pontos__estanteLeft3[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+        ((pontos_Player[indice].x >= estanteLeft4.left && pontos_Player[indice].x <= estanteLeft4.left + estanteLeft4.width && 
+        pontos_Player[indice].y >= estanteLeft4.top && pontos_Player[indice].y <= estanteLeft4.top + estanteLeft4.height)) ||
+                            
+        ((pontos__estanteLeft4[indice].x >= objetoPlayer.left && pontos__estanteLeft4[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos__estanteLeft4[indice].y >= objetoPlayer.top && pontos__estanteLeft4[indice].y <= objetoPlayer.top + objetoPlayer.height))
 
         ? colidiu = true : indice ++;
     tecD = false;
@@ -605,7 +671,7 @@ function detectarColisaoParedeD__quadLeft__pedra1Left__pedra2Left__estanteLeft__
 };
 
 //detecta colisão na parede de cima
-function detectarColisaoParedeC__quadBottom__pedra1Bottom__pedra2Bottom__estanteBottom_estanteBottom2(idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObjeto5, idObjeto6, idObjeto7) {
+function detectarColisaoParedeC__quadBottom__pedra1Bottom__pedra2Bottom__estanteBottom_estanteBottom2_estanteBottom3_estanteBottom4(idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObjeto5, idObjeto6, idObjeto7, idObjeto8, idObjeto9) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let paredeC = document.getElementById(idObjeto2).getBoundingClientRect();
     let quadBottom = document.getElementById(idObjeto3).getBoundingClientRect();
@@ -613,6 +679,8 @@ function detectarColisaoParedeC__quadBottom__pedra1Bottom__pedra2Bottom__estante
     let pedra2Bottom = document.getElementById(idObjeto5).getBoundingClientRect();
     let estanteBottom = document.getElementById(idObjeto6).getBoundingClientRect();
     let estanteBottom2 = document.getElementById(idObjeto7).getBoundingClientRect();
+    let estanteBottom3 = document.getElementById(idObjeto8).getBoundingClientRect();
+    let estanteBottom4 = document.getElementById(idObjeto9).getBoundingClientRect();
 
     let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
                          {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
@@ -648,6 +716,16 @@ function detectarColisaoParedeC__quadBottom__pedra1Bottom__pedra2Bottom__estante
                                     {x : estanteBottom2.left + estanteBottom2.width, y : estanteBottom2.top},
                                     {x : estanteBottom2.left + estanteBottom2.width, y : estanteBottom2.top + estanteBottom.height},
                                     {x : estanteBottom2.left, y : estanteBottom2.top + estanteBottom2.height}];
+
+    let pontos__estanteBottom3 = [{x : estanteBottom3.left, y : estanteBottom3.top}, 
+                                {x : estanteBottom3.left + estanteBottom3.width, y : estanteBottom3.top},
+                                {x : estanteBottom3.left + estanteBottom3.width, y : estanteBottom3.top + estanteBottom3.height},
+                                {x : estanteBottom3.left, y : estanteBottom3.top + estanteBottom3.height}];
+
+    let pontos__estanteBottom4 = [{x : estanteBottom4.left, y : estanteBottom4.top}, 
+                                {x : estanteBottom4.left + estanteBottom4.width, y : estanteBottom4.top},
+                                {x : estanteBottom4.left + estanteBottom4.width, y : estanteBottom4.top + estanteBottom4.height},
+                                {x : estanteBottom4.left, y : estanteBottom4.top + estanteBottom4.height}];
 
     let indice = 0;
     let colidiu = false;
@@ -687,7 +765,19 @@ function detectarColisaoParedeC__quadBottom__pedra1Bottom__pedra2Bottom__estante
             pontos_Player[indice].y >= estanteBottom2.top && pontos_Player[indice].y <= estanteBottom2.top + estanteBottom2.height)) ||
                         
         ((pontos__estanteBottom2[indice].x >= objetoPlayer.left && pontos__estanteBottom2[indice].x <= objetoPlayer.left + objetoPlayer.width && 
-            pontos__estanteBottom2[indice].y >= objetoPlayer.top && pontos__estanteBottom2[indice].y <= objetoPlayer.top + objetoPlayer.height))
+            pontos__estanteBottom2[indice].y >= objetoPlayer.top && pontos__estanteBottom2[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+        ((pontos_Player[indice].x >= estanteBottom3.left && pontos_Player[indice].x <= estanteBottom3.left + estanteBottom3.width && 
+        pontos_Player[indice].y >= estanteBottom3.top && pontos_Player[indice].y <= estanteBottom3.top + estanteBottom3.height)) ||
+                            
+        ((pontos__estanteBottom3[indice].x >= objetoPlayer.left && pontos__estanteBottom3[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos__estanteBottom3[indice].y >= objetoPlayer.top && pontos__estanteBottom3[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+        ((pontos_Player[indice].x >= estanteBottom4.left && pontos_Player[indice].x <= estanteBottom4.left + estanteBottom4.width && 
+        pontos_Player[indice].y >= estanteBottom4.top && pontos_Player[indice].y <= estanteBottom4.top + estanteBottom4.height)) ||
+                        
+        ((pontos__estanteBottom4[indice].x >= objetoPlayer.left && pontos__estanteBottom4[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos__estanteBottom4[indice].y >= objetoPlayer.top && pontos__estanteBottom4[indice].y <= objetoPlayer.top + objetoPlayer.height)) 
         
         ? colidiu = true : indice ++;2
     tecW = false;
@@ -702,7 +792,7 @@ function detectarColisaoParedeC__quadBottom__pedra1Bottom__pedra2Bottom__estante
 };
 
 //detecta colisão na parede de baixo e na parte de cima de um objeto
-function detectarColisaoParedeB__quadTop__pedra1Top__pedra2Top__estanteTop__mesaTop_estanteBottom2(idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObjeto5, idObjeto6, idObjeto7, idObjeto8) {
+function detectarColisaoParedeB__quadTop__pedra1Top__pedra2Top__estanteTop__mesaTop_estanteBottom2_estanteTop3_estanteTop4(idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObjeto5, idObjeto6, idObjeto7, idObjeto8, idObjeto9, idObjeto10) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let paredeB = document.getElementById(idObjeto2).getBoundingClientRect();
     let quadTop = document.getElementById(idObjeto3).getBoundingClientRect();
@@ -711,6 +801,8 @@ function detectarColisaoParedeB__quadTop__pedra1Top__pedra2Top__estanteTop__mesa
     let estanteTop = document.getElementById(idObjeto6).getBoundingClientRect();
     let mesaTop = document.getElementById(idObjeto7).getBoundingClientRect();
     let estanteTop2 = document.getElementById(idObjeto8).getBoundingClientRect();
+    let estanteTop3 = document.getElementById(idObjeto9).getBoundingClientRect();
+    let estanteTop4 = document.getElementById(idObjeto10).getBoundingClientRect();
 
     let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
                          {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
@@ -752,6 +844,15 @@ function detectarColisaoParedeB__quadTop__pedra1Top__pedra2Top__estanteTop__mesa
                                 {x : estanteTop2.left + estanteTop2.width, y : estanteTop2.top + estanteTop2.height},
                                 {x : estanteTop2.left, y : estanteTop2.top + estanteTop2.height}];
 
+    let pontos__estanteTop3 = [{x : estanteTop3.left, y : estanteTop3.top}, 
+                                {x : estanteTop3.left + estanteTop3.width, y : estanteTop3.top},
+                                {x : estanteTop3.left + estanteTop3.width, y : estanteTop3.top + estanteTop3.height},
+                                {x : estanteTop3.left, y : estanteTop3.top + estanteTop3.height}];
+
+    let pontos__estanteTop4 = [{x : estanteTop4.left, y : estanteTop4.top}, 
+                                {x : estanteTop4.left + estanteTop4.width, y : estanteTop4.top},
+                                {x : estanteTop4.left + estanteTop4.width, y : estanteTop4.top + estanteTop4.height},
+                                {x : estanteTop4.left, y : estanteTop4.top + estanteTop4.height}];
 
     let indice = 0;
     let colidiu = false
@@ -794,10 +895,22 @@ function detectarColisaoParedeB__quadTop__pedra1Top__pedra2Top__estanteTop__mesa
         pontos__mesaTop[indice].y >= objetoPlayer.top && pontos__mesaTop[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
 
         ((pontos_Player[indice].x >= estanteTop2.left && pontos_Player[indice].x <= estanteTop2.left + estanteTop2.width && 
-            pontos_Player[indice].y >= estanteTop2.top && pontos_Player[indice].y <= estanteTop2.top + estanteTop2.height)) ||
+        pontos_Player[indice].y >= estanteTop2.top && pontos_Player[indice].y <= estanteTop2.top + estanteTop2.height)) ||
                             
         ((pontos__estanteTop2[indice].x >= objetoPlayer.left && pontos__estanteTop2[indice].x <= objetoPlayer.left + objetoPlayer.width && 
-            pontos__estanteTop2[indice].y >= objetoPlayer.top && pontos__estanteTop2[indice].y <= objetoPlayer.top + objetoPlayer.height))
+        pontos__estanteTop2[indice].y >= objetoPlayer.top && pontos__estanteTop2[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+        ((pontos_Player[indice].x >= estanteTop3.left && pontos_Player[indice].x <= estanteTop3.left + estanteTop3.width && 
+        pontos_Player[indice].y >= estanteTop3.top && pontos_Player[indice].y <= estanteTop3.top + estanteTop3.height)) ||
+                                
+        ((pontos__estanteTop3[indice].x >= objetoPlayer.left && pontos__estanteTop3[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+         pontos__estanteTop3[indice].y >= objetoPlayer.top && pontos__estanteTop3[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+        ((pontos_Player[indice].x >= estanteTop4.left && pontos_Player[indice].x <= estanteTop4.left + estanteTop4.width && 
+        pontos_Player[indice].y >= estanteTop4.top && pontos_Player[indice].y <= estanteTop4.top + estanteTop4.height)) ||
+                                
+        ((pontos__estanteTop4[indice].x >= objetoPlayer.left && pontos__estanteTop4[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos__estanteTop4[indice].y >= objetoPlayer.top && pontos__estanteTop4[indice].y <= objetoPlayer.top + objetoPlayer.height))
 
         ? colidiu = true : indice ++;
     tecS = false;

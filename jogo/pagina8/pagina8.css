@@ -168,7 +168,7 @@ body{
     position: absolute;
     top: 50vh;
     left: 50vw;
-    background-color: blue;
+    display: none;
 }
 
 #quadTop {
@@ -177,6 +177,7 @@ body{
     position: absolute;
     top: 49.9vh;
     left: 50.1vw;
+    display: none;
 }
 
 #quadBottom {
@@ -185,6 +186,7 @@ body{
     position: absolute;
     top: 65.7vh;
     left: 50.1vw;
+    display: none;
 }
 
 #quadLeft {
@@ -193,6 +195,7 @@ body{
     position: absolute;
     top: 50.1vh;
     left: 49.9vw;
+    display: none;
 }
 
 #quadRight {
@@ -201,7 +204,156 @@ body{
     position: absolute;
     top: 50.1vh;
     left: 57.3vw;
+    display: none;
 }
+
+/*Pedra e barril*/
+#pedra1 {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 45vh;
+    left: 50vw;
+    background-image: url(/jogo/img/Sprites/RockUnbreaking.png);
+    background-size: 100% 100%;
+}
+
+#pedra1Left {
+    width: 1px;
+    height: 65px;
+    position: absolute;
+    top: 49.55555vh;
+    left: 50vw;
+}
+
+#pedra1Right {
+    width: 1px;
+    height: 65px;
+    position: absolute;
+    top: 49.5555vh;
+    left: 57.2222vw;
+}
+
+#pedra1Top {
+    width: 98px;
+    height: 1px;
+    position: absolute;
+    top: 49.22222vh;
+    left: 50vw;
+}
+
+#pedra1Bottom {
+    width: 95px;
+    height: 1px;
+    position: absolute;
+    top: 59.7777vh;
+    left: 50.22222vw;
+}
+
+#pedra2 {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 35vh;
+    left: 42vw;
+    background-image: url(/jogo/img/Sprites/RockUnbreaking.png);
+    background-size: 100% 100%;
+}
+
+#pedra2Left {
+    width: 1px;
+    height: 62px;
+    position: absolute;
+    top: 39.99999vh;
+    left: 42vw;
+}
+
+#pedra2Right {
+    width: 1px;
+    height: 62px;
+    position: absolute;
+    top: 39.999999vh;
+    left: 49.33333vw;
+}
+
+#pedra2Top {
+    width: 90px;
+    height: 1px;
+    position: absolute;
+    top: 39.7777vh;
+    left: 42.444444vw;
+}
+
+#pedra2Bottom {
+    width: 90px;
+    height: 1px;
+    position: absolute;
+    top: 49.6666vh;
+    left: 42.55555vw;
+}
+
+#barril1 {
+    width: 80px;
+    height: 114px;
+    position: absolute;
+    top: 7vh;
+    left: 5vw;
+    background-image: url(/jogo/img/Sprites/Barrel.png);
+    background-size: cover;
+}
+
+#barril2 {
+    width: 80px;
+    height: 114px;
+    position: absolute;
+    top: 20vh;
+    left: 5vw;
+    background-image: url(/jogo/img/Sprites/Barrel.png);
+    background-size: cover;
+}
+
+#barril3 {
+    width: 80px;
+    height: 114px;
+    position: absolute;
+    top: 7vh;
+    left: 11.4444vw;
+    background-image: url(/jogo/img/Sprites/Barrel.png);
+    background-size: cover;
+}
+
+#barraTop{
+    width: 6vw;
+    height: 1px;
+    position: absolute;
+    left: 11vw;
+    top: 25vh;
+}
+
+#barraBottom{
+    width: 5.99999vw;
+    height: 1px;
+    position: absolute;
+    left: 5vw;
+    top: 37.99999vh;
+}
+
+#barraRight{
+    width: 1px;
+    height: 16.111111vh;
+    position: absolute;
+    left: 17.22222vw;
+    top: 9vh;
+}
+
+#barraRight2{
+    width: 1px;
+    height: 14vh;
+    position: absolute;
+    left: 11vw;
+    top: 24vh;
+}
+
 
 /* portas */
 #portaRight {
@@ -215,7 +367,6 @@ body{
 }
 
 #portaTop {
-    background-color: purple;
     width: 100px;
     height: 80px;
     top: 0;
