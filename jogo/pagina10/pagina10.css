@@ -210,7 +210,66 @@ body{
 /*pedra*/
 #pedra{
     background-image: url(/jogo/img/Sprites/RockUnbreaking.png);
-    
+    height: 74vh;
+    width: 220px;
+    background-size: 110px 120px;
+    position: absolute;
+    left: 90px;
+    top: 14vh;
+}
+
+#linhaPedra{
+    width: 1px;
+    height: 90vh;
+    position: absolute;
+    top: 10vh;
+    left: 23vw;
+}
+
+#mesa {
+    width: 185px;
+    height: 140px;
+    position: absolute;
+    background-image: url(/jogo/img/Sprites/Table.png);
+    background-size: cover;
+    top: 38vh;
+    left: 43vw;
+}
+
+#mesaLeft {
+    width: 1px;
+    height: 75px;
+    position: absolute;
+    top: 45vh;
+    left: 43vw;  
+    background-color: chartreuse;
+}
+
+#mesaRight {
+    width: 1px;
+    height: 75px;
+    position: absolute;
+    top: 45vh;
+    left: 56.44444vw;   
+    background-color: blue;
+}
+
+#mesaTop {
+    width: 183px;
+    height: 1px;
+    position: absolute;
+    top: 45vh;
+    left: 43vw;
+    background-color: aquamarine;
+}
+
+#mesaBottom{
+    width: 183px;
+    height: 1px;
+    position: absolute;
+    top: 56.8888vh;
+    left: 43vw;
+    background-color: purple;
 }
 
 /* portas */
