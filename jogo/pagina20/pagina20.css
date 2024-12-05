@@ -169,6 +169,7 @@ body{
     background-image: url(/jogo/img/Sprites/chest.png);
     background-repeat: no-repeat;
     background-size: cover;
+    display: none;
 }
 
 #quadTop {
@@ -177,6 +178,7 @@ body{
     position: absolute;
     top: 49vh;
     left: 48vw;
+    display: none;
 }
 
 #quadBottom {
@@ -185,6 +187,7 @@ body{
     position: absolute;
     top: 56vh;
     left: 48vw;
+    display: none;
 }
 
 #quadLeft {
@@ -193,6 +196,7 @@ body{
     position: absolute;
     top: 50vh;
     left: 46.6666vw;
+    display: none;
 }
 
 #quadRight {
@@ -201,6 +205,7 @@ body{
     position: absolute;
     top: 50vh;
     left:52vw;
+    display: none;
 }
 
 /* portas */
@@ -303,10 +308,18 @@ body{
     margin-top: 250px;
 }
 
-#boss_cultista {
+.boss_cultista-turned-left {
     width: 80px;
     height: 80px;
     position: absolute;
+    background-image: url(/jogo/img/Sprites/bossCultist\(Left\).gif);
+}
+
+.boss_cultista-turned-right {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    background-image: url(/jogo/img/Sprites/bossCultist\(Right\).gif);
 }
 
 #boss_cultista-left {

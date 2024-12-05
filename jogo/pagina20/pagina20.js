@@ -49,7 +49,8 @@ let corItemVida;
 //boss
 var lifeBoss; //vida do boss
 let boss_cultista_wrapper; //div que envolve o boss cultista para facilitar o movimento
-let boss_cultista; //boss cultista
+let boss_cultista_turned_left; //boss cultista virado para a esquerda
+let boss_cultista_turned_right; //boss cultista virado para a direita
 let boss_cultista_Left; //esquerda do boss cultista
 let boss_cultista_Right; //direita do boss cultista
 let boss_cultista_Top; //em cima do boss cultista
@@ -146,7 +147,8 @@ function inicia () {
     corItemVida = document.querySelector('.corItemVida');
 
     boss_cultista_wrapper = document.getElementById('boss_cultista-wrapper')
-    boss_cultista = document.getElementById('boss_cultista');
+    boss_cultista_turned_left = document.querySelector('.boss_cultista-turned-left');
+    boss_cultista_turned_right = document.querySelector('.boss_cultista-turned-right');
     boss_cultista_Left = document.getElementById('boss_cultista-left');
     boss_cultista_Right = document.getElementById('boss_cultista-right');
     boss_cultista_Top = document.getElementById('boss_cultista-top');

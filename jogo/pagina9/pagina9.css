@@ -85,6 +85,30 @@ body{
     height: 80px;
 }
 
+.playerAttackingLeft {
+    background-image: url(/jogo/img/Sprites/playerCutting\(Left\).gif);
+    background-size: cover;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
+.playerAttackingRight {
+    background-image: url(/jogo/img/Sprites/playerCutting\(Right\).gif);
+    background-size: cover;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
+.playerAttackingDown {
+    background-image: url(/jogo/img/Sprites/playerCutting\(Down\).gif);
+    background-size: cover;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
 /* paredes */
 #paredeE {
     width: 80px;
@@ -228,10 +252,10 @@ body{
     top: 48vh;
 }
 
-.hp8 {
+.hp7 {
     width: 300px;
     height: 100px;
-    background-image: url(/jogo/img/Sprites/hp\(8-8\).png);
+    background-image: url(/jogo/img/Sprites/hp\(7-7\).png);
     background-size: cover;
     position: absolute;
     left: 10vw;
@@ -321,7 +345,6 @@ body{
 .linPedrasLeft1 {
     width: 1px;
     height: 65px;
-    background-color: green;
     position: absolute;
     left: 31.9vw;
     top: 40vh;
@@ -330,7 +353,6 @@ body{
 .linPedrasLeft2 {
     width: 1px;
     height: 65px;
-    background-color: green;
     position: absolute;
     left: 31.9vw;
     top: 57vh;
@@ -339,7 +361,6 @@ body{
 .linPedrasLeft-top {
     width: 1px;
     height: 58px;
-    background-color: green;
     position: absolute;
     left: 39.9vw;
     top: 25vh;
@@ -348,7 +369,6 @@ body{
 .linPedrasLeft-bottom {
     width: 1px;
     height: 58px;
-    background-color: green;
     position: absolute;
     left: 39.9vw;
     top: 70vh;
@@ -357,7 +377,6 @@ body{
 .linPedrasLeft-right1 {
     width: 1px;
     height: 58px;
-    background-color: blue;
     position: absolute;
     left: 49vw;
     top: 25vh;
@@ -366,7 +385,6 @@ body{
 .linPedrasLeft-right2 {
     width: 1px;
     height: 63px;
-    background-color: blue;
     position: absolute;
     left: 58vw;
     top: 40.5vh;
@@ -375,7 +393,6 @@ body{
 .linPedrasLeft-right3 {
     width: 1px;
     height: 63px;
-    background-color: blue;
     position: absolute;
     left: 58vw;
     top: 57.4vh;
@@ -384,7 +401,6 @@ body{
 .linPedrasLeft-right4 {
     width: 1px;
     height: 58px;
-    background-color: blue;
     position: absolute;
     left: 49vw;
     top: 70.5vh;
@@ -393,7 +409,6 @@ body{
 .linPedrasRight1 {
     width: 1px;
     height: 65px;
-    background-color: green;
     position: absolute;
     left: 65vw;
     top: 40vh;
@@ -402,7 +417,6 @@ body{
 .linPedrasRight2 {
     width: 1px;
     height: 65px;
-    background-color: green;
     position: absolute;
     left: 65vw;
     top: 57vh;
@@ -411,7 +425,6 @@ body{
 .linPedrasRight-top {
     width: 1px;
     height: 58px;
-    background-color: green;
     position: absolute;
     left: 56vw;
     top: 25vh;
@@ -420,7 +433,6 @@ body{
 .linPedrasRight-bottom {
     width: 1px;
     height: 58px;
-    background-color: green;
     position: absolute;
     left: 56vw;
     top: 70vh;
@@ -429,7 +441,6 @@ body{
 .linPedrasRight-left1 {
     width: 1px;
     height: 58px;
-    background-color: blue;
     position: absolute;
     left: 47vw;
     top: 25vh;
@@ -438,16 +449,14 @@ body{
 .linPedrasRight-left2 {
     width: 1px;
     height: 63px;
-    background-color: blue;
     position: absolute;
     left: 39vw;
-    top: 40.5vh;
+    top: 40vh;
 }
 
 .linPedrasRight-left3 {
     width: 1px;
     height: 63px;
-    background-color: blue;
     position: absolute;
     left: 39vw;
     top: 57.4vh;
@@ -456,7 +465,6 @@ body{
 .linPedrasRight-left4 {
     width: 1px;
     height: 58px;
-    background-color: blue;
     position: absolute;
     left: 47vw;
     top: 70.5vh;
@@ -465,7 +473,6 @@ body{
 .linPedrasTop1 {
     width: 93px;
     height: 1px;
-    background-color: red;
     position: absolute;
     left: 40.1vw;
     top: 24.6vh;
@@ -474,7 +481,6 @@ body{
 .linPedrasTop2{
     width: 94px;
     height: 1px;
-    background-color: red;
     position: absolute;
     left: 49.2vw;
     top: 24.6vh;
@@ -483,7 +489,6 @@ body{
 .linPedrasTop-left {
     width: 93px;
     height: 1px;
-    background-color: red;
     position: absolute;
     left: 32.1vw;
     top: 39.8vh;
@@ -492,7 +497,6 @@ body{
 .linPedrasTop-right {
     width: 92px;
     height: 1px;
-    background-color: red;
     position: absolute;
     left: 58.2vw;
     top: 39.8vh;
@@ -501,7 +505,6 @@ body{
 .linPedrasTop-bottom1 {
     width: 93px;
     height: 1px;
-    background-color: yellow;
     position: absolute;
     left: 32.1vw;
     top: 57vh;
@@ -510,25 +513,22 @@ body{
 .linPedrasTop-bottom2 {
     width: 93px;
     height: 1px;
-    background-color: yellow;
     position: absolute;
-    left: 49.1vw;
+    left: 40.2vw;
     top: 70vh;
 }
 
 .linPedrasTop-bottom3 {
     width: 93px;
     height: 1px;
-    background-color: yellow;
     position: absolute;
-    left: 40.2vw;
+    left: 49.1vw;
     top: 70vh;
 }
 
 .linPedrasTop-bottom4 {
     width: 93px;
     height: 1px;
-    background-color: yellow;
     position: absolute;
     left: 58.2vw;
     top: 57vh;
@@ -538,7 +538,6 @@ body{
 .linPedrasBottom1 {
     width: 93px;
     height: 1px;
-    background-color: red;
     position: absolute;
     left: 40.2vw;
     top: 80vh;
@@ -547,7 +546,6 @@ body{
 .linPedrasBottom2 {
     width: 96px;
     height: 1px;
-    background-color: red;
     position: absolute;
     left: 48.9vw;
     top: 80vh;
@@ -556,7 +554,6 @@ body{
 .linPedrasBottom-left {
     width: 98px;
     height: 1px;
-    background-color: red;
     position: absolute;
     left: 32.1vw;
     top: 67.5vh;
@@ -565,15 +562,46 @@ body{
 .linPedrasBottom-right {
     width: 98px;
     height: 1px;
-    background-color: red;
     position: absolute;
     left: 58vw;
     top: 67.5vh;
 }
 
+.linPedrasBottom-top1 {
+    width: 93px;
+    height: 1px;
+    position: absolute;
+    left: 32.1vw;
+    top: 50vh;
+}
+
+.linPedrasBottom-top2 {
+    width: 93px;
+    height: 1px;
+    position: absolute;
+    left: 40.2vw;
+    top: 35vh;
+}
+
+.linPedrasBottom-top3 {
+    width: 93px;
+    height: 1px;
+    position: absolute;
+    left: 49.1vw;
+    top: 35vh;
+}
+
+.linPedrasBottom-top4 {
+    width: 93px;
+    height: 1px;
+    position: absolute;
+    left: 58.2vw;
+    top: 50vh;
+}
+
 /* portas */
 #portaRight {
-    background-image: url(/jogo/img/Sprites/CloseDoorAnime\(Right\).gif);
+    background-image: url(/jogo/img/Sprites/DoorOpen\(Right\).png);
     width: 80px;
     height: 100px;
     top: 44vh;
@@ -629,7 +657,8 @@ body{
 .attackingLeft {
     width: 70px;
     height: 70px;
-    background-color: aqua;
+    background-image: url(/jogo/img/Sprites/cut\(Left\).gif);
+    background-size: cover;
     position: absolute;
     z-index: 10;
 }
@@ -637,7 +666,8 @@ body{
 .attackingRight {
     width: 70px;
     height: 70px;
-    background-color: aqua;
+    background-image: url(/jogo/img/Sprites/cut\(RIght\).gif);
+    background-size: cover;
     position: absolute;
     z-index: 10;
 }
@@ -653,7 +683,7 @@ body{
 .attackingDown {
     width: 70px;
     height: 60px;
-    background-color: aqua;
+    background-image: url(/jogo/img/Sprites/cut\(Down\).gif);
     position: absolute;
     z-index: 10;
 }

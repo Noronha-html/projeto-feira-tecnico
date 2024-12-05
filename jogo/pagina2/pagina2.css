@@ -447,6 +447,7 @@ body{
     width: 70px;
     height: 70px;
     background-image: url(/jogo/img/Sprites/cut\(Left\).gif);
+    background-size: cover;
     position: absolute;
     z-index: 10;
 }
