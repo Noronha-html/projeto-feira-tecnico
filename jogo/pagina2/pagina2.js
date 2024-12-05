@@ -4,6 +4,7 @@ let dy; //direção do eixo y
 let px; //posição final do eixo x
 let py; //posição final do eixo y
 let vel; //velocidade
+let playerVida; //vida do player
 let playerDano; //dano do player
 let PlayerAcertou; //declara se o player acertou ou não o ataque
 let atacou;
@@ -87,6 +88,7 @@ function inicia () {
     py = 0;
     vel = 1;
     lifeBoss = 10;
+    playerVida = 5;
     playerDano = 1;
     PlayerAcertou = false;
     atacou = false;

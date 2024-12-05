@@ -17,8 +17,8 @@ body{
     left: 250px;
     width: 80px;
     height: 80px;
-    margin-left: 800px;
-    margin-top: 200px;
+    margin-left: 81px;
+    margin-top: 285px;
 }
 
 .staticLeft {
@@ -140,6 +140,7 @@ body{
     left: 0;
     background-image: url(/jogo/img/Sprites/cornerLeftDown.png);
     background-position: left bottom;
+    
 }
 
 #quinaDirUp{
@@ -169,11 +170,15 @@ body{
     top: 35.8vh;
     left: 43vw;
     background-image: url(/jogo/img/Sprites/chest.png);
-    background-repeat: no-repeat;
     background-size: cover;
+    z-index: 2;
 }
 
-#quadTop {
+.quadradoNull {
+    display: none;
+}
+
+.quadTop {
     width: 30px;
     height: 1px;
     position: absolute;
@@ -181,7 +186,7 @@ body{
     left: 48vw;
 }
 
-#quadBottom {
+.quadBottom {
     width: 30px;
     height: 1px;
     position: absolute;
@@ -189,7 +194,7 @@ body{
     left: 48vw;
 }
 
-#quadLeft {
+.quadLeft {
     width: 1px;
     height: 25px;
     position: absolute;
@@ -197,7 +202,7 @@ body{
     left: 46.6666vw;
 }
 
-#quadRight {
+.quadRight {
     width: 1px;
     height: 25px;
     position: absolute;
@@ -205,13 +210,51 @@ body{
     left:52vw;
 }
 
+#coracao {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 47.5vw;
+    top: 48vh;
+}
+
+#coracaoVisual {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-image: url(/jogo/img/Sprites/Heart.gif);
+    background-size: cover;
+    left: 47.5vw;
+    top: 48vh;
+}
+
+.hp7 {
+    width: 300px;
+    height: 100px;
+    background-image: url(/jogo/img/Sprites/hp\(7-7\).png);
+    background-size: cover;
+    position: absolute;
+    left: 10vw;
+    top: 2vh; 
+}
+
+.hp8 {
+    width: 300px;
+    height: 100px;
+    background-image: url(/jogo/img/Sprites/hp\(8-8\).png);
+    background-size: cover;
+    position: absolute;
+    left: 10vw;
+    top: 2vh; 
+}
+
 /* portas */
 #portaRight {
-    background-color: purple;
+    background-image: url(/jogo/img/Sprites/CloseDoorAnime\(Right\).gif);
     width: 80px;
     height: 100px;
     top: 44vh;
-    left: 0;
+    left: 94.2vw;
     position: absolute;
 }
 
@@ -235,13 +278,12 @@ body{
 }
 
 #portaLeft{
+    background-image: url(/jogo/img/Sprites/CloseDoorAnime\(Left\).gif);
     width: 80px;
     height: 100px;
     position: absolute;
     left: 0;
     top: 44vh;
-    background-image: url(/jogo/img/Sprites/CloseDoorAnime\(Left\).gif);
-    background-size: 100% 100%;
 }
 
 /* ataques */

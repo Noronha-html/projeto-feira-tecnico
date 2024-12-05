@@ -4,6 +4,7 @@ let dy; //direção do eixo y
 let px; //posição final do eixo x
 let py; //posição final do eixo y
 let vel; //velocidade
+let playerVida; //vida do player
 let playerDano; //dano do player
 let PlayerAcertou; //declara se o player acertou ou não o ataque
 let atacou;
@@ -22,6 +23,7 @@ let attackingRightId;
 let attackingUpId;
 let attackingDownId;
 let tmpAtaque; //atualiza os frames do ataque constantemente
+let hp;
 
 //objetos e funcionalidades
 let tmpFuncionalidades; //intervalo de tempo até executar de novo a função
@@ -77,11 +79,14 @@ function inicia () {
     py = 0;
     vel = 1;
     lifeBoss = 10;
+    playerVida = 5;
     playerDano = 1;
     PlayerAcertou = false;
     atacou = false;
 
     ultimaDirecao = null;
+
+    hp = document.querySelector('.hp5');
 
     attackLeft = {
         pressed : false,
@@ -346,9 +351,9 @@ function funcionalidades () {
     playerAttackDown('player');
  
     detectarColisaoAtaqueLeft('attackingLeft', 'boss_cultista-right', 'quadRight');
-    detectarColisaoAtaqueRight('attackingRight', 'boss_cultista-left');
-    detectarColisaoAtaqueUp('attackingUp', 'boss_cultista-bottom');
-    detectarColisaoAtaqueDown('attackingDown', 'boss_cultista-top');
+    detectarColisaoAtaqueRight('attackingRight', 'boss_cultista-left', 'quadLeft');
+    detectarColisaoAtaqueUp('attackingUp', 'boss_cultista-bottom', 'quadBottom');
+    detectarColisaoAtaqueDown('attackingDown', 'boss_cultista-top', 'quadTop');
 
     danoAoBoss();
     
@@ -577,8 +582,11 @@ function detectarColisaoCoracao(idObjeto1, idObjeto2) {
 
     if (colidiu == true) {
         coracaoVisual.style.display = 'none';
+        playerVida = 6;
+        hp.classList.remove('hp5');
+        hp.classList.add('hp6');
     }
-
+    
     return colidiu;
 }
 
@@ -1059,6 +1067,9 @@ function detectarColisaoAtaqueLeft(objeto1, objeto2, idObjeto3) {
         //PlayerAcertou = true;
         quadrado.style.display = 'none';
         quadRightClass.style.left = 0 + 'px';
+        quadLeftclass.style.left = 0 + 'px';
+        quadTopClass.style.top = 0 + 'px';
+        quadBottomClass.style.top = 0 + 'px';
     }
 
     return colidiuAtaqueLeft;
@@ -1079,32 +1090,43 @@ function detectarColisaoAtaqueRight(objeto1, objeto2, idObjeto3) {
                                      {x : boss_cultista_Left.left + boss_cultista_Left.width, y : boss_cultista_Left.top + boss_cultista_Left.height},
                                      {x : boss_cultista_Left.left, y : boss_cultista_Left.top + boss_cultista_Left.height}];*/
 
+    let pontos_quadLeft = [{x : quadLeft.left, y : quadLeft.top}, 
+                           {x : quadLeft.left + quadLeft.width, y : quadLeft.top},
+                           {x : quadLeft.left + quadLeft.width, y : quadLeft.top + quadLeft.height},
+                           {x : quadLeft.left, y : quadLeft.top + quadLeft.height}];
+
     let indice = 0;
     let colidiuAtaqueRight = false;
 
     while((colidiuAtaqueRight == false) && (indice < 3)) {
-    ((pontos_ataque_Right[indice].x >= boss_cultista_Left.left && pontos_ataque_Right[indice].x <= boss_cultista_Left.left + boss_cultista_Left.width && 
+    /*((pontos_ataque_Right[indice].x >= boss_cultista_Left.left && pontos_ataque_Right[indice].x <= boss_cultista_Left.left + boss_cultista_Left.width && 
     pontos_ataque_Right[indice].y >= boss_cultista_Left.top && pontos_ataque_Right[indice].y <= boss_cultista_Left.top + boss_cultista_Left.height)) ||
     
     ((pontos_boss_cultista_Left[indice].x >= attackingRight.left && pontos_boss_cultista_Left[indice].x <= attackingRight.left + attackingRight.width && 
-    pontos_boss_cultista_Left[indice].y >= attackingRight.top && pontos_boss_cultista_Left[indice].y <= attackingRight.top + attackingRight.height)) ||
+    pontos_boss_cultista_Left[indice].y >= attackingRight.top && pontos_boss_cultista_Left[indice].y <= attackingRight.top + attackingRight.height)) ||*/
 
     ((pontos_ataque_Right[indice].x >= quadLeft.left && pontos_ataque_Right[indice].x <= quadLeft.left + quadLeft.width && 
     pontos_ataque_Right[indice].y >= quadLeft.top && pontos_ataque_Right[indice].y <= quadLeft.top + quadLeft.height)) ||
     
-    ((pontos_boss_cultista_Left[indice].x >= attackingRight.left && pontos_boss_cultista_Left[indice].x <= attackingRight.left + attackingRight.width && 
-    pontos_boss_cultista_Left[indice].y >= attackingRight.top && pontos_boss_cultista_Left[indice].y <= attackingRight.top + attackingRight.height))
+    ((pontos_quadLeft[indice].x >= attackingRight.left && pontos_quadLeft[indice].x <= attackingRight.left + attackingRight.width && 
+    pontos_quadLeft[indice].y >= attackingRight.top && pontos_quadLeft[indice].y <= attackingRight.top + attackingRight.height))
     ? colidiuAtaqueRight = true : indice ++;
     }
 
     if (colidiuAtaqueRight == true && lifeBoss > 0) {
-        PlayerAcertou = true;
+        //PlayerAcertou = true;
+        quadrado.style.display = 'none';
+        quadRightClass.style.left = 0 + 'px';
+        quadLeftclass.style.left = 0 + 'px';
+        quadTopClass.style.top = 0 + 'px';
+        quadBottomClass.style.top = 0 + 'px';
     }
 }
 
-function detectarColisaoAtaqueUp(objeto1, objeto2) {
+function detectarColisaoAtaqueUp(objeto1, objeto2, idObjeto3) {
     let attackingUp = document.getElementById(objeto1).getBoundingClientRect();
-    let boss_cultista_Bottom = document.getElementById(objeto2).getBoundingClientRect();
+    //let boss_cultista_Bottom = document.getElementById(objeto2).getBoundingClientRect();
+    let quadBottom = document.getElementById(idObjeto3).getBoundingClientRect();
 
     let pontos_ataque_Up = [{x : attackingUp.left, y : attackingUp.top}, 
                             {x : attackingUp.left + attackingUp.width, y : attackingUp.top},
@@ -1116,26 +1138,43 @@ function detectarColisaoAtaqueUp(objeto1, objeto2) {
                                        {x : boss_cultista_Bottom.left + boss_cultista_Bottom.width, y : boss_cultista_Bottom.top + boss_cultista_Bottom.height},
                                        {x : boss_cultista_Bottom.left, y : boss_cultista_Bottom.top + boss_cultista_Bottom.height}];
 
+    let pontos_quadBottom = [{x : quadBottom.left, y : quadBottom.top}, 
+                             {x : quadBottom.left + quadBottom.width, y : quadBottom.top},
+                             {x : quadBottom.left + quadBottom.width, y : quadBottom.top + quadBottom.height},
+                             {x : quadBottom.left, y : quadBottom.top + quadBottom.height}];
+
     let indice = 0;
     let colidiuAtaqueUp = false;
 
     while((colidiuAtaqueUp == false) && (indice < 3)) {
-    ((pontos_ataque_Up[indice].x >= boss_cultista_Bottom.left && pontos_ataque_Up[indice].x <= boss_cultista_Bottom.left + boss_cultista_Bottom.width && 
+    /*((pontos_ataque_Up[indice].x >= boss_cultista_Bottom.left && pontos_ataque_Up[indice].x <= boss_cultista_Bottom.left + boss_cultista_Bottom.width && 
     pontos_ataque_Up[indice].y >= boss_cultista_Bottom.top && pontos_ataque_Up[indice].y <= boss_cultista_Bottom.top + boss_cultista_Bottom.height)) ||
     
     ((pontos_boss_cultista_Bottom[indice].x >= attackingUp.left && pontos_boss_cultista_Bottom[indice].x <= attackingUp.left + attackingUp.width && 
-    pontos_boss_cultista_Bottom[indice].y >= attackingUp.top && pontos_boss_cultista_Bottom[indice].y <= attackingUp.top + attackingUp.height))
+    pontos_boss_cultista_Bottom[indice].y >= attackingUp.top && pontos_boss_cultista_Bottom[indice].y <= attackingUp.top + attackingUp.height))*/
+
+    ((pontos_ataque_Up[indice].x >= quadBottom.left && pontos_ataque_Up[indice].x <= quadBottom.left + quadBottom.width && 
+    pontos_ataque_Up[indice].y >= quadBottom.top && pontos_ataque_Up[indice].y <= quadBottom.top + quadBottom.height)) ||
+    
+    ((pontos_quadBottom[indice].x >= attackingUp.left && pontos_quadBottom[indice].x <= attackingUp.left + attackingUp.width && 
+    pontos_quadBottom[indice].y >= attackingUp.top && pontos_quadBottom[indice].y <= attackingUp.top + attackingUp.height))
     ? colidiuAtaqueUp = true : indice ++;
     }
 
     if (colidiuAtaqueUp == true && lifeBoss > 0) {
-        PlayerAcertou = true;
+        //PlayerAcertou = true;
+        quadrado.style.display = 'none';
+        quadRightClass.style.left = 0 + 'px';
+        quadLeftclass.style.left = 0 + 'px';
+        quadTopClass.style.top = 0 + 'px';
+        quadBottomClass.style.top = 0 + 'px';
     }
 }
 
-function detectarColisaoAtaqueDown(objeto1, objeto2) {
+function detectarColisaoAtaqueDown(objeto1, objeto2, idObjeto3) {
     let attackingDown = document.getElementById(objeto1).getBoundingClientRect();
-    let boss_cultista_Top = document.getElementById(objeto2).getBoundingClientRect();
+    //let boss_cultista_Top = document.getElementById(objeto2).getBoundingClientRect();
+    let quadTop = document.getElementById(idObjeto3).getBoundingClientRect();
 
     let pontos_ataque_Down = [{x : attackingDown.left, y : attackingDown.top}, 
                               {x : attackingDown.left + attackingDown.width, y : attackingDown.top},
@@ -1147,20 +1186,36 @@ function detectarColisaoAtaqueDown(objeto1, objeto2) {
                                     {x : boss_cultista_Top.left + boss_cultista_Top.width, y : boss_cultista_Top.top + boss_cultista_Top.height},
                                     {x : boss_cultista_Top.left, y : boss_cultista_Top.top + boss_cultista_Top.height}];
 
+    let pontos_quadTop = [{x : quadTop.left, y : quadTop.top}, 
+                          {x : quadTop.left + quadTop.width, y : quadTop.top},
+                          {x : quadTop.left + quadTop.width, y : quadTop.top + quadTop.height},
+                          {x : quadTop.left, y : quadTop.top + quadTop.height}];
+
     let indice = 0;
     let colidiuAtaqueDown = false;
 
     while((colidiuAtaqueDown == false) && (indice < 3)) {
-    ((pontos_ataque_Down[indice].x >= boss_cultista_Top.left && pontos_ataque_Down[indice].x <= boss_cultista_Top.left + boss_cultista_Top.width && 
+    /*((pontos_ataque_Down[indice].x >= boss_cultista_Top.left && pontos_ataque_Down[indice].x <= boss_cultista_Top.left + boss_cultista_Top.width && 
     pontos_ataque_Down[indice].y >= boss_cultista_Top.top && pontos_ataque_Down[indice].y <= boss_cultista_Top.top + boss_cultista_Top.height)) ||
     
     ((pontos_boss_cultista_Top[indice].x >= attackingDown.left && pontos_boss_cultista_Top[indice].x <= attackingDown.left + attackingDown.width && 
-    pontos_boss_cultista_Top[indice].y >= attackingDown.top && pontos_boss_cultista_Top[indice].y <= attackingDown.top + attackingDown.height))
+    pontos_boss_cultista_Top[indice].y >= attackingDown.top && pontos_boss_cultista_Top[indice].y <= attackingDown.top + attackingDown.height))*/
+
+    ((pontos_ataque_Down[indice].x >= quadTop.left && pontos_ataque_Down[indice].x <= quadTop.left + quadTop.width && 
+    pontos_ataque_Down[indice].y >= quadTop.top && pontos_ataque_Down[indice].y <= quadTop.top + quadTop.height)) ||
+    
+    ((pontos_quadTop[indice].x >= attackingDown.left && pontos_quadTop[indice].x <= attackingDown.left + attackingDown.width && 
+    pontos_quadTop[indice].y >= attackingDown.top && pontos_quadTop[indice].y <= attackingDown.top + attackingDown.height))
     ? colidiuAtaqueDown = true : indice ++;
     }
 
     if (colidiuAtaqueDown == true && lifeBoss > 0) {
-        PlayerAcertou = true;
+        //PlayerAcertou = true;
+        quadrado.style.display = 'none';
+        quadRightClass.style.left = 0 + 'px';
+        quadLeftclass.style.left = 0 + 'px';
+        quadTopClass.style.top = 0 + 'px';
+        quadBottomClass.style.top = 0 + 'px';
     }
 }
 
