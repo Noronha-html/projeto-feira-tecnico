@@ -51,16 +51,44 @@ let portaTop; //porta de cima
 let portaDown; //porta de baixo
 let coracao;
 let coracaoVisual;
-let linPedrasLeft;
+let linPedrasLeft1;
+let linPedrasLeft2;
 let linPedrasLeft_top;
 let linPedrasLeft_bottom;
-let linPedrasRight;
+let linPedrasLeft_right1;
+let linPedrasLeft_right1Class;
+let linPedrasLeft_right2;
+let linPedrasLeft_right2Class;
+let linPedrasLeft_right3;
+let linPedrasLeft_right3Class;
+let linPedrasLeft_right4;
+let linPedrasLeft_right4Class;
+let linPedrasRight1;
+let linPedrasRight2;
 let linPedrasRight_top;
 let linPedrasRight_bottom;
-let linPedrasTop;
+let linPedrasRight_left1;
+let linPedrasRight_left1Class;
+let linPedrasRight_left2;
+let linPedrasRight_left2Class;
+let linPedrasRight_left3;
+let linPedrasRight_left3Class;
+let linPedrasRight_left4;
+let linPedrasRight_left4Class;
+let linPedrasTop1;
+let linPedrasTop2;
 let linPedrasTop_left;
 let linPedrasTop_right;
-let linPedrasBottom;
+let linPedrasTop_bottom1;
+let linPedrasTop_bottom1Class;
+let linPedrasTop_bottom2;
+let linPedrasTop_bottom2Class;
+let linPedrasTop_bottom3;
+let linPedrasTop_bottom3Class;
+let linPedrasTop_bottom4;
+let linPedrasTop_bottom4Class;
+let linPedrasBottom1;
+let linPedrasBottom2;
 let linPedrasBottom_left;
 let linPedrasBottom_right;
 let pedra1;
@@ -175,19 +203,47 @@ function inicia () {
     coracao = document.getElementById('coracao');
     coracaoVisual = document.getElementById('coracaoVisual');
 
-    linPedrasLeft = document.getElementById('linPedrasLeft');
+    linPedrasLeft1 = document.getElementById('linPedrasLeft1');
+    linPedrasLeft2 = document.getElementById('linPedrasLeft2');
     linPedrasLeft_top = document.getElementById('linPedrasLeft-top');
     linPedrasLeft_bottom = document.getElementById('linPedrasLeft-bottom');
+    linPedrasLeft_right1 = document.getElementById('linPedrasLeft-right1');
+    linPedrasLeft_right1Class = document.querySelector('.linPedrasLeft-right1');
+    linPedrasLeft_right2 = document.getElementById('linPedrasLeft-right2');
+    linPedrasLeft_right2Class = document.querySelector('.linPedrasLeft-right2');
+    linPedrasLeft_right3 = document.getElementById('linPedrasLeft-right3');
+    linPedrasLeft_right3Class = document.querySelector('.linPedrasLeft-right3')
+    linPedrasLeft_right4 = document.getElementById('linPedrasLeft-right4');
+    linPedrasLeft_right4Class = document.querySelector('.linPedrasLeft-right4');
 
-    linPedrasRight = document.getElementById('linPedrasRight');
+    linPedrasRight1 = document.getElementById('linPedrasRight1');
+    linPedrasRight2 = document.getElementById('linPedrasRight2');
     linPedrasRight_top = document.getElementById('linPedrasRight-top');
     linPedrasRight_bottom = document.getElementById('linPedrasRight-bottom');
+    linPedrasRight_left1 = document.getElementById('linPedrasRight-left1');
+    linPedrasRight_left1Class = document.querySelector('.linPedrasRight-left1');
+    linPedrasRight_left2 = document.getElementById('linPedrasRight-left2');
+    linPedrasRight_left2Class = document.querySelector('.linPedrasRight-left2');
+    linPedrasRight_left3 = document.getElementById('linPedrasRight-left3');
+    linPedrasRight_left3Class = document.querySelector('.linPedrasRight-left3');
+    linPedrasRight_left4 = document.getElementById('linPedrasRight-left4');
+    linPedrasRight_left4Class = document.querySelector('.linPedrasRight-left4');
 
-    linPedrasTop = document.getElementById('linPedrasTop');
+    linPedrasTop1 = document.getElementById('linPedrasTop1');
+    linPedrasTop2 = document.getElementById('linPedrasTop2');
     linPedrasTop_left = document.getElementById('linPedrasTop-left');
     linPedrasTop_right = document.getElementById('linPedrasTop-right');
+    linPedrasTop_bottom1 = document.getElementById('linPedrasTop-bottom1');
+    linPedrasTop_bottom1Class = document.querySelector('.linPedrasTop-bottom1');
+    linPedrasTop_bottom2 = document.getElementById('linPedrasTop-bottom2');
+    linPedrasTop_bottom2Class = document.querySelector('.linPedrasTop-bottom2');
+    linPedrasTop_bottom3 = document.getElementById('linPedrasTop-bottom3');
+    linPedrasTop_bottom3Class = document.querySelector('.linPedrasTop-bottom3');
+    linPedrasTop_bottom4 = document.getElementById('linPedrasTop-bottom4');
+    linPedrasTop_bottom4Class = document.querySelector('.linPedrasTop-bottom4');
 
-    linPedrasBottom = document.getElementById('linPedrasBottom');
+    linPedrasBottom1 = document.getElementById('linPedrasBottom1');
+    linPedrasBottom2 = document.getElementById('linPedrasBottom2');
     linPedrasBottom_left = document.getElementById('linPedrasBottom-left');
     linPedrasBottom_right = document.getElementById('linPedrasBottom-right');
 
@@ -386,17 +442,17 @@ function funcionalidades () {
     boss_cultista_wrapper.style.left = pxBossCultista + 'px';
     boss_cultista_wrapper.style.top = pyBossCultista + 'px';
 
-    detectarColisaoParedeE__quadRight('player', 'paredeE', 'quadRight', 'linPedrasRight', 'linPedrasRight-top', 'linPedrasRight-bottom');
-    detectarColisaoParedeD__quadLeft('player', 'paredeD', 'quadLeft', 'linPedrasLeft', 'linPedrasLeft-top', 'linPedrasLeft-bottom');
-    detectarColisaoParedeC__quadBottom('player', 'paredeC', 'quadBottom', 'linPedrasBottom', 'linPedrasBottom-left', 'linPedrasBottom-right');
-    detectarColisaoParedeB__quadTop('player', 'paredeB', 'quadTop', 'linPedrasTop', 'linPedrasTop-left', 'linPedrasTop-right');
+    detectarColisaoParedeE__quadRight('player', 'paredeE', 'quadRight', 'linPedrasRight1', 'linPedrasRight2', 'linPedrasRight-top', 'linPedrasRight-bottom', 'linPedrasRight-left1', 'linPedrasRight-left2', 'linPedrasRight-left3', 'linPedrasRight-left4');
+    detectarColisaoParedeD__quadLeft('player', 'paredeD', 'quadLeft', 'linPedrasLeft1', 'linPedrasLeft2', 'linPedrasLeft-top', 'linPedrasLeft-bottom', 'linPedrasLeft-right1', 'linPedrasLeft-right2', 'linPedrasLeft-right3', 'linPedrasLeft-right4');
+    detectarColisaoParedeC__quadBottom('player', 'paredeC', 'quadBottom', 'linPedrasBottom1', 'linPedrasBottom2', 'linPedrasBottom-left', 'linPedrasBottom-right');
+    detectarColisaoParedeB__quadTop('player', 'paredeB', 'quadTop', 'linPedrasTop1', 'linPedrasTop2', 'linPedrasTop-left', 'linPedrasTop-right', 'linPedrasTop-bottom1', 'linPedrasTop-bottom2', 'linPedrasTop-bottom3', 'linPedrasTop-bottom4');
 
     detectarColisaoCoracao('player', 'coracao');
 
-    detectarColisaoBossLeft('player', 'boss_cultista-left');
-    detectarColisaoBossRight('player', 'boss_cultista-right');
-    detectarColisaoBossTop('player', 'boss_cultista-top');
-    detectarColisaoBossBottom('player', 'boss_cultista-bottom');
+    //detectarColisaoBossLeft('player', 'boss_cultista-left');
+    //detectarColisaoBossRight('player', 'boss_cultista-right');
+    //detectarColisaoBossTop('player', 'boss_cultista-top');
+    //detectarColisaoBossBottom('player', 'boss_cultista-bottom');
 
     (detectarColisaoBossLeft__ParedeE__quadRight('boss_cultista-left', 'paredeE', 'quadRight') == true)? bossMovimentandoLeft = false : bossMovimentandoLeft = true;
     (detectarColisaoBossRight__ParedeD__quadLeft('boss_cultista-right', 'paredeD', 'quadLeft') == true)? bossMovimentandoRight = false : bossMovimentandoRight = true;
@@ -426,13 +482,18 @@ function funcionalidades () {
 };
 
 //detecta colisão na parede esquerda
-function detectarColisaoParedeE__quadRight(idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObjeto5, idObjeto6) {
+function detectarColisaoParedeE__quadRight(idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObjeto5, idObjeto6, idObjeto7, idObjeto8, idObjeto9, idObjeto10, idObjeto11) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let paredeE = document.getElementById(idObjeto2).getBoundingClientRect();
     let quadRight = document.getElementById(idObjeto3).getBoundingClientRect();
-    let linPedrasRight = document.getElementById(idObjeto4).getBoundingClientRect();
-    let linPedrasRight_Top = document.getElementById(idObjeto5).getBoundingClientRect();
-    let linPedrasRight_Bottom = document.getElementById(idObjeto6).getBoundingClientRect();
+    let linPedrasRight1 = document.getElementById(idObjeto4).getBoundingClientRect();
+    let linPedrasRight2 = document.getElementById(idObjeto5).getBoundingClientRect();
+    let linPedrasRight_Top = document.getElementById(idObjeto6).getBoundingClientRect();
+    let linPedrasRight_Bottom = document.getElementById(idObjeto7).getBoundingClientRect();
+    let linPedrasRight_left1 = document.getElementById(idObjeto8).getBoundingClientRect();
+    let linPedrasRight_left2 = document.getElementById(idObjeto9).getBoundingClientRect();
+    let linPedrasRight_left3 = document.getElementById(idObjeto10).getBoundingClientRect();
+    let linPedrasRight_left4 = document.getElementById(idObjeto11).getBoundingClientRect();
 
     let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
                          {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
@@ -449,10 +510,15 @@ function detectarColisaoParedeE__quadRight(idObjeto1, idObjeto2, idObjeto3, idOb
                              {x : quadRight.left + quadRight.width, y : quadRight.top + quadRight.height},
                              {x : quadRight.left, y : quadRight.top + quadRight.height}];
 
-    let pontos_linPedrasRight = [{x : linPedrasRight.left, y : linPedrasRight.top}, 
-                                 {x : linPedrasRight.left + linPedrasRight.width, y : linPedrasRight.top},
-                                 {x : linPedrasRight.left + linPedrasRight.width, y : linPedrasRight.top + linPedrasRight.height},
-                                 {x : linPedrasRight.left, y : linPedrasRight.top + linPedrasRight.height}];
+    let pontos_linPedrasRight1 = [{x : linPedrasRight1.left, y : linPedrasRight1.top}, 
+                                 {x : linPedrasRight1.left + linPedrasRight1.width, y : linPedrasRight1.top},
+                                 {x : linPedrasRight1.left + linPedrasRight1.width, y : linPedrasRight1.top + linPedrasRight1.height},
+                                 {x : linPedrasRight1.left, y : linPedrasRight1.top + linPedrasRight1.height}];
+
+    let pontos_linPedrasRight2 = [{x : linPedrasRight2.left, y : linPedrasRight2.top}, 
+                                  {x : linPedrasRight2.left + linPedrasRight2.width, y : linPedrasRight2.top},
+                                  {x : linPedrasRight2.left + linPedrasRight2.width, y : linPedrasRight2.top + linPedrasRight2.height},
+                                  {x : linPedrasRight2.left, y : linPedrasRight2.top + linPedrasRight2.height}];
 
     let pontos_linPedrasRight_Top = [{x : linPedrasRight_Top.left, y : linPedrasRight_Top.top}, 
                                      {x : linPedrasRight_Top.left + linPedrasRight_Top.width, y : linPedrasRight_Top.top},
@@ -463,6 +529,26 @@ function detectarColisaoParedeE__quadRight(idObjeto1, idObjeto2, idObjeto3, idOb
                                         {x : linPedrasRight_Bottom.left + linPedrasRight_Bottom.width, y : linPedrasRight_Bottom.top},
                                         {x : linPedrasRight_Bottom.left + linPedrasRight_Bottom.width, y : linPedrasRight_Bottom.top + linPedrasRight_Bottom.height},
                                         {x : linPedrasRight_Bottom.left, y : linPedrasRight_Bottom.top + linPedrasRight_Bottom.height}];
+
+    let pontos_linPedrasRight_left1 = [{x : linPedrasRight_left1.left, y : linPedrasRight_left1.top}, 
+                                       {x : linPedrasRight_left1.left + linPedrasRight_left1.width, y : linPedrasRight_left1.top},
+                                       {x : linPedrasRight_left1.left + linPedrasRight_left1.width, y : linPedrasRight_left1.top + linPedrasRight_left1.height},
+                                       {x : linPedrasRight_left1.left, y : linPedrasRight_left1.top + linPedrasRight_left1.height}];
+
+    let pontos_linPedrasRight_left2 = [{x : linPedrasRight_left2.left, y : linPedrasRight_left2.top}, 
+                                       {x : linPedrasRight_left2.left + linPedrasRight_left2.width, y : linPedrasRight_left2.top},
+                                       {x : linPedrasRight_left2.left + linPedrasRight_left2.width, y : linPedrasRight_left2.top + linPedrasRight_left2.height},
+                                       {x : linPedrasRight_left2.left, y : linPedrasRight_left2.top + linPedrasRight_left2.height}];
+
+    let pontos_linPedrasRight_left3 = [{x : linPedrasRight_left3.left, y : linPedrasRight_left3.top}, 
+                                       {x : linPedrasRight_left3.left + linPedrasRight_left3.width, y : linPedrasRight_left3.top},
+                                       {x : linPedrasRight_left3.left + linPedrasRight_left3.width, y : linPedrasRight_left3.top + linPedrasRight_left3.height},
+                                       {x : linPedrasRight_left3.left, y : linPedrasRight_left3.top + linPedrasRight_left3.height}];
+
+    let pontos_linPedrasRight_left4 = [{x : linPedrasRight_left4.left, y : linPedrasRight_left4.top}, 
+                                       {x : linPedrasRight_left4.left + linPedrasRight_left4.width, y : linPedrasRight_left4.top},
+                                       {x : linPedrasRight_left4.left + linPedrasRight_left4.width, y : linPedrasRight_left4.top + linPedrasRight_left4.height},
+                                       {x : linPedrasRight_left4.left, y : linPedrasRight_left4.top + linPedrasRight_left4.height}];
 
     let indice = 0;
     let colidiu = false;
@@ -480,11 +566,17 @@ function detectarColisaoParedeE__quadRight(idObjeto1, idObjeto2, idObjeto3, idOb
     ((pontos_quad_Right[indice].x >= objetoPlayer.left && pontos_quad_Right[indice].x <= objetoPlayer.left + objetoPlayer.width && 
     pontos_quad_Right[indice].y >= objetoPlayer.top && pontos_quad_Right[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
 
-    ((pontos_Player[indice].x >= linPedrasRight.left && pontos_Player[indice].x <= linPedrasRight.left + linPedrasRight.width && 
-    pontos_Player[indice].y >= linPedrasRight.top && pontos_Player[indice].y <= linPedrasRight.top + linPedrasRight.height)) ||
+    ((pontos_Player[indice].x >= linPedrasRight1.left && pontos_Player[indice].x <= linPedrasRight1.left + linPedrasRight1.width && 
+    pontos_Player[indice].y >= linPedrasRight1.top && pontos_Player[indice].y <= linPedrasRight1.top + linPedrasRight1.height)) ||
 
-    ((pontos_linPedrasRight[indice].x >= objetoPlayer.left && pontos_linPedrasRight[indice].x <= objetoPlayer.left + objetoPlayer.width && 
-    pontos_linPedrasRight[indice].y >= objetoPlayer.top && pontos_linPedrasRight[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+    ((pontos_linPedrasRight1[indice].x >= objetoPlayer.left && pontos_linPedrasRight1[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+    pontos_linPedrasRight1[indice].y >= objetoPlayer.top && pontos_linPedrasRight1[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+    ((pontos_Player[indice].x >= linPedrasRight2.left && pontos_Player[indice].x <= linPedrasRight2.left + linPedrasRight2.width && 
+    pontos_Player[indice].y >= linPedrasRight2.top && pontos_Player[indice].y <= linPedrasRight2.top + linPedrasRight2.height)) ||
+
+    ((pontos_linPedrasRight2[indice].x >= objetoPlayer.left && pontos_linPedrasRight2[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+    pontos_linPedrasRight2[indice].y >= objetoPlayer.top && pontos_linPedrasRight2[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
 
     ((pontos_Player[indice].x >= linPedrasRight_Top.left && pontos_Player[indice].x <= linPedrasRight_Top.left + linPedrasRight_Top.width && 
     pontos_Player[indice].y >= linPedrasRight_Top.top && pontos_Player[indice].y <= linPedrasRight_Top.top + linPedrasRight_Top.height)) ||
@@ -496,7 +588,31 @@ function detectarColisaoParedeE__quadRight(idObjeto1, idObjeto2, idObjeto3, idOb
     pontos_Player[indice].y >= linPedrasRight_Bottom.top && pontos_Player[indice].y <= linPedrasRight_Bottom.top + linPedrasRight_Bottom.height)) ||
 
     ((pontos_linPedrasRight_Bottom[indice].x >= objetoPlayer.left && pontos_linPedrasRight_Bottom[indice].x <= objetoPlayer.left + objetoPlayer.width && 
-    pontos_linPedrasRight_Bottom[indice].y >= objetoPlayer.top && pontos_linPedrasRight_Bottom[indice].y <= objetoPlayer.top + objetoPlayer.height))
+    pontos_linPedrasRight_Bottom[indice].y >= objetoPlayer.top && pontos_linPedrasRight_Bottom[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+    ((pontos_Player[indice].x >= linPedrasRight_left1.left && pontos_Player[indice].x <= linPedrasRight_left1.left + linPedrasRight_left1.width && 
+    pontos_Player[indice].y >= linPedrasRight_left1.top && pontos_Player[indice].y <= linPedrasRight_left1.top + linPedrasRight_left1.height)) ||
+
+    ((pontos_linPedrasRight_left1[indice].x >= objetoPlayer.left && pontos_linPedrasRight_left1[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+    pontos_linPedrasRight_left1[indice].y >= objetoPlayer.top && pontos_linPedrasRight_left1[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+    ((pontos_Player[indice].x >= linPedrasRight_left2.left && pontos_Player[indice].x <= linPedrasRight_left2.left + linPedrasRight_left2.width && 
+    pontos_Player[indice].y >= linPedrasRight_left2.top && pontos_Player[indice].y <= linPedrasRight_left2.top + linPedrasRight_left2.height)) ||
+
+    ((pontos_linPedrasRight_left2[indice].x >= objetoPlayer.left && pontos_linPedrasRight_left2[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+    pontos_linPedrasRight_left2[indice].y >= objetoPlayer.top && pontos_linPedrasRight_left2[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+    ((pontos_Player[indice].x >= linPedrasRight_left3.left && pontos_Player[indice].x <= linPedrasRight_left3.left + linPedrasRight_left3.width && 
+    pontos_Player[indice].y >= linPedrasRight_left3.top && pontos_Player[indice].y <= linPedrasRight_left3.top + linPedrasRight_left3.height)) ||
+
+    ((pontos_linPedrasRight_left3[indice].x >= objetoPlayer.left && pontos_linPedrasRight_left3[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+    pontos_linPedrasRight_left3[indice].y >= objetoPlayer.top && pontos_linPedrasRight_left3[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+    ((pontos_Player[indice].x >= linPedrasRight_left4.left && pontos_Player[indice].x <= linPedrasRight_left4.left + linPedrasRight_left4.width && 
+    pontos_Player[indice].y >= linPedrasRight_left4.top && pontos_Player[indice].y <= linPedrasRight_left4.top + linPedrasRight_left4.height)) ||
+
+    ((pontos_linPedrasRight_left4[indice].x >= objetoPlayer.left && pontos_linPedrasRight_left4[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+    pontos_linPedrasRight_left4[indice].y >= objetoPlayer.top && pontos_linPedrasRight_left4[indice].y <= objetoPlayer.top + objetoPlayer.height))
         ? colidiu = true : indice ++;
         tecA = false;
 
@@ -510,13 +626,18 @@ function detectarColisaoParedeE__quadRight(idObjeto1, idObjeto2, idObjeto3, idOb
 };
 
 //detecta colisão na parede direita
-function detectarColisaoParedeD__quadLeft(idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObjeto5, idObjeto6) {
+function detectarColisaoParedeD__quadLeft(idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObjeto5, idObjeto6, idObjeto7, idObjeto8, idObjeto9, idObjeto10, idObjeto11) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let paredeD = document.getElementById(idObjeto2).getBoundingClientRect();
     let quadLeft = document.getElementById(idObjeto3).getBoundingClientRect();
-    let linPedrasLeft = document.getElementById(idObjeto4).getBoundingClientRect();
-    let linPedrasLeft_top = document.getElementById(idObjeto5).getBoundingClientRect();
-    let linPedrasLeft_bottom = document.getElementById(idObjeto6).getBoundingClientRect();
+    let linPedrasLeft1 = document.getElementById(idObjeto4).getBoundingClientRect();
+    let linPedrasLeft2 = document.getElementById(idObjeto5).getBoundingClientRect();
+    let linPedrasLeft_top = document.getElementById(idObjeto6).getBoundingClientRect();
+    let linPedrasLeft_bottom = document.getElementById(idObjeto7).getBoundingClientRect();
+    let linPedrasLeft_right1 = document.getElementById(idObjeto8).getBoundingClientRect();
+    let linPedrasLeft_right2 = document.getElementById(idObjeto9).getBoundingClientRect();
+    let linPedrasLeft_right3 = document.getElementById(idObjeto10).getBoundingClientRect();
+    let linPedrasLeft_right4 = document.getElementById(idObjeto11).getBoundingClientRect();
 
     let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
                          {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
@@ -533,10 +654,15 @@ function detectarColisaoParedeD__quadLeft(idObjeto1, idObjeto2, idObjeto3, idObj
                             {x : quadLeft.left + quadLeft.width, y : quadLeft.top + quadLeft.height},
                             {x : quadLeft.left, y : quadLeft.top + quadLeft.height}];
 
-    let pontos_linPedrasLeft = [{x : linPedrasLeft.left, y : linPedrasLeft.top}, 
-                                {x : linPedrasLeft.left + linPedrasLeft.width, y : linPedrasLeft.top},
-                                {x : linPedrasLeft.left + linPedrasLeft.width, y : linPedrasLeft.top + linPedrasLeft.height},
-                                {x : linPedrasLeft.left, y : linPedrasLeft.top + linPedrasLeft.height}];
+    let pontos_linPedrasLeft1 = [{x : linPedrasLeft1.left, y : linPedrasLeft1.top}, 
+                                 {x : linPedrasLeft1.left + linPedrasLeft1.width, y : linPedrasLeft1.top},
+                                 {x : linPedrasLeft1.left + linPedrasLeft1.width, y : linPedrasLeft1.top + linPedrasLeft1.height},
+                                 {x : linPedrasLeft1.left, y : linPedrasLeft1.top + linPedrasLeft1.height}];
+
+    let pontos_linPedrasLeft2 = [{x : linPedrasLeft2.left, y : linPedrasLeft2.top}, 
+                                 {x : linPedrasLeft2.left + linPedrasLeft2.width, y : linPedrasLeft2.top},
+                                 {x : linPedrasLeft2.left + linPedrasLeft2.width, y : linPedrasLeft2.top + linPedrasLeft2.height},
+                                 {x : linPedrasLeft2.left, y : linPedrasLeft2.top + linPedrasLeft2.height}];
 
     let pontos_linPedrasLeft_top = [{x : linPedrasLeft_top.left, y : linPedrasLeft_top.top}, 
                                     {x : linPedrasLeft_top.left + linPedrasLeft_top.width, y : linPedrasLeft_top.top},
@@ -547,6 +673,26 @@ function detectarColisaoParedeD__quadLeft(idObjeto1, idObjeto2, idObjeto3, idObj
                                        {x : linPedrasLeft_bottom.left + linPedrasLeft_bottom.width, y : linPedrasLeft_bottom.top},
                                        {x : linPedrasLeft_bottom.left + linPedrasLeft_bottom.width, y : linPedrasLeft_bottom.top + linPedrasLeft_bottom.height},
                                        {x : linPedrasLeft_bottom.left, y : linPedrasLeft_bottom.top + linPedrasLeft_bottom.height}];
+
+    let pontos_linPedrasLeft_right1 = [{x : linPedrasLeft_right1.left, y : linPedrasLeft_right1.top}, 
+                                       {x : linPedrasLeft_right1.left + linPedrasLeft_right1.width, y : linPedrasLeft_right1.top},
+                                       {x : linPedrasLeft_right1.left + linPedrasLeft_right1.width, y : linPedrasLeft_right1.top + linPedrasLeft_right1.height},
+                                       {x : linPedrasLeft_right1.left, y : linPedrasLeft_right1.top + linPedrasLeft_right1.height}];
+
+    let pontos_linPedrasLeft_right2 = [{x : linPedrasLeft_right2.left, y : linPedrasLeft_right2.top}, 
+                                       {x : linPedrasLeft_right2.left + linPedrasLeft_right2.width, y : linPedrasLeft_right2.top},
+                                       {x : linPedrasLeft_right2.left + linPedrasLeft_right2.width, y : linPedrasLeft_right2.top + linPedrasLeft_right2.height},
+                                       {x : linPedrasLeft_right2.left, y : linPedrasLeft_right2.top + linPedrasLeft_right2.height}];
+
+    let pontos_linPedrasLeft_right3 = [{x : linPedrasLeft_right3.left, y : linPedrasLeft_right3.top}, 
+                                       {x : linPedrasLeft_right3.left + linPedrasLeft_right3.width, y : linPedrasLeft_right3.top},
+                                       {x : linPedrasLeft_right3.left + linPedrasLeft_right3.width, y : linPedrasLeft_right3.top + linPedrasLeft_right3.height},
+                                       {x : linPedrasLeft_right3.left, y : linPedrasLeft_right3.top + linPedrasLeft_right3.height}];
+
+    let pontos_linPedrasLeft_right4 = [{x : linPedrasLeft_right4.left, y : linPedrasLeft_right4.top}, 
+                                       {x : linPedrasLeft_right4.left + linPedrasLeft_right4.width, y : linPedrasLeft_right4.top},
+                                       {x : linPedrasLeft_right4.left + linPedrasLeft_right4.width, y : linPedrasLeft_right4.top + linPedrasLeft_right4.height},
+                                       {x : linPedrasLeft_right4.left, y : linPedrasLeft_right4.top + linPedrasLeft_right4.height}];
 
 
     let indice = 0;
@@ -565,11 +711,17 @@ function detectarColisaoParedeD__quadLeft(idObjeto1, idObjeto2, idObjeto3, idObj
         ((pontos_quad_Left[indice].x >= objetoPlayer.left && pontos_quad_Left[indice].x <= objetoPlayer.left + objetoPlayer.width && 
         pontos_quad_Left[indice].y >= objetoPlayer.top && pontos_quad_Left[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
 
-        ((pontos_Player[indice].x >= linPedrasLeft.left && pontos_Player[indice].x <= linPedrasLeft.left + linPedrasLeft.width && 
-        pontos_Player[indice].y >= linPedrasLeft.top && pontos_Player[indice].y <= linPedrasLeft.top + linPedrasLeft.height)) ||
+        ((pontos_Player[indice].x >= linPedrasLeft1.left && pontos_Player[indice].x <= linPedrasLeft1.left + linPedrasLeft1.width && 
+        pontos_Player[indice].y >= linPedrasLeft1.top && pontos_Player[indice].y <= linPedrasLeft1.top + linPedrasLeft1.height)) ||
 
-        ((pontos_linPedrasLeft[indice].x >= objetoPlayer.left && pontos_linPedrasLeft[indice].x <= objetoPlayer.left + objetoPlayer.width && 
-        pontos_linPedrasLeft[indice].y >= objetoPlayer.top && pontos_linPedrasLeft[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+        ((pontos_linPedrasLeft1[indice].x >= objetoPlayer.left && pontos_linPedrasLeft1[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos_linPedrasLeft1[indice].y >= objetoPlayer.top && pontos_linPedrasLeft1[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+        ((pontos_Player[indice].x >= linPedrasLeft2.left && pontos_Player[indice].x <= linPedrasLeft2.left + linPedrasLeft2.width && 
+        pontos_Player[indice].y >= linPedrasLeft2.top && pontos_Player[indice].y <= linPedrasLeft2.top + linPedrasLeft2.height)) ||
+
+        ((pontos_linPedrasLeft2[indice].x >= objetoPlayer.left && pontos_linPedrasLeft2[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos_linPedrasLeft2[indice].y >= objetoPlayer.top && pontos_linPedrasLeft2[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
 
         ((pontos_Player[indice].x >= linPedrasLeft_top.left && pontos_Player[indice].x <= linPedrasLeft_top.left + linPedrasLeft_top.width && 
         pontos_Player[indice].y >= linPedrasLeft_top.top && pontos_Player[indice].y <= linPedrasLeft_top.top + linPedrasLeft_top.height)) ||
@@ -581,7 +733,31 @@ function detectarColisaoParedeD__quadLeft(idObjeto1, idObjeto2, idObjeto3, idObj
         pontos_Player[indice].y >= linPedrasLeft_bottom.top && pontos_Player[indice].y <= linPedrasLeft_bottom.top + linPedrasLeft_bottom.height)) ||
 
         ((pontos_linPedrasLeft_bottom[indice].x >= objetoPlayer.left && pontos_linPedrasLeft_bottom[indice].x <= objetoPlayer.left + objetoPlayer.width && 
-        pontos_linPedrasLeft_bottom[indice].y >= objetoPlayer.top && pontos_linPedrasLeft_bottom[indice].y <= objetoPlayer.top + objetoPlayer.height))
+        pontos_linPedrasLeft_bottom[indice].y >= objetoPlayer.top && pontos_linPedrasLeft_bottom[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+        ((pontos_Player[indice].x >= linPedrasLeft_right1.left && pontos_Player[indice].x <= linPedrasLeft_right1.left + linPedrasLeft_right1.width && 
+        pontos_Player[indice].y >= linPedrasLeft_right1.top && pontos_Player[indice].y <= linPedrasLeft_right1.top + linPedrasLeft_right1.height)) ||
+
+        ((pontos_linPedrasLeft_right1[indice].x >= objetoPlayer.left && pontos_linPedrasLeft_right1[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos_linPedrasLeft_right1[indice].y >= objetoPlayer.top && pontos_linPedrasLeft_right1[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+        ((pontos_Player[indice].x >= linPedrasLeft_right2.left && pontos_Player[indice].x <= linPedrasLeft_right2.left + linPedrasLeft_right2.width && 
+        pontos_Player[indice].y >= linPedrasLeft_right2.top && pontos_Player[indice].y <= linPedrasLeft_right2.top + linPedrasLeft_right2.height)) ||
+
+        ((pontos_linPedrasLeft_right2[indice].x >= objetoPlayer.left && pontos_linPedrasLeft_right2[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos_linPedrasLeft_right2[indice].y >= objetoPlayer.top && pontos_linPedrasLeft_right2[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+        ((pontos_Player[indice].x >= linPedrasLeft_right3.left && pontos_Player[indice].x <= linPedrasLeft_right3.left + linPedrasLeft_right3.width && 
+        pontos_Player[indice].y >= linPedrasLeft_right3.top && pontos_Player[indice].y <= linPedrasLeft_right3.top + linPedrasLeft_right3.height)) ||
+
+        ((pontos_linPedrasLeft_right3[indice].x >= objetoPlayer.left && pontos_linPedrasLeft_right3[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos_linPedrasLeft_right3[indice].y >= objetoPlayer.top && pontos_linPedrasLeft_right3[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+        ((pontos_Player[indice].x >= linPedrasLeft_right4.left && pontos_Player[indice].x <= linPedrasLeft_right4.left + linPedrasLeft_right4.width && 
+        pontos_Player[indice].y >= linPedrasLeft_right4.top && pontos_Player[indice].y <= linPedrasLeft_right4.top + linPedrasLeft_right4.height)) ||
+
+        ((pontos_linPedrasLeft_right4[indice].x >= objetoPlayer.left && pontos_linPedrasLeft_right4[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos_linPedrasLeft_right4[indice].y >= objetoPlayer.top && pontos_linPedrasLeft_right4[indice].y <= objetoPlayer.top + objetoPlayer.height))
         ? colidiu = true : indice ++;
     tecD = false;
 
@@ -595,13 +771,14 @@ function detectarColisaoParedeD__quadLeft(idObjeto1, idObjeto2, idObjeto3, idObj
 }
 
 //detecta colisão na parede de cima
-function detectarColisaoParedeC__quadBottom(idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObjeto5, idObjeto6) {
+function detectarColisaoParedeC__quadBottom(idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObjeto5, idObjeto6, idObjeto7, idObjeto8, idObjeto9, idObjeto10, idObjeto11) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let paredeC = document.getElementById(idObjeto2).getBoundingClientRect();
     let quadBottom = document.getElementById(idObjeto3).getBoundingClientRect();
-    let linPedrasBottom = document.getElementById(idObjeto4).getBoundingClientRect();
-    let linPedrasBottom_left = document.getElementById(idObjeto5).getBoundingClientRect();
-    let linPedrasBottom_right = document.getElementById(idObjeto6).getBoundingClientRect();
+    let linPedrasBottom1 = document.getElementById(idObjeto4).getBoundingClientRect();
+    let linPedrasBottom2 = document.getElementById(idObjeto5).getBoundingClientRect();
+    let linPedrasBottom_left = document.getElementById(idObjeto6).getBoundingClientRect();
+    let linPedrasBottom_right = document.getElementById(idObjeto7).getBoundingClientRect();
 
     let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
                          {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
@@ -618,10 +795,15 @@ function detectarColisaoParedeC__quadBottom(idObjeto1, idObjeto2, idObjeto3, idO
                               {x : quadBottom.left + quadBottom.width, y : quadBottom.top + quadBottom.height},
                               {x : quadBottom.left, y : quadBottom.top + quadBottom.height}];
 
-    let pontos_linPedrasBottom = [{x : linPedrasBottom.left, y : linPedrasBottom.top}, 
-                                  {x : linPedrasBottom.left + linPedrasBottom.width, y : linPedrasBottom.top},
-                                  {x : linPedrasBottom.left + linPedrasBottom.width, y : linPedrasBottom.top + linPedrasBottom.height},
-                                  {x : linPedrasBottom.left, y : linPedrasBottom.top + linPedrasBottom.height}];
+    let pontos_linPedrasBottom1 = [{x : linPedrasBottom1.left, y : linPedrasBottom1.top}, 
+                                   {x : linPedrasBottom1.left + linPedrasBottom1.width, y : linPedrasBottom1.top},
+                                   {x : linPedrasBottom1.left + linPedrasBottom1.width, y : linPedrasBottom1.top + linPedrasBottom1.height},
+                                   {x : linPedrasBottom1.left, y : linPedrasBottom1.top + linPedrasBottom1.height}];
+
+    let pontos_linPedrasBottom2 = [{x : linPedrasBottom2.left, y : linPedrasBottom2.top}, 
+                                   {x : linPedrasBottom2.left + linPedrasBottom2.width, y : linPedrasBottom2.top},
+                                   {x : linPedrasBottom2.left + linPedrasBottom2.width, y : linPedrasBottom2.top + linPedrasBottom2.height},
+                                   {x : linPedrasBottom2.left, y : linPedrasBottom2.top + linPedrasBottom2.height}];
 
     let pontos_linPedrasBottom_left = [{x : linPedrasBottom_left.left, y : linPedrasBottom_left.top}, 
                                        {x : linPedrasBottom_left.left + linPedrasBottom_left.width, y : linPedrasBottom_left.top},
@@ -649,11 +831,17 @@ function detectarColisaoParedeC__quadBottom(idObjeto1, idObjeto2, idObjeto3, idO
         ((pontos_quad_Bottom[indice].x >= objetoPlayer.left && pontos_quad_Bottom[indice].x <= objetoPlayer.left + objetoPlayer.width && 
         pontos_quad_Bottom[indice].y >= objetoPlayer.top && pontos_quad_Bottom[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
 
-        ((pontos_Player[indice].x >= linPedrasBottom.left && pontos_Player[indice].x <= linPedrasBottom.left + linPedrasBottom.width && 
-        pontos_Player[indice].y >= linPedrasBottom.top && pontos_Player[indice].y <= linPedrasBottom.top + linPedrasBottom.height)) ||
+        ((pontos_Player[indice].x >= linPedrasBottom1.left && pontos_Player[indice].x <= linPedrasBottom1.left + linPedrasBottom1.width && 
+        pontos_Player[indice].y >= linPedrasBottom1.top && pontos_Player[indice].y <= linPedrasBottom1.top + linPedrasBottom1.height)) ||
 
-        ((pontos_linPedrasBottom[indice].x >= objetoPlayer.left && pontos_linPedrasBottom[indice].x <= objetoPlayer.left + objetoPlayer.width && 
-        pontos_linPedrasBottom[indice].y >= objetoPlayer.top && pontos_linPedrasBottom[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+        ((pontos_linPedrasBottom1[indice].x >= objetoPlayer.left && pontos_linPedrasBottom1[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos_linPedrasBottom1[indice].y >= objetoPlayer.top && pontos_linPedrasBottom1[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+        ((pontos_Player[indice].x >= linPedrasBottom2.left && pontos_Player[indice].x <= linPedrasBottom2.left + linPedrasBottom2.width && 
+        pontos_Player[indice].y >= linPedrasBottom2.top && pontos_Player[indice].y <= linPedrasBottom2.top + linPedrasBottom2.height)) ||
+
+        ((pontos_linPedrasBottom2[indice].x >= objetoPlayer.left && pontos_linPedrasBottom2[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos_linPedrasBottom2[indice].y >= objetoPlayer.top && pontos_linPedrasBottom2[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
 
         ((pontos_Player[indice].x >= linPedrasBottom_left.left && pontos_Player[indice].x <= linPedrasBottom_left.left + linPedrasBottom_left.width && 
         pontos_Player[indice].y >= linPedrasBottom_left.top && pontos_Player[indice].y <= linPedrasBottom_left.top + linPedrasBottom_left.height)) ||
@@ -679,13 +867,18 @@ function detectarColisaoParedeC__quadBottom(idObjeto1, idObjeto2, idObjeto3, idO
 }
 
 //detecta colisão na parede de baixo e na parte de cima de um objeto
-function detectarColisaoParedeB__quadTop(idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObjeto5, idObjeto6) {
+function detectarColisaoParedeB__quadTop(idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObjeto5, idObjeto6, idObjeto7, idObjeto8, idObjeto9, idObjeto10, idObjeto11) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let paredeB = document.getElementById(idObjeto2).getBoundingClientRect();
     let quadTop = document.getElementById(idObjeto3).getBoundingClientRect();
-    let linPedrasTop = document.getElementById(idObjeto4).getBoundingClientRect();
-    let linPedrasTop_left = document.getElementById(idObjeto5).getBoundingClientRect();
-    let linPedrasTop_right = document.getElementById(idObjeto6).getBoundingClientRect();
+    let linPedrasTop1 = document.getElementById(idObjeto4).getBoundingClientRect();
+    let linPedrasTop2 = document.getElementById(idObjeto5).getBoundingClientRect();
+    let linPedrasTop_left = document.getElementById(idObjeto6).getBoundingClientRect();
+    let linPedrasTop_right = document.getElementById(idObjeto7).getBoundingClientRect();
+    let linPedrasTop_bottom1 = document.getElementById(idObjeto8).getBoundingClientRect();
+    let linPedrasTop_bottom2 = document.getElementById(idObjeto9).getBoundingClientRect();
+    let linPedrasTop_bottom3 = document.getElementById(idObjeto10).getBoundingClientRect();
+    let linPedrasTop_bottom4 = document.getElementById(idObjeto11).getBoundingClientRect();
 
     let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
                          {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
@@ -702,10 +895,15 @@ function detectarColisaoParedeB__quadTop(idObjeto1, idObjeto2, idObjeto3, idObje
                            {x : quadTop.left + quadTop.width, y : quadTop.top + quadTop.height},
                            {x : quadTop.left, y : quadTop.top + quadTop.height}];
 
-    let pontos_linPedras_Top = [{x : linPedrasTop.left, y : linPedrasTop.top}, 
-                                {x : linPedrasTop.left + linPedrasTop.width, y : linPedrasTop.top},
-                                {x : linPedrasTop.left + linPedrasTop.width, y : linPedrasTop.top + linPedrasTop.height},
-                                {x : linPedrasTop.left, y : linPedrasTop.top + linPedrasTop.height}];
+    let pontos_linPedras_Top1 = [{x : linPedrasTop1.left, y : linPedrasTop1.top}, 
+                                 {x : linPedrasTop1.left + linPedrasTop1.width, y : linPedrasTop1.top},
+                                 {x : linPedrasTop1.left + linPedrasTop1.width, y : linPedrasTop1.top + linPedrasTop1.height},
+                                 {x : linPedrasTop1.left, y : linPedrasTop1.top + linPedrasTop1.height}];
+
+    let pontos_linPedras_Top2 = [{x : linPedrasTop2.left, y : linPedrasTop2.top}, 
+                                 {x : linPedrasTop2.left + linPedrasTop2.width, y : linPedrasTop2.top},
+                                 {x : linPedrasTop2.left + linPedrasTop2.width, y : linPedrasTop2.top + linPedrasTop2.height},
+                                 {x : linPedrasTop2.left, y : linPedrasTop2.top + linPedrasTop2.height}];
 
     let pontos_linPedrasTop_left = [{x : linPedrasTop_left.left, y : linPedrasTop_left.top},
                                     {x : linPedrasTop_left.left + linPedrasTop_left.width, y : linPedrasTop_left.top},
@@ -716,6 +914,26 @@ function detectarColisaoParedeB__quadTop(idObjeto1, idObjeto2, idObjeto3, idObje
                                      {x : linPedrasTop_right.left + linPedrasTop_right.width, y : linPedrasTop_right.top},
                                      {x : linPedrasTop_right.left + linPedrasTop_right.width, y : linPedrasTop_right.top + linPedrasTop_right.height},
                                      {x : linPedrasTop_right.left, y : linPedrasTop_right.top + linPedrasTop_right.height}];
+
+    let pontos_linPedrasTop_bottom1 = [{x : linPedrasTop_bottom1.left, y : linPedrasTop_bottom1.top},
+                                       {x : linPedrasTop_bottom1.left + linPedrasTop_bottom1.width, y : linPedrasTop_bottom1.top},
+                                       {x : linPedrasTop_bottom1.left + linPedrasTop_bottom1.width, y : linPedrasTop_bottom1.top + linPedrasTop_bottom1.height},
+                                       {x : linPedrasTop_bottom1.left, y : linPedrasTop_bottom1.top + linPedrasTop_bottom1.height}];
+
+    let pontos_linPedrasTop_bottom2 = [{x : linPedrasTop_bottom2.left, y : linPedrasTop_bottom2.top},
+                                       {x : linPedrasTop_bottom2.left + linPedrasTop_bottom2.width, y : linPedrasTop_bottom2.top},
+                                       {x : linPedrasTop_bottom2.left + linPedrasTop_bottom2.width, y : linPedrasTop_bottom2.top + linPedrasTop_bottom2.height},
+                                       {x : linPedrasTop_bottom2.left, y : linPedrasTop_bottom2.top + linPedrasTop_bottom2.height}];
+
+    let pontos_linPedrasTop_bottom3 = [{x : linPedrasTop_bottom3.left, y : linPedrasTop_bottom3.top},
+                                       {x : linPedrasTop_bottom3.left + linPedrasTop_bottom3.width, y : linPedrasTop_bottom3.top},
+                                       {x : linPedrasTop_bottom3.left + linPedrasTop_bottom3.width, y : linPedrasTop_bottom3.top + linPedrasTop_bottom3.height},
+                                       {x : linPedrasTop_bottom3.left, y : linPedrasTop_bottom3.top + linPedrasTop_bottom3.height}];
+
+    let pontos_linPedrasTop_bottom4 = [{x : linPedrasTop_bottom4.left, y : linPedrasTop_bottom4.top},
+                                       {x : linPedrasTop_bottom4.left + linPedrasTop_bottom4.width, y : linPedrasTop_bottom4.top},
+                                       {x : linPedrasTop_bottom4.left + linPedrasTop_bottom4.width, y : linPedrasTop_bottom4.top + linPedrasTop_bottom4.height},
+                                       {x : linPedrasTop_bottom4.left, y : linPedrasTop_bottom4.top + linPedrasTop_bottom4.height}];
 
     let indice = 0;
     let colidiu = false
@@ -733,11 +951,17 @@ function detectarColisaoParedeB__quadTop(idObjeto1, idObjeto2, idObjeto3, idObje
         ((pontos_quad_Top[indice].x >= objetoPlayer.left && pontos_quad_Top[indice].x <= objetoPlayer.left + objetoPlayer.width && 
         pontos_quad_Top[indice].y >= objetoPlayer.top && pontos_quad_Top[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
 
-        ((pontos_Player[indice].x >= linPedrasTop.left && pontos_Player[indice].x <= linPedrasTop.left + linPedrasTop.width && 
-        pontos_Player[indice].y >= linPedrasTop.top && pontos_Player[indice].y <= linPedrasTop.top + linPedrasTop.height)) ||
+        ((pontos_Player[indice].x >= linPedrasTop1.left && pontos_Player[indice].x <= linPedrasTop1.left + linPedrasTop1.width && 
+        pontos_Player[indice].y >= linPedrasTop1.top && pontos_Player[indice].y <= linPedrasTop1.top + linPedrasTop1.height)) ||
 
-        ((pontos_linPedras_Top[indice].x >= objetoPlayer.left && pontos_linPedras_Top[indice].x <= objetoPlayer.left + objetoPlayer.width && 
-        pontos_linPedras_Top[indice].y >= objetoPlayer.top && pontos_linPedras_Top[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+        ((pontos_linPedras_Top1[indice].x >= objetoPlayer.left && pontos_linPedras_Top1[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos_linPedras_Top1[indice].y >= objetoPlayer.top && pontos_linPedras_Top1[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+        ((pontos_Player[indice].x >= linPedrasTop2.left && pontos_Player[indice].x <= linPedrasTop2.left + linPedrasTop2.width && 
+        pontos_Player[indice].y >= linPedrasTop2.top && pontos_Player[indice].y <= linPedrasTop2.top + linPedrasTop2.height)) ||
+
+        ((pontos_linPedras_Top2[indice].x >= objetoPlayer.left && pontos_linPedras_Top2[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos_linPedras_Top2[indice].y >= objetoPlayer.top && pontos_linPedras_Top2[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
 
         ((pontos_Player[indice].x >= linPedrasTop_left.left && pontos_Player[indice].x <= linPedrasTop_left.left + linPedrasTop_left.width && 
         pontos_Player[indice].y >= linPedrasTop_left.top && pontos_Player[indice].y <= linPedrasTop_left.top + linPedrasTop_left.height)) ||
@@ -749,7 +973,31 @@ function detectarColisaoParedeB__quadTop(idObjeto1, idObjeto2, idObjeto3, idObje
         pontos_Player[indice].y >= linPedrasTop_right.top && pontos_Player[indice].y <= linPedrasTop_right.top + linPedrasTop_right.height)) ||
 
         ((pontos_linPedrasTop_right[indice].x >= objetoPlayer.left && pontos_linPedrasTop_right[indice].x <= objetoPlayer.left + objetoPlayer.width && 
-        pontos_linPedrasTop_right[indice].y >= objetoPlayer.top && pontos_linPedrasTop_right[indice].y <= objetoPlayer.top + objetoPlayer.height))
+        pontos_linPedrasTop_right[indice].y >= objetoPlayer.top && pontos_linPedrasTop_right[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+        ((pontos_Player[indice].x >= linPedrasTop_bottom1.left && pontos_Player[indice].x <= linPedrasTop_bottom1.left + linPedrasTop_bottom1.width && 
+        pontos_Player[indice].y >= linPedrasTop_bottom1.top && pontos_Player[indice].y <= linPedrasTop_bottom1.top + linPedrasTop_bottom1.height)) ||
+
+        ((pontos_linPedrasTop_bottom1[indice].x >= objetoPlayer.left && pontos_linPedrasTop_bottom1[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos_linPedrasTop_bottom1[indice].y >= objetoPlayer.top && pontos_linPedrasTop_bottom1[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+        ((pontos_Player[indice].x >= linPedrasTop_bottom2.left && pontos_Player[indice].x <= linPedrasTop_bottom2.left + linPedrasTop_bottom2.width && 
+        pontos_Player[indice].y >= linPedrasTop_bottom2.top && pontos_Player[indice].y <= linPedrasTop_bottom2.top + linPedrasTop_bottom2.height)) ||
+
+        ((pontos_linPedrasTop_bottom2[indice].x >= objetoPlayer.left && pontos_linPedrasTop_bottom2[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos_linPedrasTop_bottom2[indice].y >= objetoPlayer.top && pontos_linPedrasTop_bottom2[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+        ((pontos_Player[indice].x >= linPedrasTop_bottom3.left && pontos_Player[indice].x <= linPedrasTop_bottom3.left + linPedrasTop_bottom3.width && 
+        pontos_Player[indice].y >= linPedrasTop_bottom3.top && pontos_Player[indice].y <= linPedrasTop_bottom3.top + linPedrasTop_bottom3.height)) ||
+
+        ((pontos_linPedrasTop_bottom3[indice].x >= objetoPlayer.left && pontos_linPedrasTop_bottom3[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos_linPedrasTop_bottom3[indice].y >= objetoPlayer.top && pontos_linPedrasTop_bottom3[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+        ((pontos_Player[indice].x >= linPedrasTop_bottom4.left && pontos_Player[indice].x <= linPedrasTop_bottom4.left + linPedrasTop_bottom4.width && 
+        pontos_Player[indice].y >= linPedrasTop_bottom4.top && pontos_Player[indice].y <= linPedrasTop_bottom4.top + linPedrasTop_bottom4.height)) ||
+
+        ((pontos_linPedrasTop_bottom4[indice].x >= objetoPlayer.left && pontos_linPedrasTop_bottom4[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos_linPedrasTop_bottom4[indice].y >= objetoPlayer.top && pontos_linPedrasTop_bottom4[indice].y <= objetoPlayer.top + objetoPlayer.height))
         ? colidiu = true : indice ++;
     tecS = false;
 
@@ -798,7 +1046,7 @@ function detectarColisaoCoracao(idObjeto1, idObjeto2) {
 }
 
 //detecta colisão com os bosses
-function detectarColisaoBossLeft(idObjeto1, idObjeto2) {
+/*function detectarColisaoBossLeft(idObjeto1, idObjeto2) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let boss_cultista_Left = document.getElementById(idObjeto2).getBoundingClientRect();
 
@@ -827,7 +1075,7 @@ function detectarColisaoBossLeft(idObjeto1, idObjeto2) {
     if (tecD == false && colidiuBossLeft == true) {
         dx = 0;
         bossMovimentando = false;
-    } else if (colidiuBossLeft == false && detectarColisaoParedeD__quadLeft('player', 'paredeD', 'quadLeft', 'linPedrasLeft', 'linPedrasLeft-top', 'linPedrasLeft-bottom') == false) {
+    } else if (colidiuBossLeft == false && detectarColisaoParedeD__quadLeft('player', 'paredeD', 'quadLeft', 'linPedrasLeft1', 'linPedrasLeft2', 'linPedrasLeft-top', 'linPedrasLeft-bottom') == false) {
         tecD = true;
         bossMovimentando = true;
     }
@@ -864,7 +1112,7 @@ function detectarColisaoBossRight(idObjeto1, idObjeto2) {
     if (tecA == false && colidiuBossRight == true) {
         dx = 0;
         bossMovimentando = false;
-    } else if (colidiuBossRight == false && detectarColisaoParedeE__quadRight('player', 'paredeE', 'quadRight', 'linPedrasRight', 'linPedrasRight-top', 'linPedrasRight-bottom') == false) {
+    } else if (colidiuBossRight == false && detectarColisaoParedeE__quadRight('player', 'paredeE', 'quadRight', 'linPedrasRight1', 'linPedrasRight2', 'linPedrasRight-top', 'linPedrasRight-bottom') == false) {
         tecA = true;
         bossMovimentando = true;
     }
@@ -901,7 +1149,7 @@ function detectarColisaoBossTop(idObjeto1, idObjeto2) {
     if (tecS == false && colidiuBossTop == true) {
         dy = 0;
         bossMovimentando = false;
-    } else if (colidiuBossTop == false && detectarColisaoParedeB__quadTop('player', 'paredeB', 'quadTop', 'linPedrasTop', 'linPedrasTop-left', 'linPedrasTop-right') == false) {
+    } else if (colidiuBossTop == false && detectarColisaoParedeB__quadTop('player', 'paredeB', 'quadTop', 'linPedrasTop1', 'linPedrasTop2', 'linPedrasTop-left', 'linPedrasTop-right') == false) {
         tecS = true;
         bossMovimentando = true;
     }
@@ -938,13 +1186,13 @@ function detectarColisaoBossBottom(idObjeto1, idObjeto2) {
     if (tecW == false && colidiuBossBottom == true) {
         dy = 0;
         bossMovimentando = false;
-    } else if (colidiuBossBottom == false && detectarColisaoParedeC__quadBottom('player', 'paredeC', 'quadBottom', 'linPedrasBottom', 'linPedrasBottom-left', 'linPedrasBottom-right') == false) {
+    } else if (colidiuBossBottom == false && detectarColisaoParedeC__quadBottom('player', 'paredeC', 'quadBottom', 'linPedrasBottom1', 'linPedrasBottom2', 'linPedrasBottom-left', 'linPedrasBottom-right') == false) {
         tecW = true;
         bossMovimentando = true;
     }
 
     return colidiuBossBottom;
-}
+}*/
 
 //detecta colisão dos bosses com as paredes e objetos
 function detectarColisaoBossLeft__ParedeE__quadRight(idObjeto1, idObjeto2, idObjeto3) {
