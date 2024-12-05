@@ -85,6 +85,30 @@ body{
     height: 80px;
 }
 
+.playerAttackingLeft {
+    background-image: url(/jogo/img/Sprites/playerCutting\(Left\).gif);
+    background-size: cover;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
+.playerAttackingRight {
+    background-image: url(/jogo/img/Sprites/playerCutting\(Right\).gif);
+    background-size: cover;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
+.playerAttackingDown {
+    background-image: url(/jogo/img/Sprites/playerCutting\(Down\).gif);
+    background-size: cover;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
 /* paredes */
 #paredeE {
     width: 80px;
@@ -338,7 +362,8 @@ body{
 .attackingLeft {
     width: 70px;
     height: 70px;
-    background-color: aqua;
+    background-image: url(/jogo/img/Sprites/cut\(Left\).gif);
+    background-size: cover;
     position: absolute;
     z-index: 10;
 }
@@ -346,7 +371,8 @@ body{
 .attackingRight {
     width: 70px;
     height: 70px;
-    background-color: aqua;
+    background-image: url(/jogo/img/Sprites/cut\(RIght\).gif);
+    background-size: cover;
     position: absolute;
     z-index: 10;
 }
@@ -362,11 +388,10 @@ body{
 .attackingDown {
     width: 70px;
     height: 60px;
-    background-color: aqua;
+    background-image: url(/jogo/img/Sprites/cut\(Down\).gif);
     position: absolute;
     z-index: 10;
 }
-
 /* bosses */
 #boss_cultista-wrapper {
     width: 81px;

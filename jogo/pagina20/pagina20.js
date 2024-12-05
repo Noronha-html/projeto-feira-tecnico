@@ -45,12 +45,13 @@ let portaTop; //porta de cima
 let portaDown; //porta de baixo
 let itemVida; //item de vida
 let corItemVida;
+let portaLeftClass;
+let hp;
 
 //boss
 var lifeBoss; //vida do boss
 let boss_cultista_wrapper; //div que envolve o boss cultista para facilitar o movimento
-let boss_cultista_turned_left; //boss cultista virado para a esquerda
-let boss_cultista_turned_right; //boss cultista virado para a direita
+let boss_cultista; //boss cultista
 let boss_cultista_Left; //esquerda do boss cultista
 let boss_cultista_Right; //direita do boss cultista
 let boss_cultista_Top; //em cima do boss cultista
@@ -83,7 +84,7 @@ function inicia () {
     py = 0;
     vel = 1;
     lifeBoss = 10;
-    playerVida = 5;
+    playerVida = 6;
     playerDano = 1;
     PlayerAcertou = false;
     atacou = false;
@@ -125,6 +126,8 @@ function inicia () {
 
     objetoPlayer = document.getElementById('player');
 
+    hp = document.querySelector('.hp6');
+
     document.addEventListener('keydown', teclaBaixo);
     document.addEventListener('keyup', teclaCima);
 
@@ -142,13 +145,14 @@ function inicia () {
     quadRight = document.getElementById('quadRight');
 
     //portaTop = document.getElementById('portaTop');
+    portaLeft = document.getElementById('portaLeft');
+    portaLeftClass = document.querySelector('.portaLeft');
 
     itemVida = document.getElementById('itemVida');
     corItemVida = document.querySelector('.corItemVida');
 
-    boss_cultista_wrapper = document.getElementById('boss_cultista-wrapper')
-    boss_cultista_turned_left = document.querySelector('.boss_cultista-turned-left');
-    boss_cultista_turned_right = document.querySelector('.boss_cultista-turned-right');
+    boss_cultista_wrapper = document.getElementById('boss_cultista-wrapper');
+    boss_cultista = document.querySelector('.boss_cultista-turned-left');
     boss_cultista_Left = document.getElementById('boss_cultista-left');
     boss_cultista_Right = document.getElementById('boss_cultista-right');
     boss_cultista_Top = document.getElementById('boss_cultista-top');
@@ -362,7 +366,7 @@ function funcionalidades () {
     detectarColisaoAtaqueUp('attackingUp', 'boss_cultista-bottom');
     detectarColisaoAtaqueDown('attackingDown', 'boss_cultista-top');
 
-    danoAoBoss();
+    danoAoBoss('player', 'portaLeft');
 
     //danoAoPlayer('player', 'boss_cultista-wrapper');
 
@@ -960,12 +964,18 @@ function playerAttackLeft(idObjeto1) {
     let rect = objetoPlayer.getBoundingClientRect();
 
     if (attackLeft.pressed && attackLeft.released) {
+        objetoPlayer.classList.remove('staticLeft');
+        objetoPlayer.classList.remove('movingLeft');
+        objetoPlayer.classList.add('playerAttackingLeft')
+
         attackingLeft.classList.remove('not_attacking-left');
         attackingLeft.classList.add('attackingLeft');
 
         attackLeft.released = false;
         atacou = false
         setTimeout(() => {
+            objetoPlayer.classList.remove('playerAttackingLeft')
+
             attackingLeft.classList.remove('attackingLeft');
         }, 300);       
     }
@@ -978,12 +988,18 @@ function playerAttackRight(idObjeto1) {
     let rect = objetoPlayer.getBoundingClientRect();
 
     if (attackRight.pressed && attackRight.released) {
+        objetoPlayer.classList.remove('staticRight');
+        objetoPlayer.classList.remove('movingRight');
+        objetoPlayer.classList.add('playerAttackingRight');
+
         attackingRight.classList.remove('not_attacking-right');
         attackingRight.classList.add('attackingRight');
 
         attackRight.released = false;
         atacou = false
         setTimeout(() => {
+            objetoPlayer.classList.remove('playerAttackingRight');
+
             attackingRight.classList.remove('attackingRight');
         }, 300);       
     }
@@ -1014,12 +1030,20 @@ function playerAttackDown(idObjeto1) {
     let rect = objetoPlayer.getBoundingClientRect();
 
     if (attackDown.pressed && attackDown.released) {
-        attackingDown.classList.remove('not_attacking-down');
-        attackingDown.classList.add('attackingDown');
+        objetoPlayer.classList.remove('staticDown');
+        objetoPlayer.classList.remove('movingDown');
+        objetoPlayer.classList.add('playerAttackingDown')
+
+        setTimeout(() => {
+            attackingDown.classList.remove('not_attacking-down');
+            attackingDown.classList.add('attackingDown');
+        }, 200);
 
         attackDown.released = false;
         atacou = false
         setTimeout(() => {
+            objetoPlayer.classList.remove('playerAttackingDown')
+
             attackingDown.classList.remove('attackingDown');
         }, 300);       
     }
@@ -1153,7 +1177,23 @@ function detectarColisaoAtaqueDown(objeto1, objeto2) {
     }
 }
 
-function danoAoBoss() {
+function danoAoBoss(idObjeto1, idObjeto2) {
+    let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
+    let portaLeft = document.getElementById(idObjeto2).getBoundingClientRect();
+
+    let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
+                         {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
+                         {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top + objetoPlayer.height},
+                         {x : objetoPlayer.left, y : objetoPlayer.top + objetoPlayer.height}];
+
+    let pontos_portaLeft = [{x : portaLeft.left, y : portaLeft.top}, 
+                            {x : portaLeft.left + portaLeft.width, y : portaLeft.top},
+                            {x : portaLeft.left + portaLeft.width, y : portaLeft.top + portaLeft.height},
+                            {x : portaLeft.left, y : portaLeft.top + portaLeft.height}];
+
+    let colidiu = false;
+    let indice = 0;
+
     if (PlayerAcertou == true && atacou == true && lifeBoss == 10) {
         lifeBoss = lifeBoss - 1;
         atacou = false;
@@ -1201,6 +1241,23 @@ function danoAoBoss() {
         boss_cultista_Right.style.display = 'none';
         boss_cultista_Top.style.display = 'none';
         boss_cultista_Bottom.style.display = 'none';
+
+        portaLeftClass.classList.remove('portaLeft');
+        portaLeftClass.classList.add('portaLeftOpen');
+
+        while ((colidiu == false) && (indice < 3))
+        ((pontos_Player[indice].x >= portaLeft.left && pontos_Player[indice].x <= portaLeft.left + portaLeft.width && 
+        pontos_Player[indice].y >= portaLeft.top && pontos_Player[indice].y <= portaLeft.top + portaLeft.height)) ||
+    
+        ((pontos_portaLeft[indice].x >= objetoPlayer.left && pontos_portaLeft[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos_portaLeft[indice].y >= objetoPlayer.top && pontos_portaLeft[indice].y <= objetoPlayer.top + objetoPlayer.height))
+        ? colidiu = true : indice ++;
+        
+        if(colidiu == true) {
+            window.location.href = '/jogo/pagina14/pagina14.html';
+        }
+
+        return colidiu;
     }
 }
 
@@ -1215,12 +1272,16 @@ function movimentarBoss(/*idObjeto1, idObjeto2*/) {
     //checando as colisões
     if (boss_cultista_wrapper.left >= paredeE.left + paredeE.width && boss_cultista_wrapper.left >= objetoPlayer.left + objetoPlayer.width) {
         bossMovimentandoLeft = true;
+        boss_cultista.classList.remove('boss_cultista-turned-right');
+        boss_cultista.classList.add('boss_cultista-turned-left');
     } else {
         bossMovimentandoLeft = false;
     }
 
     if (boss_cultista_wrapper.left + boss_cultista_wrapper.width <= paredeD.left && bossMovimentando && boss_cultista_wrapper.left + boss_cultista_wrapper.width <= objetoPlayer.left) {
         bossMovimentandoRight = true;
+        boss_cultista.classList.remove('boss_cultista-turned-left');
+        boss_cultista.classList.add('boss_cultista-turned-right');
     } else {
         bossMovimentandoRight = false;
     }
@@ -1359,14 +1420,26 @@ function danoAoPlayer (/*idObjeto1, idObjeto2*/) {
 
 
     //fazendo o player tomar dano na esquerda do boss
-    if (playerVida == 5 && bossAtacouLeft == true) {
+    if (playerVida == 6 && bossAtacouLeft == true) {
         playerVida = playerVida - 1;
+        hp.classList.remove('h6');
+        hp.classList.add('hp5');
+    } else if (playerVida == 5 && bossAtacouLeft == true) {
+        playerVida = playerVida - 1;
+        hp.classList.remove('h5');
+        hp.classList.add('hp4');
     } else if (playerVida == 4 && bossAtacouLeft == true) {
         playerVida = playerVida - 1;
+        hp.classList.remove('h4');
+        hp.classList.add('hp3');
     } else if (playerVida == 3 && bossAtacouLeft == true) {
         playerVida = playerVida - 1;
+        hp.classList.remove('h3');
+        hp.classList.add('hp2');
     } else if (playerVida == 2 && bossAtacouLeft == true) {
         playerVida = playerVida - 1;
+        hp.classList.remove('h2');
+        hp.classList.add('hp1');
     } else if (playerVida == 1 && bossAtacouLeft == true) {
         playerVida = playerVida - 1;
     } else if (playerVida == 0) {
@@ -1374,14 +1447,26 @@ function danoAoPlayer (/*idObjeto1, idObjeto2*/) {
     }
 
     //fazendo o player tomar dano na direita do boss
-    if (playerVida == 5 && bossAtacouRight == true) {
+    if (playerVida == 6 && bossAtacouRight == true) {
         playerVida = playerVida - 1;
+        hp.classList.remove('h6');
+        hp.classList.add('hp5');
+    } else if (playerVida == 5 && bossAtacouRight == true) {
+        playerVida = playerVida - 1;
+        hp.classList.remove('h5');
+        hp.classList.add('hp4');
     } else if (playerVida == 4 && bossAtacouRight == true) {
         playerVida = playerVida - 1;
+        hp.classList.remove('h4');
+        hp.classList.add('hp3');
     } else if (playerVida == 3 && bossAtacouRight == true) {
         playerVida = playerVida - 1;
+        hp.classList.remove('h3');
+        hp.classList.add('hp2');
     } else if (playerVida == 2 && bossAtacouRight == true) {
         playerVida = playerVida - 1;
+        hp.classList.remove('h2');
+        hp.classList.add('hp1');
     } else if (playerVida == 1 && bossAtacouRight == true) {
         playerVida = playerVida - 1;
     } else if (playerVida == 0) {
@@ -1389,14 +1474,26 @@ function danoAoPlayer (/*idObjeto1, idObjeto2*/) {
     }
 
     //fazendo o player tomar dano no topo do boss
-    if (playerVida == 5 && bossAtacouUp == true) {
+    if (playerVida == 6 && bossAtacouUp == true) {
         playerVida = playerVida - 1;
+        hp.classList.remove('h6');
+        hp.classList.add('hp5');
+    } else if (playerVida == 5 && bossAtacouUp == true) {
+        playerVida = playerVida - 1;
+        hp.classList.remove('h5');
+        hp.classList.add('hp4');
     } else if (playerVida == 4 && bossAtacouUp == true) {
         playerVida = playerVida - 1;
+        hp.classList.remove('h4');
+        hp.classList.add('hp3');
     } else if (playerVida == 3 && bossAtacouUp == true) {
         playerVida = playerVida - 1;
+        hp.classList.remove('h3');
+        hp.classList.add('hp2');
     } else if (playerVida == 2 && bossAtacouUp == true) {
         playerVida = playerVida - 1;
+        hp.classList.remove('h2');
+        hp.classList.add('hp1');
     } else if (playerVida == 1 && bossAtacouUp == true) {
         playerVida = playerVida - 1;
     } else if (playerVida == 0) {
@@ -1404,14 +1501,26 @@ function danoAoPlayer (/*idObjeto1, idObjeto2*/) {
     }
 
     //fazendo o player tomar dano em baixo do boss
-    if (playerVida == 5 && bossAtacouDown == true) {
+    if (playerVida == 6 && bossAtacouDown == true) {
         playerVida = playerVida - 1;
+        hp.classList.remove('h6');
+        hp.classList.add('hp5');
+    } else if (playerVida == 5 && bossAtacouDown == true) {
+        playerVida = playerVida - 1;
+        hp.classList.remove('h5');
+        hp.classList.add('hp4');
     } else if (playerVida == 4 && bossAtacouDown == true) {
         playerVida = playerVida - 1;
+        hp.classList.remove('h4');
+        hp.classList.add('hp3');
     } else if (playerVida == 3 && bossAtacouDown == true) {
         playerVida = playerVida - 1;
+        hp.classList.remove('h3');
+        hp.classList.add('hp2');
     } else if (playerVida == 2 && bossAtacouDown == true) {
         playerVida = playerVida - 1;
+        hp.classList.remove('h2');
+        hp.classList.add('hp1');
     } else if (playerVida == 1 && bossAtacouDown == true) {
         playerVida = playerVida - 1;
     } else if (playerVida == 0) {
