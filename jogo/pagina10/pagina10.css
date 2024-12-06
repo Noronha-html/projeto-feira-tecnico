@@ -276,6 +276,7 @@ body{
     top: 44vh;
     left: 94.2vw;
     position: absolute;
+    display: none;
 }
 
 #portaTop {
