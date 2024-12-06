@@ -163,44 +163,94 @@ body{
 
 /* colisões para objetos no meio da tela */
 #quadrado {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 74vh;
     position: absolute;
+    top: 13vh;
+    left: 86.5vw;
+    background-image: url(/jogo/img/Sprites/RockUnbreaking.png);
+    background-size: 80px 80px;
+}
+
+#pedrasBottom{
+    width: 47vw;
+    height: 80px;
+    position: absolute;
+    background-image: url(/jogo/img/Sprites/RockUnbreaking.png);
+    background-size: 80px 80px;
     top: 50vh;
-    left: 50vw;
-    background-color: blue;
+    left: 39vw;
+}
+
+#pedrasLeft{
+    width: 240px;
+    height: 73.6vh; 
+    position: absolute;
+    top: 13vh;
+    left: 7vw;
+    background-image: url(/jogo/img/Sprites/RockUnbreaking.png);
+    background-size: 80px 80px;
+}
+#duasPedras{
+    width: 160px;
+    height: 80px;
+    position: absolute;
+    top: 13vh;
+    left: 25vw;
+    background-image: url(/jogo/img/Sprites/RockUnbreaking.png);
+    background-size: 80px 80px;
 }
 
 #quadTop {
-    width: 98px;
+    width: 47vw;
     height: 1px;
     position: absolute;
-    top: 49.9vh;
-    left: 50.1vw;
+    top: 53vh;
+    left: 39.4vw;
+    background-color: blueviolet;
 }
 
 #quadBottom {
-    width: 98px;
+    width: 47vw;
     height: 1px;
     position: absolute;
-    top: 65.7vh;
-    left: 50.1vw;
+    top: 61.6vh;
+    left: 39.4vw;
+    background-color: rgb(208, 226, 43);
 }
 
 #quadLeft {
     width: 1px;
-    height: 98px;
+    height: 74vh;
     position: absolute;
-    top: 50.1vh;
-    left: 49.9vw;
+    top: 13vh;
+    left: 87vw;
+    background-color: rgb(64, 226, 43);
 }
 
 #quadRight {
     width: 1px;
-    height: 98px;
+    height: 74vh;
     position: absolute;
-    top: 50.1vh;
-    left: 57.3vw;
+    top: 13vh;
+    left: 24vw;
+    background-color: rgb(226, 43, 43);
+}
+#linhaPedrasBottom{
+    width: 1px;
+    height: 50px;
+    position: absolute;
+    top: 53.3vh;
+    left: 39.3vw;
+    background-color: cornflowerblue;
+}
+#duasPedrasBottom{
+    width: 160px;
+    height: 1px;
+    position: absolute;
+    top: 25vh;
+    left: 25vw;
+    background-color: aquamarine;
 }
 
 /* portas */

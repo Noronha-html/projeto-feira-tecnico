@@ -318,6 +318,7 @@ function funcionalidades () {
     detectarColisaoBossBottom__ParedeB__quadTop('boss_cultista-bottom', 'paredeB', 'quadTop');*/
 
     detectarColisaoPortaRight('player', 'portaRight');
+    
     //detectarColisaoPortaLeft('player', 'portaLeft');
 
     playerAttackLeft('player');

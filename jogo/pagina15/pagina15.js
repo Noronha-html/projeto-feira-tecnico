@@ -42,6 +42,7 @@ let portaLeft; //porta da esquerda
 let portaRight; //porta da direita
 let portaTop; //porta de cima
 let portaDown; //porta de baixo
+let linhaPedrasBottom;
 
 //boss
 var lifeBoss; //vida do boss
@@ -124,6 +125,8 @@ function inicia () {
     quadBottom = document.getElementById('quadBottom');
     quadLeft = document.getElementById('quadLeft');
     quadRight = document.getElementById('quadRight');
+
+    linhaPedrasBottom = document.getElementById('linhaPedrasBottom');
 
     portaDown = document.getElementById('portaDown');
 
@@ -301,17 +304,17 @@ function funcionalidades () {
     boss_cultista_wrapper.style.top = pyBossCultista + 'px';
 
     detectarColisaoParedeE__quadRight('player', 'paredeE', 'quadRight');
-    detectarColisaoParedeD__quadLeft('player', 'paredeD', 'quadLeft');
+    detectarColisaoParedeD__quadLeft__linhaPedrasBottom('player', 'paredeD', 'quadLeft', 'linhaPedrasBottom');
     detectarColisaoParedeC__quadBottom('player', 'paredeC', 'quadBottom');
     detectarColisaoParedeB__quadTop('player', 'paredeB', 'quadTop');
 
-    detectarColisaoBossLeft('player', 'boss_cultista-left');
-    detectarColisaoBossRight('player', 'boss_cultista-right');
-    detectarColisaoBossTop('player', 'boss_cultista-top');
-    detectarColisaoBossBottom('player', 'boss_cultista-bottom');
+    //detectarColisaoBossLeft('player', 'boss_cultista-left');
+    //detectarColisaoBossRight('player', 'boss_cultista-right');
+    //detectarColisaoBossTop('player', 'boss_cultista-top');
+    //detectarColisaoBossBottom('player', 'boss_cultista-bottom');
 
-    (detectarColisaoBossLeft__ParedeE__quadRight('boss_cultista-left', 'paredeE', 'quadRight') == true)? bossMovimentandoLeft = false : bossMovimentandoLeft = true;
-    (detectarColisaoBossRight__ParedeD__quadLeft('boss_cultista-right', 'paredeD', 'quadLeft') == true)? bossMovimentandoRight = false : bossMovimentandoRight = true;
+    //(detectarColisaoBossLeft__ParedeE__quadRight('boss_cultista-left', 'paredeE', 'quadRight') == true)? bossMovimentandoLeft = false : bossMovimentandoLeft = true;
+    //(detectarColisaoBossRight__ParedeD__quadLeft('boss_cultista-right', 'paredeD', 'quadLeft') == true)? bossMovimentandoRight = false : bossMovimentandoRight = true;
     /*detectarColisaoBossTop__ParedeC__quadBottom('boss_cultista-top', 'paredeC', 'quadBottom');
     detectarColisaoBossBottom__ParedeB__quadTop('boss_cultista-bottom', 'paredeB', 'quadTop');*/
 
@@ -336,7 +339,7 @@ function funcionalidades () {
 };
 
 //detecta colisão na parede esquerda
-function detectarColisaoParedeE__quadRight(idObjeto1, idObjeto2, idObjeto3) {
+function detectarColisaoParedeE__quadRight(idObjeto1, idObjeto2, idObjeto3, idObjeto4) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let paredeE = document.getElementById(idObjeto2).getBoundingClientRect();
     let quadRight = document.getElementById(idObjeto3).getBoundingClientRect();
@@ -355,6 +358,7 @@ function detectarColisaoParedeE__quadRight(idObjeto1, idObjeto2, idObjeto3) {
                              {x : quadRight.left + quadRight.width, y : quadRight.top},
                              {x : quadRight.left + quadRight.width, y : quadRight.top + quadRight.height},
                              {x : quadRight.left, y : quadRight.top + quadRight.height}];
+   
 
     let indice = 0;
     let colidiu = false;
@@ -371,6 +375,7 @@ function detectarColisaoParedeE__quadRight(idObjeto1, idObjeto2, idObjeto3) {
 
     ((pontos_quad_Right[indice].x >= objetoPlayer.left && pontos_quad_Right[indice].x <= objetoPlayer.left + objetoPlayer.width && 
     pontos_quad_Right[indice].y >= objetoPlayer.top && pontos_quad_Right[indice].y <= objetoPlayer.top + objetoPlayer.height))
+        
         ? colidiu = true : indice ++;
         tecA = false;
 
@@ -384,10 +389,11 @@ function detectarColisaoParedeE__quadRight(idObjeto1, idObjeto2, idObjeto3) {
 };
 
 //detecta colisão na parede direita
-function detectarColisaoParedeD__quadLeft(idObjeto1, idObjeto2, idObjeto3) {
+function detectarColisaoParedeD__quadLeft__linhaPedrasBottom(idObjeto1, idObjeto2, idObjeto3, idObjeto4) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let paredeD = document.getElementById(idObjeto2).getBoundingClientRect();
     let quadLeft = document.getElementById(idObjeto3).getBoundingClientRect();
+    let linhaPedrasBottom = document.getElementById(idObjeto4).getBoundingClientRect();
 
     let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
                          {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
@@ -404,6 +410,11 @@ function detectarColisaoParedeD__quadLeft(idObjeto1, idObjeto2, idObjeto3) {
                             {x : quadLeft.left + quadLeft.width, y : quadLeft.top + quadLeft.height},
                             {x : quadLeft.left, y : quadLeft.top + quadLeft.height}];
 
+    let pontos_linhaPedrasBottom = [{x : linhaPedrasBottom.left, y : linhaPedrasBottom.top}, 
+                                    {x : linhaPedrasBottom.left + linhaPedrasBottom.width, y : linhaPedrasBottom.top},
+                                    {x : linhaPedrasBottom.left + linhaPedrasBottom.width, y : linhaPedrasBottom.top + linhaPedrasBottom.height},
+                                    {x : linhaPedrasBottom.left, y : linhaPedrasBottom.top + linhaPedrasBottom.height}];
+
 
     let indice = 0;
     let colidiu = false;
@@ -419,7 +430,13 @@ function detectarColisaoParedeD__quadLeft(idObjeto1, idObjeto2, idObjeto3) {
         pontos_Player[indice].y >= quadLeft.top && pontos_Player[indice].y <= quadLeft.top + quadLeft.height)) ||
     
         ((pontos_quad_Left[indice].x >= objetoPlayer.left && pontos_quad_Left[indice].x <= objetoPlayer.left + objetoPlayer.width && 
-        pontos_quad_Left[indice].y >= objetoPlayer.top && pontos_quad_Left[indice].y <= objetoPlayer.top + objetoPlayer.height))
+        pontos_quad_Left[indice].y >= objetoPlayer.top && pontos_quad_Left[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+        ((pontos_Player[indice].x >= linhaPedrasBottom.left && pontos_Player[indice].x <= linhaPedrasBottom.left + linhaPedrasBottom.width && 
+        pontos_Player[indice].y >= linhaPedrasBottom.top && pontos_Player[indice].y <= linhaPedrasBottom.top + linhaPedrasBottom.height)) ||
+      
+        ((pontos_linhaPedrasBottom[indice].x >= objetoPlayer.left && pontos_linhaPedrasBottom[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos_linhaPedrasBottom[indice].y >= objetoPlayer.top && pontos_linhaPedrasBottom[indice].y <= objetoPlayer.top + objetoPlayer.height)) 
         ? colidiu = true : indice ++;
     tecD = false;
 
@@ -529,7 +546,7 @@ function detectarColisaoParedeB__quadTop(idObjeto1, idObjeto2, idObjeto3) {
 };
 
 //detecta colisão com os bosses
-function detectarColisaoBossLeft(idObjeto1, idObjeto2) {
+/*function detectarColisaoBossLeft(idObjeto1, idObjeto2) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let boss_cultista_Left = document.getElementById(idObjeto2).getBoundingClientRect();
 
@@ -761,8 +778,8 @@ function detectarColisaoBossRight__ParedeD__quadLeft(idObjeto1, idObjeto2, idObj
             bossMovimentandoLeft = true;
         }*/
 
-    return colidiu;
-}
+    /*return colidiu;/*
+}*/
 
 //detectar colisões nas portas
 function detectarColisaoPortaDown (idObjeto1, idObjeto2) {
