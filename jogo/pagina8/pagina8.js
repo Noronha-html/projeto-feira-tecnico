@@ -467,7 +467,7 @@ function detectarColisaoParedeE__quadRight__pedra1Right__pedra2Right__estanteRig
         pontos_Player[indice].y >= barraRight.top && pontos_Player[indice].y <= barraRight.top + barraRight.height)) ||
                 
     ((pontos__barraRight[indice].x >= objetoPlayer.left && pontos__barraRight[indice].x <= objetoPlayer.left + objetoPlayer.width && 
-    pontos__barraRight[indice].y >= objetoPlayer.top && pontos__barraRight[indice].y <= objetoPlayer.top + objetoPlayer.heighbarra)) ||
+    pontos__barraRight[indice].y >= objetoPlayer.top && pontos__barraRight[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
 
     ((pontos_Player[indice].x >= barraRight2.left && pontos_Player[indice].x <= barraRight2.left + barraRight2.width && 
     pontos_Player[indice].y >= barraRight2.top && pontos_Player[indice].y <= barraRight2.top + barraRight2.height)) ||

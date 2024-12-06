@@ -166,41 +166,104 @@ body{
     width: 100px;
     height: 100px;
     position: absolute;
-    top: 50vh;
-    left: 50vw;
-    background-color: blue;
+    top: 42vh;
+    left: 46vw;
+    background-image: url(/jogo/img/Sprites/RockBreaking.png);
+    background-size: cover;
 }
 
 #quadTop {
-    width: 98px;
+    width: 85px;
     height: 1px;
     position: absolute;
-    top: 49.9vh;
-    left: 50.1vw;
+    top: 45.5555vh;
+    left: 46.777777vw;
 }
 
 #quadBottom {
-    width: 98px;
+    width: 85px;
     height: 1px;
     position: absolute;
-    top: 65.7vh;
-    left: 50.1vw;
+    top: 57vh;
+    left: 46.77777vw;
 }
 
 #quadLeft {
     width: 1px;
-    height: 98px;
+    height: 72px;
     position: absolute;
-    top: 50.1vh;
-    left: 49.9vw;
+    top: 45.999999vh;
+    left: 46.55555vw;
 }
 
 #quadRight {
     width: 1px;
-    height: 98px;
+    height: 72px;
     position: absolute;
-    top: 50.1vh;
-    left: 57.3vw;
+    top: 45.999999vh;
+    left: 53.1111vw;
+}
+
+#barril1 {
+    width: 80px;
+    height: 114px;
+    position: absolute;
+    top: 7vh;
+    left: 5vw;
+    background-image: url(/jogo/img/Sprites/Barrel.png);
+    background-size: cover;
+}
+
+#barril2 {
+    width: 80px;
+    height: 114px;
+    position: absolute;
+    top: 20vh;
+    left: 5vw;
+    background-image: url(/jogo/img/Sprites/Barrel.png);
+    background-size: cover;
+}
+
+#barril3 {
+    width: 80px;
+    height: 114px;
+    position: absolute;
+    top: 7vh;
+    left: 11.4444vw;
+    background-image: url(/jogo/img/Sprites/Barrel.png);
+    background-size: cover;
+}
+
+#barraTop{
+    width: 6vw;
+    height: 1px;
+    position: absolute;
+    left: 11vw;
+    top: 25vh;
+}
+
+#barraBottom{
+    width: 5.99999vw;
+    height: 1px;
+    position: absolute;
+    left: 5vw;
+    top: 37.99999vh;
+}
+
+#barraRight{
+    width: 1px;
+    height: 16.111111vh;
+    position: absolute;
+    left: 17.22222vw;
+    top: 9vh;
+}
+
+#barraRight2{
+    width: 1px;
+    height: 14vh;
+    position: absolute;
+    left: 11vw;
+    top: 24vh;
 }
 
 /* portas */
@@ -302,12 +365,14 @@ body{
     top: 0px;
     margin-left: 300px;
     margin-top: 250px;
+    display: none;
 }
 
 #boss_cultista {
     width: 80px;
     height: 80px;
     position: absolute;
+    display: none;
 }
 
 #boss_cultista-left {
@@ -315,6 +380,7 @@ body{
     height: 77px;
     position: absolute;
     top: 1%;
+    display: none;
 }
 
 #boss_cultista-right {
@@ -324,7 +390,7 @@ body{
     top: 5%;
     left: 12%;
     z-index: 10;
-    background-color: red;
+    display: none;
 }
 
 #boss_cultista-top {
@@ -332,6 +398,7 @@ body{
     height: 79px;
     position: absolute;
     left: 1%;
+    display: none;
 }
 
 #boss_cultista-bottom {
@@ -340,4 +407,5 @@ body{
     position: absolute;
     top: 1%;
     left: 1%;
+    display: none;
 }

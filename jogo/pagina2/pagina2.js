@@ -462,7 +462,8 @@ function detectarColisaoParedeE__quadRight__pedra1Right__pedra2Right__estanteRig
             
     ((pontos__mesaRight[indice].x >= objetoPlayer.left && pontos__mesaRight[indice].x <= objetoPlayer.left + objetoPlayer.width && 
     pontos__mesaRight[indice].y >= objetoPlayer.top && pontos__mesaRight[indice].y <= objetoPlayer.top + objetoPlayer.height))
-        ? colidiu = true : indice ++;
+        
+    ? colidiu = true : indice ++;
         tecA = false;
 
         if (colidiu == true && tecA == false) {

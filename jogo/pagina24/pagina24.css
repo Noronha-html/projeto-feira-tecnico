@@ -166,41 +166,144 @@ body{
     width: 100px;
     height: 100px;
     position: absolute;
-    top: 50vh;
-    left: 50vw;
-    background-color: blue;
+    top: 55vh;
+    left: 85.9999999vw;
+    background-image: url(/jogo/img/Sprites/RockBreaking.png);
+    background-size: cover;
 }
 
 #quadTop {
-    width: 98px;
+    width: 80px;
     height: 1px;
     position: absolute;
-    top: 49.9vh;
-    left: 50.1vw;
+    top: 59vh;
+    left: 86.99999vw;
 }
 
 #quadBottom {
-    width: 98px;
+    width: 80px;
     height: 1px;
     position: absolute;
-    top: 65.7vh;
-    left: 50.1vw;
+    top: 70vh;
+    left: 86.9999vw;
 }
 
 #quadLeft {
     width: 1px;
-    height: 98px;
+    height: 68px;
     position: absolute;
-    top: 50.1vh;
-    left: 49.9vw;
+    top: 59.55555vh;
+    left: 86.777777vw;
 }
 
 #quadRight {
     width: 1px;
-    height: 98px;
+    height: 68px;
     position: absolute;
-    top: 50.1vh;
-    left: 57.3vw;
+    top: 59.55555vh;
+    left: 93vw;
+}
+
+#pedra{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 39vh;
+    left: 85.9999999vw;
+    background-image: url(/jogo/img/Sprites/RockBreaking.png);
+    background-size: cover;
+}
+
+#pedraTop {
+    width: 80px;
+    height: 1px;
+    position: absolute;
+    top: 43vh;
+    left: 86.99999vw;
+}
+
+#pedraBottom {
+    width: 80px;
+    height: 1px;
+    position: absolute;
+    top: 54vh;
+    left: 86.9999vw;
+}
+
+#pedraLeft {
+    width: 1px;
+    height: 68px;
+    position: absolute;
+    top: 43.33333vh;
+    left: 86.777777vw;
+}
+
+#estante3 {
+    width: 130px;
+    height: 170px;
+    position: absolute;
+    background-image: url(/jogo/img/Sprites/Bookshelf.png);
+    background-position: cover;
+    top: 7vh;
+    left: 15vw;
+}
+
+#estanteLeft3 {
+    width: 1px;
+    height: 167px;
+    position: absolute;
+    top: 7vh;
+    left: 15vw;
+}
+
+#estanteRight3 {
+    width: 1px;
+    height: 167px;
+    position: absolute;
+    top: 7vh;
+    left: 24.555555vw;
+}
+
+#estanteBottom3 {
+    width: 125px;
+    height: 1px;
+    position: absolute;
+    top: 33vh;
+    left: 15.11111vw;
+}
+
+#estante4 {
+    width: 130px;
+    height: 170px;
+    position: absolute;
+    background-image: url(/jogo/img/Sprites/Bookshelf.png);
+    background-position: cover;
+    top: 7vh;
+    left: 32vw;
+}
+
+#estanteLeft4 {
+    width: 1px;
+    height: 167px;
+    position: absolute;
+    top: 7vh;
+    left: 32vw;
+}
+
+#estanteRight4 {
+    width: 1px;
+    height: 167px;
+    position: absolute;
+    top: 7vh;
+    left: 41.55555vw;
+}
+
+#estanteBottom4 {
+    width: 125px;
+    height: 1px;
+    position: absolute;
+    top: 33vh;
+    left: 32.2222vw;
 }
 
 /* portas */

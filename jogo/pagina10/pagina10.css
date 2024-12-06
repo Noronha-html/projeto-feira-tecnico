@@ -238,38 +238,34 @@ body{
 
 #mesaLeft {
     width: 1px;
-    height: 75px;
+    height: 70px;
     position: absolute;
-    top: 45vh;
+    top: 46vh;
     left: 43vw;  
-    background-color: chartreuse;
 }
 
 #mesaRight {
     width: 1px;
-    height: 75px;
+    height: 70px;
     position: absolute;
-    top: 45vh;
+    top: 46vh;
     left: 56.44444vw;   
-    background-color: blue;
 }
 
 #mesaTop {
-    width: 183px;
+    width: 175px;
     height: 1px;
     position: absolute;
     top: 45vh;
-    left: 43vw;
-    background-color: aquamarine;
+    left: 43.3333vw;
 }
 
 #mesaBottom{
-    width: 183px;
+    width: 175px;
     height: 1px;
     position: absolute;
     top: 56.8888vh;
-    left: 43vw;
-    background-color: purple;
+    left: 43.33333vw;
 }
 
 /* portas */

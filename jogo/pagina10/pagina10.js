@@ -315,9 +315,9 @@ function funcionalidades () {
     boss_cultista_wrapper.style.top = pyBossCultista + 'px';
 
     detectarColisaoParedeE__quadRight_linhaPedra_mesaRight('player', 'paredeE', 'quadRight', 'linhaPedra', 'mesaRight');
-    detectarColisaoParedeD__quadLeft_mesaLeft('player', 'paredeD', 'quadLeft');
-    detectarColisaoParedeC__quadBottom_mesaBottom('player', 'paredeC', 'quadBottom');
-    detectarColisaoParedeB__quadTop_mesaTop('player', 'paredeB', 'quadTop');
+    detectarColisaoParedeD__quadLeft_mesaLeft('player', 'paredeD', 'quadLeft', 'mesaLeft');
+    detectarColisaoParedeC__quadBottom_mesaBottom('player', 'paredeC', 'quadBottom', 'mesaBottom');
+    detectarColisaoParedeB__quadTop_mesaTop('player', 'paredeB', 'quadTop', 'mesaTop');
 
     /*detectarColisaoBossLeft('player', 'boss_cultista-left');
     detectarColisaoBossRight('player', 'boss_cultista-right');
@@ -351,12 +351,12 @@ function funcionalidades () {
 };
 
 //detecta colisão na parede esquerda
-function detectarColisaoParedeE__quadRight_linhaPedra_mesaRight(idObjeto1, idObjeto2, idObjeto3, idObjeto4,idObjeto5) {
+function detectarColisaoParedeE__quadRight_linhaPedra_mesaRight(idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObjeto5) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let paredeE = document.getElementById(idObjeto2).getBoundingClientRect();
     let quadRight = document.getElementById(idObjeto3).getBoundingClientRect();
     let linhaPedra = document.getElementById(idObjeto4).getBoundingClientRect();
-    let mesaRight = document.getElementById(idObjeto3).getBoundingClientRect();
+    let mesaRight = document.getElementById(idObjeto5).getBoundingClientRect();
 
     let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
                          {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
@@ -378,7 +378,7 @@ function detectarColisaoParedeE__quadRight_linhaPedra_mesaRight(idObjeto1, idObj
                             {x : linhaPedra.left + linhaPedra.width, y : linhaPedra.top + linhaPedra.height},
                             {x : linhaPedra.left, y : linhaPedra.top + linhaPedra.height}];
 
-    let pontos_mesa_Rmesa = [{x : mesaRight.left, y : mesaRight.top}, 
+    let pontos__mesaRight = [{x : mesaRight.left, y : mesaRight.top}, 
                             {x : mesaRight.left + mesaRight.width, y : mesaRight.top},
                             {x : mesaRight.left + mesaRight.width, y : mesaRight.top + mesaRight.height},
                             {x : mesaRight.left, y : mesaRight.top + mesaRight.height}];
@@ -406,11 +406,11 @@ function detectarColisaoParedeE__quadRight_linhaPedra_mesaRight(idObjeto1, idObj
     pontos_linha_Pedra[indice].y >= objetoPlayer.top && pontos_linha_Pedra[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
 
     ((pontos_Player[indice].x >= mesaRight.left && pontos_Player[indice].x <= mesaRight.left + mesaRight.width && 
-        pontos_Player[indice].y >= mesaRight.top && pontos_Player[indice].y <= mesaRight.top + mesaRight.height)) ||
+    pontos_Player[indice].y >= mesaRight.top && pontos_Player[indice].y <= mesaRight.top + mesaRight.height)) ||
                 
     ((pontos__mesaRight[indice].x >= objetoPlayer.left && pontos__mesaRight[indice].x <= objetoPlayer.left + objetoPlayer.width && 
     pontos__mesaRight[indice].y >= objetoPlayer.top && pontos__mesaRight[indice].y <= objetoPlayer.top + objetoPlayer.height))
-    
+        
         ? colidiu = true : indice ++;
         tecA = false;
 
@@ -445,7 +445,7 @@ function detectarColisaoParedeD__quadLeft_mesaLeft(idObjeto1, idObjeto2, idObjet
                             {x : quadLeft.left + quadLeft.width, y : quadLeft.top + quadLeft.height},
                             {x : quadLeft.left, y : quadLeft.top + quadLeft.height}];
 
-    let pontos_mesa_Left = [{x : mesaLeft.left, y : mesaLeft.top}, 
+    let pontos__mesaLeft = [{x : mesaLeft.left, y : mesaLeft.top}, 
                                 {x : mesaLeft.left + mesaLeft.width, y : mesaLeft.top},
                                 {x : mesaLeft.left + mesaLeft.width, y : mesaLeft.top + quadLeft.height},
                                 {x : mesaLeft.left, y : mesaLeft.top + mesaLeft.height}];
@@ -467,19 +467,11 @@ function detectarColisaoParedeD__quadLeft_mesaLeft(idObjeto1, idObjeto2, idObjet
         ((pontos_quad_Left[indice].x >= objetoPlayer.left && pontos_quad_Left[indice].x <= objetoPlayer.left + objetoPlayer.width && 
         pontos_quad_Left[indice].y >= objetoPlayer.top && pontos_quad_Left[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
 
-        ((pontos_Player[indice].x >= mesaRight.left && pontos_Player[indice].x <= mesaRight.left + mesaRight.width && 
-        pontos_Player[indice].y >= mesaRight.top && pontos_Player[indice].y <= mesaRight.top + mesaRight.heigmesa))
-        
-        ((pontos_mesa_Right[indice].x >= objetoPlayer.left && pontos_mesa_Right[indice].x <= objetoPlayer.left + objetoPlayer.width && 
-        pontos_mesa_Right[indice].y >= objetoPlayer.top && pontos_mesa_Right[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
-
         ((pontos_Player[indice].x >= mesaLeft.left && pontos_Player[indice].x <= mesaLeft.left + mesaLeft.width && 
-        pontos_Player[indice].y >= mesaLeft.top && pontos_Player[indice].y <= mesaLeft.top + mesaLeft.heigmesa))
+        pontos_Player[indice].y >= mesaLeft.top && pontos_Player[indice].y <= mesaLeft.top + mesaLeft.height)) ||
             
-        ((pontos_mesa_Left[indice].x >= objetoPlayer.left && pontos_mesa_Left[indice].x <= objetoPlayer.left + objetoPlayer.width && 
-        pontos_mesa_Left[indice].y >= objetoPlayer.top && pontos_mesa_Left[indice].y <= objetoPlayer.top + objetoPlayer.height))
-
-
+        ((pontos__mesaLeft[indice].x >= objetoPlayer.left && pontos__mesaLeft[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos__mesaLeft[indice].y >= objetoPlayer.top && pontos__mesaLeft[indice].y <= objetoPlayer.top + objetoPlayer.height))
 
         ? colidiu = true : indice ++;
     tecD = false;
@@ -515,7 +507,7 @@ function detectarColisaoParedeC__quadBottom_mesaBottom(idObjeto1, idObjeto2, idO
                               {x : quadBottom.left + quadBottom.width, y : quadBottom.top + quadBottom.height},
                               {x : quadBottom.left, y : quadBottom.top + quadBottom.height}];
 
-    let pontos_mesa_Bomesa = [{x : mesaBottom.left, y : mesaBottom.top}, 
+    let pontos__mesaBottom = [{x : mesaBottom.left, y : mesaBottom.top}, 
                               {x : mesaBottom.left + mesaBottom.width, y : mesaBottom.top},
                               {x : mesaBottom.left + mesaBottom.width, y : mesaBottom.top + mesaBottom.height},
                               {x : mesaBottom.left, y: mesaBottom.top + mesaBottom.height}];
@@ -539,8 +531,8 @@ function detectarColisaoParedeC__quadBottom_mesaBottom(idObjeto1, idObjeto2, idO
         ((pontos_Player[indice].x >= mesaBottom.left && pontos_Player[indice].x <= mesaBottom.left + mesaBottom.width && 
         pontos_Player[indice].y >= mesaBottom.top && pontos_Player[indice].y <= mesaBottom.top + mesaBottom.height)) ||
         
-        ((pontos_mesa_Bottom[indice].x >= objetoPlayer.left && pontos_mesa_Bottom[indice].x <= objetoPlayer.left + objetoPlayer.width && 
-        pontos_mesa_Bottom[indice].y >= objetoPlayer.top && pontos_mesa_Bottom[indice].y <= objetoPlayer.top + objetoPlayer.height))
+        ((pontos__mesaBottom[indice].x >= objetoPlayer.left && pontos__mesaBottom[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos__mesaBottom[indice].y >= objetoPlayer.top && pontos__mesaBottom[indice].y <= objetoPlayer.top + objetoPlayer.height))
         
         
         
@@ -579,10 +571,10 @@ function detectarColisaoParedeB__quadTop_mesaTop(idObjeto1, idObjeto2, idObjeto3
                            {x : quadTop.left + quadTop.width, y : quadTop.top + quadTop.height},
                            {x : quadTop.left, y : quadTop.top + quadTop.height}];
 
-    let pontos_mesa_Top = [{x : mesaTop.left, y : mesaTop.top}, 
+    let pontos__mesaTop = [{x : mesaTop.left, y : mesaTop.top}, 
                            {x : mesaTop.left + mesaTop.width, y : mesaTop.top},
                            {x : mesaTop.left + mesaTop.width, y : mesaTop.top + mesaTop.height},
-                           {x : mesaTop.left, y :mesadTop.top + mesaTop.height}];
+                           {x : mesaTop.left, y :mesaTop.top + mesaTop.height}];
 
     let indice = 0;
     let colidiu = false
@@ -604,11 +596,17 @@ function detectarColisaoParedeB__quadTop_mesaTop(idObjeto1, idObjeto2, idObjeto3
         pontos_Player[indice].y >= quadTop.top && pontos_Player[indice].y <= quadTop.top + quadTop.height)) ||
     
         ((pontos_quad_Top[indice].x >= objetoPlayer.left && pontos_quad_Top[indice].x <= objetoPlayer.left + objetoPlayer.width && 
-        pontos_quad_Top[indice].y >= objetoPlayer.top && pontos_quad_Top[indice].y <= objetoPlayer.top + objetoPlayer.height))
+        pontos_quad_Top[indice].y >= objetoPlayer.top && pontos_quad_Top[indice].y <= objetoPlayer.top + objetoPlayer.height)) ||
+
+        ((pontos_Player[indice].x >= mesaTop.left && pontos_Player[indice].x <= mesaTop.left + mesaTop.width && 
+        pontos_Player[indice].y >= mesaTop.top && pontos_Player[indice].y <= mesaTop.top + mesaTop.height)) ||
+        
+        ((pontos__mesaTop[indice].x >= objetoPlayer.left && pontos__mesaTop[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos__mesaTop[indice].y >= objetoPlayer.top && pontos__mesaTop[indice].y <= objetoPlayer.top + objetoPlayer.height))
+            
         
         ? colidiu = true : indice ++;
-    tecS = false;
-
+    tecS = false
     if (colidiu == true && tecS == false) {
         dy = 0;
     } else {
