@@ -239,7 +239,7 @@ body{
     left: 46.55555vw;
 }
 
-#quadRight {
+.quadRight {
     width: 1px;
     height: 72px;
     position: absolute;
