@@ -85,7 +85,7 @@ function inicia () {
     px = 0;
     py = 0;
     vel = 1;
-    lifeBoss = 10;
+    lifeBoss = 15;
     playerVida = 7;
     playerDano = 1;
     PlayerAcertou = false;
@@ -1280,7 +1280,27 @@ function danoAoBoss(idObjeto1, idObjeto2) {
     let indice = 0;
 
     if (bossFuncionando == true) {
-        if (PlayerAcertou == true && atacou == true && lifeBoss == 10) {
+        if (PlayerAcertou == true && atacou == true && lifeBoss == 15) {
+            lifeBoss = lifeBoss - 1;
+            atacou = false;
+            PlayerAcertou = false;
+        } else if (PlayerAcertou == true && atacou == true && lifeBoss == 14) {
+            lifeBoss = lifeBoss - 1;
+            atacou = false;
+            PlayerAcertou = false;
+        } else if (PlayerAcertou == true && atacou == true && lifeBoss == 13) {
+            lifeBoss = lifeBoss - 1;
+            atacou = false;
+            PlayerAcertou = false;
+        } else if (PlayerAcertou == true && atacou == true && lifeBoss == 12) {
+            lifeBoss = lifeBoss - 1;
+            atacou = false;
+            PlayerAcertou = false;
+        } else if (PlayerAcertou == true && atacou == true && lifeBoss == 11) {
+            lifeBoss = lifeBoss - 1;
+            atacou = false;
+            PlayerAcertou = false;
+        } else if (PlayerAcertou == true && atacou == true && lifeBoss == 10) {
             lifeBoss = lifeBoss - 1;
             atacou = false;
             PlayerAcertou = false;

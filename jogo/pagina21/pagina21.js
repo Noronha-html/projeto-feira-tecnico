@@ -886,7 +886,7 @@ function detectarColisaoPortaTop (idObjeto1, idObjeto2) {
     ? colidiu = true : indice ++;
     
     if (colidiu == true) {
-        window.location.href = '/jogo/pagina8/pagina8.html';
+        window.location.href = '/jogo/pagina22/pagina22.html';
     }
 
     return colidiu;

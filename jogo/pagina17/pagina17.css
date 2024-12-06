@@ -17,8 +17,8 @@ body{
     left: 250px;
     width: 80px;
     height: 80px;
-    margin-left: 800px;
-    margin-top: 200px;
+    margin-left: 81px;
+    margin-top: 285px;
 }
 
 .staticLeft {
@@ -79,6 +79,30 @@ body{
 
 .movingDown {
     background-image: url(/jogo/img/Sprites/movePlayer\ \(Down\).gif);
+    background-size: cover;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
+.playerAttackingLeft {
+    background-image: url(/jogo/img/Sprites/playerCutting\(Left\).gif);
+    background-size: cover;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
+.playerAttackingRight {
+    background-image: url(/jogo/img/Sprites/playerCutting\(Right\).gif);
+    background-size: cover;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
+.playerAttackingDown {
+    background-image: url(/jogo/img/Sprites/playerCutting\(Down\).gif);
     background-size: cover;
     position: absolute;
     width: 80px;
@@ -163,68 +187,145 @@ body{
 
 /* colisões para objetos no meio da tela */
 #quadrado {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     position: absolute;
-    top: 50vh;
-    left: 50vw;
-    background-color: blue;
+    top: 35.8vh;
+    left: 43vw;
+    background-image: url(/jogo/img/Sprites/chest.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
 }
 
 #quadTop {
-    width: 98px;
+    width: 30px;
     height: 1px;
     position: absolute;
-    top: 49.9vh;
-    left: 50.1vw;
+    top: 49vh;
+    left: 48vw;
+    display: none;
 }
 
 #quadBottom {
-    width: 98px;
+    width: 30px;
     height: 1px;
     position: absolute;
-    top: 65.7vh;
-    left: 50.1vw;
+    top: 56vh;
+    left: 48vw;
+    display: none;
 }
 
 #quadLeft {
     width: 1px;
-    height: 98px;
+    height: 25px;
     position: absolute;
-    top: 50.1vh;
-    left: 49.9vw;
+    top: 50vh;
+    left: 46.6666vw;
+    display: none;
 }
 
 #quadRight {
     width: 1px;
-    height: 98px;
+    height: 25px;
     position: absolute;
-    top: 50.1vh;
-    left: 57.3vw;
+    top: 50vh;
+    left:52vw;
+    display: none;
+}
+
+.hp7 {
+    width: 300px;
+    height: 100px;
+    background-image: url(/jogo/img/Sprites/hp\(7-7\).png);
+    background-size: cover;
+    position: absolute;
+    left: 10vw;
+    top: 2vh;
+}
+
+.hp6 {
+    width: 300px;
+    height: 100px;
+    background-image: url(/jogo/img/Sprites/hp\(6-7\).png);
+    background-size: cover;
+    position: absolute;
+    left: 10vw;
+    top: 2vh;
+}
+
+.hp5 {
+    width: 300px;
+    height: 100px;
+    background-image: url(/jogo/img/Sprites/hp\(5-7\).png);
+    background-size: cover;
+    position: absolute;
+    left: 10vw;
+    top: 2vh;
+}
+
+.hp4 {
+    width: 300px;
+    height: 100px;
+    background-image: url(/jogo/img/Sprites/hp\(4-7\).png);
+    background-size: cover;
+    position: absolute;
+    left: 10vw;
+    top: 2vh;
+}
+
+.hp3 {
+    width: 300px;
+    height: 100px;
+    background-image: url(/jogo/img/Sprites/hp\(3-7\).png);
+    background-size: cover;
+    position: absolute;
+    left: 10vw;
+    top: 2vh;
+}
+
+.hp2 {
+    width: 300px;
+    height: 100px;
+    background-image: url(/jogo/img/Sprites/hp\(2-7\).png);
+    background-size: cover;
+    position: absolute;
+    left: 10vw;
+    top: 2vh;
+}
+
+.hp1 {
+    width: 300px;
+    height: 100px;
+    background-image: url(/jogo/img/Sprites/hp\(1-7\).png);
+    background-size: cover;
+    position: absolute;
+    left: 10vw;
+    top: 2vh;
 }
 
 /* portas */
-#portaRight {
-    background-color: purple;
+.portaRight {
+    background-image: url(/jogo/img/Sprites/DoorClose\(Right\).png);
     width: 80px;
     height: 100px;
     top: 44vh;
-    left: 0;
+    left: 94.2vw;
     position: absolute;
 }
 
-#portaTop {
-    background-image: url(/jogo/img/Sprites/DoorOpen\(Up\).png);
+.portaTop {
+    background-image: url(/jogo/img/Sprites/DoorClose\(Up\).png);
+    background-size: cover;
     width: 100px;
     height: 80px;
     top: 0;
     left: 46vw;
     position: absolute;
-    background-size: 100% 100%;
 }
 
 #portaDown {
-    background-color: purple;
+    background-image: url(/jogo/img/Sprites/CloseDoorAnime\(Down\).gif);
     width: 100px;
     height: 80px;
     top: 88.3vh;
@@ -239,6 +340,16 @@ body{
     position: absolute;
     left: 0;
     top: 44vh;
+    background-size: 100% 100%;
+}
+
+.portaTopOpen {
+    background-image: url(/jogo/img/Sprites/OpenDoorAnime\(Up\).gif);
+    width: 100px;
+    height: 80px;
+    top: 0;
+    left: 46vw;
+    position: absolute;
     background-size: 100% 100%;
 }
 
@@ -262,7 +373,8 @@ body{
 .attackingLeft {
     width: 70px;
     height: 70px;
-    background-color: aqua;
+    background-image: url(/jogo/img/Sprites/cut\(Left\).gif);
+    background-size: cover;
     position: absolute;
     z-index: 10;
 }
@@ -270,7 +382,8 @@ body{
 .attackingRight {
     width: 70px;
     height: 70px;
-    background-color: aqua;
+    background-image: url(/jogo/img/Sprites/cut\(RIght\).gif);
+    background-size: cover;
     position: absolute;
     z-index: 10;
 }
@@ -286,57 +399,120 @@ body{
 .attackingDown {
     width: 70px;
     height: 60px;
-    background-color: aqua;
+    background-image: url(/jogo/img/Sprites/cut\(Down\).gif);
     position: absolute;
     z-index: 10;
 }
-
 /* bosses */
 #boss_cultista-wrapper {
-    width: 81px;
-    height: 81px;
-    background-color: purple;
+    width: 150px;
+    height: 150px;
     position: absolute;
     left: 0px;
     top: 0px;
-    margin-left: 300px;
-    margin-top: 250px;
+    margin-left: 45vw;
+    margin-top: 35.8vh;
 }
 
-#boss_cultista {
-    width: 80px;
-    height: 80px;
+.boss_cultista-turned-left {
+    width: 150px;
+    height: 150px;
     position: absolute;
+    background-image: url(/jogo/img/Sprites/skeletonWalking\(Left\).gif);
+    background-size: cover;
+}
+
+.boss_cultista-turned-right {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    background-image: url(/jogo/img/Sprites/skeletonWalking\(Right\).gif);
+    background-size: cover;
+}
+
+.boss-atacando-left {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    background-image: url(/jogo/img/Sprites/skeletonAttacking\(Left\).gif);
+    background-size: cover;
+}
+
+.boss-atacando-right {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    background-image: url(/jogo/img/Sprites/skeletonAttacking\(Right\).gif);
+    background-size: cover;
 }
 
 #boss_cultista-left {
-    width: 70px;
-    height: 77px;
+    width: 30px;
+    height: 70px;
     position: absolute;
-    top: 1%;
+    top: 52%;
+    left: 35%;
 }
 
 #boss_cultista-right {
-    width: 70px;
-    height: 77px;
+    width: 30px;
+    height: 70px;
     position: absolute;
-    top: 5%;
-    left: 12%;
-    z-index: 10;
-    background-color: red;
+    top: 52%;
+    left: 40%;
 }
 
 #boss_cultista-top {
-    width: 77px;
+    width: 28px;
     height: 79px;
     position: absolute;
-    left: 1%;
+    left: 40%;
+    top: 51%;
 }
 
 #boss_cultista-bottom {
-    width: 77px;
+    width: 28px;
     height: 80px;
     position: absolute;
-    top: 1%;
-    left: 1%;
+    top: 53%;
+    left: 40%;
+}
+
+.teste {
+    width: 100px;
+    height: 63px;
+    background-color: blue;
+    position: absolute;
+}
+
+.boss-attacking-left {
+    width: 60px;
+    height: 80px;
+    background-color: salmon;
+    position: absolute;
+    z-index: 11;
+}
+
+.boss-attacking-right {
+    width: 60px;
+    height: 80px;
+    background-color: salmon;
+    position: absolute;
+    z-index: 11;
+}
+
+.boss-attacking-up {
+    width: 80px;
+    height: 60px;
+    background-color: salmon;
+    position: absolute;
+    z-index: 11;
+}
+
+.boss-attacking-down {
+    width: 80px;
+    height: 60px;
+    background-color: salmon;
+    position: absolute;
+    z-index: 11;
 }
