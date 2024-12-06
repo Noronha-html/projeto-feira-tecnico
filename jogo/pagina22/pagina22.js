@@ -883,7 +883,7 @@ function detectarColisaoPortaRight (idObjeto1, idObjeto2) {
     ? colidiu = true : indice ++;
     
     if (colidiu == true) {
-        window.location.href = '/jogo/pagina24/pagina24.html';
+        window.location.href = '/jogo/pagina9/pagina9.html';
     }
 
     return colidiu;
