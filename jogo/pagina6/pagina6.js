@@ -1561,7 +1561,7 @@ function danoAoPlayer (/*idObjeto1, idObjeto2*/) {
     } else if (playerVida == 1 && bossAtacouDown == true) {
         playerVida = playerVida - 1;
     } else if (playerVida == 0) {
-        //window.location.href = '/jogo/pagina2/pagina2.html';
+        window.location.href = '/jogo/gameover/gameover.html';
     }
 }
 
