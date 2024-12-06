@@ -207,7 +207,6 @@ body{
     position: absolute;
     top: 53vh;
     left: 39.4vw;
-    background-color: blueviolet;
 }
 
 #quadBottom {
@@ -216,7 +215,6 @@ body{
     position: absolute;
     top: 61.6vh;
     left: 39.4vw;
-    background-color: rgb(208, 226, 43);
 }
 
 #quadLeft {
@@ -225,7 +223,6 @@ body{
     position: absolute;
     top: 13vh;
     left: 87vw;
-    background-color: rgb(64, 226, 43);
 }
 
 #quadRight {
@@ -234,7 +231,6 @@ body{
     position: absolute;
     top: 13vh;
     left: 24vw;
-    background-color: rgb(226, 43, 43);
 }
 #linhaPedrasBottom{
     width: 1px;
@@ -242,7 +238,6 @@ body{
     position: absolute;
     top: 53.3vh;
     left: 39.3vw;
-    background-color: cornflowerblue;
 }
 #duasPedrasBottom{
     width: 160px;
@@ -250,7 +245,14 @@ body{
     position: absolute;
     top: 25vh;
     left: 25vw;
-    background-color: aquamarine;
+}
+
+#duasPedrasRight{
+    width: 1px;
+    height: 100px;
+    position: absolute;
+    top: 9vh;
+    left: 36.8vw;
 }
 
 /* portas */
