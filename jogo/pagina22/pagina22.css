@@ -323,36 +323,36 @@ body{
     display: none;
 }
 
-.attackingLeft {
-    width: 70px;
-    height: 70px;
-    background-color: aqua;
+.playerAttackingLeft {
+    background-image: url(/jogo/img/Sprites/playerCutting\(Left\).gif);
+    background-size: cover;
     position: absolute;
-    z-index: 10;
+    width: 80px;
+    height: 80px;
 }
 
-.attackingRight {
-    width: 70px;
-    height: 70px;
-    background-color: aqua;
+.playerAttackingRight {
+    background-image: url(/jogo/img/Sprites/playerCutting\(Right\).gif);
+    background-size: cover;
     position: absolute;
-    z-index: 10;
+    width: 80px;
+    height: 80px;
 }
 
-.attackingUp {
-    width: 70px;
-    height: 60px;
-    background-color: aqua;
+.playerAttackingUp {
+    background-image: url(/jogo/img/Sprites/PlayerCutting\(Up\).gif);
+    background-size: cover;
     position: absolute;
-    z-index: 10;
+    width: 80px;
+    height: 80px;
 }
 
-.attackingDown {
-    width: 70px;
-    height: 60px;
-    background-color: aqua;
+.playerAttackingDown {
+    background-image: url(/jogo/img/Sprites/playerCutting\(Down\).gif);
+    background-size: cover;
     position: absolute;
-    z-index: 10;
+    width: 80px;
+    height: 80px;
 }
 
 /* bosses */

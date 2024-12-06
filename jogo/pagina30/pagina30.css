@@ -276,7 +276,7 @@ body{
 .attackingUp {
     width: 70px;
     height: 60px;
-    background-color: aqua;
+    background-image: url(/jogo/img/Sprites/cut\(Up\).gif);
     position: absolute;
     z-index: 10;
 }
