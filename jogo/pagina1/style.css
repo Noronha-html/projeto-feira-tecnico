@@ -281,6 +281,17 @@ body{
     top: 44vh;
 }
 
+.tecs {
+    width: 150px;
+    height: 115px;
+    position: absolute;
+    z-index: 3;
+    left: 600px;
+    top: 450px;
+    background-image: url(/jogo/img/Sprites/awsd.png);
+    background-size: cover;
+}
+
 /* ataques */
 #not_attacking-left {
     display: none;
