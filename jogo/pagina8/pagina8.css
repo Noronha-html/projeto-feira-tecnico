@@ -489,14 +489,6 @@ body{
     z-index: 10;
 }
 
-.attackingDown {
-    width: 70px;
-    height: 60px;
-    background-color: aqua;
-    position: absolute;
-    z-index: 10;
-}
-
 /* bosses */
 /*#boss_cultista-wrapper {
     width: 81px;
