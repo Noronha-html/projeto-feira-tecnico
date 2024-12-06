@@ -184,6 +184,16 @@ body{
     background-image: url(/jogo/img/Sprites/cornerRightDown.png);
 }
 
+#hp{
+    width: 300px;
+    height: 100px;
+    background-image: url(/jogo/img/Sprites/hp\(5-5\).png);
+    background-size: cover;
+    position: absolute;
+    left: 10vw;
+    top: 2vh;
+}
+
 /* colisões para objetos no meio da tela */
 #quadrado {
     width: 100px;
