@@ -248,8 +248,18 @@ body{
 }
 
 /* portas */
-#portaRight {
-    background-image: url(/jogo/img/Sprites/DoorOpen\(Right\).png);
+.portaRight {
+    background-image: url(/jogo/img/Sprites/DoorClose\(Right\).png);
+    width: 80px;
+    height: 100px;
+    top: 44vh;
+    left: 94.2vw;
+    position: absolute;
+    background-size: 100% 100%;
+}
+
+.portaRightOpen {
+    background-image: url(/jogo/img/Sprites/OpenDoorAnime\(Right\).gif);
     width: 80px;
     height: 100px;
     top: 44vh;

@@ -51,6 +51,7 @@ let portaTop; //porta de cima
 let portaDown; //porta de baixo
 let coracao;
 let coracaoVisual;
+let portaDownClass;
 
 //boss
 var lifeBoss; //vida do boss
@@ -146,8 +147,9 @@ function inicia () {
     coracao = document.getElementById('coracao');
     coracaoVisual = document.getElementById('coracaoVisual');
 
-    //portaDown = document.getElementById('portaDown');
-    portaRight = document.getElementById('portaRight');
+    portaDown = document.getElementById('portaDown');
+    portaDownClass = document.querySelector('.portaDown');
+    //portaRight = document.getElementById('portaRight');
     //portaLeft = document.getElementById('portaLeft');
 
     boss_cultista_wrapper = document.getElementById('boss_cultista-wrapper')
@@ -328,7 +330,7 @@ function funcionalidades () {
     detectarColisaoParedeC__quadBottom('player', 'paredeC', 'quadBottom');
     detectarColisaoParedeB__quadTop('player', 'paredeB', 'quadTop');
 
-    detectarColisaoCoracao('player', 'coracao');
+    detectarColisaoCoracao('player', 'coracao', 'portaDown');
 
     detectarColisaoBossLeft('player', 'boss_cultista-left');
     detectarColisaoBossRight('player', 'boss_cultista-right');
@@ -341,8 +343,8 @@ function funcionalidades () {
     detectarColisaoBossBottom__ParedeB__quadTop('boss_cultista-bottom', 'paredeB', 'quadTop');*/
 
     //detectarColisaoPortaTop('player', 'portaTop');
-    //detectarColisaoPortaDown('player', 'portaDown');
-    detectarColisaoPortaRight('player', 'portaRight');
+    detectarColisaoPortaDown('player', 'portaDown');
+    //detectarColisaoPortaRight('player', 'portaRight');
     //detectarColisaoPortaLeft('player', 'portaLeft');
 
     playerAttackLeft('player');
@@ -555,7 +557,7 @@ function detectarColisaoParedeB__quadTop(idObjeto1, idObjeto2, idObjeto3) {
     return colidiu;
 };
 
-function detectarColisaoCoracao(idObjeto1, idObjeto2) {
+function detectarColisaoCoracao(idObjeto1, idObjeto2, idObjeto3) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let coracao = document.getElementById(idObjeto2).getBoundingClientRect();
 
@@ -827,7 +829,7 @@ function detectarColisaoBossRight__ParedeD__quadLeft(idObjeto1, idObjeto2, idObj
 }
 
 //detectar colisões nas portas
-/*function detectarColisaoPortaDown (idObjeto1, idObjeto2) {
+function detectarColisaoPortaDown (idObjeto1, idObjeto2) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let portaDown = document.getElementById(idObjeto2).getBoundingClientRect();
 
@@ -853,13 +855,13 @@ function detectarColisaoBossRight__ParedeD__quadLeft(idObjeto1, idObjeto2, idObj
     ? colidiu = true : indice ++;
     
     if (colidiu == true) {
-        window.location.href = '/jogo/pagina8/pagina8.html';
+        window.location.href = '/jogo/pagina15/pagina15.html';
     }
 
     return colidiu;
-}*/
+}
 
-function detectarColisaoPortaRight (idObjeto1, idObjeto2) {
+/*function detectarColisaoPortaRight (idObjeto1, idObjeto2) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let portaRight = document.getElementById(idObjeto2).getBoundingClientRect();
     
@@ -889,7 +891,7 @@ function detectarColisaoPortaRight (idObjeto1, idObjeto2) {
     }
 
     return colidiu;
-}
+}*/
 
 
 //ataque do personagem

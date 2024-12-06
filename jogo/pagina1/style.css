@@ -100,6 +100,14 @@ body{
     height: 80px;
 }
 
+.playerAttackingUp {
+    background-image: url(/jogo/img/Sprites/PlayerCutting\(Up\).gif);
+    background-size: cover;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
 .playerAttackingDown {
     background-image: url(/jogo/img/Sprites/playerCutting\(Down\).gif);
     background-size: cover;
@@ -309,7 +317,7 @@ body{
 .attackingUp {
     width: 70px;
     height: 60px;
-    background-color: aqua;
+    background-image: url(/jogo/img/Sprites/cut\(Up\).gif);
     position: absolute;
     z-index: 10;
 }

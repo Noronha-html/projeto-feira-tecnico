@@ -51,6 +51,7 @@ let portaTop; //porta de cima
 let portaDown; //porta de baixo
 let coracao;
 let coracaoVisual;
+let portaRightClass;
 let linPedrasLeft1;
 let linPedrasLeft1Class;
 let linPedrasLeft2;
@@ -316,6 +317,7 @@ function inicia () {
 
     //portaDown = document.getElementById('portaDown');
     portaRight = document.getElementById('portaRight');
+    portaRightClass = document.querySelector('.portaRight');
     //portaLeft = document.getElementById('portaLeft');
 
     boss_cultista_wrapper = document.getElementById('boss_cultista-wrapper')
@@ -496,7 +498,7 @@ function funcionalidades () {
     detectarColisaoParedeC__quadBottom('player', 'paredeC', 'quadBottom', 'linPedrasBottom1', 'linPedrasBottom2', 'linPedrasBottom-left', 'linPedrasBottom-right', 'linPedrasBottom-top1', 'linPedrasBottom-top2', 'linPedrasBottom-top3', 'linPedrasBottom-top4');
     detectarColisaoParedeB__quadTop('player', 'paredeB', 'quadTop', 'linPedrasTop1', 'linPedrasTop2', 'linPedrasTop-left', 'linPedrasTop-right', 'linPedrasTop-bottom1', 'linPedrasTop-bottom2', 'linPedrasTop-bottom3', 'linPedrasTop-bottom4');
 
-    detectarColisaoCoracao('player', 'coracao');
+    detectarColisaoCoracao('player', 'coracao', 'portaRight');
 
     //detectarColisaoBossLeft('player', 'boss_cultista-left');
     //detectarColisaoBossRight('player', 'boss_cultista-right');
@@ -510,7 +512,7 @@ function funcionalidades () {
 
     //detectarColisaoPortaTop('player', 'portaTop');
     //detectarColisaoPortaDown('player', 'portaDown');
-    detectarColisaoPortaRight('player', 'portaRight');
+    //detectarColisaoPortaRight('player', 'portaRight');
     //detectarColisaoPortaLeft('player', 'portaLeft');
 
     playerAttackLeft('player');
@@ -1116,9 +1118,10 @@ function detectarColisaoParedeB__quadTop(idObjeto1, idObjeto2, idObjeto3, idObje
     return colidiu;
 };
 
-function detectarColisaoCoracao(idObjeto1, idObjeto2) {
+function detectarColisaoCoracao(idObjeto1, idObjeto2, idObjeto3) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let coracao = document.getElementById(idObjeto2).getBoundingClientRect();
+    let portaRight = document.getElementById(idObjeto3).getBoundingClientRect();
 
     let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
                          {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
@@ -1130,8 +1133,16 @@ function detectarColisaoCoracao(idObjeto1, idObjeto2) {
                               {x : coracao.left + coracao.width, y : coracao.top + coracao.height},
                               {x : coracao.left, y : coracao.top + coracao.height}];
 
+    let pontos_porta_Right = [{x : portaRight.left, y : portaRight.top}, 
+                              {x : portaRight.left + portaRight.width, y : portaRight.top},
+                              {x : portaRight.left + portaRight.width, y : portaRight.top + portaRight.height},
+                              {x : portaRight.left, y : portaRight.top + portaRight.height}];
+
     let colidiu = false;
     let indice = 0;
+
+    let colidiuPortaRight = false;
+    let indice2 = 0
 
     while ((colidiu == false) && (indice < 3))
     ((pontos_Player[indice].x >= coracao.left && pontos_Player[indice].x <= coracao.left + coracao.width && 
@@ -1144,11 +1155,26 @@ function detectarColisaoCoracao(idObjeto1, idObjeto2) {
     if (colidiu == true) {
         coracaoVisual.style.display = 'none';
         playerDano = 2;
-        /*playerVida = 8;
-        hp.classList.remove('hp7');
-        hp.classList.add('hp8');*/
-    }
+        /*playerVida = 6;
+        hp.classList.remove('hp5');
+        hp.classList.add('hp6');*/
 
+        while ((colidiuPortaRight == false) && (indice2 < 3))
+        ((pontos_Player[indice].x >= portaRight.left && pontos_Player[indice].x <= portaRight.left + portaRight.width && 
+        pontos_Player[indice].y >= portaRight.top && pontos_Player[indice].y <= portaRight.top + portaRight.height)) ||
+    
+        ((pontos_porta_Right[indice].x >= objetoPlayer.left && pontos_porta_Right[indice].x <= objetoPlayer.left + objetoPlayer.width && 
+        pontos_porta_Right[indice].y >= objetoPlayer.top && pontos_porta_Right[indice].y <= objetoPlayer.top + objetoPlayer.height))
+        ?colidiuPortaRight = true : indice2 ++;
+
+        portaRightClass.classList.remove('portaRight');
+        portaRightClass.classList.add('portaRightOpen');
+
+        if (colidiuPortaRight == true) {
+            window.location.href = '/jogo/pagina24/pagina24.html';
+        }
+    }
+    
     return colidiu;
 }
 
