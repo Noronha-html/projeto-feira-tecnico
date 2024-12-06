@@ -17,8 +17,8 @@ body{
     left: 250px;
     width: 80px;
     height: 80px;
-    margin-left: 800px;
-    margin-top: 200px;
+    margin-left: 46vw;
+    margin-top: 13vh;;
 }
 
 .staticLeft {
@@ -242,7 +242,6 @@ body{
     position: absolute;
     top: 45vh;
     left: 43vw;  
-    background-color: chartreuse;
 }
 
 #mesaRight {
@@ -250,8 +249,7 @@ body{
     height: 75px;
     position: absolute;
     top: 45vh;
-    left: 56.44444vw;   
-    background-color: blue;
+    left: 56.44444vw;
 }
 
 #mesaTop {
@@ -260,7 +258,6 @@ body{
     position: absolute;
     top: 45vh;
     left: 43vw;
-    background-color: aquamarine;
 }
 
 #mesaBottom{
@@ -269,7 +266,6 @@ body{
     position: absolute;
     top: 56.8888vh;
     left: 43vw;
-    background-color: purple;
 }
 
 /* portas */

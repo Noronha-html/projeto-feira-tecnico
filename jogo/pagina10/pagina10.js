@@ -378,7 +378,7 @@ function detectarColisaoParedeE__quadRight_linhaPedra_mesaRight(idObjeto1, idObj
                             {x : linhaPedra.left + linhaPedra.width, y : linhaPedra.top + linhaPedra.height},
                             {x : linhaPedra.left, y : linhaPedra.top + linhaPedra.height}];
 
-    let pontos_mesa_Rmesa = [{x : mesaRight.left, y : mesaRight.top}, 
+    let pontos__mesaRight = [{x : mesaRight.left, y : mesaRight.top}, 
                             {x : mesaRight.left + mesaRight.width, y : mesaRight.top},
                             {x : mesaRight.left + mesaRight.width, y : mesaRight.top + mesaRight.height},
                             {x : mesaRight.left, y : mesaRight.top + mesaRight.height}];
@@ -447,7 +447,7 @@ function detectarColisaoParedeD__quadLeft_mesaLeft(idObjeto1, idObjeto2, idObjet
 
     let pontos_mesa_Left = [{x : mesaLeft.left, y : mesaLeft.top}, 
                                 {x : mesaLeft.left + mesaLeft.width, y : mesaLeft.top},
-                                {x : mesaLeft.left + mesaLeft.width, y : mesaLeft.top + quadLeft.height},
+                                {x : mesaLeft.left + mesaLeft.width, y : mesaLeft.top + mesaLeft.height},
                                 {x : mesaLeft.left, y : mesaLeft.top + mesaLeft.height}];
 
 
