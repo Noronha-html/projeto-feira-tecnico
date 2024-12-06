@@ -885,7 +885,7 @@ function detectarColisaoPortaDown (idObjeto1, idObjeto2) {
     ? colidiu = true : indice ++;
     
     if (colidiu == true) {
-        window.location.href = '/jogo/pagina26/pagina26.html';
+        window.location.href = '/jogo/pagina27/pagina27.html';
     }
 
     return colidiu;
