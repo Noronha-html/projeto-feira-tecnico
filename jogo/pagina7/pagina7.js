@@ -344,7 +344,7 @@ function funcionalidades () {
 
     //detectarColisaoPortaTop('player', 'portaTop');
     //detectarColisaoPortaDown('player', 'portaDown');
-    //detectarColisaoPortaRight('player', 'portaRight');
+    detectarColisaoPortaRight('player', 'portaRight');
     //detectarColisaoPortaLeft('player', 'portaLeft');
 
     playerAttackLeft('player');
@@ -560,7 +560,7 @@ function detectarColisaoParedeB__quadTop(idObjeto1, idObjeto2, idObjeto3) {
 function detectarColisaoCoracao(idObjeto1, idObjeto2, idObjeto3) {
     let objetoPlayer = document.getElementById(idObjeto1).getBoundingClientRect();
     let coracao = document.getElementById(idObjeto2).getBoundingClientRect();
-    let portaRight = document.getElementById(idObjeto3).getBoundingClientRect();
+    //let portaRight = document.getElementById(idObjeto3).getBoundingClientRect();
 
     let pontos_Player = [{x : objetoPlayer.left, y : objetoPlayer.top}, 
                          {x : objetoPlayer.left + objetoPlayer.width, y : objetoPlayer.top},
@@ -572,10 +572,10 @@ function detectarColisaoCoracao(idObjeto1, idObjeto2, idObjeto3) {
                               {x : coracao.left + coracao.width, y : coracao.top + coracao.height},
                               {x : coracao.left, y : coracao.top + coracao.height}];
 
-    let pontos_porta_Right = [{x : portaRight.left, y : portaRight.top}, 
+    /*let pontos_porta_Right = [{x : portaRight.left, y : portaRight.top}, 
                               {x : portaRight.left + portaRight.width, y : portaRight.top},
                               {x : portaRight.left + portaRight.width, y : portaRight.top + portaRight.height},
-                              {x : portaRight.left, y : portaRight.top + portaRight.height}];
+                              {x : portaRight.left, y : portaRight.top + portaRight.height}];*/
 
     let colidiu = false;
     let indice = 0;
@@ -597,7 +597,7 @@ function detectarColisaoCoracao(idObjeto1, idObjeto2, idObjeto3) {
         hp.classList.remove('hp5');
         hp.classList.add('hp6');
 
-        while ((colidiuPortaRight == false) && (indice2 < 3))
+        /*while ((colidiuPortaRight == false) && (indice2 < 3))
         ((pontos_Player[indice].x >= portaRight.left && pontos_Player[indice].x <= portaRight.left + portaRight.width && 
         pontos_Player[indice].y >= portaRight.top && pontos_Player[indice].y <= portaRight.top + portaRight.height)) ||
     
@@ -610,7 +610,7 @@ function detectarColisaoCoracao(idObjeto1, idObjeto2, idObjeto3) {
 
         if (colidiuPortaRight == true) {
             window.location.href = '/jogo/pagina8/pagina8.html';
-        }
+        }*/
     }
     
     return colidiu;

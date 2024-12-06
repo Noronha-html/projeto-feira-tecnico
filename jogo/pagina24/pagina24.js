@@ -56,6 +56,14 @@ let quadrado;
 let quadradoClass;
 let pedra;
 let pedraClass;
+let quadLeftClass;
+let quadRightClass;
+let quadTopClass;
+let quadBottomClass;
+let pedraLeftClass;
+let pedraTopClass;
+let pedraBottomClass;
+
 
 
 //boss
@@ -140,12 +148,21 @@ function inicia () {
     quadLeft = document.getElementById('quadLeft');
     quadRight = document.getElementById('quadRight');
 
+    quadTopClass = document.querySelector('.quadTop');
+    quadBottomClass = document.querySelector('.quadBottom');
+    quadLeftClass = document.querySelector('.quadLeft');
+    quadRightClass = document.querySelector('.quadRight');
+
     quadrado = document.getElementById('quadrado');
     quadradoClass = document.querySelector('.quadrado');
 
     pedraBottom = document.getElementById('pedraBottom')
     pedraTop = document.getElementById('pedraTop')
     pedraLeft = document.getElementById('pedraLeft')
+
+    pedraBottomClass = document.querySelector('.pedraBottom');
+    pedraTopClass = document.querySelector('.pedraTop');
+    pedraLeftClass = document.querySelector('.pedraLeft');
 
     pedra = document.getElementById('pedra')
     pedraClass = document.querySelector('.pedra')
@@ -435,6 +452,10 @@ function detectarColisaoQuadrado (idObjeto1, idObjeto2, idObjeto3, idObjeto4, id
 
     if (colidiu == true) {
         quadradoClass.classList.remove('quadrado');
+        quadBottomClass.classList.remove('quadBottom');
+        quadLeftClass.classList.remove('quadLeft');
+        quadRightClass.classList.remove('quadRight');
+        quadTopClass.classList.remove('quadTop');
     }
 }
 
@@ -501,6 +522,9 @@ function detectarColisaoPedra (idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObj
 
     if (colidiu == true) {
         pedraClass.classList.remove('pedra');
+        pedraBottomClass.classList.remove('pedraBottom');
+        pedraTopClass.classList.remove('pedraTop');
+        pedraLeftClass.classList.remove('pedraLeft');
     }
 }
 

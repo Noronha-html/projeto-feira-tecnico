@@ -222,7 +222,7 @@ body{
     width: 50px;
     height: 50px;
     position: absolute;
-    background-color: red;
+    background-image: url(/jogo/img/Sprites/Pickaxe.png);
     background-size: cover;
     left: 47.5vw;
     top: 48vh;
@@ -259,7 +259,7 @@ body{
 }
 
 #portaDown {
-    background-image: url(/jogo/img/Sprites/DoorOpen\(Down\).png);
+    background-image: url(/jogo/img/Sprites/CloseDoorAnime\(Down\).gif);
     width: 100px;
     height: 80px;
     top: 88.3vh;

@@ -46,6 +46,11 @@ let barraTop;
 let barraRight1;
 let barraRight2;
 let barraBottom;
+let quadradoClass;
+let quadLeftClass;
+let quadRightClass;
+let quadTopClass;
+let quadBottomClass;
 
 //boss
 var lifeBoss; //vida do boss
@@ -128,6 +133,12 @@ function inicia () {
     quadBottom = document.getElementById('quadBottom');
     quadLeft = document.getElementById('quadLeft');
     quadRight = document.getElementById('quadRight');
+
+    quadradoClass = document.querySelector('.quadrado');
+    quadLeftClass = document.querySelector('.quadLeft');
+    quadRightClass = document.querySelector('.quadRight');
+    quadTopClass = document.querySelector('.quadTop');
+    quadBottomClass = document.querySelector('.quadBottom');
 
     barraBottom = document.getElementById('barraBottom')
     barraTop = document.getElementById('barraTop')
@@ -315,6 +326,8 @@ function funcionalidades () {
     detectarColisaoParedeC__quadBottom__barraBottom_barraTop('player', 'paredeC', 'quadBottom', 'barraBottom', 'barraTop');
     detectarColisaoParedeB__quadTop('player', 'paredeB', 'quadTop');
 
+    detectarColisaoQuadrado('quadrado', 'attackingLeft', 'attackingRight', 'attackingUp', 'attackingDown');
+
     /*detectarColisaoBossLeft('player', 'boss_cultista-left');
     detectarColisaoBossRight('player', 'boss_cultista-right');
     detectarColisaoBossTop('player', 'boss_cultista-top');
@@ -345,6 +358,76 @@ function funcionalidades () {
 
    // console.log(detectarColisaoParedeE__quadRight__bossRight('player', 'paredeE', 'quadRight', 'boss_cultista-right'));
 };
+
+function detectarColisaoQuadrado (idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObjeto5) {
+    let quadrado = document.getElementById(idObjeto1).getBoundingClientRect();
+    let attackingLeft = document.getElementById(idObjeto2).getBoundingClientRect();
+    let attackingRight = document.getElementById(idObjeto3).getBoundingClientRect();
+    let attackingUp = document.getElementById(idObjeto4).getBoundingClientRect();
+    let attackingDown = document.getElementById(idObjeto5).getBoundingClientRect();
+
+    let pontos_quadrado = [{x : quadrado.left, y : quadrado.top}, 
+                            {x : quadrado.left + quadrado.width, y : quadrado.top},
+                            {x : quadrado.left + quadrado.width, y : quadrado.top + quadrado.height},
+                            {x : quadrado.left, y : quadrado.top + quadrado.height}];
+
+    let pontos_attackingLeft = [{x : attackingLeft.left, y : attackingLeft.top}, 
+                                {x : attackingLeft.left + attackingLeft.width, y : attackingLeft.top},
+                                {x : attackingLeft.left + attackingLeft.width, y : attackingLeft.top + attackingLeft.height},
+                                {x : attackingLeft.left, y : attackingLeft.top + attackingLeft.height}];
+
+    let pontos_attackingRight = [{x : attackingRight.left, y : attackingRight.top}, 
+                                {x : attackingRight.left + attackingRight.width, y : attackingRight.top},
+                                {x : attackingRight.left + attackingRight.width, y : attackingRight.top + attackingRight.height},
+                                {x : attackingRight.left, y : attackingRight.top + attackingRight.height}];
+
+    let pontos_attackingUp = [{x : attackingUp.left, y : attackingUp.top}, 
+                                {x : attackingUp.left + attackingUp.width, y : attackingUp.top},
+                                {x : attackingUp.left + attackingUp.width, y : attackingUp.top + attackingUp.height},
+                                {x : attackingUp.left, y : attackingUp.top + attackingUp.height}];
+
+    let pontos_attackingDown = [{x : attackingDown.left, y : attackingDown.top}, 
+                                {x : attackingDown.left + attackingDown.width, y : attackingDown.top},
+                                {x : attackingDown.left + attackingDown.width, y : attackingDown.top + attackingDown.height},
+                                {x : attackingDown.left, y : attackingDown.top + attackingDown.height}];
+
+    let colidiu = false;
+    let indice = 0;
+
+    while ((colidiu == false) && (indice < 3))
+    ((pontos_quadrado[indice].x >= attackingLeft.left && pontos_quadrado[indice].x <= attackingLeft.left + attackingLeft.width && 
+    pontos_quadrado[indice].y >= attackingLeft.top && pontos_quadrado[indice].y <= attackingLeft.top + attackingLeft.height)) ||
+
+    ((pontos_attackingLeft[indice].x >= quadrado.left && pontos_attackingLeft[indice].x <= quadrado.left + quadrado.width && 
+    pontos_attackingLeft[indice].y >= quadrado.top && pontos_attackingLeft[indice].y <= quadrado.top + quadrado.height)) ||
+
+    ((pontos_quadrado[indice].x >= attackingRight.left && pontos_quadrado[indice].x <= attackingRight.left + attackingRight.width && 
+    pontos_quadrado[indice].y >= attackingRight.top && pontos_quadrado[indice].y <= attackingRight.top + attackingRight.height)) ||
+
+    ((pontos_attackingRight[indice].x >= quadrado.left && pontos_attackingRight[indice].x <= quadrado.left + quadrado.width && 
+    pontos_attackingRight[indice].y >= quadrado.top && pontos_attackingRight[indice].y <= quadrado.top + quadrado.height)) ||
+
+    ((pontos_quadrado[indice].x >= attackingUp.left && pontos_quadrado[indice].x <= attackingUp.left + attackingUp.width && 
+    pontos_quadrado[indice].y >= attackingUp.top && pontos_quadrado[indice].y <= attackingUp.top + attackingUp.height)) ||
+
+    ((pontos_attackingUp[indice].x >= quadrado.left && pontos_attackingUp[indice].x <= quadrado.left + quadrado.width && 
+    pontos_attackingUp[indice].y >= quadrado.top && pontos_attackingUp[indice].y <= quadrado.top + quadrado.height)) ||
+
+    ((pontos_quadrado[indice].x >= attackingDown.left && pontos_quadrado[indice].x <= attackingDown.left + attackingDown.width && 
+    pontos_quadrado[indice].y >= attackingDown.top && pontos_quadrado[indice].y <= attackingDown.top + attackingDown.height)) ||
+
+    ((pontos_attackingDown[indice].x >= quadrado.left && pontos_attackingDown[indice].x <= quadrado.left + quadrado.width && 
+    pontos_attackingDown[indice].y >= quadrado.top && pontos_attackingDown[indice].y <= quadrado.top + quadrado.height))
+    ? colidiu = true : indice  ++;
+
+    if (colidiu == true) {
+        quadradoClass.classList.remove('quadrado');
+        quadBottomClass.classList.remove('quadBottom');
+        quadLeftClass.classList.remove('quadLeft');
+        quadRightClass.classList.remove('quadRight');
+        quadTopClass.classList.remove('quadTop');
+    }
+}
 
 //detecta colisão na parede esquerda
 function detectarColisaoParedeE__quadRight__barraRight_barraRight2(idObjeto1, idObjeto2, idObjeto3, idObjeto4, idObjeto5) {

@@ -246,7 +246,7 @@ body{
     width: 50px;
     height: 50px;
     position: absolute;
-    background-color: blue;
+    background-image: url(/jogo/img/Sprites/Sword.png);
     background-size: cover;
     left: 47.5vw;
     top: 48vh;
@@ -601,7 +601,7 @@ body{
 
 /* portas */
 .portaRight {
-    background-image: url(/jogo/img/Sprites/DoorClose\(Right\).png);
+    background-image: url(/jogo/img/Sprites/DoorOpen\(Right\).png);
     background-size: 100% 100%;
     width: 80px;
     height: 100px;

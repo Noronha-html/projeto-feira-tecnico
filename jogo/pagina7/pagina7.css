@@ -249,7 +249,7 @@ body{
 
 /* portas */
 .portaRight {
-    background-image: url(/jogo/img/Sprites/DoorClose\(Right\).png);
+    background-image: url(/jogo/img/Sprites/DoorOpen\(Right\).png);
     width: 80px;
     height: 100px;
     top: 44vh;

@@ -183,7 +183,7 @@ body{
     background-size: cover;
 }
 
-#quadTop {
+.quadTop {
     width: 80px;
     height: 1px;
     position: absolute;
@@ -191,7 +191,7 @@ body{
     left: 86.99999vw;
 }
 
-#quadBottom {
+.quadBottom {
     width: 80px;
     height: 1px;
     position: absolute;
@@ -199,7 +199,7 @@ body{
     left: 86.9999vw;
 }
 
-#quadLeft {
+.quadLeft {
     width: 1px;
     height: 68px;
     position: absolute;
@@ -207,7 +207,7 @@ body{
     left: 86.777777vw;
 }
 
-#quadRight {
+.quadRight {
     width: 1px;
     height: 68px;
     position: absolute;
@@ -225,7 +225,7 @@ body{
     background-size: cover;
 }
 
-#pedraTop {
+.pedraTop {
     width: 80px;
     height: 1px;
     position: absolute;
@@ -233,7 +233,7 @@ body{
     left: 86.99999vw;
 }
 
-#pedraBottom {
+.pedraBottom {
     width: 80px;
     height: 1px;
     position: absolute;
@@ -241,7 +241,7 @@ body{
     left: 86.9999vw;
 }
 
-#pedraLeft {
+.pedraLeft {
     width: 1px;
     height: 68px;
     position: absolute;
