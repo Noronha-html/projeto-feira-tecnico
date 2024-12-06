@@ -17,8 +17,8 @@ body{
     left: 250px;
     width: 80px;
     height: 80px;
-    margin-left: 800px;
-    margin-top: 200px;
+    margin-left: 46vw;
+    margin-top: 77vh;
 }
 
 .staticLeft {
@@ -234,10 +234,20 @@ body{
     display: none;
 }
 
+.hp7 {
+    width: 300px;
+    height: 100px;
+    background-image: url(/jogo/img/Sprites/hp\(7-7\).png);
+    background-size: cover;
+    position: absolute;
+    left: 10vw;
+    top: 2vh; 
+}
+
 .hp6 {
     width: 300px;
     height: 100px;
-    background-image: url(/jogo/img/Sprites/hp\(6-6\).png);
+    background-image: url(/jogo/img/Sprites/hp\(6-7\).png);
     background-size: cover;
     position: absolute;
     left: 10vw;
@@ -247,7 +257,7 @@ body{
 .hp5 {
     width: 300px;
     height: 100px;
-    background-image: url(/jogo/img/Sprites/hp\(5-6\).png);
+    background-image: url(/jogo/img/Sprites/hp\(5-7\).png);
     background-size: cover;
     position: absolute;
     left: 10vw;
@@ -257,7 +267,7 @@ body{
 .hp4 {
     width: 300px;
     height: 100px;
-    background-image: url(/jogo/img/Sprites/hp\(4-6\).png);
+    background-image: url(/jogo/img/Sprites/hp\(4-7\).png);
     background-size: cover;
     position: absolute;
     left: 10vw;
@@ -267,7 +277,7 @@ body{
 .hp3 {
     width: 300px;
     height: 100px;
-    background-image: url(/jogo/img/Sprites/hp\(3-6\).png);
+    background-image: url(/jogo/img/Sprites/hp\(3-7\).png);
     background-size: cover;
     position: absolute;
     left: 10vw;
@@ -277,7 +287,7 @@ body{
 .hp2 {
     width: 300px;
     height: 100px;
-    background-image: url(/jogo/img/Sprites/hp\(2-6\).png);
+    background-image: url(/jogo/img/Sprites/hp\(2-7\).png);
     background-size: cover;
     position: absolute;
     left: 10vw;
@@ -287,7 +297,7 @@ body{
 .hp1 {
     width: 300px;
     height: 100px;
-    background-image: url(/jogo/img/Sprites/hp\(1-6\).png);
+    background-image: url(/jogo/img/Sprites/hp\(1-7\).png);
     background-size: cover;
     position: absolute;
     left: 10vw;
@@ -304,8 +314,9 @@ body{
     position: absolute;
 }
 
-#portaTop {
-    background-image: url(/jogo/img/Sprites/CloseDoorAnime\(Up\).gif);
+.portaTop {
+    background-image: url(/jogo/img/Sprites/DoorClose\(Up\).png);
+    background-size: 100% 100%;
     width: 100px;
     height: 80px;
     top: 0;
@@ -314,7 +325,8 @@ body{
 }
 
 #portaDown {
-    background-color: purple;
+    background-image: url(/jogo/img/Sprites/CloseDoorAnime\(Down\).gif);
+    background-size: 100% 100%;
     width: 100px;
     height: 80px;
     top: 88.3vh;
@@ -332,13 +344,13 @@ body{
     background-size: 100% 100%;
 }
 
-.portaLeftOpen {
-    background-image: url(/jogo/img/Sprites/OpenDoorAnime\(Left\).gif);
-    width: 80px;
-    height: 100px;
+.portaTopOpen {
+    background-image: url(/jogo/img/Sprites/OpenDoorAnime\(Up\).gif);
+    width: 100px;
+    height: 80px;
     position: absolute;
-    left: 0;
-    top: 44vh;
+    top: 0;
+    left: 46vw;
     background-size: 100% 100%;
 }
 
@@ -394,76 +406,93 @@ body{
 }
 /* bosses */
 #boss_cultista-wrapper {
-    width: 81px;
-    height: 81px;
+    width: 100px;
+    height: 100px;
     position: absolute;
     left: 0px;
     top: 0px;
-    margin-left: 300px;
-    margin-top: 250px;
+    margin-left: 45vw;
+    margin-top: 35.8vh;
 }
 
 .boss-bau {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     position: absolute;
     background-image: url(/jogo/img/Sprites/chest.png);
     background-size: cover;
 }
 
 .boss-waking {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     position: absolute;
     background-image: url(/jogo/img/Sprites/mimicAwakening\(Left\).gif);
     background-size: cover;
 }
 
 .boss_cultista-turned-left {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     position: absolute;
     background-image: url(/jogo/img/Sprites/mimicWalking\(Left\).gif);
     background-size: cover;
 }
 
 .boss_cultista-turned-right {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     position: absolute;
     background-image: url(/jogo/img/Sprites/mimicWalking\(Right\).gif);
     background-size: cover;
 }
 
+.boss-bitingLeft {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-image: url(/jogo/img/Sprites/mimicBiting\(Left\).gif);
+    background-size: cover;
+}
+
+.boss-bitingRight {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-image: url(/jogo/img/Sprites/mimicBiting\(Right\).gif);
+    background-size: cover;
+}
+
 #boss_cultista-left {
     width: 70px;
-    height: 73px;
+    height: 50px;
     position: absolute;
-    top: 1.5%;
+    top: 18%;
+    left: 5%;
 }
 
 #boss_cultista-right {
     width: 70px;
-    height: 73px;
+    height: 50px;
     position: absolute;
-    top: 5%;
-    left: 12%;
-    z-index: 10;
+    top: 18%;
+    left: 13%;
 }
 
 #boss_cultista-top {
-    width: 75px;
-    height: 79px;
+    width: 40px;
+    height: 70px;
     position: absolute;
-    left: 1.5%;
+    left: 35%;
+    top: 16%;
 }
 
 #boss_cultista-bottom {
-    width: 75px;
-    height: 80px;
+    width: 40px;
+    height: 70px;
     position: absolute;
-    top: 1%;
-    left: 1.5%;
+    top: 18%;
+    left: 35%;
 }
 
 .teste {
