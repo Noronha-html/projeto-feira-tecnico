@@ -1290,6 +1290,8 @@ function danoAoBoss(idObjeto1, idObjeto2) {
         boss_cultista_Top.style.display = 'none';
         boss_cultista_Bottom.style.display = 'none';
 
+        window.location.href = '/jogo/youwin/win.html';
+
         /*portaLeftClass.classList.remove('portaLeft');
         portaLeftClass.classList.add('portaLeftOpen');
 
@@ -1606,7 +1608,7 @@ function danoAoPlayer (/*idObjeto1, idObjeto2*/) {
     } else if (playerVida == 1 && bossAtacouDown == true) {
         playerVida = playerVida - 1;
     } else if (playerVida == 0) {
-        //window.location.href = '/jogo/pagina2/pagina2.html';
+        window.location.href = '/jogo/gameover/gameover.html';
     }
 
     console.log(playerVida);
