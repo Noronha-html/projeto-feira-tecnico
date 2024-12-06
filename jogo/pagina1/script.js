@@ -217,20 +217,18 @@ function teclaCima (event) {
 
 //atualiza o sprite
 function atualizarSprite () {
-    switch (ultimaDirecao) {
-        case 'left':
-            objetoPlayer.classList.remove('player');
-            objetoPlayer.classList.remove('movingLeft');
-            objetoPlayer.classList.remove('movingRight');
-            objetoPlayer.classList.remove('movingUp');
-            objetoPlayer.classList.remove('movingDown');
-            objetoPlayer.classList.remove('staticLeft');
-            objetoPlayer.classList.remove('staticRight');
-            objetoPlayer.classList.remove('staticUp');
-            objetoPlayer.classList.remove('staticDown');
-            objetoPlayer.classList.add('movingLeft');
-            break;
-        case 'right':
+    if (ultimaDirecao == 'left') {
+        objetoPlayer.classList.remove('player');
+        objetoPlayer.classList.remove('movingLeft');
+        objetoPlayer.classList.remove('movingRight');
+        objetoPlayer.classList.remove('movingUp');
+        objetoPlayer.classList.remove('movingDown');
+        objetoPlayer.classList.remove('staticLeft');
+        objetoPlayer.classList.remove('staticRight');
+        objetoPlayer.classList.remove('staticUp');
+        objetoPlayer.classList.remove('staticDown');
+        objetoPlayer.classList.add('movingLeft');
+    } else if (ultimaDirecao == 'right') {
             objetoPlayer.classList.remove('player');
             objetoPlayer.classList.remove('movingLeft');
             objetoPlayer.classList.remove('movingRight');
@@ -241,8 +239,7 @@ function atualizarSprite () {
             objetoPlayer.classList.remove('staticUp');
             objetoPlayer.classList.remove('staticDown');
             objetoPlayer.classList.add('movingRight');
-            break;
-        case 'up':
+    } else if (ultimaDirecao == 'up') {
             objetoPlayer.classList.remove('player');
             objetoPlayer.classList.remove('movingLeft');
             objetoPlayer.classList.remove('movingRight');
@@ -253,8 +250,7 @@ function atualizarSprite () {
             objetoPlayer.classList.remove('staticUp');
             objetoPlayer.classList.remove('staticDown');
             objetoPlayer.classList.add('movingUp');
-            break;
-        case 'down':
+    } else if (ultimaDirecao == 'down') {
             objetoPlayer.classList.remove('player');
             objetoPlayer.classList.remove('movingLeft');
             objetoPlayer.classList.remove('movingRight');
@@ -265,8 +261,7 @@ function atualizarSprite () {
             objetoPlayer.classList.remove('staticUp');
             objetoPlayer.classList.remove('staticDown');
             objetoPlayer.classList.add('movingDown');
-            break;
-        case 'leftStatic':
+    } else if (ultimaDirecao == 'leftStatic' && dx == 0 && dy == 0) {
             objetoPlayer.classList.remove('player');
             objetoPlayer.classList.remove('movingLeft');
             objetoPlayer.classList.remove('movingRight');
@@ -277,8 +272,7 @@ function atualizarSprite () {
             objetoPlayer.classList.remove('staticUp');
             objetoPlayer.classList.remove('staticDown');
             objetoPlayer.classList.add('staticLeft');
-            break;
-        case 'rightStatic':
+    } else if (ultimaDirecao == 'rightStatic' && dx == 0 && dy == 0) {
             objetoPlayer.classList.remove('player');
             objetoPlayer.classList.remove('movingLeft');
             objetoPlayer.classList.remove('movingRight');
@@ -289,8 +283,7 @@ function atualizarSprite () {
             objetoPlayer.classList.remove('staticUp');
             objetoPlayer.classList.remove('staticDown');
             objetoPlayer.classList.add('staticRight');
-            break;
-        case 'upStatic':
+    } else if (ultimaDirecao == 'upStatic' && dx == 0 && dy == 0) {
             objetoPlayer.classList.remove('player');
             objetoPlayer.classList.remove('movingLeft');
             objetoPlayer.classList.remove('movingRight');
@@ -301,8 +294,7 @@ function atualizarSprite () {
             objetoPlayer.classList.remove('staticUp');
             objetoPlayer.classList.remove('staticDown');
             objetoPlayer.classList.add('staticUp');
-            break;
-        case 'downStatic':
+    } else if (ultimaDirecao == 'downStatic' && dx == 0 && dy == 0) {
             objetoPlayer.classList.remove('player');
             objetoPlayer.classList.remove('movingLeft');
             objetoPlayer.classList.remove('movingRight');
@@ -313,9 +305,8 @@ function atualizarSprite () {
             objetoPlayer.classList.remove('staticUp');
             objetoPlayer.classList.remove('staticDown');
             objetoPlayer.classList.add('staticDown');
-            break;
-    };
-};
+    }
+}
 
 //declara a velocidade do personagem e outras funionalidades
 function funcionalidades () {
@@ -1011,12 +1002,20 @@ function playerAttackUp(idObjeto1) {
     let rect = objetoPlayer.getBoundingClientRect();
 
     if (attackUp.pressed && attackUp.released) {
-        attackingUp.classList.remove('not_attacking-up');
-        attackingUp.classList.add('attackingUp');
+        objetoPlayer.classList.remove('staticUp');
+        objetoPlayer.classList.remove('movingUp');
+        objetoPlayer.classList.add('playerAttackingUp');
+
+        setTimeout(() => {
+            attackingUp.classList.remove('not_attacking-up');
+            attackingUp.classList.add('attackingUp');
+        }, 170);
 
         attackUp.released = false;
         atacou = false
         setTimeout(() => {
+            objetoPlayer.classList.remove('playerAttackingUp');
+
             attackingUp.classList.remove('attackingUp');
         }, 300);       
     }

@@ -447,7 +447,7 @@ function detectarColisaoParedeD__quadLeft_mesaLeft(idObjeto1, idObjeto2, idObjet
 
     let pontos__mesaLeft = [{x : mesaLeft.left, y : mesaLeft.top}, 
                                 {x : mesaLeft.left + mesaLeft.width, y : mesaLeft.top},
-                                {x : mesaLeft.left + mesaLeft.width, y : mesaLeft.top + quadLeft.height},
+                                {x : mesaLeft.left + mesaLeft.width, y : mesaLeft.top + mesaLeft.height},
                                 {x : mesaLeft.left, y : mesaLeft.top + mesaLeft.height}];
 
 

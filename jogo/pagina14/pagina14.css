@@ -251,6 +251,7 @@ body{
 /* portas */
 #portaRight {
     background-image: url(/jogo/img/Sprites/CloseDoorAnime\(Right\).gif);
+    background-size: 100% 100%;
     width: 80px;
     height: 100px;
     top: 44vh;
@@ -267,7 +268,7 @@ body{
     position: absolute;
 }
 
-#portaDown {
+.portaDown {
     background-image: url(/jogo/img/Sprites/DoorOpen\(Down\).png);
     width: 100px;
     height: 80px;

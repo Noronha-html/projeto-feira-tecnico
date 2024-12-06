@@ -17,8 +17,8 @@ body{
     left: 250px;
     width: 80px;
     height: 80px;
-    margin-left: 630px;
-    margin-top: 97px;
+    margin-left: 46vw;
+    margin-top: 13vh;;
 }
 
 .staticLeft {
@@ -249,7 +249,7 @@ body{
     height: 70px;
     position: absolute;
     top: 46vh;
-    left: 56.44444vw;   
+    left: 56.44444vw;
 }
 
 #mesaTop {
@@ -276,6 +276,7 @@ body{
     top: 44vh;
     left: 94.2vw;
     position: absolute;
+    display: none;
 }
 
 #portaTop {
