@@ -100,6 +100,14 @@ body{
     height: 80px;
 }
 
+.playerAttackingUp {
+    background-image: url(/jogo/img/Sprites/PlayerCutting\(Up\).gif);
+    background-size: cover;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
 .playerAttackingDown {
     background-image: url(/jogo/img/Sprites/playerCutting\(Down\).gif);
     background-size: cover;
@@ -459,7 +467,6 @@ body{
     background-image: url(/jogo/img/Sprites/cut\(Left\).gif);
     background-size: cover;
     position: absolute;
-    z-index: 10;
 }
 
 .attackingRight {
@@ -468,13 +475,12 @@ body{
     background-image: url(/jogo/img/Sprites/cut\(RIght\).gif);
     background-size: cover;
     position: absolute;
-    z-index: 10;
 }
 
 .attackingUp {
     width: 70px;
     height: 60px;
-    background-color: aqua;
+    background-image: url(/jogo/img/Sprites/cut\(Up\).gif);
     position: absolute;
     z-index: 10;
 }
@@ -483,6 +489,7 @@ body{
     width: 70px;
     height: 60px;
     background-image: url(/jogo/img/Sprites/cut\(Down\).gif);
+    background-size: cover;
     position: absolute;
     z-index: 10;
 }

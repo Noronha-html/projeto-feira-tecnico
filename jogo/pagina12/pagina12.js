@@ -1013,12 +1013,20 @@ function playerAttackUp(idObjeto1) {
     let rect = objetoPlayer.getBoundingClientRect();
 
     if (attackUp.pressed && attackUp.released) {
-        attackingUp.classList.remove('not_attacking-up');
-        attackingUp.classList.add('attackingUp');
+        objetoPlayer.classList.remove('staticUp');
+        objetoPlayer.classList.remove('movingUp');
+        objetoPlayer.classList.add('playerAttackingUp');
+
+        setTimeout(() => {
+            attackingUp.classList.remove('not_attacking-up');
+            attackingUp.classList.add('attackingUp');
+        }, 170);
 
         attackUp.released = false;
         atacou = false
         setTimeout(() => {
+            objetoPlayer.classList.remove('playerAttackingUp');
+
             attackingUp.classList.remove('attackingUp');
         }, 300);       
     }

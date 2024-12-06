@@ -101,6 +101,14 @@ body{
     height: 80px;
 }
 
+.playerAttackingUp {
+    background-image: url(/jogo/img/Sprites/PlayerCutting\(Up\).gif);
+    background-size: cover;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
 .playerAttackingDown {
     background-image: url(/jogo/img/Sprites/playerCutting\(Down\).gif);
     background-size: cover;
@@ -380,7 +388,7 @@ body{
 .attackingUp {
     width: 70px;
     height: 60px;
-    background-color: aqua;
+    background-image: url(/jogo/img/Sprites/cut\(Up\).gif);
     position: absolute;
     z-index: 10;
 }
@@ -460,31 +468,35 @@ body{
 .boss-attacking-left {
     width: 60px;
     height: 80px;
-    background-color: salmon;
+    background-image: url(/jogo/img/Sprites/cultistMagic.gif);
     position: absolute;
     z-index: 11;
+    background-size: cover;
 }
 
 .boss-attacking-right {
     width: 60px;
     height: 80px;
-    background-color: salmon;
+    background-image: url(/jogo/img/Sprites/cultistMagic.gif);
     position: absolute;
     z-index: 11;
+    background-size: cover;
 }
 
 .boss-attacking-up {
     width: 80px;
     height: 60px;
-    background-color: salmon;
+    background-image: url(/jogo/img/Sprites/cultistMagic.gif);
     position: absolute;
     z-index: 11;
+    background-size: cover;
 }
 
 .boss-attacking-down {
     width: 80px;
     height: 60px;
-    background-color: salmon;
+    background-image: url(/jogo/img/Sprites/cultistMagic.gif);
     position: absolute;
     z-index: 11;
+    background-size: cover;
 }
